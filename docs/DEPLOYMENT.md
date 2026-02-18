@@ -4,7 +4,56 @@ Deployment-only steps: Git push, Vercel, Supabase Auth, DNS, smoke tests. No fea
 
 ---
 
-## 1) Git — push to GitHub
+## Done via CLI (already run)
+
+- **Git:** Repo created at https://github.com/louisreid/slj and pushed.
+- **Vercel:** Project linked (`roundtable-supports-projects/slj`), domain `slj.talksfromthewarehouse.co.uk` added, production deploy completed. Production URL: https://slj-mu.vercel.app (custom domain works after DNS below).
+
+---
+
+## Manual steps (you)
+
+### A) Vercel environment variables
+
+The app needs Supabase at runtime. Add these in **Vercel → Project slj → Settings → Environment Variables** (or run `vercel env add` in the repo for each):
+
+- `NEXT_PUBLIC_SUPABASE_URL` — your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` — your Supabase anon key
+
+Then **redeploy** (Vercel dashboard → Deployments → … → Redeploy, or `vercel deploy --prod` from repo).
+
+### B) Supabase Auth URLs
+
+In **Supabase Dashboard → Authentication → URL Configuration**:
+
+- **Site URL:** `https://slj.talksfromthewarehouse.co.uk`
+- **Redirect URLs** (add both):
+  - `http://localhost:3000/auth/callback`
+  - `https://slj.talksfromthewarehouse.co.uk/auth/callback`
+
+Save.
+
+### C) DNS (domain owner)
+
+At the DNS provider for **talksfromthewarehouse.co.uk**, add **one** record:
+
+| Type | Name / Host | Value / Target |
+|------|-------------|----------------|
+| **A** | `slj` | `76.76.21.21` |
+
+- **Name:** subdomain only, e.g. `slj` (some providers show full name `slj.talksfromthewarehouse.co.uk`).
+- **Value:** `76.76.21.21` (Vercel’s target for this project).
+
+**Gotchas:**
+
+- This only affects **slj.talksfromthewarehouse.co.uk**. The existing **talksfromthewarehouse.co.uk** (apex) site is unchanged; only the subdomain points to Vercel.
+- After saving, wait for DNS propagation (minutes up to 48h). Vercel will verify and issue SSL; you can check under **Vercel → Project → Settings → Domains**.
+
+---
+
+## Reference (original checklist)
+
+### 1) Git — push to GitHub
 
 **1.1** Create a GitHub repo (e.g. `your-org/slj` or `your-username/slj`) if needed. Create it empty (no README).
 

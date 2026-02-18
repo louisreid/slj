@@ -11,6 +11,7 @@ Start here:
 - `Security.md` — RLS boundaries and logging rules
 - `Testing.md` — draft approach now, hardening later
 - `ReleaseChecklist.md` — draft release steps and later production steps
+- `DEPLOYMENT.md` — Vercel + Supabase + DNS deployment checklist (slj.talksfromthewarehouse.co.uk)
 
 Decisions:
 - `adr/0001-tech-stack.md`

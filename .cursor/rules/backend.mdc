@@ -1,0 +1,6 @@
+# Backend rules (Supabase)
+- RLS for all tables containing user data
+- Ownership policies for private tables (notes/progress)
+- Membership policies for group tables
+- No service role usage in client
+- SQL migrations in supabase/migrations

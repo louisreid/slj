@@ -1,0 +1,28 @@
+# Frontend rules (strict)
+
+## Layout (non-negotiable)
+- Use **App Shell** layout:
+  - Desktop: left nav + main content (+ right notes panel on reader)
+  - Mobile: left nav becomes drawer; notes become bottom sheet/right drawer
+- Left nav must be **collapsible** on desktop and persist state in localStorage.
+
+## Typography (non-negotiable)
+- **Serif content + sans UI**
+  - Reader content (paragraphs/headings): `Cormorant Garamond`
+  - UI chrome (nav, buttons, labels, forms): system sans stack
+- Do not introduce additional fonts.
+
+## Color (non-negotiable)
+- Only these hex colors are allowed:
+  - `#000` (text)
+  - `#fff` (background)
+  - `#E5E7EB` (borders/separators)
+- Allowed variants are **opacity of black only** via `rgba(0,0,0,alpha)` (e.g. muted text, hover bg).
+- No additional brand/accent colors, gradients, or heavy shadows.
+
+## Implementation guidance
+- App Router only.
+- Prefer Server Components for content rendering.
+- Use Client Components only for interactivity (notes CRUD, nav collapse toggle, group shared notes editing).
+- Tailwind only; avoid adding UI kits in V1.
+- Keep UI minimal: borders + spacing over effects.

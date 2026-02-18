@@ -1,0 +1,5 @@
+# Global style
+- TypeScript strict; no `any`
+- Prefer small functions + plain objects
+- Minimal dependencies
+- No TODOs in final code

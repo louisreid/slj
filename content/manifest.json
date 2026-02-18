@@ -1,0 +1,61 @@
+{
+  "chapters": [
+    {
+      "id": "01-intro",
+      "file": "01-intro.md",
+      "title": "Introduction",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "block_id": "01-intro-af521abc7010",
+              "type": "heading",
+              "content": "Introduction",
+              "level": 1
+            },
+            {
+              "block_id": "01-intro-461feb3c26b3",
+              "type": "paragraph",
+              "content": "Welcome to Simplicity, Love & Justice — a discussion course."
+            },
+            {
+              "block_id": "01-intro-d49ad861c73d",
+              "type": "paragraph",
+              "content": "This is a short placeholder chapter. Real content will replace it later."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "01-intro-2b58d8ea4f6e",
+              "type": "heading",
+              "content": "What you'll find here",
+              "level": 2
+            },
+            {
+              "block_id": "01-intro-1345c11dcccc",
+              "type": "paragraph",
+              "content": "Each chapter is broken into sections. You can attach private notes to any paragraph or heading."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "01-intro-855a4b5616c9",
+              "type": "heading",
+              "content": "Next steps",
+              "level": 2
+            },
+            {
+              "block_id": "01-intro-e88a187e8530",
+              "type": "paragraph",
+              "content": "Sign in to save your progress and notes."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

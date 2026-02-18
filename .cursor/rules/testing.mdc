@@ -1,0 +1,4 @@
+# Testing rules
+- Unit test the content pipeline (ID generation + parsing)
+- Add manual RLS verification checklist per feature
+- Later: add RLS tests + CI

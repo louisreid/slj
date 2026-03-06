@@ -70,3 +70,63 @@ export async function getProgressForUser(
   if (error) throw error;
   return (data ?? []) as ProgressRow[];
 }
+
+// Chapter-level progress
+
+export interface ChapterProgressRow {
+  id: string;
+  user_id: string;
+  chapter_id: string;
+  completed_at: string | null;
+  updated_at: string;
+}
+
+export async function upsertChapterProgress(
+  supabase: SupabaseClient,
+  chapter_id: string,
+  options: { completed_at?: string } = {}
+): Promise<void> {
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser();
+  if (authError) throw authError;
+  if (!user) return;
+
+  const updated_at = new Date().toISOString();
+  const payload: {
+    user_id: string;
+    chapter_id: string;
+    updated_at: string;
+    completed_at?: string;
+  } = {
+    user_id: user.id,
+    chapter_id,
+    updated_at,
+  };
+  if (options.completed_at !== undefined) payload.completed_at = options.completed_at;
+
+  const { error } = await supabase.from("chapter_progress").upsert(payload, {
+    onConflict: "user_id,chapter_id",
+  });
+  if (error) throw error;
+}
+
+export async function getChapterProgressForUser(
+  supabase: SupabaseClient
+): Promise<ChapterProgressRow[]> {
+  const {
+    data: { user },
+    error: authError,
+  } = await supabase.auth.getUser();
+  if (authError) throw authError;
+  if (!user) return [];
+
+  const { data, error } = await supabase
+    .from("chapter_progress")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("updated_at", { ascending: false });
+  if (error) throw error;
+  return (data ?? []) as ChapterProgressRow[];
+}

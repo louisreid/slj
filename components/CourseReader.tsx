@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Pencil, Check } from "lucide-react";
+import { MessageSquare, Check } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
@@ -10,7 +10,12 @@ import {
   deleteNote,
   type Note,
 } from "@/lib/notes";
-import { upsertProgress, getProgressForUser } from "@/lib/progress";
+import {
+  upsertProgress,
+  getProgressForUser,
+  upsertChapterProgress,
+  getChapterProgressForUser,
+} from "@/lib/progress";
 import type { Block, Chapter, Section } from "@/lib/content";
 import { NotesPanelContent } from "@/components/NotesPanelContent";
 
@@ -72,7 +77,7 @@ function BlockWithNoteAction({
         className="shrink-0 mt-1 p-1 text-white/45 hover:text-white transition-colors rounded"
         aria-label={hasNote ? "Edit note" : "Add note for this paragraph"}
       >
-        <Pencil size={14} strokeWidth={2} />
+        <MessageSquare size={14} strokeWidth={2} />
       </button>
     </div>
   );
@@ -89,7 +94,7 @@ export interface CourseReaderProps {
 }
 
 export function CourseReader({
-  chapterId: _chapterId,
+  chapterId,
   chapter,
   sections,
   blockIds,
@@ -105,6 +110,7 @@ export function CourseReader({
   const [completedSectionIds, setCompletedSectionIds] = useState<Set<string>>(
     () => new Set()
   );
+  const [chapterComplete, setChapterComplete] = useState(false);
   const supabase = createClient();
 
   const sectionIds = useMemo(
@@ -159,14 +165,17 @@ export function CourseReader({
     refetch();
   }, [user, refetch]);
 
-  // Load completed sections and record last-read on chapter open
+  // Load completed sections, chapter completion, and record last-read on chapter open
   const sectionIdsKey = sectionIds.join(",");
   useEffect(() => {
     if (!user || sectionIds.length === 0) return;
     let mounted = true;
     (async () => {
       try {
-        const progressRows = await getProgressForUser(supabase);
+        const [progressRows, chapterProgressRows] = await Promise.all([
+          getProgressForUser(supabase),
+          getChapterProgressForUser(supabase),
+        ]);
         if (!mounted) return;
         const completed = new Set(
           progressRows
@@ -174,6 +183,10 @@ export function CourseReader({
             .map((r) => r.section_id)
         );
         setCompletedSectionIds(completed);
+        const chapterRow = chapterProgressRows.find(
+          (r) => r.chapter_id === chapterId && r.completed_at != null
+        );
+        setChapterComplete(!!chapterRow);
         const firstSectionId = sectionIds[0];
         const firstBlockId = sections[0]?.blocks[0]?.block_id;
         if (firstSectionId && firstBlockId) {
@@ -188,7 +201,7 @@ export function CourseReader({
     return () => {
       mounted = false;
     };
-  }, [user, sectionIds, sectionIdsKey, sections, supabase]);
+  }, [user, sectionIds, sectionIdsKey, chapterId, sections, supabase]);
 
   const notesByBlock = new Map(notes.map((n) => [n.block_id, n]));
 
@@ -205,6 +218,21 @@ export function CourseReader({
       }
     },
     [user, supabase]
+  );
+
+  const handleMarkChapterComplete = useCallback(
+    async () => {
+      if (!user) return;
+      try {
+        await upsertChapterProgress(supabase, chapterId, {
+          completed_at: new Date().toISOString(),
+        });
+        setChapterComplete(true);
+      } catch {
+        // ignore
+      }
+    },
+    [user, chapterId, supabase]
   );
 
   const handleAddOrEditNote = useCallback(
@@ -269,6 +297,27 @@ export function CourseReader({
           <h2 className="text-white/55 font-medium mb-3 uppercase tracking-[0.12em] text-xs">
             In this chapter
           </h2>
+          {user && (
+            <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-white/10">
+              <span className="text-white/75 font-medium">Chapter</span>
+              {chapterComplete ? (
+                <Check
+                  size={16}
+                  strokeWidth={2.5}
+                  className="text-green-500 shrink-0"
+                  aria-label="Chapter complete"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleMarkChapterComplete}
+                  className="text-white/45 hover:text-white hover:underline underline-offset-2 text-xs"
+                >
+                  Mark complete
+                </button>
+              )}
+            </div>
+          )}
           <ul className="space-y-1">
             {sections.map((section) => {
               const heading = firstHeadingBlock(section);
@@ -314,14 +363,18 @@ export function CourseReader({
 
         <article className="font-serif slj-shell p-6 md:p-10">
           {sections.map((section) =>
-            section.blocks.map((block) => (
-              <BlockWithNoteAction
-                key={block.block_id}
-                block={block}
-                hasNote={notesByBlock.has(block.block_id)}
-                onAddOrEditNote={handleAddOrEditNote}
-              />
-            ))
+            section.blocks.map((block) =>
+              block.type === "paragraph" ? (
+                <BlockWithNoteAction
+                  key={block.block_id}
+                  block={block}
+                  hasNote={notesByBlock.has(block.block_id)}
+                  onAddOrEditNote={handleAddOrEditNote}
+                />
+              ) : (
+                <BlockNode key={block.block_id} block={block} />
+              )
+            )
           )}
         </article>
 

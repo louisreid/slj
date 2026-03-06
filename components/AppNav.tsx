@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { Settings } from "lucide-react";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
@@ -106,9 +107,11 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
               <Link
                 href="/preferences"
                 onClick={closeDrawer}
-                className="text-xs text-white/60 hover:text-white underline underline-offset-2"
+                className="inline-flex items-center gap-1.5 text-xs text-white/60 hover:text-white underline underline-offset-2"
+                aria-label="Settings"
               >
-                Account
+                <Settings size={14} strokeWidth={2} />
+                Settings
               </Link>
             </>
           )}

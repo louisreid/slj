@@ -32,15 +32,31 @@ export default async function ProgressPage() {
     );
   }
 
-  const { data: progressRows } = await supabase
-    .from("progress")
-    .select("section_id, completed_at")
-    .eq("user_id", user.id);
+  const [
+    { data: progressRows },
+    { data: chapterProgressRows },
+  ] = await Promise.all([
+    supabase
+      .from("progress")
+      .select("section_id, completed_at")
+      .eq("user_id", user.id),
+    supabase
+      .from("chapter_progress")
+      .select("chapter_id, completed_at")
+      .eq("user_id", user.id),
+  ]);
 
   const completedBySection = new Map<string, boolean>();
   for (const row of progressRows ?? []) {
     if (row.completed_at != null) {
       completedBySection.set(row.section_id, true);
+    }
+  }
+
+  const completedByChapter = new Map<string, boolean>();
+  for (const row of chapterProgressRows ?? []) {
+    if (row.completed_at != null) {
+      completedByChapter.set(row.chapter_id, true);
     }
   }
 
@@ -66,11 +82,22 @@ export default async function ProgressPage() {
       <div className="mt-8 space-y-6">
         {chapters.map((chapter) => {
           const sections = getSections(chapter);
+          const chapterCompleted = completedByChapter.get(chapter.id);
           return (
             <CardSection key={chapter.id}>
-              <h2 className="font-serif text-2xl font-semibold text-[#fff] mb-3">
-                {chapter.title}
-              </h2>
+              <div className="flex items-center justify-between gap-2 mb-3">
+                <h2 className="font-serif text-2xl font-semibold text-[#fff]">
+                  {chapter.title}
+                </h2>
+                {chapterCompleted && (
+                  <Check
+                    size={20}
+                    strokeWidth={2.5}
+                    className="text-green-500 shrink-0"
+                    aria-label="Chapter complete"
+                  />
+                )}
+              </div>
               <ul className="space-y-2 text-sm">
                 {sections.map((section) => {
                   const sectionId = getSectionId(section);

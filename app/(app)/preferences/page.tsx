@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { PreferencesForm } from "./PreferencesForm";
+import { EmailChangeForm } from "./EmailChangeForm";
 import { PageShell } from "@/components/ui/surfaces";
 
 export default async function PreferencesPage() {
@@ -28,7 +29,8 @@ export default async function PreferencesPage() {
         <h2 className="font-sans text-sm font-medium text-white mb-2">
           Email
         </h2>
-        <p className="font-sans text-sm text-white/80">{user.email}</p>
+        <p className="font-sans text-sm text-white/80 mb-4">{user.email}</p>
+        <EmailChangeForm />
       </section>
 
       <section className="slj-card p-4 border-red-900/30">

@@ -15,7 +15,9 @@ function SignInForm() {
     e.preventDefault();
     setError(null);
     const supabase = createClient();
-    const origin = typeof window !== "undefined" ? window.location.origin : "";
+    const origin =
+      process.env.NEXT_PUBLIC_APP_URL ||
+      (typeof window !== "undefined" ? window.location.origin : "");
     const { error: err } = await supabase.auth.signInWithOtp({
       email: email.trim(),
       options: {

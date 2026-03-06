@@ -25,6 +25,8 @@ dist
 # misc
 .DS_Store
 *.pem
+.ingest-tmp-*
+ingest-debug.json
 
 # debug
 npm-debug.log*

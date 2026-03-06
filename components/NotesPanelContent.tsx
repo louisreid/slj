@@ -1,6 +1,6 @@
 "use client";
 
-import { Trash2 } from "lucide-react";
+import { Trash2, Loader2, Check } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { Note } from "@/lib/notes";
 
@@ -15,6 +15,8 @@ export interface NotesPanelContentProps {
   isSignedIn: boolean;
 }
 
+type SaveStatus = "idle" | "saving" | "saved";
+
 function NoteCard({
   note,
   label,
@@ -27,13 +29,20 @@ function NoteCard({
   onDelete: (id: string) => Promise<void>;
 }) {
   const [localBody, setLocalBody] = useState(note.body);
+  const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
   useEffect(() => {
     setLocalBody(note.body);
   }, [note.body]);
 
   const handleBlur = () => {
     if (localBody.trim() !== note.body.trim()) {
-      onUpsert(note.block_id, localBody.trim()).catch(() => {});
+      setSaveStatus("saving");
+      onUpsert(note.block_id, localBody.trim())
+        .then(() => {
+          setSaveStatus("saved");
+          setTimeout(() => setSaveStatus("idle"), 2000);
+        })
+        .catch(() => setSaveStatus("idle"));
     }
   };
 
@@ -52,7 +61,19 @@ function NoteCard({
         onBlur={handleBlur}
         aria-label={`Note for ${label}`}
       />
-      <div className="mt-2 flex justify-end">
+      <div className="mt-2 flex items-center justify-end gap-2">
+        {saveStatus === "saving" && (
+          <span className="flex items-center gap-1 text-xs text-white/55" role="status">
+            <Loader2 size={12} className="animate-spin" aria-hidden />
+            Saving…
+          </span>
+        )}
+        {saveStatus === "saved" && (
+          <span className="flex items-center gap-1 text-xs text-green-500" role="status">
+            <Check size={12} aria-hidden />
+            Saved
+          </span>
+        )}
         <button
           type="button"
           onClick={() => onDelete(note.id)}

@@ -9,6 +9,7 @@ import {
   joinGroupByCode,
   type Group,
 } from "@/lib/groups";
+import { CardSection, PageShell } from "@/components/ui/surfaces";
 
 function formatStartDate(dateStr: string | null): string {
   if (!dateStr) return "—";
@@ -84,35 +85,36 @@ export function GroupsListContent({
   );
 
   return (
-    <div className="font-sans space-y-8">
-      <h1 className="text-2xl font-semibold text-[#000]">Groups</h1>
+    <PageShell className="space-y-6">
+      <div>
+        <p className="text-xs uppercase tracking-[0.16em] text-white/55">Community</p>
+        <h1 className="mt-2 text-3xl font-semibold text-white font-serif">Groups</h1>
+      </div>
 
       {groups.length > 0 && (
-        <section>
-          <h2 className="text-lg font-medium text-[#000] mb-2">Your groups</h2>
+        <CardSection title="Your groups">
           <ul className="space-y-2">
             {groups.map((g) => (
-              <li key={g.id}>
+              <li key={g.id} className="rounded-xl border border-white/10 bg-white/5 px-3 py-2">
                 <Link
                   href={`/groups/${g.id}`}
-                  className="text-[rgba(0,0,0,0.65)] hover:text-[#000] underline"
+                  className="text-white/80 hover:text-white underline underline-offset-2"
                 >
                   {g.name}
                 </Link>
-                <span className="ml-2 text-sm text-[rgba(0,0,0,0.45)]">
+                <span className="ml-2 text-sm text-white/50">
                   Start: {formatStartDate(g.start_date)}
                 </span>
               </li>
             ))}
           </ul>
-        </section>
+        </CardSection>
       )}
 
-      <section>
-        <h2 className="text-lg font-medium text-[#000] mb-2">Create a group</h2>
+      <CardSection title="Create a group">
         <form onSubmit={handleCreate} className="space-y-3 max-w-sm">
           <div>
-            <label htmlFor="group-name" className="block text-sm text-[rgba(0,0,0,0.65)] mb-1">
+            <label htmlFor="group-name" className="block text-sm text-white/70 mb-1">
               Name
             </label>
             <input
@@ -122,12 +124,12 @@ export function GroupsListContent({
               onChange={(e) => setCreateName(e.target.value)}
               required
               maxLength={200}
-              className="w-full px-3 py-2 border border-[#E5E7EB] rounded text-[#000] focus:outline focus:ring-2 focus:ring-[rgba(0,0,0,0.30)]"
+              className="slj-input w-full px-3 py-2.5"
               placeholder="Group name"
             />
           </div>
           <div>
-            <label htmlFor="group-start-date" className="block text-sm text-[rgba(0,0,0,0.65)] mb-1">
+            <label htmlFor="group-start-date" className="block text-sm text-white/70 mb-1">
               Start date (optional)
             </label>
             <input
@@ -135,30 +137,29 @@ export function GroupsListContent({
               type="date"
               value={createStartDate}
               onChange={(e) => setCreateStartDate(e.target.value)}
-              className="w-full px-3 py-2 border border-[#E5E7EB] rounded text-[#000] focus:outline focus:ring-2 focus:ring-[rgba(0,0,0,0.30)]"
+              className="slj-input w-full px-3 py-2.5"
             />
           </div>
           {createError && (
-            <p className="text-sm text-[#000]">{createError}</p>
+            <p className="text-sm text-white">{createError}</p>
           )}
           <button
             type="submit"
             disabled={createLoading}
-            className="px-4 py-2 bg-[#000] text-white text-sm font-medium rounded hover:bg-[rgba(0,0,0,0.85)] disabled:opacity-50"
+            className="slj-button px-4 py-2 text-sm"
           >
             {createLoading ? "Creating…" : "Create group"}
           </button>
         </form>
-      </section>
+      </CardSection>
 
-      <section>
-        <h2 className="text-lg font-medium text-[#000] mb-2">Join a group</h2>
-        <p className="text-sm text-[rgba(0,0,0,0.65)] mb-2">
+      <CardSection title="Join a group">
+        <p className="text-sm text-white/70 mb-3">
           Enter the invite code or use an invite link.
         </p>
         <form onSubmit={handleJoin} className="space-y-3 max-w-sm">
           <div>
-            <label htmlFor="invite-code" className="block text-sm text-[rgba(0,0,0,0.65)] mb-1">
+            <label htmlFor="invite-code" className="block text-sm text-white/70 mb-1">
               Invite code
             </label>
             <input
@@ -167,22 +168,22 @@ export function GroupsListContent({
               value={joinCode}
               onChange={(e) => setJoinCode(e.target.value.trim())}
               required
-              className="w-full px-3 py-2 border border-[#E5E7EB] rounded text-[#000] focus:outline focus:ring-2 focus:ring-[rgba(0,0,0,0.30)]"
+              className="slj-input w-full px-3 py-2.5"
               placeholder="e.g. Ab12Cd34"
             />
           </div>
           {joinError && (
-            <p className="text-sm text-[#000]">{joinError}</p>
+            <p className="text-sm text-white">{joinError}</p>
           )}
           <button
             type="submit"
             disabled={joinLoading}
-            className="px-4 py-2 bg-[#000] text-white text-sm font-medium rounded hover:bg-[rgba(0,0,0,0.85)] disabled:opacity-50"
+            className="slj-button px-4 py-2 text-sm"
           >
             {joinLoading ? "Joining…" : "Join group"}
           </button>
         </form>
-      </section>
-    </div>
+      </CardSection>
+    </PageShell>
   );
 }

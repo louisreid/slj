@@ -1,0 +1,15 @@
+{
+    "mcpServers": {
+      "supabase": {
+        "url": "https://mcp.supabase.com/mcp",
+        "headers": {}
+      },
+      "stitch": {
+        "command": "npx",
+        "args": ["-y", "@_davideast/stitch-mcp", "proxy"],
+        "env": {
+          "STITCH_API_KEY": "AQ.Ab8RN6KsdRdamesDQdZYlkE-19E12zzFdBSpLiv9TEWptzNhVg"
+        }
+      }
+    }
+  }

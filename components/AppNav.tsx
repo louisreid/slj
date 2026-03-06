@@ -46,11 +46,11 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
   const navContent = (
     <>
       <div className="flex flex-col flex-1 min-h-0">
-        <div className="p-4 border-b border-[#E5E7EB] flex items-center justify-between shrink-0">
+        <div className="p-4 border-b border-white/10 flex items-center justify-between shrink-0">
           {(!collapsed || drawerOpen) && (
             <Link
               href="/course"
-              className="font-sans text-sm font-medium text-[#000] hover:underline"
+              className="font-sans text-sm font-semibold text-white tracking-[0.02em] hover:text-white/80 transition-colors"
             >
               Simplicity, Love & Justice
             </Link>
@@ -58,18 +58,18 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
           <button
             type="button"
             onClick={toggleCollapsed}
-            className="md:flex hidden p-1 rounded hover:bg-[rgba(0,0,0,0.04)] text-[#000] focus:outline focus:ring-2 focus:ring-[rgba(0,0,0,0.3)]"
+            className="md:flex hidden h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-white focus:outline focus:ring-2 focus:ring-white/30"
             aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
             title={collapsed ? "Expand navigation" : "Collapse navigation"}
           >
             <span className="text-lg leading-none">{collapsed ? "→" : "←"}</span>
           </button>
         </div>
-        <nav className="flex-1 p-2 overflow-auto">
+        <nav className="flex-1 p-3 overflow-auto">
           {(!collapsed || drawerOpen) && (
             <Link
               href="/course"
-              className="block px-3 py-2 text-sm text-[rgba(0,0,0,0.65)] hover:text-[#000] hover:bg-[rgba(0,0,0,0.04)] rounded mb-1"
+              className="mb-3 block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium uppercase tracking-[0.12em] text-white/75 hover:text-white hover:bg-white/10 transition-colors"
             >
               Resume
             </Link>
@@ -81,10 +81,10 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
                   href={href}
                   onClick={closeDrawer}
                   title={collapsed ? label : undefined}
-                  className={`flex items-center gap-2 px-3 py-2 text-sm rounded ${
+                  className={`flex items-center gap-2 px-3 py-2.5 text-sm rounded-xl border transition-colors ${
                     isActive(href)
-                      ? "bg-[rgba(0,0,0,0.06)] font-medium border-l-2 border-[#000] -ml-[2px] pl-[10px]"
-                      : "text-[rgba(0,0,0,0.65)] hover:text-[#000] hover:bg-[rgba(0,0,0,0.04)] border-l-2 border-transparent"
+                      ? "bg-white text-black border-white font-semibold"
+                      : "text-white/70 hover:text-white hover:bg-white/10 border-transparent"
                   }`}
                 >
                   {collapsed && !drawerOpen ? (
@@ -97,9 +97,9 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             ))}
           </ul>
         </nav>
-        <div className="p-3 border-t border-[#E5E7EB] shrink-0">
+        <div className="p-3 border-t border-white/10 shrink-0">
           {(!collapsed || drawerOpen) && userEmail && (
-            <p className="text-xs text-[rgba(0,0,0,0.45)] truncate mb-2">
+            <p className="text-xs text-white/50 truncate mb-2">
               {userEmail}
             </p>
           )}
@@ -107,7 +107,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             <form action="/auth/sign-out" method="post">
               <button
                 type="submit"
-                className="text-sm text-[rgba(0,0,0,0.65)] hover:text-[#000] underline"
+                className="text-sm text-white/70 hover:text-white underline underline-offset-2"
               >
                 Sign out
               </button>
@@ -117,7 +117,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             <form action="/auth/sign-out" method="post" title="Sign out">
               <button
                 type="submit"
-                className="text-sm text-[rgba(0,0,0,0.65)] hover:text-[#000] p-1"
+                className="text-sm text-white/70 hover:text-white p-1"
                 aria-label="Sign out"
               >
                 ⎋
@@ -135,7 +135,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
       <button
         type="button"
         onClick={() => setDrawerOpen(true)}
-        className="md:hidden fixed top-4 left-4 z-20 p-2 rounded border border-[#E5E7EB] bg-[#fff] text-[#000]"
+        className="md:hidden fixed top-4 left-4 z-20 h-10 w-10 rounded-xl border border-white/15 bg-[#121212] text-white"
         aria-label="Open menu"
       >
         <span className="text-lg">☰</span>
@@ -144,7 +144,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
       {/* Mobile drawer overlay */}
       {drawerOpen && (
         <div
-          className="md:hidden fixed inset-0 z-30 bg-[rgba(0,0,0,0.3)]"
+          className="md:hidden fixed inset-0 z-30 bg-black/60"
           onClick={closeDrawer}
           aria-hidden
         />
@@ -152,15 +152,15 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
 
       {/* Mobile drawer */}
       <aside
-        className={`md:relative md:flex md:shrink-0 fixed top-0 left-0 z-40 h-full w-[240px] bg-[#fff] border-r border-[#E5E7EB] flex flex-col transition-transform md:transition-none ${
+        className={`md:relative md:flex md:shrink-0 fixed top-0 left-0 z-40 min-h-screen h-full w-[252px] bg-[#111111] border-r border-white/10 flex flex-col transition-transform md:transition-none ${
           drawerOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
-        } ${collapsed ? "md:w-14" : "md:w-52"}`}
+        } ${collapsed ? "md:w-16" : "md:w-64"}`}
       >
-        <div className="md:hidden flex justify-end p-2 border-b border-[#E5E7EB]">
+        <div className="md:hidden flex justify-end p-2 border-b border-white/10">
           <button
             type="button"
             onClick={closeDrawer}
-            className="p-2 text-[#000]"
+            className="h-9 w-9 rounded-lg border border-white/15 bg-white/5 text-white"
             aria-label="Close menu"
           >
             ✕

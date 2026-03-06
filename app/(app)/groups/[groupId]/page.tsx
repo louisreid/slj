@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { fetchGroup } from "@/lib/groups";
 import { CopyInviteLinkClient } from "@/components/CopyInviteLinkClient";
 import { GroupSharedNotesEditor } from "@/components/GroupSharedNotesEditor";
+import { CardSection, PageShell } from "@/components/ui/surfaces";
 
 function formatStartDate(dateStr: string | null): string {
   if (!dateStr) return "—";
@@ -40,32 +41,34 @@ export default async function GroupDetailPage({
   }
 
   return (
-    <div className="font-sans space-y-6">
-      <p className="text-sm text-[rgba(0,0,0,0.65)]">
-        <Link href="/groups" className="underline hover:text-[#000]">
+    <PageShell className="space-y-6">
+      <p className="text-sm text-white/70">
+        <Link href="/groups" className="underline hover:text-white">
           ← Groups
         </Link>
       </p>
-      <h1 className="text-2xl font-semibold text-[#000]">{group.name}</h1>
-      <p className="text-[rgba(0,0,0,0.65)]">
-        <span className="font-medium text-[#000]">Start date:</span>{" "}
+      <h1 className="text-3xl font-semibold text-white font-serif">{group.name}</h1>
+      <p className="text-white/70">
+        <span className="font-medium text-white">Start date:</span>{" "}
         {formatStartDate(group.start_date)}
       </p>
-      <p className="text-sm text-[rgba(0,0,0,0.65)]">
+      <p className="text-sm text-white/70">
         Invite link:{" "}
         <Link
           href={`/groups/join?code=${encodeURIComponent(group.invite_code)}`}
-          className="underline break-all"
+          className="underline break-all hover:text-white"
         >
           /groups/join?code={group.invite_code}
         </Link>
         {" — "}
         <CopyInviteLinkClient code={group.invite_code} />
       </p>
-      <GroupSharedNotesEditor
-        groupId={group.id}
-        initialValue={group.shared_notes}
-      />
-    </div>
+      <CardSection>
+        <GroupSharedNotesEditor
+          groupId={group.id}
+          initialValue={group.shared_notes}
+        />
+      </CardSection>
+    </PageShell>
   );
 }

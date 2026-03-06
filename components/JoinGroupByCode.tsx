@@ -29,8 +29,8 @@ export function JoinGroupByCode({ code }: { code: string }) {
   if (error) {
     return (
       <div className="font-sans">
-        <p className="text-[#000]">{error}</p>
-        <Link href="/groups" className="mt-2 inline-block text-sm underline text-[rgba(0,0,0,0.65)]">
+        <p className="text-white">{error}</p>
+        <Link href="/groups" className="mt-2 inline-block text-sm underline text-white/70 hover:text-white">
           Back to Groups
         </Link>
       </div>
@@ -39,7 +39,7 @@ export function JoinGroupByCode({ code }: { code: string }) {
 
   return (
     <div className="font-sans">
-      <p className="text-[rgba(0,0,0,0.65)]">Joining group…</p>
+      <p className="text-white/70">Joining group…</p>
     </div>
   );
 }

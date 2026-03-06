@@ -57,7 +57,7 @@ export function GroupSharedNotesEditor({
 
   return (
     <div className="space-y-2">
-      <label htmlFor="shared-notes" className="block text-sm font-medium text-[#000]">
+      <label htmlFor="shared-notes" className="block text-sm font-medium text-white">
         Group notes (shared with all members)
       </label>
       <textarea
@@ -65,18 +65,18 @@ export function GroupSharedNotesEditor({
         value={value}
         onChange={(e) => setValue(e.target.value)}
         rows={12}
-        className="w-full px-3 py-2 border border-[#E5E7EB] rounded text-[#000] focus:outline focus:ring-2 focus:ring-[rgba(0,0,0,0.30)] font-sans text-sm"
+        className="slj-input w-full px-3 py-2.5 font-sans text-sm"
         placeholder="Add notes your group can see…"
       />
       <div className="flex items-center gap-2 text-sm">
         {saveStatus === "saving" && (
-          <span className="text-[rgba(0,0,0,0.45)]">Saving…</span>
+          <span className="text-white/45">Saving…</span>
         )}
         {saveStatus === "saved" && (
-          <span className="text-[rgba(0,0,0,0.45)]">Saved</span>
+          <span className="text-white/45">Saved</span>
         )}
         {saveStatus === "error" && errorMessage && (
-          <span className="text-[#000]" role="alert">
+          <span className="text-white" role="alert">
             {errorMessage}
           </span>
         )}

@@ -8,10 +8,43 @@ Deployment-only steps: Git push, Vercel, Supabase Auth, DNS, smoke tests. No fea
 
 - **Git:** Repo created at https://github.com/louisreid/slj and pushed.
 - **Vercel:** Project linked (`roundtable-supports-projects/slj`), domain `slj.talksfromthewarehouse.co.uk` added, production deploy completed. Production URL: https://slj-mu.vercel.app (custom domain works after DNS below).
+- **Supabase:** Project **slj** created (ref `mlbmjrgykjjwhellmtpz`), linked, migrations pushed, Vercel env vars set, production redeployed. Dashboard: https://supabase.com/dashboard/project/mlbmjrgykjjwhellmtpz
 
 ---
 
 ## Manual steps (you)
+
+### 0) Create Supabase project “slj” (CLI)
+
+You have **slj-course** (paused); the app expects a project. Create a new one named **slj** via CLI:
+
+**1. Log in (once):** In your terminal, run and complete the browser flow:
+
+```bash
+supabase login
+```
+
+**2. Get org ID and create project:**
+
+```bash
+# List orgs to get your org-id
+supabase orgs list
+
+# Create the project (replace YOUR_ORG_ID and use a strong password)
+supabase projects create slj --org-id YOUR_ORG_ID --db-password 'YOUR_DB_PASSWORD' --region eu-west-1
+```
+
+Or run the helper script (after logging in):
+
+```bash
+./scripts/create-supabase-project.sh
+```
+
+It will print the exact `supabase projects create` command with a placeholder for org-id and password.
+
+**3. After creation:** In the Supabase dashboard, open the new **slj** project → **Project Settings → API** and copy the **Project URL** and **anon public** key for Vercel env vars (step A). Then set Auth URLs (step B).
+
+**4. (Optional) Push migrations:** From the repo, `supabase link --project-ref YOUR_PROJECT_REF` then `supabase db push` to apply the migrations in `supabase/migrations/`.
 
 ### A) Vercel environment variables
 
@@ -32,6 +65,8 @@ In **Supabase Dashboard → Authentication → URL Configuration**:
   - `https://slj.talksfromthewarehouse.co.uk/auth/callback`
 
 Save.
+
+**Email branding (optional):** For custom magic-link and confirmation email copy and optional SMTP, see [AuthEmailBranding.md](AuthEmailBranding.md).
 
 ### C) DNS (domain owner)
 

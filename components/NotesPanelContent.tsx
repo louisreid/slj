@@ -38,14 +38,14 @@ function NoteCard({
 
   return (
     <div
-      className="border-b border-[#E5E7EB] pb-4 mb-4 last:border-b-0 last:mb-0"
+      className="slj-card p-3 mb-3 last:mb-0"
       data-note-block-id={note.block_id}
     >
-      <p className="font-sans text-xs text-[rgba(0,0,0,0.45)] mb-1 truncate">
+      <p className="font-sans text-xs text-white/55 mb-2 truncate">
         {label}
       </p>
       <textarea
-        className="w-full font-sans text-sm text-[#000] border border-[#E5E7EB] rounded p-2 min-h-[80px] focus:outline-none focus:ring-1 focus:ring-[rgba(0,0,0,0.30)]"
+        className="slj-input w-full font-sans text-sm p-2.5 min-h-[100px]"
         value={localBody}
         onChange={(e) => setLocalBody(e.target.value)}
         onBlur={handleBlur}
@@ -55,7 +55,7 @@ function NoteCard({
         <button
           type="button"
           onClick={() => onDelete(note.id)}
-          className="font-sans text-xs text-[rgba(0,0,0,0.65)] hover:text-[#000] underline"
+          className="font-sans text-xs text-white/70 hover:text-white underline underline-offset-2"
         >
           Delete note
         </button>
@@ -89,7 +89,7 @@ export function NotesPanelContent({
 
   if (!isSignedIn) {
     return (
-      <p className="font-sans text-sm text-[rgba(0,0,0,0.65)]">
+      <p className="font-sans text-sm text-white/70">
         Sign in to add notes.
       </p>
     );
@@ -102,11 +102,11 @@ export function NotesPanelContent({
 
   return (
     <div ref={scrollRef}>
-      <h2 className="font-sans text-sm font-medium text-[#000] mb-3">
+      <h2 className="font-sans text-sm font-medium text-white mb-3">
         Notes for this chapter
       </h2>
       {notesInOrder.length === 0 ? (
-        <p className="font-sans text-sm text-[rgba(0,0,0,0.65)]">
+        <p className="font-sans text-sm text-white/70">
           No notes yet. Use “Add note” next to a paragraph to add one.
         </p>
       ) : (

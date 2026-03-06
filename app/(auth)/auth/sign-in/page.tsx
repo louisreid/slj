@@ -31,10 +31,10 @@ function SignInForm() {
 
   if (sent) {
     return (
-      <main className="min-h-screen flex items-center justify-center p-4">
-        <div className="max-w-sm text-center">
-          <h1 className="text-xl font-semibold">Check your email</h1>
-          <p className="mt-2 text-black/70">
+      <main className="min-h-screen flex items-center justify-center p-4 bg-[#0B0B0B]">
+        <div className="slj-shell w-full max-w-md p-8 text-center">
+          <h1 className="text-2xl font-semibold text-white">Check your email</h1>
+          <p className="mt-3 slj-muted">
             We sent a sign-in link to <strong>{email}</strong>. Click the link to
             sign in.
           </p>
@@ -44,10 +44,11 @@ function SignInForm() {
   }
 
   return (
-    <main className="min-h-screen flex items-center justify-center p-4">
-      <div className="w-full max-w-sm">
-        <h1 className="text-xl font-semibold">Sign in</h1>
-        <p className="mt-1 text-black/60 text-sm">
+    <main className="min-h-screen flex items-center justify-center p-4 bg-[#0B0B0B]">
+      <div className="slj-shell w-full max-w-md p-8">
+        <p className="text-xs uppercase tracking-[0.16em] slj-faint">Welcome</p>
+        <h1 className="mt-3 text-3xl font-semibold text-white font-serif">Sign in</h1>
+        <p className="mt-2 slj-muted text-sm">
           Enter your email and we’ll send you a magic link.
         </p>
         <form onSubmit={handleSubmit} className="mt-6 space-y-4">
@@ -62,17 +63,17 @@ function SignInForm() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder="you@example.com"
               required
-              className="w-full rounded border border-black/20 px-3 py-2 text-sm focus:border-black/40 focus:outline-none"
+              className="slj-input w-full px-3 py-2.5 text-sm"
             />
           </div>
           {error && (
-            <p className="text-sm text-[#000]" role="alert">
+            <p className="text-sm text-white" role="alert">
               {error}
             </p>
           )}
           <button
             type="submit"
-            className="w-full rounded bg-black px-3 py-2 text-sm font-medium text-white hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black/30"
+            className="slj-button w-full px-3 py-2.5 text-sm"
           >
             Send magic link
           </button>
@@ -87,7 +88,7 @@ export default function SignInPage() {
     <Suspense
       fallback={
         <main className="min-h-screen flex items-center justify-center p-4">
-          <p className="text-[rgba(0,0,0,0.65)]">Loading…</p>
+          <p className="slj-muted">Loading…</p>
         </main>
       }
     >

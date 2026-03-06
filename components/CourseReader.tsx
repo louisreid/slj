@@ -29,7 +29,7 @@ function BlockNode({ block }: { block: Block }) {
     const Tag = HEADING_TAGS[level - 1];
     return (
       <Tag
-        className="font-serif font-semibold text-[#000] mt-8 first:mt-0"
+        className="font-serif font-semibold text-[#fff] mt-10 first:mt-0 text-3xl leading-tight"
         data-block-id={block.block_id}
         id={block.block_id}
       >
@@ -40,7 +40,7 @@ function BlockNode({ block }: { block: Block }) {
   if (block.type === "paragraph") {
     return (
       <p
-        className="font-serif text-[#000] leading-[1.7] mt-5"
+        className="font-serif text-white/85 leading-[1.85] mt-5 text-lg"
         data-block-id={block.block_id}
         id={block.block_id}
       >
@@ -67,7 +67,7 @@ function BlockWithNoteAction({
         <button
           type="button"
           onClick={() => onAddOrEditNote(block.block_id)}
-          className="font-sans text-xs text-[rgba(0,0,0,0.45)] hover:text-[#000] hover:underline"
+          className="font-sans text-xs text-white/50 hover:text-white hover:underline underline-offset-2 transition-colors"
         >
           {hasNote ? "Edit note" : "Add note for this paragraph"}
         </button>
@@ -258,13 +258,13 @@ export function CourseReader({
   );
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 md:gap-0">
-      <div className="flex-1 min-w-0 max-w-[75ch]">
+    <div className="flex flex-col md:flex-row gap-8 md:gap-6">
+      <div className="flex-1 min-w-0 max-w-[78ch]">
         <nav
-          className="font-sans text-sm mb-8"
+          className="font-sans text-sm mb-8 slj-card p-5"
           aria-label="Table of contents"
         >
-          <h2 className="text-[rgba(0,0,0,0.45)] font-medium mb-2">
+          <h2 className="text-white/55 font-medium mb-3 uppercase tracking-[0.12em] text-xs">
             In this chapter
           </h2>
           <ul className="space-y-1">
@@ -280,21 +280,21 @@ export function CourseReader({
                 >
                   <Link
                     href={`#${heading.block_id}`}
-                    className="text-[rgba(0,0,0,0.65)] hover:text-[#000] hover:underline"
+                    className="text-white/75 hover:text-white hover:underline underline-offset-2"
                   >
                     {heading.content}
                   </Link>
                   {user && (
                     <span className="font-sans text-xs">
                       {isComplete ? (
-                        <span className="text-[rgba(0,0,0,0.45)]">
+                        <span className="text-white/45">
                           Complete
                         </span>
                       ) : (
                         <button
                           type="button"
                           onClick={() => handleMarkSectionComplete(sectionId)}
-                          className="text-[rgba(0,0,0,0.45)] hover:text-[#000] hover:underline"
+                          className="text-white/45 hover:text-white hover:underline underline-offset-2"
                         >
                           Mark complete
                         </button>
@@ -307,7 +307,7 @@ export function CourseReader({
           </ul>
         </nav>
 
-        <article className="font-serif">
+        <article className="font-serif slj-shell p-6 md:p-10">
           {sections.map((section) =>
             section.blocks.map((block) => (
               <BlockWithNoteAction
@@ -321,31 +321,31 @@ export function CourseReader({
         </article>
 
         <nav
-          className="font-sans text-sm flex justify-between mt-10 pt-6 border-t border-[#E5E7EB]"
+          className="font-sans text-sm flex justify-between mt-8 pt-6 border-t border-white/10"
           aria-label="Chapter navigation"
         >
           <span>
             {prevChapter ? (
               <Link
                 href={`/course/${prevChapter.id}`}
-                className="text-[rgba(0,0,0,0.65)] hover:text-[#000] underline"
+                className="text-white/70 hover:text-white underline underline-offset-2"
               >
                 ← Previous: {prevChapter.title}
               </Link>
             ) : (
-              <span className="text-[rgba(0,0,0,0.45)]">Previous</span>
+              <span className="text-white/45">Previous</span>
             )}
           </span>
           <span>
             {nextChapter ? (
               <Link
                 href={`/course/${nextChapter.id}`}
-                className="text-[rgba(0,0,0,0.65)] hover:text-[#000] underline"
+                className="text-white/70 hover:text-white underline underline-offset-2"
               >
                 Next: {nextChapter.title} →
               </Link>
             ) : (
-              <span className="text-[rgba(0,0,0,0.45)]">Next</span>
+              <span className="text-white/45">Next</span>
             )}
           </span>
         </nav>
@@ -353,11 +353,11 @@ export function CourseReader({
 
       {/* Desktop: fixed-width notes panel */}
       <aside
-        className="hidden md:block w-[360px] shrink-0 border-l border-[#E5E7EB] pl-6"
+        className="hidden md:block w-[360px] shrink-0 slj-shell p-5"
         aria-label="Notes"
       >
         {loading ? (
-          <p className="font-sans text-sm text-[rgba(0,0,0,0.65)]">
+          <p className="font-sans text-sm text-white/70">
             Loading notes…
           </p>
         ) : (
@@ -370,36 +370,36 @@ export function CourseReader({
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="md:hidden fixed bottom-6 right-6 px-4 py-2 rounded border border-[#E5E7EB] bg-[#fff] text-[#000] text-sm font-sans"
+          className="md:hidden fixed bottom-6 right-6 px-4 py-2 rounded-xl border border-white/15 bg-[#111111] text-white text-sm font-sans"
         >
           Notes
         </button>
         {drawerOpen && (
           <>
             <div
-              className="md:hidden fixed inset-0 z-40 bg-[rgba(0,0,0,0.3)]"
+              className="md:hidden fixed inset-0 z-40 bg-black/60"
               onClick={() => setDrawerOpen(false)}
               aria-hidden
             />
             <aside
-              className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-[min(320px,85vw)] bg-[#fff] border-l border-[#E5E7EB] p-4 overflow-auto"
+              className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-[min(340px,88vw)] bg-[#111111] border-l border-white/10 p-4 overflow-auto"
               aria-label="Notes"
             >
               <div className="flex justify-between items-center mb-4">
-                <span className="text-sm font-sans font-medium text-[#000]">
+                <span className="text-sm font-sans font-medium text-white">
                   Notes
                 </span>
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(false)}
-                  className="p-1 text-[#000]"
+                  className="h-8 w-8 rounded-lg border border-white/15 bg-white/5 text-white"
                   aria-label="Close notes"
                 >
                   ✕
                 </button>
               </div>
               {loading ? (
-                <p className="font-sans text-sm text-[rgba(0,0,0,0.65)]">
+                <p className="font-sans text-sm text-white/70">
                   Loading notes…
                 </p>
               ) : (

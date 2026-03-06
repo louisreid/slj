@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { GroupsListContent } from "@/components/GroupsListContent";
+import { PageShell } from "@/components/ui/surfaces";
 import type { Group } from "@/lib/groups";
 
 export default async function GroupsPage() {
@@ -27,15 +28,15 @@ export default async function GroupsPage() {
 
   if (!user) {
     return (
-      <div className="font-sans">
-        <h1 className="text-2xl font-semibold text-[#000]">Groups</h1>
-        <p className="mt-2 text-[rgba(0,0,0,0.65)]">
-          <Link href="/auth/sign-in" className="underline hover:text-[#000]">
+      <PageShell>
+        <h1 className="text-3xl font-semibold text-[#fff] font-serif">Groups</h1>
+        <p className="mt-2 text-white/70">
+          <Link href="/auth/sign-in" className="underline hover:text-white">
             Sign in
           </Link>{" "}
           to view and create groups.
         </p>
-      </div>
+      </PageShell>
     );
   }
 

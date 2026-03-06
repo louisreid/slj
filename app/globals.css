@@ -3,7 +3,75 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --slj-bg: #0b0b0b;
+    --slj-surface: #111111;
+    --slj-surface-muted: #171717;
+    --slj-border: rgba(255, 255, 255, 0.14);
+    --slj-text: #ffffff;
+    --slj-text-muted: rgba(255, 255, 255, 0.72);
+    --slj-text-faint: rgba(255, 255, 255, 0.5);
+  }
+
   body {
     @apply font-sans;
+    background: var(--slj-bg);
+    color: var(--slj-text);
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .slj-shell {
+    border: 1px solid var(--slj-border);
+    background: var(--slj-surface);
+    border-radius: 16px;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  }
+
+  .slj-card {
+    border: 1px solid var(--slj-border);
+    background: var(--slj-surface-muted);
+    border-radius: 14px;
+  }
+
+  .slj-input {
+    border: 1px solid var(--slj-border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--slj-text);
+  }
+
+  .slj-input::placeholder {
+    color: var(--slj-text-faint);
+  }
+
+  .slj-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.38);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.14);
+  }
+
+  .slj-button {
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #ffffff;
+    color: #000000;
+    font-weight: 600;
+  }
+
+  .slj-button:disabled {
+    opacity: 0.55;
+  }
+
+  .slj-muted {
+    color: var(--slj-text-muted);
+  }
+
+  .slj-faint {
+    color: var(--slj-text-faint);
   }
 }

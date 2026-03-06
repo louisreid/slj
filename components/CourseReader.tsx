@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Pencil, Check } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
@@ -61,17 +62,18 @@ function BlockWithNoteAction({
   onAddOrEditNote: (block_id: string) => void;
 }) {
   return (
-    <div className="group/block relative">
-      <BlockNode block={block} />
-      <div className="mt-1">
-        <button
-          type="button"
-          onClick={() => onAddOrEditNote(block.block_id)}
-          className="font-sans text-xs text-white/50 hover:text-white hover:underline underline-offset-2 transition-colors"
-        >
-          {hasNote ? "Edit note" : "Add note for this paragraph"}
-        </button>
+    <div className="group/block relative flex items-start justify-between gap-2">
+      <div className="min-w-0 flex-1">
+        <BlockNode block={block} />
       </div>
+      <button
+        type="button"
+        onClick={() => onAddOrEditNote(block.block_id)}
+        className="shrink-0 mt-1 p-1 text-white/45 hover:text-white transition-colors rounded"
+        aria-label={hasNote ? "Edit note" : "Add note for this paragraph"}
+      >
+        <Pencil size={14} strokeWidth={2} />
+      </button>
     </div>
   );
 }
@@ -276,7 +278,7 @@ export function CourseReader({
               return (
                 <li
                   key={heading.block_id}
-                  className="flex items-center gap-2 flex-wrap"
+                  className="flex items-center justify-between gap-2 flex-wrap"
                 >
                   <Link
                     href={`#${heading.block_id}`}
@@ -285,11 +287,14 @@ export function CourseReader({
                     {heading.content}
                   </Link>
                   {user && (
-                    <span className="font-sans text-xs">
+                    <span className="font-sans text-xs shrink-0">
                       {isComplete ? (
-                        <span className="text-white/45">
-                          Complete
-                        </span>
+                        <Check
+                          size={16}
+                          strokeWidth={2.5}
+                          className="text-green-500"
+                          aria-label="Complete"
+                        />
                       ) : (
                         <button
                           type="button"

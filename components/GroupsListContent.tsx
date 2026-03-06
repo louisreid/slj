@@ -58,7 +58,11 @@ export function GroupsListContent({
         );
         router.push(`/groups/${group.id}`);
       } catch (err) {
-        setCreateError(err instanceof Error ? err.message : "Could not create group");
+        const message =
+          process.env.NODE_ENV === "development" && err instanceof Error
+            ? err.message
+            : "Could not create group";
+        setCreateError(message);
       } finally {
         setCreateLoading(false);
       }
@@ -76,7 +80,11 @@ export function GroupsListContent({
         const groupId = await joinGroupByCode(supabase, joinCode);
         router.push(`/groups/${groupId}`);
       } catch (err) {
-        setJoinError(err instanceof Error ? err.message : "Could not join group");
+        const message =
+          process.env.NODE_ENV === "development" && err instanceof Error
+            ? err.message
+            : "Could not join group";
+        setJoinError(message);
       } finally {
         setJoinLoading(false);
       }

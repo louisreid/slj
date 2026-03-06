@@ -1,5 +1,6 @@
 "use client";
 
+import { Trash2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { Note } from "@/lib/notes";
 
@@ -55,9 +56,10 @@ function NoteCard({
         <button
           type="button"
           onClick={() => onDelete(note.id)}
-          className="font-sans text-xs text-white/70 hover:text-white underline underline-offset-2"
+          className="p-1 text-white/50 hover:text-white transition-colors rounded"
+          aria-label="Delete note"
         >
-          Delete note
+          <Trash2 size={14} strokeWidth={2} />
         </button>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Check } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getChapters, getSections } from "@/lib/content";
 import { getLastReadPosition } from "@/lib/progress-actions";
@@ -86,9 +87,12 @@ export default async function ProgressPage() {
                         {firstHeadingContent(section)}
                       </span>
                       {completed && (
-                        <span className="text-white/45">
-                          Complete
-                        </span>
+                        <Check
+                          size={16}
+                          strokeWidth={2.5}
+                          className="text-green-500 shrink-0"
+                          aria-label="Complete"
+                        />
                       )}
                     </li>
                   );

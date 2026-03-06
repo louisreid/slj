@@ -99,12 +99,21 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
         </nav>
         <div className="p-3 border-t border-white/10 shrink-0">
           {(!collapsed || drawerOpen) && userEmail && (
-            <p className="text-xs text-white/50 truncate mb-2">
-              {userEmail}
-            </p>
+            <>
+              <p className="text-xs text-white/50 truncate mb-1">
+                {userEmail}
+              </p>
+              <Link
+                href="/preferences"
+                onClick={closeDrawer}
+                className="text-xs text-white/60 hover:text-white underline underline-offset-2"
+              >
+                Account
+              </Link>
+            </>
           )}
           {(!collapsed || drawerOpen) && (
-            <form action="/auth/sign-out" method="post">
+            <form action="/auth/sign-out" method="post" className="mt-2">
               <button
                 type="submit"
                 className="text-sm text-white/70 hover:text-white underline underline-offset-2"

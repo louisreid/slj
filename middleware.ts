@@ -31,7 +31,8 @@ export async function middleware(request: NextRequest) {
   const isProtected =
     pathname.startsWith("/course") ||
     pathname.startsWith("/worksheets") ||
-    pathname.startsWith("/groups");
+    pathname.startsWith("/groups") ||
+    pathname.startsWith("/preferences");
   if (isProtected && !user) {
     const signInUrl = new URL("/auth/sign-in", request.url);
     signInUrl.searchParams.set("next", pathname);

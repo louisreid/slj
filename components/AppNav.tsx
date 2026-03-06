@@ -9,6 +9,7 @@ const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
 const navItems = [
   { href: "/course", label: "Course", short: "C" },
+  { href: "/course/all", label: "All chapters", short: "A" },
   { href: "/worksheets", label: "Worksheets", short: "W" },
   { href: "/groups", label: "Groups", short: "G" },
   { href: "/progress", label: "Progress", short: "P" },

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Worksheets | Simplicity, Love &amp; Justice</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;400;500;700;800&amp;family=Lora:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#000000",
+                        "background-light": "#f7f7f7",
+                        "background-dark": "#191919",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Lora", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .serif-title { font-family: 'Lora', serif; }
+        .ui-sans { font-family: 'Manrope', sans-serif; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background-color: white !important; color: black !important; }
+            .surface-card { border: none !important; box-shadow: none !important; background: transparent !important; }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<!-- App Shell Wrapper -->
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Top Navigation -->
+<header class="no-print sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+<div class="flex items-center gap-3">
+<div class="flex h-8 w-8 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-lg">balance</span>
+</div>
+<h1 class="ui-sans text-sm font-extrabold uppercase tracking-[0.2em]">
+                        Simplicity, Love &amp; Justice
+                    </h1>
+</div>
+<nav class="flex items-center gap-6">
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</nav>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="mx-auto flex w-full max-w-4xl flex-1 flex-col px-6 py-12 md:py-20">
+<!-- Page Header -->
+<div class="mb-12 text-center md:text-left">
+<h2 class="ui-sans text-3xl font-extrabold tracking-tight md:text-4xl">Worksheets</h2>
+<p class="mt-4 text-lg text-slate-500 dark:text-slate-400 max-w-2xl font-light leading-relaxed">
+                    A collection of contemplative resources designed for quiet reflection, ethical living, and simple printing.
+                </p>
+</div>
+<!-- Surface Container (Centered List) -->
+<div class="surface-card overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-zinc-900/50 shadow-sm transition-all">
+<!-- Category Tabs -->
+<div class="no-print flex border-b border-slate-200 dark:border-slate-800 px-6">
+<button class="border-b-2 border-primary py-4 px-4 text-sm font-bold tracking-wide">All Resources</button>
+<button class="border-b-2 border-transparent py-4 px-4 text-sm font-medium text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Recently Added</button>
+<button class="border-b-2 border-transparent py-4 px-4 text-sm font-medium text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">Favorites</button>
+</div>
+<!-- Worksheet List -->
+<div class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Item 1 -->
+<div class="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-slate-50 dark:hover:bg-white/5 sm:flex-row sm:items-center">
+<div class="flex-1 space-y-1">
+<h3 class="serif-title text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                                Practicing Presence
+                            </h3>
+<p class="ui-sans text-sm text-slate-500 dark:text-slate-400">
+                                Exploring the architecture of mindfulness in daily life.
+                            </p>
+</div>
+<div class="flex shrink-0 gap-3">
+<button class="ui-sans inline-flex h-10 items-center justify-center rounded bg-primary px-5 text-xs font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90">
+                                View / Print
+                            </button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-slate-50 dark:hover:bg-white/5 sm:flex-row sm:items-center">
+<div class="flex-1 space-y-1">
+<h3 class="serif-title text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                                Justice in the Everyday
+                            </h3>
+<p class="ui-sans text-sm text-slate-500 dark:text-slate-400">
+                                A guide to ethical living and community responsibility.
+                            </p>
+</div>
+<div class="flex shrink-0 gap-3">
+<button class="ui-sans inline-flex h-10 items-center justify-center rounded bg-primary px-5 text-xs font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90">
+                                View / Print
+                            </button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-slate-50 dark:hover:bg-white/5 sm:flex-row sm:items-center">
+<div class="flex-1 space-y-1">
+<h3 class="serif-title text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                                The Architecture of Love
+                            </h3>
+<p class="ui-sans text-sm text-slate-500 dark:text-slate-400">
+                                Reframing relationships through the lens of radical kindness.
+                            </p>
+</div>
+<div class="flex shrink-0 gap-3">
+<button class="ui-sans inline-flex h-10 items-center justify-center rounded bg-primary px-5 text-xs font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90">
+                                View / Print
+                            </button>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-slate-50 dark:hover:bg-white/5 sm:flex-row sm:items-center">
+<div class="flex-1 space-y-1">
+<h3 class="serif-title text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                                Minimalist Stewardship
+                            </h3>
+<p class="ui-sans text-sm text-slate-500 dark:text-slate-400">
+                                Lessons on owning less and being more.
+                            </p>
+</div>
+<div class="flex shrink-0 gap-3">
+<button class="ui-sans inline-flex h-10 items-center justify-center rounded bg-primary px-5 text-xs font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90">
+                                View / Print
+                            </button>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-slate-50 dark:hover:bg-white/5 sm:flex-row sm:items-center">
+<div class="flex-1 space-y-1">
+<h3 class="serif-title text-xl font-medium tracking-wide text-slate-900 dark:text-slate-100">
+                                Morning Contemplation Guide
+                            </h3>
+<p class="ui-sans text-sm text-slate-500 dark:text-slate-400">
+                                Rhythms for beginning the day with intention.
+                            </p>
+</div>
+<div class="flex shrink-0 gap-3">
+<button class="ui-sans inline-flex h-10 items-center justify-center rounded bg-primary px-5 text-xs font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90">
+                                View / Print
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Print Hint Section -->
+<div class="no-print mt-12 flex items-center gap-6 rounded-lg bg-slate-100/50 p-6 dark:bg-white/5">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white dark:bg-zinc-800 shadow-sm">
+<span class="material-symbols-outlined text-slate-400">print</span>
+</div>
+<div>
+<h4 class="ui-sans text-sm font-bold uppercase tracking-widest">Optimized for Paper</h4>
+<p class="mt-1 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        All worksheets automatically switch to a high-contrast, ink-saving <span class="font-bold underline cursor-help" title="A clean layout with serif fonts on white background">Print View</span> when you select Print or View PDF. Designed for quiet reading away from screens.
+                    </p>
+</div>
+</div>
+</main>
+<!-- Minimal Footer -->
+<footer class="no-print border-t border-slate-200 dark:border-slate-800 py-10">
+<div class="mx-auto max-w-5xl px-6 text-center">
+<p class="ui-sans text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">
+                    Quiet Reading &amp; Simple Printing © 2024
+                </p>
+</div>
+</footer>
+</div>
+<!-- Print-only Overlay Hint (Simulated) -->
+<div class="print-only hidden p-10 bg-white text-black">
+<h1 class="serif-title text-4xl mb-6">Worksheet Title</h1>
+<hr class="border-black mb-8"/>
+<div class="serif-title space-y-4 text-lg">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.</p>
+<p>1. How does simplicity influence your daily decisions?</p>
+<div class="border-b border-dotted border-black h-8 w-full mt-4"></div>
+<p>2. Where have you seen justice in action this week?</p>
+<div class="border-b border-dotted border-black h-8 w-full mt-4"></div>
+</div>
+</div>
+</body></html>

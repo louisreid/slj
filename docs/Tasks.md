@@ -72,6 +72,12 @@
 - **Files changed:** `lib/progress.ts` (new), `lib/progress-actions.ts` (new), `app/(app)/course/page.tsx`, `app/(app)/course/[chapterId]/page.tsx` (new), `components/CourseReader.tsx`, `app/(app)/progress/page.tsx`, `docs/Tasks.md`.
 - **Next:** Run T6.
 
+### View all chapters + Progress/Worksheets design (Stitch)
+- [x] Full-book view at `/course/all` with TOC and notes
+- [x] Shared block components (`BlockContent.tsx`), `FullBookReader`, nav link “All chapters”
+- [x] Progress page redesigned to match Stitch (percentage, progress bar, sidebar resume/stats, curriculum cards)
+- [x] Worksheets page redesigned to match Stitch (header, resource list, print hint); placeholder worksheet list and `/worksheets/print/[id]` until T6
+
 ## T6 — Worksheets (print-only)
 - [ ] Store worksheet definitions in `content/worksheets`
 - [ ] Worksheet view + dedicated `/print` route

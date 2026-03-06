@@ -18,6 +18,9 @@ A small course platform:
 - Notes/progress: client reads/writes via Supabase (RLS enforces ownership)
 - Groups: membership-gated shared data (start date + shared notes)
 
+### Chapter mode (interactive vs static)
+Each chapter in the manifest has a **mode**: `interactive` (default) or `static`. **Interactive** chapters: block IDs, note anchoring, “In this chapter” TOC, and section/chapter completion UI. **Static** chapters: typographic reading only—no note affordances, no block-level note targets, no progress UI. Reference-only content (front matter, preface, notes, further reading, etc.) is marked static; session chapters are interactive. The renderer branches on `mode` to show or hide note and progress UI.
+
 ## Modules
 - `content/` source of truth
 - `scripts/` generate `content/manifest.json`

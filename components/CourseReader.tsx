@@ -25,6 +25,8 @@ import {
   BlockWithNoteAction,
 } from "@/components/BlockContent";
 
+const EMPTY_BLOCK_IDS: string[] = [];
+
 export interface CourseReaderProps {
   chapterId: string;
   chapter: Chapter;
@@ -44,6 +46,12 @@ export function CourseReader({
   prevChapter,
   nextChapter,
 }: CourseReaderProps) {
+  const isInteractive = chapter.mode !== "static";
+  const effectiveBlockIds = useMemo(
+    () => (isInteractive ? blockIds : EMPTY_BLOCK_IDS),
+    [isInteractive, blockIds]
+  );
+
   const [user, setUser] = useState<{ id: string } | null>(null);
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState(true);
@@ -72,21 +80,21 @@ export function CourseReader({
   }, [sections]);
 
   const refetch = useCallback(async () => {
-    if (!user || blockIds.length === 0) {
+    if (!user || effectiveBlockIds.length === 0) {
       setNotes([]);
       setLoading(false);
       return;
     }
     setLoading(true);
     try {
-      const data = await fetchNotesForBlocks(supabase, blockIds);
+      const data = await fetchNotesForBlocks(supabase, effectiveBlockIds);
       setNotes(data);
     } catch {
       setNotes([]);
     } finally {
       setLoading(false);
     }
-  }, [user, blockIds, supabase]);
+  }, [user, effectiveBlockIds, supabase]);
 
   useEffect(() => {
     let mounted = true;
@@ -107,10 +115,10 @@ export function CourseReader({
     refetch();
   }, [user, refetch]);
 
-  // Load completed sections, chapter completion, and record last-read on chapter open
+  // Load completed sections, chapter completion, and record last-read on chapter open (interactive only)
   const sectionIdsKey = sectionIds.join(",");
   useEffect(() => {
-    if (!user || sectionIds.length === 0) return;
+    if (!isInteractive || !user || sectionIds.length === 0) return;
     let mounted = true;
     (async () => {
       try {
@@ -143,7 +151,7 @@ export function CourseReader({
     return () => {
       mounted = false;
     };
-  }, [user, sectionIds, sectionIdsKey, chapterId, sections, supabase]);
+  }, [isInteractive, user, sectionIds, sectionIdsKey, chapterId, sections, supabase]);
 
   const notesByBlock = new Map(notes.map((n) => [n.block_id, n]));
 
@@ -218,7 +226,7 @@ export function CourseReader({
 
   const sharedNotesContent = (
     <NotesPanelContent
-      blockIds={blockIds}
+      blockIds={effectiveBlockIds}
       blockIdToLabel={blockIdToLabel}
       notes={notes}
       onUpsert={handleUpsert}
@@ -232,81 +240,83 @@ export function CourseReader({
   return (
     <div className="flex flex-col md:flex-row gap-8 md:gap-6">
       <div className="flex-1 min-w-0 max-w-[78ch]">
-        <nav
-          className="font-sans text-sm mb-8 slj-card p-5"
-          aria-label="Table of contents"
-        >
-          <h2 className="text-white/55 font-medium mb-3 uppercase tracking-[0.12em] text-xs">
-            In this chapter
-          </h2>
-          {user && (
-            <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-white/10">
-              <span className="text-white/75 font-medium">Chapter</span>
-              {chapterComplete ? (
-                <Check
-                  size={16}
-                  strokeWidth={2.5}
-                  className="text-green-500 shrink-0"
-                  aria-label="Chapter complete"
-                />
-              ) : (
-                <button
-                  type="button"
-                  onClick={handleMarkChapterComplete}
-                  className="text-white/45 hover:text-white hover:underline underline-offset-2 text-xs"
-                >
-                  Mark complete
-                </button>
-              )}
-            </div>
-          )}
-          <ul className="space-y-1">
-            {sections.map((section) => {
-              const heading = firstHeadingBlock(section);
-              const sectionId = getSectionId(section);
-              if (!heading || !sectionId) return null;
-              const isComplete = completedSectionIds.has(sectionId);
-              return (
-                <li
-                  key={heading.block_id}
-                  className="flex items-center justify-between gap-2 flex-wrap"
-                >
-                  <Link
-                    href={`#${heading.block_id}`}
-                    className="text-white/75 hover:text-white hover:underline underline-offset-2"
+        {isInteractive && (
+          <nav
+            className="font-sans text-sm mb-8 slj-card p-5"
+            aria-label="Table of contents"
+          >
+            <h2 className="text-white/55 font-medium mb-3 uppercase tracking-[0.12em] text-xs">
+              In this chapter
+            </h2>
+            {user && (
+              <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-white/10">
+                <span className="text-white/75 font-medium">Chapter</span>
+                {chapterComplete ? (
+                  <Check
+                    size={16}
+                    strokeWidth={2.5}
+                    className="text-green-500 shrink-0"
+                    aria-label="Chapter complete"
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    onClick={handleMarkChapterComplete}
+                    className="text-white/45 hover:text-white hover:underline underline-offset-2 text-xs"
                   >
-                    {heading.content}
-                  </Link>
-                  {user && (
-                    <span className="font-sans text-xs shrink-0">
-                      {isComplete ? (
-                        <Check
-                          size={16}
-                          strokeWidth={2.5}
-                          className="text-green-500"
-                          aria-label="Complete"
-                        />
-                      ) : (
-                        <button
-                          type="button"
-                          onClick={() => handleMarkSectionComplete(sectionId)}
-                          className="text-white/45 hover:text-white hover:underline underline-offset-2"
-                        >
-                          Mark complete
-                        </button>
-                      )}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+                    Mark complete
+                  </button>
+                )}
+              </div>
+            )}
+            <ul className="space-y-1">
+              {sections.map((section) => {
+                const heading = firstHeadingBlock(section);
+                const sectionId = getSectionId(section);
+                if (!heading || !sectionId) return null;
+                const isComplete = completedSectionIds.has(sectionId);
+                return (
+                  <li
+                    key={heading.block_id}
+                    className="flex items-center justify-between gap-2 flex-wrap"
+                  >
+                    <Link
+                      href={`#${heading.block_id}`}
+                      className="text-white/75 hover:text-white hover:underline underline-offset-2"
+                    >
+                      {heading.content}
+                    </Link>
+                    {user && (
+                      <span className="font-sans text-xs shrink-0">
+                        {isComplete ? (
+                          <Check
+                            size={16}
+                            strokeWidth={2.5}
+                            className="text-green-500"
+                            aria-label="Complete"
+                          />
+                        ) : (
+                          <button
+                            type="button"
+                            onClick={() => handleMarkSectionComplete(sectionId)}
+                            className="text-white/45 hover:text-white hover:underline underline-offset-2"
+                          >
+                            Mark complete
+                          </button>
+                        )}
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        )}
 
         <article className="font-serif slj-shell p-6 md:p-10">
           {sections.map((section) =>
             section.blocks.map((block) =>
-              block.type === "paragraph" ? (
+              isInteractive && block.type === "paragraph" ? (
                 <BlockWithNoteAction
                   key={block.block_id}
                   block={block}
@@ -351,64 +361,68 @@ export function CourseReader({
         </nav>
       </div>
 
-      {/* Desktop: fixed-width notes panel */}
-      <aside
-        className="hidden md:block w-[360px] shrink-0 slj-shell p-5"
-        aria-label="Notes"
-      >
-        {loading ? (
-          <p className="font-sans text-sm text-white/70">
-            Loading notes…
-          </p>
-        ) : (
-          sharedNotesContent
-        )}
-      </aside>
-
-      {/* Mobile: notes FAB + drawer */}
-      <>
-        <button
-          type="button"
-          onClick={() => setDrawerOpen(true)}
-          className="md:hidden fixed bottom-6 right-6 px-4 py-2 rounded-xl border border-white/15 bg-[#111111] text-white text-sm font-sans"
+      {/* Desktop: fixed-width notes panel (interactive only) */}
+      {isInteractive && (
+        <aside
+          className="hidden md:block w-[360px] shrink-0 slj-shell p-5"
+          aria-label="Notes"
         >
-          Notes
-        </button>
-        {drawerOpen && (
-          <>
-            <div
-              className="md:hidden fixed inset-0 z-40 bg-black/60"
-              onClick={() => setDrawerOpen(false)}
-              aria-hidden
-            />
-            <aside
-              className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-[min(340px,88vw)] bg-[#111111] border-l border-white/10 p-4 overflow-auto"
-              aria-label="Notes"
-            >
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-sm font-sans font-medium text-white">
-                  Notes
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setDrawerOpen(false)}
-                  className="h-8 w-8 rounded-lg border border-white/15 bg-white/5 text-white"
-                  aria-label="Close notes"
-                >
-                  ✕
-                </button>
-              </div>
-              {loading ? (
-                <p className="font-sans text-sm text-white/70">
-                  Loading notes…
-                </p>
-              ) : (
-                sharedNotesContent
-              )}
-            </aside>
-          </>
-        )}
-      </>
+          {loading ? (
+            <p className="font-sans text-sm text-white/70">
+              Loading notes…
+            </p>
+          ) : (
+            sharedNotesContent
+          )}
+        </aside>
+      )}
+
+      {/* Mobile: notes FAB + drawer (interactive only) */}
+      {isInteractive && (
+        <>
+          <button
+            type="button"
+            onClick={() => setDrawerOpen(true)}
+            className="md:hidden fixed bottom-6 right-6 px-4 py-2 rounded-xl border border-white/15 bg-[#111111] text-white text-sm font-sans"
+          >
+            Notes
+          </button>
+          {drawerOpen && (
+            <>
+              <div
+                className="md:hidden fixed inset-0 z-40 bg-black/60"
+                onClick={() => setDrawerOpen(false)}
+                aria-hidden
+              />
+              <aside
+                className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-[min(340px,88vw)] bg-[#111111] border-l border-white/10 p-4 overflow-auto"
+                aria-label="Notes"
+              >
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-sm font-sans font-medium text-white">
+                    Notes
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => setDrawerOpen(false)}
+                    className="h-8 w-8 rounded-lg border border-white/15 bg-white/5 text-white"
+                    aria-label="Close notes"
+                  >
+                    ✕
+                  </button>
+                </div>
+                {loading ? (
+                  <p className="font-sans text-sm text-white/70">
+                    Loading notes…
+                  </p>
+                ) : (
+                  sharedNotesContent
+                )}
+              </aside>
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 }

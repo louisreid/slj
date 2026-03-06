@@ -75,3 +75,26 @@
     color: var(--slj-text-faint);
   }
 }
+
+/* Print (worksheets): no chrome, high contrast, page breaks */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .worksheet-print-view {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .worksheet-content {
+    color: #000 !important;
+  }
+  .worksheet-content table {
+    page-break-inside: avoid;
+  }
+  .worksheet-content section {
+    page-break-inside: avoid;
+  }
+  @page {
+    margin: 1.5cm;
+  }
+}

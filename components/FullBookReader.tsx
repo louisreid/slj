@@ -174,7 +174,7 @@ export function FullBookReader({
               </h1>
               {chapter.sections.map((section) =>
                 section.blocks.map((block) =>
-                  block.type === "paragraph" ? (
+                  chapter.mode !== "static" && block.type === "paragraph" ? (
                     <BlockWithNoteAction
                       key={block.block_id}
                       block={block}

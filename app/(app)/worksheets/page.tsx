@@ -1,38 +1,11 @@
 import Link from "next/link";
 import { Printer } from "lucide-react";
 import { PageShell } from "@/components/ui/surfaces";
+import { getWorksheets } from "@/lib/worksheets";
 
-const PLACEHOLDER_WORKSHEETS = [
-  {
-    id: "practicing-presence",
-    title: "Practicing Presence",
-    description: "Exploring the architecture of mindfulness in daily life.",
-  },
-  {
-    id: "justice-everyday",
-    title: "Justice in the Everyday",
-    description:
-      "A guide to ethical living and community responsibility.",
-  },
-  {
-    id: "architecture-of-love",
-    title: "The Architecture of Love",
-    description:
-      "Reframing relationships through the lens of radical kindness.",
-  },
-  {
-    id: "minimalist-stewardship",
-    title: "Minimalist Stewardship",
-    description: "Lessons on owning less and being more.",
-  },
-  {
-    id: "morning-contemplation",
-    title: "Morning Contemplation Guide",
-    description: "Rhythms for beginning the day with intention.",
-  },
-];
+export default async function WorksheetsPage() {
+  const worksheets = getWorksheets();
 
-export default function WorksheetsPage() {
   return (
     <PageShell className="max-w-4xl mx-auto">
       {/* Page header — Stitch-style */}
@@ -57,7 +30,7 @@ export default function WorksheetsPage() {
 
         {/* Worksheet list */}
         <div className="divide-y divide-white/10">
-          {PLACEHOLDER_WORKSHEETS.map((ws) => (
+          {worksheets.map((ws) => (
             <div
               key={ws.id}
               className="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-white/5 sm:flex-row sm:items-center"
@@ -73,7 +46,15 @@ export default function WorksheetsPage() {
                   href={`/worksheets/print/${ws.id}`}
                   className="font-sans inline-flex h-10 items-center justify-center rounded bg-white px-5 text-xs font-bold uppercase tracking-widest text-black transition-opacity hover:opacity-90"
                 >
-                  View / Print
+                  Open
+                </Link>
+                <Link
+                  href={`/worksheets/print/${ws.id}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-sans inline-flex h-10 items-center justify-center rounded border border-white/30 px-5 text-xs font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90"
+                >
+                  Print
                 </Link>
               </div>
             </div>

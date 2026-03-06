@@ -79,12 +79,12 @@
 - [x] Worksheets page redesigned to match Stitch (header, resource list, print hint); placeholder worksheet list and `/worksheets/print/[id]` until T6
 
 ## T6 — Worksheets (print-only)
-- [ ] Store worksheet definitions in `content/worksheets`
-- [ ] Worksheet view + dedicated `/print` route
-- [ ] Print CSS: page breaks, margins, no UI chrome
+- [x] Store worksheet definitions in `content/worksheets`
+- [x] Worksheet view + dedicated `/print` route (no app shell)
+- [x] Print CSS: page breaks, margins, no UI chrome
 ### Acceptance criteria
 - [ ] Prints well in Chrome + Safari
-- [ ] Tables have writing space
+- [x] Tables have writing space
 
 ## T7 — Groups (minimal)
 - [x] Create group

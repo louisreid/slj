@@ -25,10 +25,13 @@ interface Section {
   blocks: Block[];
 }
 
+type ChapterMode = "interactive" | "static";
+
 interface Chapter {
   id: string;
   file: string;
   title: string;
+  mode: ChapterMode;
   sections: Section[];
 }
 
@@ -42,6 +45,40 @@ function stableBlockId(chapterId: string, content: string): string {
     .digest("hex")
     .slice(0, 12);
   return `${chapterId}-${hash}`;
+}
+
+/** Static = reference-only (no note affordances). Interactive = default for sessions. */
+function getChapterMode(chapterId: string, fileName: string): ChapterMode {
+  const id = chapterId.toLowerCase();
+  const file = fileName.toLowerCase();
+  if (id.includes("front-matter") || file.includes("front-matter")) return "static";
+  if (id.includes("preface") || file.includes("preface")) return "static";
+  if (id.includes("notes") || file.includes("notes")) return "static";
+  if (id.includes("reviews") || file.includes("reviews")) return "static";
+  if (id.includes("foreword") || file.includes("foreword")) return "static";
+  if (id.includes("introduction") || file.includes("introduction")) return "static";
+  if (id.includes("further-reading") || file.includes("further-reading")) return "static";
+  if (id === "contents" || file.includes("contents")) return "static";
+  return "interactive";
+}
+
+/** If the trimmed line is a standalone uppercase heading, return heading level (1–3). */
+function getUppercaseHeadingLevel(trimmed: string): number | null {
+  if (trimmed === "" || trimmed !== trimmed.toUpperCase()) return null;
+  if (/^SESSION\s+(ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN)$/i.test(trimmed))
+    return 1;
+  const upper = trimmed.toUpperCase();
+  const h3Markers = [
+    "GOALS",
+    "READING",
+    "DISCUSSION",
+    "ACTION",
+    "PRAYER",
+  ];
+  if (h3Markers.includes(upper)) return 3;
+  if (upper === "FURTHER READING" || upper.startsWith("FURTHER READING /") || upper.startsWith("FURTHER READING AND"))
+    return 3;
+  return 2;
 }
 
 function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; content: string }[] {
@@ -61,7 +98,7 @@ function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; con
       i++;
       continue;
     }
-    // Paragraph: collect until blank line or heading
+    // Paragraph: collect until blank line or # heading
     const paragraphLines: string[] = [];
     while (i < lines.length) {
       const l = lines[i];
@@ -71,6 +108,14 @@ function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; con
         break;
       }
       if (l.trim() !== "") {
+        if (paragraphLines.length === 0) {
+          const level = getUppercaseHeadingLevel(l.trim());
+          if (level != null) {
+            blocks.push({ type: "heading", level, content: l.trim() });
+            i++;
+            break;
+          }
+        }
         paragraphLines.push(l);
       }
       i++;
@@ -126,10 +171,12 @@ function processChapter(fileName: string): Chapter | null {
     }
   }
 
+  const mode = getChapterMode(chapterId, fileName);
   return {
     id: chapterId,
     file: fileName,
     title,
+    mode,
     sections,
   };
 }

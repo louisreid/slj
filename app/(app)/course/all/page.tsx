@@ -7,6 +7,7 @@ export default function AllChaptersPage() {
   const blockIdToLabel: Record<string, string> = {};
 
   for (const chapter of chapters) {
+    if (chapter.mode === "static") continue;
     const blocks = getBlocks(chapter);
     for (const b of blocks) {
       blockIds.push(b.block_id);

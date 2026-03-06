@@ -10,4 +10,4 @@ export {
   getBlocks,
   getBlockById,
 } from "./loader";
-export type { Chapter, Section, Block, Manifest, BlockType } from "./types";
+export type { Chapter, Section, Block, Manifest, BlockType, ChapterMode } from "./types";

@@ -16,10 +16,14 @@ export interface Section {
   blocks: Block[];
 }
 
+export type ChapterMode = "interactive" | "static";
+
 export interface Chapter {
   id: string;
   file: string;
   title: string;
+  /** Default "interactive". Static = no note affordances or progress UI. */
+  mode?: ChapterMode;
   sections: Section[];
 }
 

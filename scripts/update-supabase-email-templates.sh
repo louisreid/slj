@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Update Supabase Auth email templates (magic link + confirmation) via Management API.
+# Update Supabase Auth email templates (email code + confirmation) via Management API.
 # Requires SUPABASE_ACCESS_TOKEN in .env.local (or env). Optional: SUPABASE_PROJECT_REF or pass as first arg.
 # See docs/AuthEmailBranding.md.
 
@@ -43,8 +43,9 @@ if [ "$HTTP_CODE" != "200" ]; then
 fi
 echo "Token OK."
 
-# Templates use {{ .ConfirmationURL }} so emailRedirectTo from sign-in is honored (localhost fix).
-MAGIC_LINK_HTML='<h2>Sign in to Simplicity, Love &amp; Justice</h2><p>Click the link below to sign in:</p><p><a href="{{ .ConfirmationURL }}">Sign in</a></p>'
+# The sign-in email uses {{ .Token }} instead of a one-click link so security
+# scanners do not consume the one-time token before the user does.
+MAGIC_LINK_HTML='<h2>Sign in to Simplicity, Love &amp; Justice</h2><p>Enter this one-time sign-in code in the app:</p><p style="font-size: 2rem; font-weight: 700; letter-spacing: 0.16em;">{{ .Token }}</p><p>If you did not request this code, you can ignore this email.</p>'
 CONFIRMATION_HTML='<h2>Confirm your account</h2><p>Click the link below to confirm your account for Simplicity, Love &amp; Justice:</p><p><a href="{{ .ConfirmationURL }}">Confirm account</a></p>'
 
 PAYLOAD="$(jq -n \
@@ -69,4 +70,4 @@ if [ "$HTTP_CODE" != "200" ]; then
   cat /tmp/slj-auth-patch.json 2>/dev/null
   exit 1
 fi
-echo "Done. Magic link and confirmation templates updated."
+echo "Done. Sign-in code and confirmation templates updated."

@@ -1,6 +1,6 @@
 # Auth email branding — Simplicity, Love & Justice
 
-Magic link and confirmation emails are customized for the app and use `{{ .ConfirmationURL }}` so redirects (e.g. localhost) work correctly.
+Sign-in emails are customized for the app and use `{{ .Token }}` so users enter a one-time code in the app instead of clicking a single-use magic link. This avoids email-security scanners consuming the sign-in token before the user can use it. Confirmation emails still use `{{ .ConfirmationURL }}`.
 
 ---
 
@@ -8,7 +8,7 @@ Magic link and confirmation emails are customized for the app and use `{{ .Confi
 
 The app’s script applies branded subjects and HTML bodies without “powered by Supabase”:
 
-- **Magic link:** subject “Sign in to Simplicity, Love & Justice”; body uses `{{ .ConfirmationURL }}`.
+- **Sign-in code:** subject “Sign in to Simplicity, Love & Justice”; body uses `{{ .Token }}`.
 - **Confirmation:** subject “Confirm your account — Simplicity, Love & Justice”; body uses `{{ .ConfirmationURL }}`.
 
 ### Prerequisites
@@ -34,12 +34,12 @@ The script will:
 
 1. Load `.env.local` (if present).
 2. Verify the token with a GET on the auth config.
-3. PATCH the auth config with the magic link and confirmation subject + HTML template.
+3. PATCH the auth config with the sign-in-code and confirmation subject + HTML template.
 
 ### Verify
 
 - In **Supabase Dashboard → Authentication → Email Templates**, confirm Magic Link and Confirm signup show the new subject and content.
-- Trigger a magic link from `/auth/sign-in` (e.g. with localhost redirect) and confirm the link uses your `emailRedirectTo` and the email looks correct.
+- Trigger sign-in from `/auth/sign-in` and confirm the email contains a one-time code, then use that code in the app to complete sign-in.
 
 ---
 

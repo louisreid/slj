@@ -2,14 +2,14 @@
 
 ## First-time user
 1) Open course site
-2) Enter email → receive magic link
+2) Enter email → receive one-time sign-in code
 3) Sign in
 4) Reader opens at beginning (or a “Resume” prompt if progress exists)
 5) Create a note next to a paragraph
 6) Mark section complete
 
 Error states:
-- invalid/expired magic link → request new link
+- invalid/expired sign-in code → request a new code
 - offline → show “can’t save note” and retry
 
 ## Returning user

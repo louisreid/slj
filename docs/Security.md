@@ -1,7 +1,7 @@
 # Security
 
 ## Auth
-- Supabase magic link email auth (V1)
+- Supabase email OTP auth (V1)
 
 ## Data boundaries
 - Notes and progress are strictly private to the user

@@ -1,7 +1,7 @@
 # CHECKPOINT — T1 (Supabase setup: Auth + tables + RLS)
 
 ## Summary
-- Supabase magic-link email auth: sign-in page, callback route, sign-out route; session handled via `@supabase/ssr` (browser + server clients + middleware refresh).
+- Supabase email auth: sign-in page, callback route, sign-out route; session handled via `@supabase/ssr` (browser + server clients + middleware refresh).
 - SQL migrations add profiles, notes, progress, groups, group_members per `docs/DataModel.md`; RLS enabled on all five tables with ownership/membership policies.
 - Protected routes: `/course`, `/worksheets`, `/groups` require auth; unauthenticated users redirect to `/auth/sign-in` with `next` preserved.
 - No service role key in client code; anon key only.

@@ -11,7 +11,7 @@ Before deploy, configure Auth URLs in **Supabase Dashboard â†’ Authentication â†
   - `https://<your-production-domain>/auth/callback`
   - `http://localhost:3000/auth/callback`
 
-Magic-link emails use the request origin; if the production URL is not in Redirect URLs, sign-in will fail.
+Auth callbacks use the request origin; if the production URL is not in Redirect URLs, sign-in will fail.
 
 ## Draft deploy
 - [ ] Env vars set in Vercel
@@ -19,7 +19,7 @@ Magic-link emails use the request origin; if the production URL is not in Redire
 - [ ] Migrations applied
 - [ ] RLS enabled for all tables
 - [ ] Manual smoke test:
-  - [ ] sign in (magic link)
+  - [ ] sign in (email code)
   - [ ] read content
   - [ ] create note
   - [ ] print worksheet

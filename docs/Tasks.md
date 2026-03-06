@@ -12,11 +12,11 @@
 - [x] `pnpm typecheck` passes
 
 ## T1 — Supabase setup (Auth + tables + RLS)
-- [x] Enable Supabase Auth: magic link email
+- [x] Enable Supabase Auth: email sign-in
 - [x] Create tables: profiles, notes, progress, groups, group_members
 - [x] Enable RLS + policies for each table
 ### Acceptance criteria
-- [x] User can sign in via magic link
+- [x] User can sign in via email code
 - [x] User can only read/write their own notes + progress
 - [x] Group content only visible to group members
 
@@ -54,7 +54,7 @@
 
 #### T4 CHECKPOINT
 - **Summary:** Notes CRUD (create via “Add note for this paragraph” on each block; edit/delete in notes panel). Notes panel (desktop) and notes drawer (mobile) show notes for the current chapter; RLS enforces private notes; persistence via Supabase.
-- **How to test:** (1) Sign in with magic link. (2) Open `/course`. (3) Click “Add note for this paragraph” on a paragraph; note appears in the right panel (desktop) or open “Notes” drawer (mobile). (4) Edit note text and blur; refresh page — note persists. (5) Delete a note via “Delete note”; refresh — note is gone. (6) Sign out; panel shows “Sign in to add notes.”
+- **How to test:** (1) Sign in with an emailed code. (2) Open `/course`. (3) Click “Add note for this paragraph” on a paragraph; note appears in the right panel (desktop) or open “Notes” drawer (mobile). (4) Edit note text and blur; refresh page — note persists. (5) Delete a note via “Delete note”; refresh — note is gone. (6) Sign out; panel shows “Sign in to add notes.”
 - **Files changed:** `lib/notes.ts` (new), `components/NotesPanelContent.tsx` (new), `components/CourseReader.tsx` (new), `app/(app)/course/page.tsx` (uses CourseReader, blockIds, blockIdToLabel), `components/NotesDrawerPlaceholder.tsx` (removed), `docs/Tasks.md`.
 - **Next:** Run T5.
 

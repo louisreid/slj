@@ -66,7 +66,7 @@ In **Supabase Dashboard → Authentication → URL Configuration**:
 
 Save.
 
-**Email branding (optional):** For custom magic-link and confirmation email copy and optional SMTP, see [AuthEmailBranding.md](AuthEmailBranding.md).
+**Email branding (optional):** For custom sign-in-code and confirmation email copy and optional SMTP, see [AuthEmailBranding.md](AuthEmailBranding.md).
 
 ### C) DNS (domain owner)
 
@@ -139,7 +139,7 @@ Do **not** add `SUPABASE_SERVICE_ROLE_KEY` for V1.
 
 ---
 
-## 3) Supabase Auth — magic-link URLs
+## 3) Supabase Auth — sign-in URLs
 
 In **Supabase Dashboard → Authentication → URL Configuration** (or **Project Settings → Auth**):
 
@@ -177,7 +177,7 @@ Save.
 
 On **https://slj.talksfromthewarehouse.co.uk**:
 
-1. **Sign in via magic link** — `/auth/sign-in`, enter email, click link in email; confirm redirect and signed-in state.
+1. **Sign in via email code** — `/auth/sign-in`, enter email, enter the emailed code, and confirm signed-in state.
 2. **Load course reader** — Open course; confirm content loads.
 3. **Create note** — Add a private margin note to a block; confirm it saves and appears.
 4. **Mark progress** — Toggle section completion; confirm it persists after refresh.

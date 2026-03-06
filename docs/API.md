@@ -3,7 +3,7 @@
 V1 uses Supabase directly with RLS; avoid custom API routes unless necessary.
 
 ## Operations
-- Auth: magic link (email)
+- Auth: email OTP
 - Notes:
   - create/update/delete note for { user_id, block_id }
 - Progress:

@@ -13,6 +13,8 @@ export interface NotesPanelContentProps {
   scrollToBlockId: string | null;
   onScrolledToBlock?: () => void;
   isSignedIn: boolean;
+  title?: string;
+  emptyMessage?: string;
 }
 
 type SaveStatus = "idle" | "saving" | "saved";
@@ -51,7 +53,7 @@ function NoteCard({
       className="slj-card p-3 mb-3 last:mb-0"
       data-note-block-id={note.block_id}
     >
-      <p className="font-sans text-xs text-white/55 mb-2 truncate">
+      <p className="mb-2 truncate font-sans text-xs text-black/45">
         {label}
       </p>
       <textarea
@@ -63,13 +65,13 @@ function NoteCard({
       />
       <div className="mt-2 flex items-center justify-end gap-2">
         {saveStatus === "saving" && (
-          <span className="flex items-center gap-1 text-xs text-white/55" role="status">
+          <span className="flex items-center gap-1 text-xs text-black/45" role="status">
             <Loader2 size={12} className="animate-spin" aria-hidden />
             Saving…
           </span>
         )}
         {saveStatus === "saved" && (
-          <span className="flex items-center gap-1 text-xs text-green-500" role="status">
+          <span className="flex items-center gap-1 text-xs text-black/45" role="status">
             <Check size={12} aria-hidden />
             Saved
           </span>
@@ -77,7 +79,7 @@ function NoteCard({
         <button
           type="button"
           onClick={() => onDelete(note.id)}
-          className="p-1 text-white/50 hover:text-white transition-colors rounded"
+          className="rounded p-1 text-black/45 transition-colors hover:text-black"
           aria-label="Delete note"
         >
           <Trash2 size={14} strokeWidth={2} />
@@ -96,6 +98,8 @@ export function NotesPanelContent({
   scrollToBlockId,
   onScrolledToBlock,
   isSignedIn,
+  title = "Notes",
+  emptyMessage = "No notes yet. Use “Add note” next to a paragraph to add one.",
 }: NotesPanelContentProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -112,7 +116,7 @@ export function NotesPanelContent({
 
   if (!isSignedIn) {
     return (
-      <p className="font-sans text-sm text-white/70">
+      <p className="font-sans text-sm text-black/65">
         Sign in to add notes.
       </p>
     );
@@ -125,12 +129,12 @@ export function NotesPanelContent({
 
   return (
     <div ref={scrollRef}>
-      <h2 className="font-sans text-sm font-medium text-white mb-3">
-        Notes for this chapter
+      <h2 className="mb-3 font-sans text-sm font-medium text-black">
+        {title}
       </h2>
       {notesInOrder.length === 0 ? (
-        <p className="font-sans text-sm text-white/70">
-          No notes yet. Use “Add note” next to a paragraph to add one.
+        <p className="font-sans text-sm leading-6 text-black/65">
+          {emptyMessage}
         </p>
       ) : (
         <ul className="list-none p-0 m-0">

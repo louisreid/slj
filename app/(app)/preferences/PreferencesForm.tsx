@@ -11,7 +11,7 @@ export function PreferencesForm({ userEmail }: { userEmail: string }) {
       <div>
         <label
           htmlFor="confirm-email"
-          className="block text-sm text-white/70 mb-1"
+          className="mb-1 block text-sm text-black/65"
         >
           Type your email to confirm: {userEmail}
         </label>
@@ -26,14 +26,14 @@ export function PreferencesForm({ userEmail }: { userEmail: string }) {
         />
       </div>
       {state?.error && (
-        <p className="text-sm text-red-400" role="alert">
+        <p className="text-sm text-black" role="alert">
           {state.error}
         </p>
       )}
       <button
         type="submit"
         disabled={isPending}
-        className="slj-button px-4 py-2 text-sm bg-red-900/40 border-red-700/50 hover:bg-red-900/60"
+        className="slj-button-secondary px-4 py-2 text-sm"
       >
         {isPending ? "Deleting…" : "Delete my account"}
       </button>

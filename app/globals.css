@@ -4,13 +4,16 @@
 
 @layer base {
   :root {
-    --slj-bg: #0b0b0b;
-    --slj-surface: #111111;
-    --slj-surface-muted: #171717;
-    --slj-border: rgba(255, 255, 255, 0.14);
-    --slj-text: #ffffff;
-    --slj-text-muted: rgba(255, 255, 255, 0.72);
-    --slj-text-faint: rgba(255, 255, 255, 0.5);
+    --slj-bg: #fff;
+    --slj-surface: #fff;
+    --slj-surface-muted: #fff;
+    --slj-border: #e5e7eb;
+    --slj-text: #000;
+    --slj-text-muted: rgba(0, 0, 0, 0.65);
+    --slj-text-faint: rgba(0, 0, 0, 0.45);
+    --slj-hover: rgba(0, 0, 0, 0.04);
+    --slj-active: rgba(0, 0, 0, 0.06);
+    --slj-focus: rgba(0, 0, 0, 0.3);
   }
 
   body {
@@ -28,20 +31,19 @@
   .slj-shell {
     border: 1px solid var(--slj-border);
     background: var(--slj-surface);
-    border-radius: 16px;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    border-radius: 24px;
   }
 
   .slj-card {
     border: 1px solid var(--slj-border);
     background: var(--slj-surface-muted);
-    border-radius: 14px;
+    border-radius: 20px;
   }
 
   .slj-input {
     border: 1px solid var(--slj-border);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.02);
+    background: #fff;
     color: var(--slj-text);
   }
 
@@ -51,20 +53,28 @@
 
   .slj-input:focus {
     outline: none;
-    border-color: rgba(255, 255, 255, 0.38);
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.14);
+    border-color: var(--slj-focus);
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
   }
 
   .slj-button {
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: #ffffff;
-    color: #000000;
+    border: 1px solid #000;
+    background: #000;
+    color: #fff;
     font-weight: 600;
   }
 
   .slj-button:disabled {
     opacity: 0.55;
+  }
+
+  .slj-button-secondary {
+    border-radius: 12px;
+    border: 1px solid var(--slj-border);
+    background: #fff;
+    color: #000;
+    font-weight: 500;
   }
 
   .slj-muted {

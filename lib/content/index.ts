@@ -10,4 +10,10 @@ export {
   getBlocks,
   getBlockById,
 } from "./loader";
+export {
+  getChapterDisplayTitle,
+  getChapterDisplayTitleMap,
+  getFirstInteractiveChapter,
+  getResumeHref,
+} from "./display";
 export type { Chapter, Section, Block, Manifest, BlockType, ChapterMode } from "./types";

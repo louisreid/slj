@@ -10,18 +10,24 @@ import {
   type Note,
 } from "@/lib/notes";
 import { upsertProgress } from "@/lib/progress";
-import type { Chapter, Section } from "@/lib/content";
+import type { Chapter } from "@/lib/content";
 import { NotesPanelContent } from "@/components/NotesPanelContent";
-import { getSectionId, BlockNode, BlockWithNoteAction } from "@/components/BlockContent";
+import {
+  getSectionId,
+  BlockNode,
+  BlockWithNoteAction,
+} from "@/components/BlockContent";
 
 export interface FullBookReaderProps {
   chapters: Chapter[];
+  chapterTitles: Record<string, string>;
   blockIds: string[];
   blockIdToLabel: Record<string, string>;
 }
 
 export function FullBookReader({
   chapters,
+  chapterTitles,
   blockIds,
   blockIdToLabel,
 }: FullBookReaderProps) {
@@ -33,14 +39,18 @@ export function FullBookReader({
   const supabase = createClient();
 
   const blockIdToSectionId = useMemo(() => {
-    const m = new Map<string, string>();
-    for (const ch of chapters) {
-      for (const section of ch.sections) {
-        const sid = getSectionId(section);
-        if (sid) for (const b of section.blocks) m.set(b.block_id, sid);
+    const map = new Map<string, string>();
+    for (const chapter of chapters) {
+      for (const section of chapter.sections) {
+        const sectionId = getSectionId(section);
+        if (sectionId) {
+          for (const block of section.blocks) {
+            map.set(block.block_id, sectionId);
+          }
+        }
       }
     }
-    return m;
+    return map;
   }, [chapters]);
 
   const refetch = useCallback(async () => {
@@ -49,6 +59,7 @@ export function FullBookReader({
       setLoading(false);
       return;
     }
+
     setLoading(true);
     try {
       const data = await fetchNotesForBlocks(supabase, blockIds);
@@ -62,9 +73,12 @@ export function FullBookReader({
 
   useEffect(() => {
     let mounted = true;
-    supabase.auth.getUser().then(({ data: { user: u } }) => {
-      if (mounted) setUser(u ? { id: u.id } : null);
+    supabase.auth.getUser().then(({ data: { user: authUser } }) => {
+      if (mounted) {
+        setUser(authUser ? { id: authUser.id } : null);
+      }
     });
+
     return () => {
       mounted = false;
     };
@@ -76,49 +90,52 @@ export function FullBookReader({
       setLoading(false);
       return;
     }
+
     refetch();
   }, [user, refetch]);
 
   useEffect(() => {
     const hash = window.location.hash.slice(1);
     if (!hash) return;
-    const el = document.getElementById(hash);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    const element = document.getElementById(hash);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, []);
 
-  const notesByBlock = new Map(notes.map((n) => [n.block_id, n]));
+  const notesByBlock = new Map(notes.map((note) => [note.block_id, note]));
 
   const handleAddOrEditNote = useCallback(
-    async (block_id: string) => {
+    async (blockId: string) => {
       if (!user) return;
+
       try {
-        await upsertNote(supabase, block_id, "");
-        const sectionId = blockIdToSectionId.get(block_id);
+        await upsertNote(supabase, blockId, "");
+        const sectionId = blockIdToSectionId.get(blockId);
         if (sectionId) {
-          await upsertProgress(supabase, sectionId, { last_block_id: block_id });
+          await upsertProgress(supabase, sectionId, { last_block_id: blockId });
         }
         await refetch();
-        setScrollToBlockId(block_id);
+        setScrollToBlockId(blockId);
         setDrawerOpen(true);
       } catch {
         // ignore
       }
     },
-    [user, supabase, refetch, blockIdToSectionId]
+    [user, supabase, blockIdToSectionId, refetch]
   );
 
   const handleUpsert = useCallback(
-    async (block_id: string, body: string) => {
-      await upsertNote(supabase, block_id, body);
-      const sectionId = blockIdToSectionId.get(block_id);
+    async (blockId: string, body: string) => {
+      await upsertNote(supabase, blockId, body);
+      const sectionId = blockIdToSectionId.get(blockId);
       if (sectionId) {
-        await upsertProgress(supabase, sectionId, { last_block_id: block_id });
+        await upsertProgress(supabase, sectionId, { last_block_id: blockId });
       }
       await refetch();
     },
-    [supabase, refetch, blockIdToSectionId]
+    [supabase, blockIdToSectionId, refetch]
   );
 
   const handleDelete = useCallback(
@@ -139,17 +156,16 @@ export function FullBookReader({
       scrollToBlockId={scrollToBlockId}
       onScrolledToBlock={() => setScrollToBlockId(null)}
       isSignedIn={!!user}
+      title="Notes across the course"
+      emptyMessage="Use “Add note” next to a session paragraph to add a note."
     />
   );
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 md:gap-6">
-      <div className="flex-1 min-w-0 max-w-[78ch]">
-        <nav
-          className="font-sans text-sm mb-8 slj-card p-5"
-          aria-label="Table of contents"
-        >
-          <h2 className="text-white/55 font-medium mb-3 uppercase tracking-[0.12em] text-xs">
+    <div className="flex flex-col gap-8 md:flex-row md:gap-6">
+      <div className="min-w-0 max-w-[78ch] flex-1">
+        <nav className="mb-8 slj-card p-5 font-sans text-sm" aria-label="Table of contents">
+          <h2 className="mb-3 font-sans text-xs uppercase tracking-[0.18em] text-black/45">
             All chapters
           </h2>
           <ul className="space-y-1">
@@ -157,88 +173,97 @@ export function FullBookReader({
               <li key={chapter.id}>
                 <Link
                   href={`#${chapter.id}`}
-                  className="text-white/75 hover:text-white hover:underline underline-offset-2"
+                  className="text-black/65 hover:text-black hover:underline underline-offset-4"
                 >
-                  {chapter.title}
+                  {chapterTitles[chapter.id] ?? chapter.title}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
 
-        <article className="font-serif slj-shell p-6 md:p-10">
+        <article className="slj-shell p-6 font-serif md:p-10">
           {chapters.map((chapter) => (
-            <section key={chapter.id} id={chapter.id}>
-              <h1 className="font-serif font-semibold text-[#fff] mt-10 first:mt-0 text-3xl leading-tight">
-                {chapter.title}
-              </h1>
-              {chapter.sections.map((section) =>
-                section.blocks.map((block) =>
-                  chapter.mode !== "static" && block.type === "paragraph" ? (
-                    <BlockWithNoteAction
-                      key={block.block_id}
-                      block={block}
-                      hasNote={notesByBlock.has(block.block_id)}
-                      onAddOrEditNote={handleAddOrEditNote}
-                    />
-                  ) : (
-                    <BlockNode key={block.block_id} block={block} />
+            <section key={chapter.id} id={chapter.id} className="mt-12 first:mt-0">
+              <div className="mb-6 border-b border-[#E5E7EB] pb-4">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h1 className="font-serif text-4xl font-semibold leading-none text-black md:text-5xl">
+                    {chapterTitles[chapter.id] ?? chapter.title}
+                  </h1>
+                  {chapter.mode === "static" ? (
+                    <span className="font-sans text-[11px] uppercase tracking-[0.18em] text-black/45">
+                      Static reading
+                    </span>
+                  ) : null}
+                </div>
+              </div>
+              <div>
+                {chapter.sections.map((section) =>
+                  section.blocks.map((block) =>
+                    chapter.mode !== "static" && block.type === "paragraph" ? (
+                      <BlockWithNoteAction
+                        key={block.block_id}
+                        block={block}
+                        hasNote={notesByBlock.has(block.block_id)}
+                        onAddOrEditNote={handleAddOrEditNote}
+                      />
+                    ) : (
+                      <BlockNode key={block.block_id} block={block} />
+                    )
                   )
-                )
-              )}
+                )}
+              </div>
             </section>
           ))}
         </article>
       </div>
 
-      {/* Desktop: fixed-width notes panel */}
       <aside
-        className="hidden md:block w-[360px] shrink-0 slj-shell p-5"
+        className="hidden w-[360px] shrink-0 slj-shell p-5 md:block"
         aria-label="Notes"
       >
         {loading ? (
-          <p className="font-sans text-sm text-white/70">Loading notes…</p>
+          <p className="font-sans text-sm text-black/65">Loading notes...</p>
         ) : (
           sharedNotesContent
         )}
       </aside>
 
-      {/* Mobile: notes FAB + drawer */}
       <>
         <button
           type="button"
           onClick={() => setDrawerOpen(true)}
-          className="md:hidden fixed bottom-6 right-6 px-4 py-2 rounded-xl border border-white/15 bg-[#111111] text-white text-sm font-sans"
+          className="fixed bottom-6 right-6 border border-[#E5E7EB] bg-white px-4 py-2 font-sans text-sm text-black md:hidden"
         >
           Notes
         </button>
         {drawerOpen && (
           <>
             <div
-              className="md:hidden fixed inset-0 z-40 bg-black/60"
+              className="fixed inset-0 z-40 bg-black/15 md:hidden"
               onClick={() => setDrawerOpen(false)}
               aria-hidden
             />
             <aside
-              className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-[min(340px,88vw)] bg-[#111111] border-l border-white/10 p-4 overflow-auto"
+              className="fixed bottom-0 right-0 top-0 z-50 w-[min(340px,88vw)] overflow-auto border-l border-[#E5E7EB] bg-white p-4 md:hidden"
               aria-label="Notes"
             >
-              <div className="flex justify-between items-center mb-4">
-                <span className="text-sm font-sans font-medium text-white">
+              <div className="mb-4 flex items-center justify-between">
+                <span className="font-sans text-sm font-medium text-black">
                   Notes
                 </span>
                 <button
                   type="button"
                   onClick={() => setDrawerOpen(false)}
-                  className="h-8 w-8 rounded-lg border border-white/15 bg-white/5 text-white"
+                  className="h-8 w-8 border border-[#E5E7EB] bg-white text-black"
                   aria-label="Close notes"
                 >
                   ✕
                 </button>
               </div>
               {loading ? (
-                <p className="font-sans text-sm text-white/70">
-                  Loading notes…
+                <p className="font-sans text-sm text-black/65">
+                  Loading notes...
                 </p>
               ) : (
                 sharedNotesContent

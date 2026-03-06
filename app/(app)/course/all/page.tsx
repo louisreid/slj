@@ -1,8 +1,9 @@
-import { getChapters, getBlocks } from "@/lib/content";
+import { getChapterDisplayTitleMap, getChapters, getBlocks } from "@/lib/content";
 import { FullBookReader } from "@/components/FullBookReader";
 
 export default function AllChaptersPage() {
   const chapters = getChapters();
+  const chapterTitles = Object.fromEntries(getChapterDisplayTitleMap(chapters));
   const blockIds: string[] = [];
   const blockIdToLabel: Record<string, string> = {};
 
@@ -18,6 +19,7 @@ export default function AllChaptersPage() {
   return (
     <FullBookReader
       chapters={chapters}
+      chapterTitles={chapterTitles}
       blockIds={blockIds}
       blockIdToLabel={blockIdToLabel}
     />

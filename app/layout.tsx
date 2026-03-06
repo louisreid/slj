@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
-      <body className="min-h-screen bg-[#0B0B0B] text-[#fff] antialiased">
+      <body className="min-h-screen bg-white text-black antialiased">
         {children}
       </body>
     </html>

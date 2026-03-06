@@ -1,8 +1,8 @@
-import Link from "next/link";
+import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { GroupsListContent } from "@/components/GroupsListContent";
-import { PageShell } from "@/components/ui/surfaces";
 import type { Group } from "@/lib/groups";
+import { buildSignInHref } from "@/lib/navigation";
 
 export default async function GroupsPage() {
   const supabase = await createClient();
@@ -27,17 +27,7 @@ export default async function GroupsPage() {
   }
 
   if (!user) {
-    return (
-      <PageShell>
-        <h1 className="text-3xl font-semibold text-[#fff] font-serif">Groups</h1>
-        <p className="mt-2 text-white/70">
-          <Link href="/auth/sign-in" className="underline hover:text-white">
-            Sign in
-          </Link>{" "}
-          to view and create groups.
-        </p>
-      </PageShell>
-    );
+    redirect(buildSignInHref("/groups"));
   }
 
   return <GroupsListContent groups={groups} />;

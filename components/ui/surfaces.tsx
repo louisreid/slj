@@ -4,7 +4,11 @@ export function PageShell({
   children,
   className = "",
 }: PropsWithChildren<{ className?: string }>) {
-  return <div className={`font-sans slj-shell p-6 md:p-8 ${className}`}>{children}</div>;
+  return (
+    <div className={`font-sans slj-shell p-6 md:p-8 ${className}`}>
+      {children}
+    </div>
+  );
 }
 
 export function CardSection({
@@ -14,7 +18,9 @@ export function CardSection({
 }: PropsWithChildren<{ title?: ReactNode; className?: string }>) {
   return (
     <section className={`slj-card p-5 ${className}`}>
-      {title ? <h2 className="text-lg font-medium text-white mb-3">{title}</h2> : null}
+      {title ? (
+        <h2 className="mb-3 font-sans text-lg font-medium text-black">{title}</h2>
+      ) : null}
       {children}
     </section>
   );

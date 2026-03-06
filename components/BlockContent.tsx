@@ -17,9 +17,16 @@ export function BlockNode({ block }: { block: Block }) {
   if (block.type === "heading") {
     const level = Math.min(Math.max(block.level ?? 1, 1), 6);
     const Tag = HEADING_TAGS[level - 1];
+    const headingClassName =
+      level <= 1
+        ? "mt-10 text-4xl leading-none first:mt-0 md:text-5xl"
+        : level === 2
+          ? "mt-10 text-3xl leading-tight first:mt-0"
+          : "mt-8 text-2xl leading-tight first:mt-0";
+
     return (
       <Tag
-        className="font-serif font-semibold text-[#fff] mt-10 first:mt-0 text-3xl leading-tight"
+        className={`font-serif font-semibold text-black ${headingClassName}`}
         data-block-id={block.block_id}
         id={block.block_id}
       >
@@ -30,7 +37,7 @@ export function BlockNode({ block }: { block: Block }) {
   if (block.type === "paragraph") {
     return (
       <p
-        className="font-serif text-white/85 leading-[1.85] mt-5 text-lg"
+        className="mt-5 font-serif text-lg leading-[1.85] text-black/85"
         data-block-id={block.block_id}
         id={block.block_id}
       >
@@ -58,7 +65,7 @@ export function BlockWithNoteAction({
       <button
         type="button"
         onClick={() => onAddOrEditNote(block.block_id)}
-        className="shrink-0 mt-1 p-1 text-white/45 hover:text-white transition-colors rounded"
+        className="mt-1 shrink-0 rounded p-1 text-black/45 transition-colors hover:text-black md:opacity-0 md:group-hover/block:opacity-100 md:focus:opacity-100"
         aria-label={hasNote ? "Edit note" : "Add note for this paragraph"}
       >
         <MessageSquare size={14} strokeWidth={2} />

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { JoinGroupByCode } from "@/components/JoinGroupByCode";
 import { PageShell } from "@/components/ui/surfaces";
+import { buildSignInHref } from "@/lib/navigation";
 
 export default async function GroupJoinPage({
   searchParams,
@@ -20,12 +21,19 @@ export default async function GroupJoinPage({
   } = await supabase.auth.getUser();
 
   if (!user) {
-    const signInUrl = `/auth/sign-in?next=${encodeURIComponent(`/groups/join?code=${encodeURIComponent(code)}`)}`;
+    const signInUrl = buildSignInHref(
+      `/groups/join?code=${encodeURIComponent(code)}`
+    );
     return (
       <PageShell>
-        <h1 className="text-3xl font-semibold text-[#fff] font-serif">Join group</h1>
-        <p className="mt-2 text-white/70">
-          <Link href={signInUrl} className="underline hover:text-white">
+        <h1 className="font-serif text-4xl font-semibold leading-none text-black">
+          Join group
+        </h1>
+        <p className="mt-3 font-sans text-sm leading-6 text-black/65">
+          <Link
+            href={signInUrl}
+            className="underline underline-offset-4 hover:text-black"
+          >
             Sign in
           </Link>{" "}
           to join this group with the invite code.
@@ -36,7 +44,9 @@ export default async function GroupJoinPage({
 
   return (
     <PageShell>
-      <h1 className="text-3xl font-semibold text-[#fff] font-serif">Join group</h1>
+      <h1 className="font-serif text-4xl font-semibold leading-none text-black">
+        Join group
+      </h1>
       <JoinGroupByCode code={code} />
     </PageShell>
   );

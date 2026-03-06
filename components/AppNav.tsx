@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { Settings } from "lucide-react";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
@@ -43,51 +42,73 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
 
   const closeDrawer = useCallback(() => setDrawerOpen(false), []);
 
-  const isActive = (href: string) => pathname === href || pathname?.startsWith(href + "/");
+  const isActive = (href: string) => {
+    if (!pathname) return false;
+
+    if (href === "/course") {
+      return pathname === "/course" || /^\/course\/[^/]+$/.test(pathname);
+    }
+
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
+  const navItemClass = (active: boolean) =>
+    `flex items-center gap-2 border-l-2 px-3 py-2 text-sm transition-colors ${
+      active
+        ? "border-black bg-black/5 font-medium text-black"
+        : "border-transparent text-black/65 hover:bg-black/5 hover:text-black"
+    }`;
 
   const navContent = (
     <>
-      <div className="flex flex-col flex-1 min-h-0">
-        <div className="p-4 border-b border-white/10 flex items-center justify-between shrink-0">
+      <div className="flex min-h-0 flex-1 flex-col">
+        <div className="flex shrink-0 items-start justify-between border-b border-[#E5E7EB] p-4">
           {(!collapsed || drawerOpen) && (
             <Link
-              href="/course"
-              className="font-sans text-sm font-semibold text-white tracking-[0.02em] hover:text-white/80 transition-colors"
+              href="/progress"
+              className="space-y-1"
+              onClick={closeDrawer}
             >
-              Simplicity, Love & Justice
+              <p className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
+                A Discussion Course
+              </p>
+              <p className="font-serif text-xl font-semibold leading-tight text-black">
+                Simplicity, Love & Justice
+              </p>
             </Link>
           )}
           <button
             type="button"
             onClick={toggleCollapsed}
-            className="md:flex hidden h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-white focus:outline focus:ring-2 focus:ring-white/30"
+            className="hidden h-8 w-8 items-center justify-center border border-[#E5E7EB] bg-white text-black focus:outline md:flex"
             aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
             title={collapsed ? "Expand navigation" : "Collapse navigation"}
           >
             <span className="text-lg leading-none">{collapsed ? "→" : "←"}</span>
           </button>
         </div>
-        <nav className="flex-1 p-3 overflow-auto">
+        <nav className="flex-1 overflow-auto p-3">
           {(!collapsed || drawerOpen) && (
             <Link
               href="/course"
-              className="mb-3 block rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-xs font-medium uppercase tracking-[0.12em] text-white/75 hover:text-white hover:bg-white/10 transition-colors"
+              onClick={closeDrawer}
+              className={`mb-4 block border-l-2 px-3 py-2 text-xs uppercase tracking-[0.16em] ${
+                isActive("/course")
+                  ? "border-black bg-black/5 text-black"
+                  : "border-transparent text-black/45 hover:bg-black/5 hover:text-black"
+              }`}
             >
               Resume
             </Link>
           )}
-          <ul className="space-y-0.5">
+          <ul className="space-y-1">
             {navItems.map(({ href, label, short }) => (
               <li key={href}>
                 <Link
                   href={href}
                   onClick={closeDrawer}
                   title={collapsed ? label : undefined}
-                  className={`flex items-center gap-2 px-3 py-2.5 text-sm rounded-xl border transition-colors ${
-                    isActive(href)
-                      ? "bg-white text-black border-white font-semibold"
-                      : "text-white/70 hover:text-white hover:bg-white/10 border-transparent"
-                  }`}
+                  className={navItemClass(isActive(href))}
                 >
                   {collapsed && !drawerOpen ? (
                     <span className="w-5 text-center">{short}</span>
@@ -99,20 +120,19 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             ))}
           </ul>
         </nav>
-        <div className="p-3 border-t border-white/10 shrink-0">
+        <div className="shrink-0 border-t border-[#E5E7EB] p-3">
           {(!collapsed || drawerOpen) && userEmail && (
             <>
-              <p className="text-xs text-white/50 truncate mb-1">
+              <p className="mb-2 truncate font-sans text-xs text-black/45">
                 {userEmail}
               </p>
               <Link
                 href="/preferences"
                 onClick={closeDrawer}
-                className="inline-flex items-center gap-1.5 text-xs text-white/60 hover:text-white underline underline-offset-2"
-                aria-label="Settings"
+                className={navItemClass(isActive("/preferences"))}
+                aria-label="Account"
               >
-                <Settings size={14} strokeWidth={2} />
-                Settings
+                Account
               </Link>
             </>
           )}
@@ -120,7 +140,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             <form action="/auth/sign-out" method="post" className="mt-2">
               <button
                 type="submit"
-                className="text-sm text-white/70 hover:text-white underline underline-offset-2"
+                className="w-full border-l-2 border-transparent px-3 py-2 text-left text-sm text-black/65 hover:bg-black/5 hover:text-black"
               >
                 Sign out
               </button>
@@ -130,7 +150,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             <form action="/auth/sign-out" method="post" title="Sign out">
               <button
                 type="submit"
-                className="text-sm text-white/70 hover:text-white p-1"
+                className="w-full px-1 py-2 text-sm text-black/65 hover:text-black"
                 aria-label="Sign out"
               >
                 ⎋
@@ -144,36 +164,33 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
 
   return (
     <>
-      {/* Mobile: hamburger */}
       <button
         type="button"
         onClick={() => setDrawerOpen(true)}
-        className="md:hidden fixed top-4 left-4 z-20 h-10 w-10 rounded-xl border border-white/15 bg-[#121212] text-white"
+        className="fixed left-4 top-4 z-20 h-10 w-10 border border-[#E5E7EB] bg-white text-black md:hidden"
         aria-label="Open menu"
       >
         <span className="text-lg">☰</span>
       </button>
 
-      {/* Mobile drawer overlay */}
       {drawerOpen && (
         <div
-          className="md:hidden fixed inset-0 z-30 bg-black/60"
+          className="fixed inset-0 z-30 bg-black/15 md:hidden"
           onClick={closeDrawer}
           aria-hidden
         />
       )}
 
-      {/* Mobile drawer */}
       <aside
-        className={`md:relative md:flex md:shrink-0 fixed top-0 left-0 z-40 min-h-screen h-full w-[252px] bg-[#111111] border-r border-white/10 flex flex-col transition-transform md:transition-none ${
+        className={`fixed left-0 top-0 z-40 flex h-full min-h-screen w-[272px] flex-col border-r border-[#E5E7EB] bg-white transition-transform md:relative md:flex md:shrink-0 md:transition-none ${
           drawerOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
         } ${collapsed ? "md:w-16" : "md:w-64"}`}
       >
-        <div className="md:hidden flex justify-end p-2 border-b border-white/10">
+        <div className="flex justify-end border-b border-[#E5E7EB] p-2 md:hidden">
           <button
             type="button"
             onClick={closeDrawer}
-            className="h-9 w-9 rounded-lg border border-white/15 bg-white/5 text-white"
+            className="h-9 w-9 border border-[#E5E7EB] bg-white text-black"
             aria-label="Close menu"
           >
             ✕

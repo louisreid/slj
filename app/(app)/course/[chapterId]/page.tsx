@@ -1,5 +1,11 @@
 import { redirect } from "next/navigation";
-import { getChapter, getChapters, getBlocks, getSections } from "@/lib/content";
+import {
+  getChapter,
+  getChapterDisplayTitleMap,
+  getChapters,
+  getBlocks,
+  getSections,
+} from "@/lib/content";
 import { CourseReader } from "@/components/CourseReader";
 
 export default async function ChapterPage({
@@ -22,6 +28,7 @@ export default async function ChapterPage({
   );
 
   const chapters = getChapters();
+  const chapterTitles = getChapterDisplayTitleMap(chapters);
   const currentIndex = chapters.findIndex((ch) => ch.id === chapter.id);
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
   const nextChapter =
@@ -33,11 +40,26 @@ export default async function ChapterPage({
     <CourseReader
       chapterId={chapter.id}
       chapter={chapter}
+      displayTitle={chapterTitles.get(chapter.id) ?? chapter.title}
       sections={sections}
       blockIds={blockIds}
       blockIdToLabel={blockIdToLabel}
-      prevChapter={prevChapter ? { id: prevChapter.id, title: prevChapter.title } : null}
-      nextChapter={nextChapter ? { id: nextChapter.id, title: nextChapter.title } : null}
+      prevChapter={
+        prevChapter
+          ? {
+              id: prevChapter.id,
+              title: chapterTitles.get(prevChapter.id) ?? prevChapter.title,
+            }
+          : null
+      }
+      nextChapter={
+        nextChapter
+          ? {
+              id: nextChapter.id,
+              title: chapterTitles.get(nextChapter.id) ?? nextChapter.title,
+            }
+          : null
+      }
     />
   );
 }

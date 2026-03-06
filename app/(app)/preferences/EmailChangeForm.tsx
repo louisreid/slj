@@ -11,7 +11,7 @@ export function EmailChangeForm() {
       <div>
         <label
           htmlFor="newEmail"
-          className="block text-sm text-white/70 mb-1"
+          className="mb-1 block text-sm text-black/65"
         >
           Change email address
         </label>
@@ -26,12 +26,12 @@ export function EmailChangeForm() {
         />
       </div>
       {state?.error && (
-        <p className="text-sm text-red-400" role="alert">
+        <p className="text-sm text-black" role="alert">
           {state.error}
         </p>
       )}
       {state?.success && (
-        <p className="text-sm text-green-400" role="status">
+        <p className="text-sm text-black/65" role="status">
           {state.success}
         </p>
       )}

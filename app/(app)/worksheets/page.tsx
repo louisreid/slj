@@ -8,43 +8,44 @@ export default async function WorksheetsPage() {
 
   return (
     <PageShell className="max-w-4xl mx-auto">
-      {/* Page header — Stitch-style */}
-      <div className="mb-12 text-center md:text-left">
-        <h2 className="font-sans text-3xl font-extrabold tracking-tight text-white md:text-4xl">
+      <div className="mb-12 border-b border-[#E5E7EB] pb-8">
+        <p className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
           Worksheets
-        </h2>
-        <p className="mt-4 text-lg text-white/55 max-w-2xl font-light leading-relaxed">
-          A collection of contemplative resources designed for quiet
-          reflection, ethical living, and simple printing.
+        </p>
+        <h1 className="mt-3 font-serif text-4xl font-semibold leading-none text-black md:text-5xl">
+          Worksheets
+        </h1>
+        <p className="mt-4 max-w-2xl font-sans text-sm leading-6 text-black/65">
+          Print-ready pages for reflection, discussion, and handwritten work
+          away from the screen.
         </p>
       </div>
 
-      {/* Surface container with list — Stitch-style */}
-      <div className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-sm">
-        {/* Category tab (single for now) */}
-        <div className="flex border-b border-white/10 px-6">
-          <span className="border-b-2 border-white py-4 px-4 text-sm font-bold tracking-wide text-white">
-            All Resources
+      <div className="overflow-hidden border border-[#E5E7EB]">
+        <div className="border-b border-[#E5E7EB] px-6 py-4">
+          <span className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+            All worksheets
           </span>
         </div>
 
-        {/* Worksheet list */}
-        <div className="divide-y divide-white/10">
+        <div className="divide-y divide-[#E5E7EB]">
           {worksheets.map((ws) => (
             <div
               key={ws.id}
-              className="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-white/5 sm:flex-row sm:items-center"
+              className="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-black/5 sm:flex-row sm:items-center"
             >
               <div className="flex-1 space-y-1">
-                <h3 className="font-serif text-xl font-medium tracking-wide text-white">
+                <h2 className="font-serif text-2xl font-medium tracking-wide text-black">
                   {ws.title}
-                </h3>
-                <p className="font-sans text-sm text-white/55">{ws.description}</p>
+                </h2>
+                <p className="font-sans text-sm leading-6 text-black/65">
+                  {ws.description}
+                </p>
               </div>
               <div className="flex shrink-0 gap-3">
                 <Link
                   href={`/worksheets/print/${ws.id}`}
-                  className="font-sans inline-flex h-10 items-center justify-center rounded bg-white px-5 text-xs font-bold uppercase tracking-widest text-black transition-opacity hover:opacity-90"
+                  className="slj-button inline-flex h-10 items-center justify-center px-5 text-xs uppercase tracking-[0.18em]"
                 >
                   Open
                 </Link>
@@ -52,7 +53,7 @@ export default async function WorksheetsPage() {
                   href={`/worksheets/print/${ws.id}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-sans inline-flex h-10 items-center justify-center rounded border border-white/30 px-5 text-xs font-bold uppercase tracking-widest text-white transition-opacity hover:opacity-90"
+                  className="slj-button-secondary inline-flex h-10 items-center justify-center px-5 text-xs uppercase tracking-[0.18em]"
                 >
                   Print
                 </Link>
@@ -62,19 +63,17 @@ export default async function WorksheetsPage() {
         </div>
       </div>
 
-      {/* Print hint — Stitch-style */}
-      <div className="no-print mt-12 flex items-center gap-6 rounded-lg bg-white/5 p-6">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10">
-          <Printer size={24} className="text-white/70" aria-hidden />
+      <div className="no-print mt-12 flex items-center gap-6 border border-[#E5E7EB] p-6">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-[#E5E7EB]">
+          <Printer size={24} className="text-black/45" aria-hidden />
         </div>
         <div>
-          <h4 className="font-sans text-sm font-bold uppercase tracking-widest text-white">
+          <h3 className="font-sans text-sm uppercase tracking-[0.18em] text-black/45">
             Optimized for Paper
-          </h4>
-          <p className="mt-1 text-sm text-white/55 leading-relaxed">
-            All worksheets automatically switch to a high-contrast,
-            ink-saving print view when you select Print or View PDF.
-            Designed for quiet reading away from screens.
+          </h3>
+          <p className="mt-2 font-sans text-sm leading-6 text-black/65">
+            Each worksheet opens in a print view with generous margins and
+            writing space.
           </p>
         </div>
       </div>

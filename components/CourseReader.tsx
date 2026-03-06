@@ -30,6 +30,7 @@ const EMPTY_BLOCK_IDS: string[] = [];
 export interface CourseReaderProps {
   chapterId: string;
   chapter: Chapter;
+  displayTitle: string;
   sections: Section[];
   blockIds: string[];
   blockIdToLabel: Record<string, string>;
@@ -40,6 +41,7 @@ export interface CourseReaderProps {
 export function CourseReader({
   chapterId,
   chapter,
+  displayTitle,
   sections,
   blockIds,
   blockIdToLabel,
@@ -234,35 +236,33 @@ export function CourseReader({
       scrollToBlockId={scrollToBlockId}
       onScrolledToBlock={() => setScrollToBlockId(null)}
       isSignedIn={!!user}
+      title="Notes for this chapter"
     />
   );
 
   return (
-    <div className="flex flex-col md:flex-row gap-8 md:gap-6">
+    <div className="flex flex-col gap-8 md:flex-row md:gap-6">
       <div className="flex-1 min-w-0 max-w-[78ch]">
         {isInteractive && (
           <nav
-            className="font-sans text-sm mb-8 slj-card p-5"
+            className="mb-8 slj-card p-5 font-sans text-sm"
             aria-label="Table of contents"
           >
-            <h2 className="text-white/55 font-medium mb-3 uppercase tracking-[0.12em] text-xs">
+            <h2 className="mb-3 font-sans text-xs uppercase tracking-[0.18em] text-black/45">
               In this chapter
             </h2>
             {user && (
-              <div className="flex items-center justify-between gap-2 mb-3 pb-3 border-b border-white/10">
-                <span className="text-white/75 font-medium">Chapter</span>
+              <div className="mb-3 flex items-center justify-between gap-2 border-b border-[#E5E7EB] pb-3">
+                <span className="font-medium text-black/65">Chapter</span>
                 {chapterComplete ? (
-                  <Check
-                    size={16}
-                    strokeWidth={2.5}
-                    className="text-green-500 shrink-0"
-                    aria-label="Chapter complete"
-                  />
+                  <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
+                    Complete
+                  </span>
                 ) : (
                   <button
                     type="button"
                     onClick={handleMarkChapterComplete}
-                    className="text-white/45 hover:text-white hover:underline underline-offset-2 text-xs"
+                    className="text-xs text-black/45 underline underline-offset-4 hover:text-black"
                   >
                     Mark complete
                   </button>
@@ -282,24 +282,21 @@ export function CourseReader({
                   >
                     <Link
                       href={`#${heading.block_id}`}
-                      className="text-white/75 hover:text-white hover:underline underline-offset-2"
+                      className="text-black/65 hover:text-black hover:underline underline-offset-4"
                     >
                       {heading.content}
                     </Link>
                     {user && (
-                      <span className="font-sans text-xs shrink-0">
+                      <span className="shrink-0 font-sans text-xs">
                         {isComplete ? (
-                          <Check
-                            size={16}
-                            strokeWidth={2.5}
-                            className="text-green-500"
-                            aria-label="Complete"
-                          />
+                          <span className="uppercase tracking-[0.16em] text-black/45">
+                            Done
+                          </span>
                         ) : (
                           <button
                             type="button"
                             onClick={() => handleMarkSectionComplete(sectionId)}
-                            className="text-white/45 hover:text-white hover:underline underline-offset-2"
+                            className="text-black/45 underline underline-offset-4 hover:text-black"
                           >
                             Mark complete
                           </button>
@@ -313,7 +310,17 @@ export function CourseReader({
           </nav>
         )}
 
-        <article className="font-serif slj-shell p-6 md:p-10">
+        <article className="slj-shell p-6 font-serif md:p-10">
+          {!isInteractive ? (
+            <header className="mb-8 border-b border-[#E5E7EB] pb-4">
+              <p className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+                Static reading
+              </p>
+              <h1 className="mt-3 font-serif text-4xl font-semibold leading-none text-black">
+                {displayTitle}
+              </h1>
+            </header>
+          ) : null}
           {sections.map((section) =>
             section.blocks.map((block) =>
               isInteractive && block.type === "paragraph" ? (
@@ -331,89 +338,96 @@ export function CourseReader({
         </article>
 
         <nav
-          className="font-sans text-sm flex justify-between mt-8 pt-6 border-t border-white/10"
+          className="mt-8 flex justify-between border-t border-[#E5E7EB] pt-6 font-sans text-sm"
           aria-label="Chapter navigation"
         >
           <span>
             {prevChapter ? (
               <Link
                 href={`/course/${prevChapter.id}`}
-                className="text-white/70 hover:text-white underline underline-offset-2"
+                className="text-black/65 underline underline-offset-4 hover:text-black"
               >
                 ← Previous: {prevChapter.title}
               </Link>
             ) : (
-              <span className="text-white/45">Previous</span>
+              <span className="text-black/45">Previous</span>
             )}
           </span>
           <span>
             {nextChapter ? (
               <Link
                 href={`/course/${nextChapter.id}`}
-                className="text-white/70 hover:text-white underline underline-offset-2"
+                className="text-black/65 underline underline-offset-4 hover:text-black"
               >
                 Next: {nextChapter.title} →
               </Link>
             ) : (
-              <span className="text-white/45">Next</span>
+              <span className="text-black/45">Next</span>
             )}
           </span>
         </nav>
       </div>
 
-      {/* Desktop: fixed-width notes panel (interactive only) */}
-      {isInteractive && (
+      {isInteractive ? (
         <aside
-          className="hidden md:block w-[360px] shrink-0 slj-shell p-5"
+          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block"
           aria-label="Notes"
         >
           {loading ? (
-            <p className="font-sans text-sm text-white/70">
-              Loading notes…
+            <p className="font-sans text-sm text-black/65">
+              Loading notes...
             </p>
           ) : (
             sharedNotesContent
           )}
         </aside>
+      ) : (
+        <aside
+          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block"
+          aria-label="Notes"
+        >
+          <p className="font-sans text-sm leading-6 text-black/65">
+            Notes are available in session chapters.
+          </p>
+        </aside>
       )}
 
-      {/* Mobile: notes FAB + drawer (interactive only) */}
       {isInteractive && (
         <>
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="md:hidden fixed bottom-6 right-6 px-4 py-2 rounded-xl border border-white/15 bg-[#111111] text-white text-sm font-sans"
+            className="fixed bottom-6 right-6 border border-[#E5E7EB] bg-white px-4 py-2 font-sans text-sm text-black md:hidden"
           >
             Notes
           </button>
           {drawerOpen && (
             <>
               <div
-                className="md:hidden fixed inset-0 z-40 bg-black/60"
+                className="fixed inset-0 z-40 bg-black/15 md:hidden"
                 onClick={() => setDrawerOpen(false)}
                 aria-hidden
               />
               <aside
-                className="md:hidden fixed right-0 top-0 bottom-0 z-50 w-[min(340px,88vw)] bg-[#111111] border-l border-white/10 p-4 overflow-auto"
+                className="fixed bottom-0 right-0 top-0 z-50 w-[min(340px,88vw)] overflow-auto border-l border-[#E5E7EB] bg-white p-4 md:hidden"
                 aria-label="Notes"
               >
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-sm font-sans font-medium text-white">
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="font-sans text-sm font-medium text-black">
                     Notes
                   </span>
                   <button
                     type="button"
                     onClick={() => setDrawerOpen(false)}
-                    className="h-8 w-8 rounded-lg border border-white/15 bg-white/5 text-white"
+                    className="h-8 w-8 border border-[#E5E7EB] bg-white text-black"
                     aria-label="Close notes"
                   >
                     ✕
                   </button>
                 </div>
                 {loading ? (
-                  <p className="font-sans text-sm text-white/70">
-                    Loading notes…
+                  <p className="font-sans text-sm text-black/65">
+                    Loading notes...
                   </p>
                 ) : (
                   sharedNotesContent

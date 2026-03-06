@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { buildSignInHref } from "@/lib/navigation";
 
 export async function middleware(request: NextRequest) {
   let response = NextResponse.next({
@@ -32,10 +33,13 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith("/course") ||
     pathname.startsWith("/worksheets") ||
     pathname.startsWith("/groups") ||
-    pathname.startsWith("/preferences");
+    pathname.startsWith("/preferences") ||
+    pathname.startsWith("/progress");
   if (isProtected && !user) {
-    const signInUrl = new URL("/auth/sign-in", request.url);
-    signInUrl.searchParams.set("next", pathname);
+    const signInUrl = new URL(
+      buildSignInHref(`${pathname}${request.nextUrl.search}`),
+      request.url
+    );
     return NextResponse.redirect(signInUrl);
   }
 

@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { getChapter, getChapters, getBlocks, getSections } from "@/lib/content";
 import { CourseReader } from "@/components/CourseReader";
 
@@ -9,11 +10,8 @@ export default async function ChapterPage({
   const { chapterId } = await params;
   const chapter = getChapter(chapterId);
   if (!chapter) {
-    return (
-      <div className="font-sans text-[#000]">
-        <p>Chapter not found.</p>
-      </div>
-    );
+    // Old or invalid chapter (e.g. 01-intro after reorg) → send to course start
+    redirect("/course");
   }
 
   const sections = getSections(chapter);

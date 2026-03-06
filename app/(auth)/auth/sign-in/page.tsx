@@ -6,7 +6,7 @@ import { Suspense, useState } from "react";
 
 function SignInForm() {
   const searchParams = useSearchParams();
-  const next = searchParams.get("next") ?? "/";
+  const next = searchParams?.get("next") ?? "/";
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [error, setError] = useState<string | null>(null);

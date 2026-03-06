@@ -32,7 +32,7 @@ export function GroupsListContent({
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const prefilledCode = searchParams.get("code") ?? "";
+  const prefilledCode = searchParams?.get("code") ?? "";
 
   const [groups] = useState<Group[]>(initialGroups);
   const [createName, setCreateName] = useState("");

@@ -87,3 +87,19 @@ What can you do/are you doing to increase community in your life on a personal a
 Do one thing this week that will contribute to building community, whether in your church or more widely.
 
 Take time to look further at the different models of community that are around. A good place to start would be by reading some of the Celtic literature to learn more about their way of life and also to look at the websites for the co-housing network and the ‘intentional community’ network. Look at how you can develop their principles in your own community.
+
+## Further reading / resources
+
+Tom Sine, Mustard Seed Vs McWorld (Monarch, 1995).
+
+Ray Simpson, Exploring Celtic Spirituality (Hodder & Stoughton, 1995). • Henri Nouwen, Reaching Out
+
+(Doubleday, 1995).
+
+Christine Pohl, Making Room (Wm B Eerdmans Publishing Co, 1999). • Co-housing Network:
+
+Intentional Communities:
+
+> David Watson, Discipleship
+
+'They (the twelve disciples) were to share everything together, their joys, their sorrows, their pains and their possessions, and in this way become the redeemed, messianic community of Christ the King.'David Watson, Discipleship

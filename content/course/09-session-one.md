@@ -139,3 +139,13 @@ THINGS TO CHANGEDaily practice or habitCould be spiritual, like prayer, or physi
 Take some time to discuss how people are feeling so far. Meeting together to look at these subjects takes courage, and people may well be feeling nervous or vulnerable.
 
 Close your meeting by praying for one another.
+
+## Further reading
+
+Richard Foster, Celebration of Discipline (Hodder & Stoughton, 1989).
+
+Richard Foster, Freedom of Simplicity (HarperCollins, 1989).
+
+Michael Schut (ed.), Simpler Living: Compassionate Life (Thomas More Press, 1999)
+
+'When the church commits itself to a pattern of corporate life based on radical biblical principles, it immediately challenges the moral, political, economic and social structures of the world around it...only in this way will the proclamation of the gospel make much impact amongst the vast majority of people who, at this moment, are thoroughly disillusioned by the church as an institution.' David Watson – Discipleship

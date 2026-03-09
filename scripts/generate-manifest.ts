@@ -173,9 +173,17 @@ function processChapter(fileName: string): Chapter | null {
   const filePath = path.join(COURSE_DIR, fileName);
 
   // Exclude specific content-only chapters from the manifest:
+  // - Index / contents wrapper
   // - Front matter wrapper
+  // - Early preface + further-reading stubs
   // - Standalone numeric notes index
-  if (chapterId === "01-front-matter" || chapterId === "03-notes") {
+  if (
+    chapterId === "00-INDEX" ||
+    chapterId === "01-front-matter" ||
+    chapterId === "02-preface" ||
+    chapterId === "03-further-reading" ||
+    chapterId === "03-notes"
+  ) {
     return null;
   }
   if (!fs.existsSync(filePath)) return null;

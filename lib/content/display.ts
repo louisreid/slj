@@ -42,6 +42,12 @@ function getBaseDisplayTitle(chapter: Chapter, sessionContext: string | null): s
     return `Session ${normalizeSessionTitle(chapter.title)}`;
   }
 
+  // Special-case course-level further reading/resources so they get a
+  // stable, human-friendly title regardless of session context.
+  if (chapter.id === "08-further-reading-and-resources") {
+    return "Further Reading and Resources";
+  }
+
   const kind = getStaticKind(chapter);
 
   switch (kind) {

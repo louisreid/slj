@@ -1,4 +1,4 @@
-# Simplicity, Love & Justice — Extracted Sections
+# Course contents
 
 Generated from the uploaded DOCX.
 

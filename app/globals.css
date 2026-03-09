@@ -16,6 +16,19 @@
     --slj-focus: rgba(0, 0, 0, 0.3);
   }
 
+  html[data-theme="dark"] {
+    --slj-bg: #000;
+    --slj-surface: rgba(0, 0, 0, 0.9);
+    --slj-surface-muted: rgba(0, 0, 0, 0.85);
+    --slj-border: #e5e7eb;
+    --slj-text: rgba(255, 255, 255, 0.92);
+    --slj-text-muted: rgba(255, 255, 255, 0.72);
+    --slj-text-faint: rgba(255, 255, 255, 0.6);
+    --slj-hover: rgba(255, 255, 255, 0.04);
+    --slj-active: rgba(255, 255, 255, 0.06);
+    --slj-focus: rgba(255, 255, 255, 0.3);
+  }
+
   body {
     @apply font-sans;
     background: var(--slj-bg);
@@ -43,7 +56,7 @@
   .slj-input {
     border: 1px solid var(--slj-border);
     border-radius: 12px;
-    background: #fff;
+    background: var(--slj-surface);
     color: var(--slj-text);
   }
 
@@ -72,8 +85,8 @@
   .slj-button-secondary {
     border-radius: 12px;
     border: 1px solid var(--slj-border);
-    background: #fff;
-    color: #000;
+    background: var(--slj-bg);
+    color: var(--slj-text);
     font-weight: 500;
   }
 

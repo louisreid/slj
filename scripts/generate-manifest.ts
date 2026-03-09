@@ -62,9 +62,23 @@ function getChapterMode(chapterId: string, fileName: string): ChapterMode {
   return "interactive";
 }
 
+function isScriptureReferenceLine(text: string): boolean {
+  const trimmed = text.trim();
+  if (!trimmed) return false;
+
+  // Matches patterns like "Matthew 6:25–33", "1 John 3:17"
+  const bookAndRef =
+    /^(?:[1-3]\s*)?[A-Za-z]+(?:\s+[A-Za-z]+)*\s+\d{1,3}:\d{1,3}(?:[–-]\d{1,3})?[.)”']?$/u;
+  // Matches bare references like "6:25–33" (optionally with punctuation)
+  const bareRef = /^\d{1,3}:\d{1,3}(?:[–-]\d{1,3})?[.)”']?$/u;
+
+  return bookAndRef.test(trimmed) || bareRef.test(trimmed);
+}
+
 /** If the trimmed line is a standalone uppercase heading, return heading level (1–3). */
 function getUppercaseHeadingLevel(trimmed: string): number | null {
   if (trimmed === "" || trimmed !== trimmed.toUpperCase()) return null;
+  if (isScriptureReferenceLine(trimmed)) return null;
   if (/^SESSION\s+(ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN)$/i.test(trimmed))
     return 1;
   const upper = trimmed.toUpperCase();
@@ -92,8 +106,11 @@ function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; con
     if (headingMatch) {
       const level = headingMatch[1].length;
       const content = headingMatch[2].trim();
-      if (content) {
+      if (content && !isScriptureReferenceLine(content)) {
         blocks.push({ type: "heading", level, content });
+      } else if (content) {
+        // Treat scripture-like lines as paragraph content instead of headings
+        blocks.push({ type: "paragraph", content });
       }
       i++;
       continue;
@@ -154,6 +171,13 @@ function blocksToSections(blocks: { type: BlockType; level?: number; content: st
 function processChapter(fileName: string): Chapter | null {
   const chapterId = fileName.replace(/\.md$/i, "");
   const filePath = path.join(COURSE_DIR, fileName);
+
+  // Exclude specific content-only chapters from the manifest:
+  // - Front matter wrapper
+  // - Standalone numeric notes index
+  if (chapterId === "01-front-matter" || chapterId === "03-notes") {
+    return null;
+  }
   if (!fs.existsSync(filePath)) return null;
 
   const raw = fs.readFileSync(filePath, "utf-8");

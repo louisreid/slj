@@ -52,20 +52,26 @@ export function BlockWithNoteAction({
   block,
   hasNote,
   onAddOrEditNote,
+  isActive,
 }: {
   block: Block;
   hasNote: boolean;
   onAddOrEditNote: (block_id: string) => void;
+  isActive?: boolean;
 }) {
   return (
-    <div className="group/block relative flex items-start justify-between gap-2">
+    <div
+      className={`group/block relative -mx-2 flex items-center gap-2 rounded px-2 py-1 transition-colors ${
+        isActive ? "bg-black/6" : "hover:bg-black/5 focus-within:bg-black/5"
+      }`}
+    >
       <div className="min-w-0 flex-1">
         <BlockNode block={block} />
       </div>
       <button
         type="button"
         onClick={() => onAddOrEditNote(block.block_id)}
-        className="mt-1 shrink-0 rounded p-1 text-black/45 transition-colors hover:text-black md:opacity-0 md:group-hover/block:opacity-100 md:focus:opacity-100"
+        className="shrink-0 self-center rounded p-1 text-black/45 transition-colors hover:text-black md:opacity-0 md:group-hover/block:opacity-100 md:focus-visible:opacity-100"
         aria-label={hasNote ? "Edit note" : "Add note for this paragraph"}
       >
         <MessageSquare size={14} strokeWidth={2} />

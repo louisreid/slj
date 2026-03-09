@@ -8,10 +8,8 @@ const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
 const navItems = [
   { href: "/course", label: "Course", short: "C" },
-  { href: "/course/all", label: "All chapters", short: "A" },
   { href: "/worksheets", label: "Worksheets", short: "W" },
   { href: "/groups", label: "Groups", short: "G" },
-  { href: "/progress", label: "Progress", short: "P" },
 ] as const;
 
 export function AppNav({ userEmail }: { userEmail?: string | null }) {
@@ -64,11 +62,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
       <div className="flex min-h-0 flex-1 flex-col">
         <div className="flex shrink-0 items-start justify-between border-b border-[#E5E7EB] p-4">
           {(!collapsed || drawerOpen) && (
-            <Link
-              href="/progress"
-              className="space-y-1"
-              onClick={closeDrawer}
-            >
+            <Link href="/" className="space-y-1" onClick={closeDrawer}>
               <p className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
                 A Discussion Course
               </p>
@@ -87,20 +81,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             <span className="text-lg leading-none">{collapsed ? "→" : "←"}</span>
           </button>
         </div>
-        <nav className="flex-1 overflow-auto p-3">
-          {(!collapsed || drawerOpen) && (
-            <Link
-              href="/course"
-              onClick={closeDrawer}
-              className={`mb-4 block border-l-2 px-3 py-2 text-xs uppercase tracking-[0.16em] ${
-                isActive("/course")
-                  ? "border-black bg-black/5 text-black"
-                  : "border-transparent text-black/45 hover:bg-black/5 hover:text-black"
-              }`}
-            >
-              Resume
-            </Link>
-          )}
+          <nav className="flex-1 overflow-auto p-3">
           <ul className="space-y-1">
             {navItems.map(({ href, label, short }) => (
               <li key={href}>

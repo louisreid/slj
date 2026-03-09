@@ -15,6 +15,7 @@ export interface NotesPanelContentProps {
   isSignedIn: boolean;
   title?: string;
   emptyMessage?: string;
+  activeBlockId?: string | null;
 }
 
 type SaveStatus = "idle" | "saving" | "saved";
@@ -24,11 +25,13 @@ function NoteCard({
   label,
   onUpsert,
   onDelete,
+  isActive,
 }: {
   note: Note;
   label: string;
   onUpsert: (block_id: string, body: string) => Promise<void>;
   onDelete: (id: string) => Promise<void>;
+  isActive?: boolean;
 }) {
   const [localBody, setLocalBody] = useState(note.body);
   const [saveStatus, setSaveStatus] = useState<SaveStatus>("idle");
@@ -50,12 +53,19 @@ function NoteCard({
 
   return (
     <div
-      className="slj-card p-3 mb-3 last:mb-0"
+      className={`slj-card mb-3 p-3 last:mb-0 ${
+        isActive ? "border-black bg-black/6" : ""
+      }`}
       data-note-block-id={note.block_id}
     >
-      <p className="mb-2 truncate font-sans text-xs text-black/45">
-        {label}
-      </p>
+      <div className="mb-2 flex items-center justify-between gap-2">
+        <p className="truncate font-sans text-xs text-black/45">{label}</p>
+        {isActive && (
+          <span className="shrink-0 font-sans text-[10px] uppercase tracking-[0.16em] text-black/45">
+            Current paragraph
+          </span>
+        )}
+      </div>
       <textarea
         className="slj-input w-full font-sans text-sm p-2.5 min-h-[100px]"
         value={localBody}
@@ -100,6 +110,7 @@ export function NotesPanelContent({
   isSignedIn,
   title = "Notes",
   emptyMessage = "No notes yet. Use “Add note” next to a paragraph to add one.",
+  activeBlockId,
 }: NotesPanelContentProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -137,7 +148,7 @@ export function NotesPanelContent({
           {emptyMessage}
         </p>
       ) : (
-        <ul className="list-none p-0 m-0">
+        <ul className="m-0 list-none p-0">
           {notesInOrder.map((note) => (
             <li key={note.id}>
               <NoteCard
@@ -145,6 +156,7 @@ export function NotesPanelContent({
                 label={blockIdToLabel[note.block_id] ?? note.block_id}
                 onUpsert={onUpsert}
                 onDelete={onDelete}
+                isActive={note.block_id === activeBlockId}
               />
             </li>
           ))}

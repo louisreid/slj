@@ -63,6 +63,7 @@ export function CourseReader({
     () => new Set()
   );
   const [chapterComplete, setChapterComplete] = useState(false);
+  const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const supabase = createClient();
 
   const sectionIds = useMemo(
@@ -198,6 +199,7 @@ export function CourseReader({
         }
         await refetch();
         setScrollToBlockId(block_id);
+        setActiveBlockId(block_id);
         setDrawerOpen(true);
       } catch {
         // ignore
@@ -236,6 +238,7 @@ export function CourseReader({
       scrollToBlockId={scrollToBlockId}
       onScrolledToBlock={() => setScrollToBlockId(null)}
       isSignedIn={!!user}
+      activeBlockId={activeBlockId}
       title="Notes for this chapter"
     />
   );
@@ -253,7 +256,9 @@ export function CourseReader({
             </h2>
             {user && (
               <div className="mb-3 flex items-center justify-between gap-2 border-b border-[#E5E7EB] pb-3">
-                <span className="font-medium text-black/65">Chapter</span>
+                <span className="font-serif text-base font-semibold text-black">
+                  {displayTitle}
+                </span>
                 {chapterComplete ? (
                   <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
                     Complete
@@ -269,7 +274,7 @@ export function CourseReader({
                 )}
               </div>
             )}
-            <ul className="space-y-1">
+            <ul className="space-y-1 pl-3">
               {sections.map((section) => {
                 const heading = firstHeadingBlock(section);
                 const sectionId = getSectionId(section);
@@ -278,7 +283,7 @@ export function CourseReader({
                 return (
                   <li
                     key={heading.block_id}
-                    className="flex items-center justify-between gap-2 flex-wrap"
+                    className="flex flex-wrap items-center justify-between gap-2"
                   >
                     <Link
                       href={`#${heading.block_id}`}
@@ -329,6 +334,7 @@ export function CourseReader({
                   block={block}
                   hasNote={notesByBlock.has(block.block_id)}
                   onAddOrEditNote={handleAddOrEditNote}
+                  isActive={activeBlockId === block.block_id}
                 />
               ) : (
                 <BlockNode key={block.block_id} block={block} />

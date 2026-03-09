@@ -1,4 +1,4 @@
-export const DEFAULT_SIGNED_IN_ROUTE = "/progress";
+export const DEFAULT_SIGNED_IN_ROUTE = "/";
 
 export function sanitizeReturnTo(
   value: string | string[] | null | undefined,

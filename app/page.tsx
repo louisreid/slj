@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
-import { DEFAULT_SIGNED_IN_ROUTE } from "@/lib/navigation";
+import { AppNav } from "@/components/AppNav";
+import { ProgressDashboard } from "@/app/(app)/progress/page";
 
 export default async function LandingPage() {
   const supabase = await createClient();
@@ -10,7 +10,15 @@ export default async function LandingPage() {
   } = await supabase.auth.getUser();
 
   if (user) {
-    redirect(DEFAULT_SIGNED_IN_ROUTE);
+    return (
+      <div className="flex min-h-screen bg-white text-black">
+        <AppNav userEmail={user.email} />
+        <main className="min-w-0 flex-1 px-4 pb-6 pt-16 md:px-8 md:py-8 lg:px-10 lg:py-10">
+          {/* Authenticated home: progress dashboard */}
+          <ProgressDashboard />
+        </main>
+      </div>
+    );
   }
 
   return (

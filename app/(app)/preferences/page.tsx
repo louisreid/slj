@@ -4,6 +4,7 @@ import { buildSignInHref } from "@/lib/navigation";
 import { PreferencesForm } from "./PreferencesForm";
 import { EmailChangeForm } from "./EmailChangeForm";
 import { PageShell } from "@/components/ui/surfaces";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default async function PreferencesPage() {
   const supabase = await createClient();
@@ -28,6 +29,16 @@ export default async function PreferencesPage() {
           Manage your account and preferences.
         </p>
       </div>
+
+      <section className="slj-card p-4">
+        <h2 className="mb-2 font-sans text-sm font-medium text-black">
+          Appearance
+        </h2>
+        <p className="mb-4 font-sans text-sm leading-6 text-black/65">
+          Choose between light and dark mode. This applies to this device only.
+        </p>
+        <ThemeToggle />
+      </section>
 
       <section className="slj-card p-4">
         <h2 className="mb-2 font-sans text-sm font-medium text-black">

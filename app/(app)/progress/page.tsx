@@ -23,14 +23,14 @@ function firstHeadingContent(section: Section): string {
   return heading?.content ?? "Section";
 }
 
-export default async function ProgressPage() {
+export async function ProgressDashboard() {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
   if (!user) {
-    redirect(buildSignInHref("/progress"));
+    return null;
   }
 
   const [
@@ -178,12 +178,9 @@ export default async function ProgressPage() {
               </h2>
               <p className="mt-2 font-serif text-2xl text-black">All chapters</p>
             </div>
-            <Link
-              href="/course/all"
-              className="font-sans text-sm text-black/65 underline underline-offset-4 hover:text-black"
-            >
-              Browse full book
-            </Link>
+            <span className="font-sans text-sm text-black/65">
+              &nbsp;
+            </span>
           </div>
 
           <div className="space-y-3">
@@ -271,4 +268,17 @@ export default async function ProgressPage() {
       </div>
     </PageShell>
   );
+}
+
+export default async function ProgressPage() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    redirect(buildSignInHref("/progress"));
+  }
+
+  redirect("/");
 }

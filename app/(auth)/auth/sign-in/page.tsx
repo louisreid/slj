@@ -15,7 +15,7 @@ export default async function SignInPage({
   const returnTo = sanitizeReturnTo(params.returnTo);
   const authError =
     params.error === "auth"
-      ? "That sign-in link could not be used. Enter your email and we will send a fresh magic link."
+      ? "That sign-in link could not be used. Enter your email and we will send a fresh sign-in code."
       : null;
 
   const supabase = await createClient();
@@ -38,7 +38,7 @@ export default async function SignInPage({
             Simplicity, Love & Justice
           </h1>
           <p className="mt-4 font-sans text-sm leading-6 text-black/65">
-            Enter your email and we&apos;ll send a magic link.
+            Enter your email and we&apos;ll send a one-time sign-in code.
           </p>
           {authError ? (
             <p className="mt-4 font-sans text-sm leading-6 text-black" role="alert">

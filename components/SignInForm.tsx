@@ -1,28 +1,25 @@
-"use client";
+ "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
 export function SignInForm({ returnTo }: { returnTo: string }) {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [code, setCode] = useState("");
+  const [verifying, setVerifying] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleSendMagicLink(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function sendCode() {
     setError(null);
     setSending(true);
-
-    const redirectUrl = new URL("/auth/callback", window.location.origin);
-    redirectUrl.searchParams.set("returnTo", returnTo);
 
     const supabase = createClient();
     const { error: authError } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: {
-        emailRedirectTo: redirectUrl.toString(),
-      },
     });
 
     setSending(false);
@@ -35,8 +32,41 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
     setSent(true);
   }
 
+  async function verifyCode() {
+    setError(null);
+    setVerifying(true);
+
+    const supabase = createClient();
+    const { error: verifyError } = await supabase.auth.verifyOtp({
+      email: email.trim(),
+      token: code.trim(),
+      type: "email",
+    });
+
+    setVerifying(false);
+
+    if (verifyError) {
+      setError(verifyError.message);
+      return;
+    }
+
+    router.replace(returnTo);
+    router.refresh();
+  }
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (!sent) {
+      await sendCode();
+      return;
+    }
+
+    await verifyCode();
+  }
+
   return (
-    <form onSubmit={handleSendMagicLink} className="space-y-5">
+    <form onSubmit={handleSubmit} className="space-y-5">
       <div>
         <label htmlFor="email" className="mb-1.5 block font-sans text-sm text-black/65">
           Email
@@ -48,7 +78,7 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
           onChange={(event) => setEmail(event.target.value)}
           placeholder="you@example.com"
           required
-          disabled={sending || sent}
+          disabled={sending || sent || verifying}
           className="slj-input w-full px-3 py-2.5 text-sm"
         />
       </div>
@@ -61,15 +91,42 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
 
       {sent ? (
         <div className="space-y-3">
+          <div>
+            <label htmlFor="code" className="mb-1.5 block font-sans text-sm text-black/65">
+              Sign-in code
+            </label>
+            <input
+              id="code"
+              type="text"
+              inputMode="numeric"
+              autoComplete="one-time-code"
+              value={code}
+              onChange={(event) => setCode(event.target.value)}
+              required
+              disabled={verifying}
+              className="slj-input w-full px-3 py-2.5 text-sm"
+            />
+          </div>
+
           <p className="font-sans text-sm leading-6 text-black/65">
-            Check <span className="font-medium text-black">{email}</span> for a
-            magic link to continue.
+            Check <span className="font-medium text-black">{email}</span> for a sign-in code
+            to continue.
           </p>
+
+          <button
+            type="submit"
+            className="slj-button w-full px-3 py-2.5 text-sm"
+            disabled={verifying || sending}
+          >
+            {verifying ? "Verifying..." : "Continue"}
+          </button>
+
           <div className="flex items-center gap-4">
             <button
               type="button"
               onClick={() => {
                 setSent(false);
+                setCode("");
                 setError(null);
               }}
               className="font-sans text-sm text-black/65 underline underline-offset-4 hover:text-black"
@@ -77,11 +134,12 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
               Use a different email
             </button>
             <button
-              type="submit"
-              disabled={sending}
+              type="button"
+              onClick={sendCode}
+              disabled={sending || verifying}
               className="font-sans text-sm text-black/65 underline underline-offset-4 hover:text-black"
             >
-              {sending ? "Sending..." : "Send again"}
+              {sending ? "Sending sign-in code..." : "Send again"}
             </button>
           </div>
         </div>
@@ -91,7 +149,7 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
           className="slj-button w-full px-3 py-2.5 text-sm"
           disabled={sending}
         >
-          {sending ? "Sending magic link..." : "Send magic link"}
+          {sending ? "Sending sign-in code..." : "Send sign-in code"}
         </button>
       )}
     </form>

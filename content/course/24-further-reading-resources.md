@@ -1,6 +1,6 @@
 # FURTHER READING / RESOURCES
 
-BOOKS:
+## Books:
 
 R.J. Berry (ed.), The Care of Creation (IVP, 2000)
 
@@ -16,17 +16,17 @@ J. Jones, Jesus and the Earth (SPCK, 2003).
 
 Wright, Surprised By Hope (Harper One, 2008)
 
-WEBSITES:
+## Websites:
 
-A Rocha: www.arocha.org
+A Rocha:
 
-Christian Ecology Link: www.Christian-ecology.org.uk
+Christian Ecology Link:
 
-Friends of the Earth website, publications and membership magazine (www.foe.org.uk)
+Friends of the Earth website, publications and membership magazine (
 
-Going for Green: Gfg@dircon.co.uk www.gfg.iclnet.co.uk
+Going for Green:
 
-FILMS:
+## Films:
 
 “Kiss the Ground”, Netflix, 2020
 

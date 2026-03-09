@@ -36,10 +36,12 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
     setError(null);
     setVerifying(true);
 
+    const trimmedCode = code.trim();
+
     const supabase = createClient();
     const { error: verifyError } = await supabase.auth.verifyOtp({
       email: email.trim(),
-      token: code.trim(),
+      token: trimmedCode,
       type: "email",
     });
 
@@ -68,7 +70,7 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="email" className="mb-1.5 block font-sans text-sm text-black/65">
+        <label htmlFor="email" className="slj-muted mb-1.5 block font-sans text-sm">
           Email
         </label>
         <input
@@ -84,7 +86,7 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
       </div>
 
       {error ? (
-        <p className="font-sans text-sm text-black" role="alert">
+        <p className="font-sans text-sm text-[var(--slj-text)]" role="alert">
           {error}
         </p>
       ) : null}
@@ -92,7 +94,7 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
       {sent ? (
         <div className="space-y-3">
           <div>
-            <label htmlFor="code" className="mb-1.5 block font-sans text-sm text-black/65">
+            <label htmlFor="code" className="slj-muted mb-1.5 block font-sans text-sm">
               Sign-in code
             </label>
             <input
@@ -101,15 +103,18 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
               inputMode="numeric"
               autoComplete="one-time-code"
               value={code}
-              onChange={(event) => setCode(event.target.value)}
+              onChange={(event) => {
+                const digitsOnly = event.target.value.replace(/\D/g, "");
+                setCode(digitsOnly);
+              }}
               required
               disabled={verifying}
               className="slj-input w-full px-3 py-2.5 text-sm"
             />
           </div>
 
-          <p className="font-sans text-sm leading-6 text-black/65">
-            Check <span className="font-medium text-black">{email}</span> for a sign-in code
+          <p className="slj-muted font-sans text-sm leading-6">
+            Check <span className="font-medium text-[var(--slj-text)]">{email}</span> for a sign-in code
             to continue.
           </p>
 
@@ -129,7 +134,7 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
                 setCode("");
                 setError(null);
               }}
-              className="font-sans text-sm text-black/65 underline underline-offset-4 hover:text-black"
+              className="slj-muted font-sans text-sm underline underline-offset-4 hover:text-[var(--slj-text)]"
             >
               Use a different email
             </button>
@@ -137,7 +142,7 @@ export function SignInForm({ returnTo }: { returnTo: string }) {
               type="button"
               onClick={sendCode}
               disabled={sending || verifying}
-              className="font-sans text-sm text-black/65 underline underline-offset-4 hover:text-black"
+              className="slj-muted font-sans text-sm underline underline-offset-4 hover:text-[var(--slj-text)]"
             >
               {sending ? "Sending sign-in code..." : "Send again"}
             </button>

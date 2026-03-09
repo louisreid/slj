@@ -1,40 +1,32 @@
-# NOTES
+# SESSION THREE
 
---------------------------------------------
+## Time
 
---------------------------------------------
+‘There is a time for everything and a season for every activity under heaven...’ (Ecclesiastes 3:1).
 
---------------------------------------------
+## Goals
 
---------------------------------------------
+To reach a clearer understanding of what community is.
 
---------------------------------------------
+To consider some examples of community.
 
---------------------------------------------
+## Reading
 
---------------------------------------------
+‘There remains then, a Sabbath-rest for the people of God; for anyone who enters God’s rest also rests from their own work,
 
---------------------------------------------
+just as God did from His. Let us, therefore, make every effort to enter that rest, so that no one will fall by following their example of disobedience.’
 
---------------------------------------------
+(Hebrews 4:9–11)
 
---------------------------------------------
+Time has been given to us by God to enjoy and to use for his service. It is given to each of us in completely equal amounts and it is hence our responsibility how we choose to conduct ourselves as stewards of that allotted time. Simple living allows time to be the most rewarding and beautiful possession that we have, helping us reach a place of wholeness and awareness both of ourselves and of God. And yet, ‘I haven’t got the time’ is one of the most frequently heard complaints of our society. Listen to this description of our lives:
 
---------------------------------------------
+Capitalism has brought a dramatically increased standard of living, but at the cost of a much more demanding worklife. We are eating more, but we are burning up those calories at work. We have colour televisions and [all sorts of other technology to amuse us], but we need them to unwind after a stressful day at the office. We take vacations, but we work so hard throughout the year that they become indispensable to our sanity. The conventional wisdom that economic progress has given us more things as well as more leisure is difficult to sustain [18].
 
---------------------------------------------
+As a result, many around us are suffering. Stress is now one of the biggest problems in our society, resulting in millions of pounds lost through days off work and medical bills. Indeed, according to the American Institute of Stress (the fact that this organisation even exists is evidence enough), US businesses lose up to $3 billion a year as a result of work-related stress. Furthermore, depression leads to $51 billion in costs due to absenteeism and $26 billion in treatment costs Much of this has come about because of increased pressure at work with many more demands being placed on us and an expectation of increasingly longer hours.
 
---------------------------------------------
+Archbishop Fenelon
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
+‘God, in all besides bounteous and magnificent, teaches us, by the wise parsimony of his providence, frugality and foresight in the use of time, since he gives it but by single moments: the first has disappeared before its successor is in our grasp; and whether it will please him to give or retain the next, it is beyond our knowledge.’Archbishop Fenelon
 
 Sleep is one of the casualties of this and many people are not able to get their required amount each night, thus leading to sleep deprivation problems. It is not uncommon to hear of people lying awake in bed in the early hours, unable to sleep, because of work issues going round and round in their heads.
 
@@ -45,52 +37,6 @@ This was exemplified by a group of young workers in the City of London who used 
 What is clear is that things are only going to get worse. As Tom Sine says, ‘that means we will have less time for family and friends, less time to pray and study Scripture and less time to volunteer to address the mounting needs of the poor in our societies’ [19].
 
 Consider Harry Chapin’s song, ‘Cat’s in the Cradle’
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
 
 My child arrived just the other day,
 
@@ -130,14 +76,6 @@ It said I’m gonna be like him, yeah
 
 You know I’m gonna be like him
 
-And the cat’s in the cradle and the silver spoon Little boy blue and the man in the moon
-
-When you comin’ home, Dad
-
-I don’t know when but we’ll get together then –
-
-You know we’ll have a good time then
-
 Well, he came home from college just the other day
 
 So much like a man I just had to say
@@ -153,8 +91,6 @@ See you later, can I have them please?
 When you comin’ home, son?
 
 I don’t know when but we’ll get together then
-
-You know we’ll have a good time then
 
 I’ve long since retired, my son’s moved away
 
@@ -180,41 +116,13 @@ What is important to grasp is that ‘the new materialism is to do with our atti
 
 Our wage-employment system often places an emphasis on the amount of hours we spend at work, rather than on the successful completion of a task.
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
 What we must grasp is that our use of time reflects the values of our lives.
 
 We will be spending a lot of time on this course looking at our values as Christ followers and how we connect to them through such things as our use of money, our work, or our concern for the environment. We first need to consider these values in respect of our time. We must be bold enough to ask ourselves whether or not we are truly living out God’s values and, if not, what needs to change.
 
---------------------------------------------
+‘Be still and know that I am God’ (Psalm 46 v 10).
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
+‘Be still and know that I am God’ (Psalm 46 v 10).‘Be still and know that I am God’ (Psalm 46 v 10).
 
 We are considering two topics. The first involves making changes so that we have the time simply to be. That is, to be with ourselves and with God. Time in this sense has been described as ‘opening space in our lives for a greater awareness of God’ [22].
 
@@ -232,89 +140,9 @@ Let us conclude this section with Henri Nouwen’s description of the contemplat
 
 ‘in which time slowly loses its opaqueness and becomes transparent. This is often a very difficult and slow process, but full of re-creating power. To start seeing that the many events of our day, week or year are not in the way of our search for a full life, but the way to it, is a real experience of conversion. If we discover that writing letters, ...
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
-----------------------------------------------
-
-----------------------------------------------
-
-----------------------------------------------
-
-----------------------------------------------
-
 visiting people and cooking food are not a series of random events which prevent us from realising our deepest self, but contain in themselves the transforming power we are looking for, then we are beginning to move from time lived as chronos [events] to time lived as kairos [opportunity]’ [24]
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
-DISCUSSION
+## Discussion
 
 Read Hebrews 4:1–11 and its discussion on Sabbath rest. Paul Mills says that the seventh day of Creation was never completed, suggesting that we are still living in the seventh day of divine ‘rest’ from creative activity. [25]
 
@@ -327,6 +155,14 @@ Discuss what you spent your time on last week. Now identify how much of the deci
 Do you feel guilty if you are not as busy as those around you?
 
 Are you happy with your use of time? If not, discuss realistic ways in which you could use your time better. If it helps, look at the ideas below on how to slow down.
+
+We live in deeds, not years; in thoughts, not breaths; In feelings, not in figures on a dial.
+
+We should count time by heart throbs. He most lives who thinks most, feels noblest, acts the best.
+
+Philip James Bailey
+
+We live in deeds, not years; in thoughts, not breaths; In feelings, not in figures on a dial.We should count time by heart throbs. He most lives who thinks most, feels noblest, acts the best.Philip James Bailey
 
 Do you find it easier to give away your time (ie through volunteering) or your money? Why do you think that is?
 
@@ -416,19 +252,69 @@ Spend one day without your watch on. What happened?
 
 Be creative in the way you make gifts. Give presents that cost time rather than money. One person gave their friend the gift of time for their birthday and agreed to cook a meal and spend the evening with them once a month. There are many other things that can be given too!
 
-ACTION
+C. S. Lewis, The Screwtape Letters
+
+‘He (God) has contrived to gratify both tastes together in the very world He has made, by the union of change and permanence which we call Rhythm. He gives them the seasons, each season different yet every year the same, so that Spring is always felt as a novelty yet always as the recurrence of an immemorial theme.’C. S. Lewis, The Screwtape Letters
+
+## Action
 
 Keep a log of your daily activities for at least one week in the time sheet below, recording whatever you do each hour. Then, using the Time Circles sheet, make a pie chart for each day of how you spent your time, to give a clear overview.
 
-TIME SHEET
+Time
 
-TIME CIRCLES
+7-8
 
-MONDAY	SUNDAY
+8-9
 
-TUESDAY	SATURDAY
+9-10
 
-THURSDAY
+10-11
+
+11-12
+
+12-1
+
+1-2
+
+2-3
+
+3-4
+
+4-5
+
+5-6
+
+6-7
+
+sleep
+
+Monday
+
+Tuesday
+
+Wednesday
+
+Thursday
+
+Friday
+
+Saturday
+
+Sunday
+
+Time7-88-99-1010-1111-1212-11-22-33-44-55-66-77-88-99-1010-1111-12sleepTime7-88-99-1010-1111-1212-11-22-33-44-55-66-77-88-99-1010-1111-12sleepMondayMondayTuesdayTuesdayWednesdayWednesdayThursdayThursdayFridayFridaySaturdaySaturdaySundaySundayTIME SHEET
+
+## Time Circles
+
+## Mondaysunday
+
+## Tuesdaysaturday
+
+## Wednesday
+
+## Friday
+
+## Wednesdayfridaywednesdayfridaythursday
 
 Review the activities you have logged. How many of them bring the kind of reward and sense of satisfaction that you associate with the high points of your life?
 
@@ -444,7 +330,7 @@ Design yourself a daily round of activities that would bring you closer to doing
 
 OR Begin to read some of the contemplative literature that makes up our rich Christian heritage - good people to start with are Thomas à Kempis, Thomas Merton and Henri Nouwen.
 
-PRAYER
+## Prayer
 
 Be Still and Know
 
@@ -467,6 +353,8 @@ Silently at the very centre of my soul
 The Spirit answers
 
 Be still and know that I am God. (Anon)
+
+‘I don’t have much money, but time is much more important than money to me. If I’m rich in time then I’m a wealthy man.’ Chris Yates, professional fisherman, and editor of fishing magazine Waterlog
 
 Be Still and Know that I am God (Psalm 46 v10)
 

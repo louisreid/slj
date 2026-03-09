@@ -54,6 +54,10 @@ This course is designed for discussion in small groups, ideally of around five p
 
 It is up to each group to establish their own guidelines for discussions and to decide how long they spend on each subject. There may be some issues that are not relevant to a particular group. It is recommended, as far as possible, that while there may be one person who acts as overall group facilitator, a different person leads through each meeting to help build a sense of group ownership. Please note that the role of the facilitator is to lead people through the suggested format. There is no expectation that the facilitator must deliver a short (still less a long) talk!
 
+Justice is and must be a relational issue. Its only authentic root is intense love.’ Dee Dee Risher. Northwest Earth Institute
+
+‘To build choices on anything less than love for our sisters and brothers is to make life another in a string of competitions.Justice is and must be a relational issue. Its only authentic root is intense love.’ Dee Dee Risher. Northwest Earth Institute
+
 A suggested format for each meeting:
 
 Meal
@@ -87,3 +91,5 @@ Decide on at least one action that each member will take in their lives each tim
 These exercises are designed to help individuals assess themselves and take challenges further. Time spent on these during the week will ensure that each group member gains the maximum from the course.
 
 With this format in mind, it will be clear that each group member will need to set aside time between meetings to think through the previous session thoroughly and prepare for the next. It may also be worth considering doing the last session as a weekend away, as a chance to spend time with one another, reflecting on what the Spirit has been teaching the group over the weeks, to pray for its members and to discuss how they may support one another in any future commitments they feel led to make.
+
+‘... Become nothing before God, learn to keep silent; in this silence is the beginning which is first to seek God’s kingdom’ Soren Kierkegaard, quoted in Richard Foster, Celebration of Discipline

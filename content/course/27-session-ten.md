@@ -1,26 +1,36 @@
-# NOTES
+# SESSION TEN
 
---------------------------------------------
+## What Next?
 
---------------------------------------------
+‘God made people simple; people’s complex problems are of their own devising’ (Ecclesiastes 7:29).
 
---------------------------------------------
+## Goals
 
---------------------------------------------
+To reflect on the course and consider how it has impacted upon us, individually and as a group.
 
---------------------------------------------
+To look at where to go from here.
 
---------------------------------------------
+## Reading
 
---------------------------------------------
+‘Only the simple are free. All others are tyrannised by the ambitious self, the demand for recognition through things and a preoccupation with the opinions of others.’ Francois Fenelon declared, ‘Simplicity is an uprightness of soul which prevents self-consciousness. Verily such simplicity is a great treasure!’
 
---------------------------------------------
+(Richard Foster, Celebration of Discipline, p.117)
 
---------------------------------------------
+‘People choose their own prisons because they don’t like the responsibilities that come with freedom. Because once you are free, you see the world as it is and you feel called to serve, to respond to the pain and confusion.’
 
---------------------------------------------
+(From Joe Dominguez, Yes!, Summer 1999)
 
---------------------------------------------
+‘The plain fact is that we are starving people, not deliberately in the sense that we want them to die, but wilfully in the sense that we prefer their death to our inconvenience.’
+
+(Victor Gollancz)
+
+Over the past two or three months you have been meeting as a group to consider what it means to live a simpler lifestyle. We have discussed why it is important and how we can begin to adopt some of the principles ourselves. We have covered many issues and have left a number out (most notably the more inner dimensions of simplicity). What is certainly true is that a whole book could be written on each of the topics and each session has only served as a starting block for what will be a lifetime’s journey.
+
+Because of the nature of the material, many of you will now need to take time to go over some of the particular areas that interested and challenged you: to go through the recommended reading and resources; to pray through your responses and talk with other people about how you will begin to grapple with these things. What is certain is that it could be all too easy for you to sit back and think ‘you'’ve done that’ and forget all that you have been learning.
+
+‘A person is rich in proportion to the things he can leave along the way.’ Henri Thoreau
+
+‘A person is rich in proportion to the things he can leave along the way.’ Henri Thoreau‘A person is rich in proportion to the things he can leave along the way.’ Henri Thoreau
 
 We have just begun a journey. How will we ensure that we keep going along that path?
 
@@ -28,7 +38,7 @@ One of the best ways of making sure that we keep going in the right direction is
 
 Tom Sine tells of a friend of his, Jerry, who lost his wife and one of his children in a car accident, leaving him alone to bring up the other three. After weeks of praying and struggling with grief:
 
-...it dawned on him that one of the ways to honour those who died was to sit down with his three children and write a family mission statement – to raise his children with a definite purpose in mind. He sat down with his three children and, with his biblical training, drafted a family mission statement	They check it every week to ensure they are
+...it dawned on him that one of the ways to honour those who died was to sit down with his three children and write a family mission statement – to raise his children with a definite purpose in mind. He sat down with his three children and, with his biblical training, drafted a family mission statementThey check it every week to ensure they are
 
 finding creative ways to bring faith to every dimension of their life as a family [65].
 
@@ -45,76 +55,6 @@ Here are a few ideas to think about as you jot down your words and thoughts:
 Think back over what you have learnt on this course and the effect it has had on your relationship with God and your understanding of His purposes for you.
 
 What do you sense God is nudging you towards in terms of your life’s direction and priorities?
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
 
 What words or phrases from Scripture or elsewhere have struck you during this course?
 
@@ -134,48 +74,6 @@ Now to the hard part. This is bringing together the passions of your heart and t
 
 A few further pointers to help us along the way:
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
 Don’t worry about getting it all done at once – it is more likely to be ‘work in progress’ that you will keep beavering away at.
 
 Don’t try to include too much – we’re writing a mission statement not a mission book!
@@ -184,21 +82,11 @@ Make it simple and precise enough to memorise as you set out into the day.
 
 Make it inspirational so that it enthuses you whenever you look at it.
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
-DISCUSSION
+## Discussion
 
 What do you think the simple life means? How has your understanding of simplicity developed since you were first asked this question in Session One?
+
+‘All men dream, but not equally. Those who dream by night in the dusty recesses of their minds wake in the day to find it was vanity: but the dreamers of the day are dangerous men, for they may act their dream with open eyes to make it possible.’ Lawrence of Arabia
 
 What have been the main things you have enjoyed about this course?
 
@@ -210,7 +98,7 @@ At the start of this course we looked at the relationship between the inner real
 
 How have you found this group? Do you in any way want to maintain the continuity and relationships that you have built up, or do you feel that the group has come to its useful and natural end?
 
-ACTION
+## Action
 
 Try writing your mission statement! Try dividing it into three:
 
@@ -224,7 +112,7 @@ When a shape begins to emerge, check it out with one or two others whom you trus
 
 Once we have our mission statement basically written we can decide how to use it. Maybe you will want to pray through it each week or bring it to a group of friends regularly to keep you accountable to it. Whatever we do, let us remember that the key to following our mission statements is prayer. Spend perhaps five minutes each morning with your diary and mission statement in front of you, and ask the simple question, ‘So OK, God, what are you doing, and what do you want me to do today?’ If we all did this it would revolutionise our lives and help us to live a life of simplicity with God at our centre.
 
-PRAYER
+## Prayer
 
 The following extract comes from the writings of a Catholic priest who works with the homeless in France:
 
@@ -241,3 +129,7 @@ And then Jesus replied: 'Don’t worry, son, don’t worry, my child. While peop
 Not that I have already obtained all this, or have already been made perfect, but I press on to take hold of that for which Christ Jesus took hold of me. Brothers and sisters, I do not consider myself yet to have taken hold of it. But one thing I do: forgetting what is behind and straining towards what is ahead, I press on towards the goal to win the prize for which God has called me heavenwards in Christ Jesus’
 
 (Philippians 3:12–15).
+
+Thomas Merton, Seven Storey Mountain
+
+‘What I needed was the solitude to expand in breadth and depth and to be simplified out under the gaze of God, more or less the way a plant spreads out its leaves in the sun.’Thomas Merton, Seven Storey Mountain

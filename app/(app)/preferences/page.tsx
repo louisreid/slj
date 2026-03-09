@@ -19,40 +19,40 @@ export default async function PreferencesPage() {
   return (
     <PageShell className="space-y-8 max-w-xl">
       <div>
-        <p className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+        <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
           Account
         </p>
-        <h1 className="mt-3 font-serif text-4xl font-semibold leading-none text-black">
+        <h1 className="mt-3 font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
           Account
         </h1>
-        <p className="mt-3 font-sans text-sm leading-6 text-black/65">
+        <p className="slj-muted mt-3 font-sans text-sm leading-6">
           Manage your account and preferences.
         </p>
       </div>
 
       <section className="slj-card p-4">
-        <h2 className="mb-2 font-sans text-sm font-medium text-black">
+        <h2 className="mb-2 font-sans text-sm font-medium text-[var(--slj-text)]">
           Appearance
         </h2>
-        <p className="mb-4 font-sans text-sm leading-6 text-black/65">
+        <p className="slj-muted mb-4 font-sans text-sm leading-6">
           Choose between light and dark mode. This applies to this device only.
         </p>
         <ThemeToggle />
       </section>
 
       <section className="slj-card p-4">
-        <h2 className="mb-2 font-sans text-sm font-medium text-black">
+        <h2 className="mb-2 font-sans text-sm font-medium text-[var(--slj-text)]">
           Email
         </h2>
-        <p className="mb-4 font-sans text-sm text-black/65">{user.email}</p>
+        <p className="slj-muted mb-4 font-sans text-sm">{user.email}</p>
         <EmailChangeForm />
       </section>
 
       <section className="slj-card p-4">
-        <h2 className="mb-2 font-sans text-sm font-medium text-black">
+        <h2 className="mb-2 font-sans text-sm font-medium text-[var(--slj-text)]">
           Delete account
         </h2>
-        <p className="mb-4 font-sans text-sm leading-6 text-black/65">
+        <p className="slj-muted mb-4 font-sans text-sm leading-6">
           Permanently delete your account and all associated data (notes,
           progress, group memberships). This cannot be undone.
         </p>

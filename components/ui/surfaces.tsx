@@ -19,7 +19,7 @@ export function CardSection({
   return (
     <section className={`slj-card p-5 ${className}`}>
       {title ? (
-        <h2 className="mb-3 font-sans text-lg font-medium text-black">{title}</h2>
+        <h2 className="mb-3 font-sans text-lg font-medium text-[var(--slj-text)]">{title}</h2>
       ) : null}
       {children}
     </section>

@@ -95,13 +95,13 @@ export function GroupsListContent({
   return (
     <PageShell className="space-y-6">
       <div>
-        <p className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+        <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
           Community
         </p>
-        <h1 className="mt-3 font-serif text-4xl font-semibold leading-none text-black">
+        <h1 className="mt-3 font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
           Groups
         </h1>
-        <p className="mt-3 max-w-xl font-sans text-sm leading-6 text-black/65">
+        <p className="slj-muted mt-3 max-w-xl font-sans text-sm leading-6">
           Create a group, join by invite code, and keep shared notes in one
           place.
         </p>
@@ -111,14 +111,14 @@ export function GroupsListContent({
         <CardSection title="Your groups">
           <ul className="space-y-2">
             {groups.map((g) => (
-              <li key={g.id} className="border border-[#E5E7EB] px-3 py-3">
+              <li key={g.id} className="border border-[var(--slj-border)] px-3 py-3">
                 <Link
                   href={`/groups/${g.id}`}
-                  className="font-serif text-xl text-black hover:underline underline-offset-4"
+                  className="font-serif text-xl text-[var(--slj-text)] hover:underline underline-offset-4"
                 >
                   {g.name}
                 </Link>
-                <span className="ml-2 font-sans text-sm text-black/45">
+                <span className="slj-faint ml-2 font-sans text-sm">
                   Start: {formatStartDate(g.start_date)}
                 </span>
               </li>
@@ -130,7 +130,7 @@ export function GroupsListContent({
       <CardSection title="Create a group">
         <form onSubmit={handleCreate} className="space-y-3 max-w-sm">
           <div>
-            <label htmlFor="group-name" className="mb-1 block text-sm text-black/65">
+            <label htmlFor="group-name" className="slj-muted mb-1 block text-sm">
               Name
             </label>
             <input
@@ -145,7 +145,7 @@ export function GroupsListContent({
             />
           </div>
           <div>
-            <label htmlFor="group-start-date" className="mb-1 block text-sm text-black/65">
+            <label htmlFor="group-start-date" className="slj-muted mb-1 block text-sm">
               Start date (optional)
             </label>
             <input
@@ -157,7 +157,7 @@ export function GroupsListContent({
             />
           </div>
           {createError && (
-            <p className="text-sm text-black">{createError}</p>
+            <p className="text-sm text-[var(--slj-text)]">{createError}</p>
           )}
           <button
             type="submit"
@@ -170,12 +170,12 @@ export function GroupsListContent({
       </CardSection>
 
       <CardSection title="Join a group">
-        <p className="mb-3 font-sans text-sm leading-6 text-black/65">
+        <p className="slj-muted mb-3 font-sans text-sm leading-6">
           Enter the invite code or use an invite link.
         </p>
         <form onSubmit={handleJoin} className="space-y-3 max-w-sm">
           <div>
-            <label htmlFor="invite-code" className="mb-1 block text-sm text-black/65">
+            <label htmlFor="invite-code" className="slj-muted mb-1 block text-sm">
               Invite code
             </label>
             <input
@@ -189,7 +189,7 @@ export function GroupsListContent({
             />
           </div>
           {joinError && (
-            <p className="text-sm text-black">{joinError}</p>
+            <p className="text-sm text-[var(--slj-text)]">{joinError}</p>
           )}
           <button
             type="submit"

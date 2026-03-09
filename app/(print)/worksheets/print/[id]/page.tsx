@@ -19,10 +19,10 @@ export default async function WorksheetPrintPage({
 
   return (
     <div className="worksheet-print-view min-h-screen bg-white text-black">
-      <div className="no-print border-b border-[#E5E7EB] bg-[#fff] px-6 py-4">
+      <div className="no-print border-b border-[var(--slj-border)] bg-[var(--slj-bg)] px-6 py-4">
         <Link
           href="/worksheets"
-          className="font-sans text-sm font-medium text-black/70 hover:text-black"
+          className="font-sans text-sm font-medium text-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"
         >
           ← Back to Worksheets
         </Link>

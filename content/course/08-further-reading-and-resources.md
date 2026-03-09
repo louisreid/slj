@@ -8,4 +8,8 @@ We have chosen not to give timings. It is recommended that the meetings last aro
 
 It is important, again, that each member of the group is encouraged, no matter how they react to the issues. No one should be criticised and comparisons between group members are particularly unhelpful (and miss the point of an essentially personal quest). Don’t move on to the next subject until you feel ready to tackle it. You may find that you stay on one subject for a few weeks without looking at any others.
 
-We would love to hear from you. On your journey of discovery you will discover things that are not covered by this discussion course. Please write to us (sljcourse@gmail.com) and tell us what you learn so that we can include your experiences in later editions.
+We would love to hear from you. On your journey of discovery you will discover things that are not covered by this discussion course. Please write to us and tell us what you learn so that we can include your experiences in later editions.
+
+> Thomas à Kempis, The Imitation of Christ
+
+‘Son, now I will teach you the way of peace and of true liberty. Try, my son, to do the will of another rather than your own. Always choose to have less rather than more. Always seek to take the last place, and to be subject to everyone. Always desire and pray that the will of God be perfectly fulfilled in you. Behold, a man so disposed enters in the land of peace and rest.’Thomas à Kempis, The Imitation of Christ

@@ -26,7 +26,7 @@ export function BlockNode({ block }: { block: Block }) {
 
     return (
       <Tag
-        className={`font-serif font-semibold text-black ${headingClassName}`}
+        className={`font-serif font-semibold text-[var(--slj-text)] ${headingClassName}`}
         data-block-id={block.block_id}
         id={block.block_id}
       >
@@ -37,7 +37,7 @@ export function BlockNode({ block }: { block: Block }) {
   if (block.type === "paragraph") {
     return (
       <p
-        className="mt-5 font-serif text-lg leading-[1.85] text-black/85"
+        className="mt-5 font-serif text-lg leading-[1.85] text-[var(--slj-text)]"
         data-block-id={block.block_id}
         id={block.block_id}
       >
@@ -62,7 +62,7 @@ export function BlockWithNoteAction({
   return (
     <div
       className={`group/block relative -mx-2 flex items-center gap-2 rounded px-2 py-1 transition-colors ${
-        isActive ? "bg-black/6" : "hover:bg-black/5 focus-within:bg-black/5"
+        isActive ? "bg-[var(--slj-active)]" : "hover:bg-[var(--slj-hover)] focus-within:bg-[var(--slj-hover)]"
       }`}
     >
       <div className="min-w-0 flex-1">
@@ -71,7 +71,7 @@ export function BlockWithNoteAction({
       <button
         type="button"
         onClick={() => onAddOrEditNote(block.block_id)}
-        className="shrink-0 self-center rounded p-1 text-black/45 transition-colors hover:text-black md:opacity-0 md:group-hover/block:opacity-100 md:focus-visible:opacity-100"
+        className="slj-faint shrink-0 self-center rounded p-1 transition-colors hover:text-[var(--slj-text)] md:opacity-0 md:group-hover/block:opacity-100 md:focus-visible:opacity-100"
         aria-label={hasNote ? "Edit note" : "Add note for this paragraph"}
       >
         <MessageSquare size={14} strokeWidth={2} />

@@ -1,5 +1,5 @@
 /**
- * Client-side notes API: fetch, upsert, delete.
+ * Client-side notes API: fetch, insert, update, delete.
  * Uses browser Supabase client; RLS enforces user_id = auth.uid().
  */
 
@@ -30,7 +30,7 @@ export async function fetchNotesForBlocks(
   return (data ?? []) as Note[];
 }
 
-export async function upsertNote(
+export async function insertNote(
   supabase: SupabaseClient,
   block_id: string,
   body: string
@@ -47,15 +47,31 @@ export async function upsertNote(
 
   const { data, error } = await supabase
     .from("notes")
-    .upsert(
-      {
-        user_id: user.id,
-        block_id,
-        body: trimmed,
-        updated_at,
-      },
-      { onConflict: "user_id,block_id" }
-    )
+    .insert({
+      user_id: user.id,
+      block_id,
+      body: trimmed,
+      updated_at,
+    })
+    .select("id, user_id, block_id, body, created_at, updated_at")
+    .single();
+
+  if (error) throw error;
+  return data as Note;
+}
+
+export async function updateNote(
+  supabase: SupabaseClient,
+  id: string,
+  body: string
+): Promise<Note> {
+  const trimmed = body.slice(0, BODY_MAX_LENGTH);
+  const updated_at = new Date().toISOString();
+
+  const { data, error } = await supabase
+    .from("notes")
+    .update({ body: trimmed, updated_at })
+    .eq("id", id)
     .select("id, user_id, block_id, body, created_at, updated_at")
     .single();
 

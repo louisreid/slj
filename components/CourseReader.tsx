@@ -1,18 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Check } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
   fetchNotesForBlocks,
-  upsertNote,
+  insertNote,
+  updateNote,
   deleteNote,
   type Note,
 } from "@/lib/notes";
 import {
   upsertProgress,
-  getProgressForUser,
   upsertChapterProgress,
   getChapterProgressForUser,
 } from "@/lib/progress";
@@ -59,9 +58,6 @@ export function CourseReader({
   const [loading, setLoading] = useState(true);
   const [scrollToBlockId, setScrollToBlockId] = useState<string | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [completedSectionIds, setCompletedSectionIds] = useState<Set<string>>(
-    () => new Set()
-  );
   const [chapterComplete, setChapterComplete] = useState(false);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const supabase = createClient();
@@ -118,24 +114,14 @@ export function CourseReader({
     refetch();
   }, [user, refetch]);
 
-  // Load completed sections, chapter completion, and record last-read on chapter open (interactive only)
-  const sectionIdsKey = sectionIds.join(",");
+  // Load chapter completion and record last-read on chapter open (interactive only)
   useEffect(() => {
     if (!isInteractive || !user || sectionIds.length === 0) return;
     let mounted = true;
     (async () => {
       try {
-        const [progressRows, chapterProgressRows] = await Promise.all([
-          getProgressForUser(supabase),
-          getChapterProgressForUser(supabase),
-        ]);
+        const chapterProgressRows = await getChapterProgressForUser(supabase);
         if (!mounted) return;
-        const completed = new Set(
-          progressRows
-            .filter((r) => r.completed_at != null && sectionIds.includes(r.section_id))
-            .map((r) => r.section_id)
-        );
-        setCompletedSectionIds(completed);
         const chapterRow = chapterProgressRows.find(
           (r) => r.chapter_id === chapterId && r.completed_at != null
         );
@@ -154,23 +140,11 @@ export function CourseReader({
     return () => {
       mounted = false;
     };
-  }, [isInteractive, user, sectionIds, sectionIdsKey, chapterId, sections, supabase]);
+  }, [isInteractive, user, sectionIds, chapterId, sections, supabase]);
 
-  const notesByBlock = new Map(notes.map((n) => [n.block_id, n]));
-
-  const handleMarkSectionComplete = useCallback(
-    async (sectionId: string) => {
-      if (!user) return;
-      try {
-        await upsertProgress(supabase, sectionId, {
-          completed_at: new Date().toISOString(),
-        });
-        setCompletedSectionIds((prev) => new Set(prev).add(sectionId));
-      } catch {
-        // ignore
-      }
-    },
-    [user, supabase]
+  const blockIdsWithNotes = useMemo(
+    () => new Set(notes.map((n) => n.block_id)),
+    [notes]
   );
 
   const handleMarkChapterComplete = useCallback(
@@ -189,35 +163,42 @@ export function CourseReader({
   );
 
   const handleAddOrEditNote = useCallback(
-    async (block_id: string) => {
+    (block_id: string) => {
       if (!user) return;
-      try {
-        await upsertNote(supabase, block_id, "");
-        const sectionId = blockIdToSectionId.get(block_id);
-        if (sectionId) {
-          await upsertProgress(supabase, sectionId, { last_block_id: block_id });
-        }
-        await refetch();
-        setScrollToBlockId(block_id);
-        setActiveBlockId(block_id);
-        setDrawerOpen(true);
-      } catch {
-        // ignore
+      setScrollToBlockId(block_id);
+      setActiveBlockId(block_id);
+      setDrawerOpen(true);
+      document.getElementById(block_id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      const sectionId = blockIdToSectionId.get(block_id);
+      if (sectionId) {
+        upsertProgress(supabase, sectionId, { last_block_id: block_id }).catch(
+          () => {}
+        );
       }
     },
-    [user, supabase, refetch, blockIdToSectionId]
+    [user, blockIdToSectionId, supabase]
   );
 
-  const handleUpsert = useCallback(
+  const handleInsertNote = useCallback(
     async (block_id: string, body: string) => {
-      await upsertNote(supabase, block_id, body);
+      await insertNote(supabase, block_id, body);
       const sectionId = blockIdToSectionId.get(block_id);
       if (sectionId) {
         await upsertProgress(supabase, sectionId, { last_block_id: block_id });
       }
       await refetch();
+      setActiveBlockId(null);
+      setScrollToBlockId(block_id);
     },
     [supabase, refetch, blockIdToSectionId]
+  );
+
+  const handleUpdateNote = useCallback(
+    async (id: string, body: string) => {
+      await updateNote(supabase, id, body);
+      await refetch();
+    },
+    [supabase, refetch]
   );
 
   const handleDelete = useCallback(
@@ -233,8 +214,10 @@ export function CourseReader({
       blockIds={effectiveBlockIds}
       blockIdToLabel={blockIdToLabel}
       notes={notes}
-      onUpsert={handleUpsert}
+      onInsert={handleInsertNote}
+      onUpdate={handleUpdateNote}
       onDelete={handleDelete}
+      onCancelNewComment={() => setActiveBlockId(null)}
       scrollToBlockId={scrollToBlockId}
       onScrolledToBlock={() => setScrollToBlockId(null)}
       isSignedIn={!!user}
@@ -251,23 +234,23 @@ export function CourseReader({
             className="mb-8 slj-card p-5 font-sans text-sm"
             aria-label="Table of contents"
           >
-            <h2 className="mb-3 font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+            <h2 className="slj-faint mb-3 font-sans text-xs uppercase tracking-[0.18em]">
               In this chapter
             </h2>
             {user && (
-              <div className="mb-3 flex items-center justify-between gap-2 border-b border-[#E5E7EB] pb-3">
-                <span className="font-serif text-base font-semibold text-black">
+              <div className="mb-3 flex items-center justify-between gap-2 border-b border-[var(--slj-border)] pb-3">
+                <span className="font-serif text-base font-semibold text-[var(--slj-text)]">
                   {displayTitle}
                 </span>
                 {chapterComplete ? (
-                  <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
+                  <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
                     Complete
                   </span>
                 ) : (
                   <button
                     type="button"
                     onClick={handleMarkChapterComplete}
-                    className="text-xs text-black/45 underline underline-offset-4 hover:text-black"
+                    className="slj-faint text-xs underline underline-offset-4 hover:text-[var(--slj-text)]"
                   >
                     Mark complete
                   </button>
@@ -279,35 +262,14 @@ export function CourseReader({
                 const heading = firstHeadingBlock(section);
                 const sectionId = getSectionId(section);
                 if (!heading || !sectionId) return null;
-                const isComplete = completedSectionIds.has(sectionId);
                 return (
-                  <li
-                    key={heading.block_id}
-                    className="flex flex-wrap items-center justify-between gap-2"
-                  >
+                  <li key={heading.block_id}>
                     <Link
                       href={`#${heading.block_id}`}
-                      className="text-black/65 hover:text-black hover:underline underline-offset-4"
+                      className="slj-muted hover:text-[var(--slj-text)] hover:underline underline-offset-4"
                     >
                       {heading.content}
                     </Link>
-                    {user && (
-                      <span className="shrink-0 font-sans text-xs">
-                        {isComplete ? (
-                          <span className="uppercase tracking-[0.16em] text-black/45">
-                            Done
-                          </span>
-                        ) : (
-                          <button
-                            type="button"
-                            onClick={() => handleMarkSectionComplete(sectionId)}
-                            className="text-black/45 underline underline-offset-4 hover:text-black"
-                          >
-                            Mark complete
-                          </button>
-                        )}
-                      </span>
-                    )}
                   </li>
                 );
               })}
@@ -317,11 +279,8 @@ export function CourseReader({
 
         <article className="slj-shell p-6 font-serif md:p-10">
           {!isInteractive ? (
-            <header className="mb-8 border-b border-[#E5E7EB] pb-4">
-              <p className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
-                Static reading
-              </p>
-              <h1 className="mt-3 font-serif text-4xl font-semibold leading-none text-black">
+            <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
+              <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
                 {displayTitle}
               </h1>
             </header>
@@ -332,7 +291,7 @@ export function CourseReader({
                 <BlockWithNoteAction
                   key={block.block_id}
                   block={block}
-                  hasNote={notesByBlock.has(block.block_id)}
+                  hasNote={blockIdsWithNotes.has(block.block_id)}
                   onAddOrEditNote={handleAddOrEditNote}
                   isActive={activeBlockId === block.block_id}
                 />
@@ -344,31 +303,31 @@ export function CourseReader({
         </article>
 
         <nav
-          className="mt-8 flex justify-between border-t border-[#E5E7EB] pt-6 font-sans text-sm"
+          className="mt-8 flex justify-between border-t border-[var(--slj-border)] pt-6 font-sans text-sm"
           aria-label="Chapter navigation"
         >
           <span>
             {prevChapter ? (
               <Link
                 href={`/course/${prevChapter.id}`}
-                className="text-black/65 underline underline-offset-4 hover:text-black"
+                className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
               >
                 ← Previous: {prevChapter.title}
               </Link>
             ) : (
-              <span className="text-black/45">Previous</span>
+              <span className="slj-faint">Previous</span>
             )}
           </span>
           <span>
             {nextChapter ? (
               <Link
                 href={`/course/${nextChapter.id}`}
-                className="text-black/65 underline underline-offset-4 hover:text-black"
+                className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
               >
                 Next: {nextChapter.title} →
               </Link>
             ) : (
-              <span className="text-black/45">Next</span>
+              <span className="slj-faint">Next</span>
             )}
           </span>
         </nav>
@@ -376,11 +335,11 @@ export function CourseReader({
 
       {isInteractive ? (
         <aside
-          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block"
+          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
           aria-label="Notes"
         >
           {loading ? (
-            <p className="font-sans text-sm text-black/65">
+            <p className="slj-muted font-sans text-sm">
               Loading notes...
             </p>
           ) : (
@@ -392,7 +351,7 @@ export function CourseReader({
           className="hidden w-[360px] shrink-0 slj-shell p-5 md:block"
           aria-label="Notes"
         >
-          <p className="font-sans text-sm leading-6 text-black/65">
+          <p className="slj-muted font-sans text-sm leading-6">
             Notes are available in session chapters.
           </p>
         </aside>
@@ -403,7 +362,7 @@ export function CourseReader({
           <button
             type="button"
             onClick={() => setDrawerOpen(true)}
-            className="fixed bottom-6 right-6 border border-[#E5E7EB] bg-white px-4 py-2 font-sans text-sm text-black md:hidden"
+            className="fixed bottom-6 right-6 border border-[var(--slj-border)] bg-[var(--slj-surface)] px-4 py-2 font-sans text-sm text-[var(--slj-text)] md:hidden"
           >
             Notes
           </button>
@@ -415,24 +374,24 @@ export function CourseReader({
                 aria-hidden
               />
               <aside
-                className="fixed bottom-0 right-0 top-0 z-50 w-[min(340px,88vw)] overflow-auto border-l border-[#E5E7EB] bg-white p-4 md:hidden"
+                className="fixed bottom-0 right-0 top-0 z-50 w-[min(340px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
                 aria-label="Notes"
               >
                 <div className="mb-4 flex items-center justify-between">
-                  <span className="font-sans text-sm font-medium text-black">
+                  <span className="font-sans text-sm font-medium text-[var(--slj-text)]">
                     Notes
                   </span>
                   <button
                     type="button"
                     onClick={() => setDrawerOpen(false)}
-                    className="h-8 w-8 border border-[#E5E7EB] bg-white text-black"
+                    className="h-8 w-8 border border-[var(--slj-border)] bg-[var(--slj-surface)] text-[var(--slj-text)]"
                     aria-label="Close notes"
                   >
                     ✕
                   </button>
                 </div>
                 {loading ? (
-                  <p className="font-sans text-sm text-black/65">
+                  <p className="slj-muted font-sans text-sm">
                     Loading notes...
                   </p>
                 ) : (

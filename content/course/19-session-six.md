@@ -1,32 +1,32 @@
-# NOTES
+# SESSION SIX
 
---------------------------------------------
+## Consumerism
 
---------------------------------------------
+‘All the believers were one in heart and mind. No one claimed that any of their possessions were their own, but they shared everything they had. With great power the apostles continued to testify to the resurrection of the Lord Jesus, and much grace was upon them all. There were no needy persons among them.
 
---------------------------------------------
+For from time to time those who owned land or houses sold them, brought the money from the sales and put it at the apostles’ feet, and it was distributed to anyone as they had need. Joseph, a Levite from Cyprus, whom the apostles called Barnabas (which means Son of Encouragement), sold a field he owned and brought the money and put it at the apostles’ feet’ (Acts 4:32–37).
 
---------------------------------------------
+## Goals
 
---------------------------------------------
+To understand when possessions add satisfaction to our lives and when they distract us from what is important.
 
---------------------------------------------
+To understand the culture we are living in and the effect it has on our faith.
 
---------------------------------------------
+To explore why we want so many things.
 
---------------------------------------------
+## Reading
 
---------------------------------------------
+“We live in a society that, for the most part, is morally and spiritually bankrupt. Our culture is a culture of consumerism. How sustainable is that? Benjamin Bratt - US actor
 
---------------------------------------------
+After the war there was an era of mass consumption on an unprecedented scale. A productivity boom enabled goods and services to be supplied in a capacity which far outstripped demand. The only way to deal with this volume was to stimulate demand. In other words, to produce a desire to consume. This led to all the marketing ploys with which we are now so familiar: advertising, built-in obsolescence, the promotion of credit cards and the creation of new areas of consumption such as the teen and yuppie markets.
 
---------------------------------------------
+The result is that consumerism is now the dominant force in our society. The worth or significance of people is now defined by what they consume – house, car, holiday, clothes, electrical equipment or whatever else is on offer. In 2021, expected spending on Black Friday weekend in the UK alone stood at a figure of over £9 billion. How much is given to the Church over a whole year? It doesn’t compare.
 
---------------------------------------------
+Truly, the drive of consumerism is fierce. As community and family identity have increasingly been eroded, so finding our identity in our possessions has become the norm. Our possessions have possessed us. How swiftly we have moved from ‘How do you do?’ to ‘What do you do?’
 
---------------------------------------------
+‘We buy things we do not want to impress people we do not like.’ (Anon)
 
---------------------------------------------
+‘We buy things we do not want to impress people we do not like.’ (Anon)‘We buy things we do not want to impress people we do not like.’ (Anon)
 
 As identity is now primarily found in what we consume, so people often build their supporting communities around their consumption habits. If you don’t believe that, think about your family and friends. Ask yourself to what extent your bonding with them is done around the things you consume – things like dinner out, coffee in a cafe or a shopping trip. How much of your conversation is about activities or objects of consumption?
 
@@ -42,55 +42,7 @@ As we simplify our lives and refuse to be shackled by the chains of consumerism,
 
 The bigger picture of consumerism is seen in its global effect. There are many causes of poverty which include sinful personal choices, natural disasters, lack of technology and past Western colonialism. But we must recognise that the cult of consumerism is a part of the pernicious structures that contribute to world poverty. Whether it is through market economies, issues of trade, debt or the environment, the goods we buy here are directly linked to the lives of others throughout the world. As followers of Christ, we have a responsibility to be aware of how our actions affect other people and to do all we can to help. The writer of Proverbs says that ‘the righteous care about justice for the poor, but the wicked have no such concern’ (Proverbs 29:7).
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
+‘Once I seriously began to confront issues of poverty and justice, I had no spiritual or ethical alternative but to change radically my pattern of living. I was forced to reshape my choices: what I ate, what I bought, how I travelled and the neighbourhoods I lived in.’ ‘A Spirituality of Contentment’, Dee Dee Risher from The Other Side, Northwest Earth Institute, 1992
 
 Consider:
 
@@ -118,75 +70,15 @@ Victor Lebow in the Journal of Retailing (mid-50s) (From Mark A. Burch, Simplici
 
 ‘One major consequence of brand decisions being made by intuition is that consumers often have little explicit memory of exactly what it was that made them choose the brand...Why do we believe we are immune to emotional advertising, when it is evident from the success of campaigns, that we are in many ways defenceless suckers?’ (Robert Heath, The Hidden Power of Advertising.)
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
 --
 
 Regardless of what advertising tells us, our real hunger is not for things but for a better image of ourselves, either in the eyes of others or in our own eyes.
 
-This can only be found in Jesus Christ.  No amount of material possessions can ever make us secure or fulfilled.
+This can only be found in Jesus Christ. No amount of material possessions can ever make us secure or fulfilled.
 
 There is almost no end to the list of things that we consume. However, here are a few of the most common ones illustrated by quotes and statistics. The reason for reading them is to make us think and to enable us to discuss difficult issues both in the context of our own home as well as in the world as a whole. Don’t be put off if it all seems rather overwhelming. As has been stressed before, we are all at different stages and will differ as to how much we are able to take these things on board. These are momentous issues and the idea is that you whet your appetite rather than attempt to cover everything in one session.
 
-ADVERTISING
+## Advertising
 
 ‘It is advertising and the logic of consumerism that governs the depiction of reality in the mass media’
 
@@ -204,65 +96,11 @@ Robert Neelly Bellah
 
 ‘Television advertising takes exceedingly trivial concerns (such as which deodorant, shampoo, or denture adhesive to use) and blows them up into issues of seemingly enormous importance for our lives. Concerns that are utterly insignificant relative to the task of making it through this time of profound ecological and social transition are given vastly inflated significance and then force-fed into our collective consciousness. To break the cultural hypnosis of consumerism, we must begin by breaking the corporate stranglehold on television.’ (Duane Elgin, Voluntary Simplicity, p.203).
 
---------------------------------------------
+Joe Dominguez and Vicki Robin, Your Money or Your Life
 
---------------------------------------------
+‘We have come to believe, deeply, that it is our right to consume. If we have the money, we can buy whatever we want, whether or not we need it, use it or even enjoy it... Born to shop. Whoever dies with the most toys wins. Life, liberty and the pursuit of material possessions.’Joe Dominguez and Vicki Robin, Your Money or Your Life
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
-FASHION
+## Fashion
 
 ‘Clothing is inseparable from identity. In a society which is losing its grasp on heroism in terms of faith and values, the street heroism each one of us can indulge in is fashion. Our appearance can startle, stun, excite, cause admiration and emulation.’
 
@@ -292,75 +130,7 @@ FASHION
 
 ‘We have been told a story that casts us in the role of consumers, people who merely take in products that were made far away. The reality is that as human beings we make choices, and the choices we make around what we wear are having profound implications for our planet as well as for some of our most vulnerable fellow human beings’. Andrew Morgan, filmmaker and director of ‘The True Cost’.
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
-HOLIDAYS
+## Holidays
 
 ‘Strange as it may seem, the majority of our holidays are part of a vast industry. In fact, tourism is the biggest industry in the world. [41] There were 693 million ‘tourist arrivals’ in 2001 with tourists spending $463 billion around the world.[42] In the UK alone, over 36 million overseas holidays were taken in 2002 (21 million of which were package holidays) and ABTA recorded a combined turnover of £36 billion.’[43]
 
@@ -384,71 +154,9 @@ The average employee spends 29 minutes planning getaways every week, which amoun
 
 (C. Michael Hall, professor of Marketing and Tourism at the University of Canterbury, New Zealand)
 
---------------------------------------------
+‘Technology and material things can never liberate you. They have a tendency to squeeze you into their own image.’ Bishop Festo Kivenere, Uganda
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
-CARS
+## Cars
 
 ‘About one billion people do most of their travelling on foot. Many in the walking class never go more than 100 miles from their birthplaces.
 
@@ -462,35 +170,7 @@ There are an estimated 1.4 billion cars on the road, that puts vehicle saturatio
 
 ‘The USA now has more registered vehicles than licensed drivers.’ (Enough! Spring 1999)
 
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
---------------------------------------------
-
-DISCUSSION
+## Discussion
 
 Do not be phased by the sheer extent of the issues raised by this section. The following may be useful starting points for a discussion about consumerism, but the key is likely to be to pick a small number of areas to focus on first, work through them and decide what action to take and then take on another set of issues to think through. No-one should feel that they must change everything all at once – rather, the Almighty will provide a sense of the right priorities for consideration and action.
 
@@ -500,6 +180,10 @@ In what ways do these verses speak into our own situations and how can we develo
 
 To what extent do you buy things in order to feel good, to feel secure, to feel different or to make a statement?
 
+Michael Bates
+
+‘The excessive focus on the immediate, the here and now, has created in our society a blindness to the history of how things came to be, and to the legacy this generation will bequeath to the next. The focus on immediate gratification and consumption has created a selfish generation, which has rewarded “buy now, let others pay later” decisions by its political and business leaders.’Michael Bates
+
 How tied are you to your present job and lifestyle, to instalment payments, maintenance and repair costs, and the expectations of others?
 
 Do you consider the impact your consumption makes on other people and on the earth?
@@ -508,7 +192,7 @@ Who benefits most from TV and online content? Who suffers?
 
 What does Christmas mean to you? Do your Christmas activities reflect the values of Jesus or the values of consumerism? What could you do differently this year?
 
-ACTION
+## Action
 
 Consider trying one or some of the following:
 
@@ -521,6 +205,8 @@ Apply the Philippians 4 rule to your online, TV and cinema viewing: ‘Whatever 
 Try to live without a car for a time (or with only one if you currently have two). How did it affect your life – positively and negatively?
 
 Look at your holidays – how many do you have each year and how much do you spend on them? Consider not going away this year and giving that amount of money to families you know of who are rarely able to go on holiday.
+
+‘When will we admit that the alleviation of world poverty cannot be achieved without sacrifices on the part of the rich?’ Helen Parry, LICC
 
 Follow the 10% rule. Make an effort to buy 10% fewer packaged goods, 10% fewer processed goods and 10% fewer total goods.
 

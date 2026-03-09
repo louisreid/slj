@@ -23,7 +23,7 @@ export function CopyInviteLinkClient({ code }: { code: string }) {
     <button
       type="button"
       onClick={handleCopy}
-      className="text-sm underline hover:text-[#000] text-[rgba(0,0,0,0.65)]"
+      className="slj-muted text-sm underline hover:text-[var(--slj-text)]"
     >
       {copied ? "Copied" : "Copy link"}
     </button>

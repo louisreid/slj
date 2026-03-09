@@ -57,7 +57,7 @@ export function GroupSharedNotesEditor({
 
   return (
     <div className="space-y-2">
-      <label htmlFor="shared-notes" className="block text-sm font-medium text-black">
+      <label htmlFor="shared-notes" className="block text-sm font-medium text-[var(--slj-text)]">
         Group notes (shared with all members)
       </label>
       <textarea
@@ -70,13 +70,13 @@ export function GroupSharedNotesEditor({
       />
       <div className="flex items-center gap-2 text-sm">
         {saveStatus === "saving" && (
-          <span className="text-black/45">Saving...</span>
+          <span className="slj-faint">Saving...</span>
         )}
         {saveStatus === "saved" && (
-          <span className="text-black/45">Saved</span>
+          <span className="slj-faint">Saved</span>
         )}
         {saveStatus === "error" && errorMessage && (
-          <span className="text-black" role="alert">
+          <span className="text-[var(--slj-text)]" role="alert">
             {errorMessage}
           </span>
         )}

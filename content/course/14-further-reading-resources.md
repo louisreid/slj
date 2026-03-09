@@ -1,11 +1,13 @@
 # FURTHER READING / RESOURCES
 
-Tom Sine, Mustard Seed Vs McWorld (Monarch, 1995).
+Richard Foster, Celebration of Discipline (Hodder & Stoughton, 1989). See especially the chapter on solitude.
 
-Ray Simpson, Exploring Celtic Spirituality (Hodder & Stoughton, 1995). • Henri Nouwen, Reaching Out
+Paul Mills, A Brief Theology of Time. Part 2: Resisting the Tyranny of Time.
 
-(Doubleday, 1995).
+Michael Schut (ed.), Simpler Living: Compassionate Life (Thomas More Press, 1999).
 
-Christine Pohl, Making Room (Wm B Eerdmans Publishing Co, 1999). • Co-housing Network: www.cohousing.org
+Tom Sine, Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium (Monarch, 1999)
 
-Intentional Communities: www.ic.org
+`Know the true value of time, snatch, seize and enjoy every moment of it.’ Lord Chesterfield
+
+`Know the true value of time, snatch, seize and enjoy every moment of it.’ Lord Chesterfield`Know the true value of time, snatch, seize and enjoy every moment of it.’ Lord Chesterfield

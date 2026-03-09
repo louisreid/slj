@@ -14,19 +14,23 @@
     --slj-hover: rgba(0, 0, 0, 0.04);
     --slj-active: rgba(0, 0, 0, 0.06);
     --slj-focus: rgba(0, 0, 0, 0.3);
+    --slj-button-bg: #000;
+    --slj-button-fg: #fff;
   }
 
   html[data-theme="dark"] {
     --slj-bg: #000;
     --slj-surface: rgba(0, 0, 0, 0.9);
     --slj-surface-muted: rgba(0, 0, 0, 0.85);
-    --slj-border: #e5e7eb;
+    --slj-border: rgba(255, 255, 255, 0.22);
     --slj-text: rgba(255, 255, 255, 0.92);
     --slj-text-muted: rgba(255, 255, 255, 0.72);
     --slj-text-faint: rgba(255, 255, 255, 0.6);
     --slj-hover: rgba(255, 255, 255, 0.04);
     --slj-active: rgba(255, 255, 255, 0.06);
     --slj-focus: rgba(255, 255, 255, 0.3);
+    --slj-button-bg: #fff;
+    --slj-button-fg: #000;
   }
 
   body {
@@ -67,14 +71,14 @@
   .slj-input:focus {
     outline: none;
     border-color: var(--slj-focus);
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 0 3px var(--slj-focus);
   }
 
   .slj-button {
     border-radius: 12px;
-    border: 1px solid #000;
-    background: #000;
-    color: #fff;
+    border: 1px solid var(--slj-button-bg);
+    background: var(--slj-button-bg);
+    color: var(--slj-button-fg);
     font-weight: 600;
   }
 

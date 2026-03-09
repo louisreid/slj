@@ -6,14 +6,14 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="inline-flex items-center gap-1 rounded-full border border-[#E5E7EB] bg-white p-1 text-xs">
+    <div className="inline-flex items-center gap-1 rounded-full border border-[var(--slj-border)] bg-[var(--slj-surface)] p-1 text-xs">
       <button
         type="button"
         onClick={() => setTheme("light")}
         className={`px-3 py-1 rounded-full transition-colors ${
           theme === "light"
-            ? "bg-black text-white"
-            : "text-black/65 hover:text-black"
+            ? "bg-[var(--slj-button-bg)] text-[var(--slj-button-fg)]"
+            : "slj-muted hover:text-[var(--slj-text)]"
         }`}
         aria-pressed={theme === "light"}
       >
@@ -24,8 +24,8 @@ export function ThemeToggle() {
         onClick={() => setTheme("dark")}
         className={`px-3 py-1 rounded-full transition-colors ${
           theme === "dark"
-            ? "bg-black text-white"
-            : "text-black/65 hover:text-black"
+            ? "bg-[var(--slj-button-bg)] text-[var(--slj-button-fg)]"
+            : "slj-muted hover:text-[var(--slj-text)]"
         }`}
         aria-pressed={theme === "dark"}
       >

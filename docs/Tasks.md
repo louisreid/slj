@@ -62,6 +62,7 @@
 - [x] Manual “mark section complete”
 - [x] Store last-read position (chapter + block) or section
 - [x] Simple progress summary page
+- [x] Completion is chapter-only in the UI (section completion is not shown or used)
 ### Acceptance criteria
 - [x] Progress persists
 - [x] Resume reading works

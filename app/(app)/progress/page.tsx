@@ -33,26 +33,10 @@ export async function ProgressDashboard() {
     return null;
   }
 
-  const [
-    { data: progressRows },
-    { data: chapterProgressRows },
-  ] = await Promise.all([
-    supabase
-      .from("progress")
-      .select("section_id, completed_at")
-      .eq("user_id", user.id),
-    supabase
-      .from("chapter_progress")
-      .select("chapter_id, completed_at")
-      .eq("user_id", user.id),
-  ]);
-
-  const completedBySection = new Map<string, boolean>();
-  for (const row of progressRows ?? []) {
-    if (row.completed_at != null) {
-      completedBySection.set(row.section_id, true);
-    }
-  }
+  const { data: chapterProgressRows } = await supabase
+    .from("chapter_progress")
+    .select("chapter_id, completed_at")
+    .eq("user_id", user.id);
 
   const completedByChapter = new Map<string, boolean>();
   for (const row of chapterProgressRows ?? []) {
@@ -66,21 +50,13 @@ export async function ProgressDashboard() {
   const chapterTitles = getChapterDisplayTitleMap(chapters);
   const continueHref = getResumeHref(chapters, lastRead);
 
-  let totalSections = 0;
-  let completedSections = 0;
-  for (const ch of chapters) {
-    const sections = getSections(ch);
-    for (const s of sections) {
-      const sid = getSectionId(s);
-      if (sid) {
-        totalSections += 1;
-        if (completedBySection.get(sid)) completedSections += 1;
-      }
-    }
-  }
+  const totalChapters = chapters.length;
+  const completedChapters = chapters.filter((ch) =>
+    completedByChapter.get(ch.id)
+  ).length;
   const percent =
-    totalSections > 0
-      ? Math.round((completedSections / totalSections) * 100)
+    totalChapters > 0
+      ? Math.round((completedChapters / totalChapters) * 100)
       : 0;
 
   const nextChapterForResume = lastRead
@@ -92,32 +68,28 @@ export async function ProgressDashboard() {
 
   return (
     <PageShell className="mx-auto max-w-5xl">
-      <section className="mb-12 border-b border-[#E5E7EB] pb-10">
+      <section className="mb-12 border-b border-[var(--slj-border)] pb-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <p className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+            <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
               Progress
             </p>
-            <h1 className="mt-4 font-serif text-4xl font-semibold leading-none text-black md:text-5xl">
+            <h1 className="mt-4 font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
               Simplicity, Love & Justice
             </h1>
-            <p className="mt-4 max-w-xl font-sans text-sm leading-6 text-black/65">
-              Keep your place in the course, pick up where you left off, and
-              browse the full curriculum from one home screen.
-            </p>
           </div>
           <div className="flex items-end gap-3">
-            <span className="font-serif text-5xl leading-none text-black">
+            <span className="font-serif text-5xl leading-none text-[var(--slj-text)]">
               {percent}%
             </span>
-            <span className="pb-1 font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+            <span className="slj-faint pb-1 font-sans text-xs uppercase tracking-[0.18em]">
               Complete
             </span>
           </div>
         </div>
-        <div className="mt-8 h-1.5 w-full overflow-hidden rounded-full bg-black/5">
+        <div className="mt-8 h-1.5 w-full overflow-hidden rounded-full bg-[var(--slj-hover)]">
           <div
-            className="h-full rounded-full bg-black transition-all duration-500"
+            className="h-full rounded-full bg-[var(--slj-text)] transition-all duration-500"
             style={{ width: `${percent}%` }}
           />
         </div>
@@ -127,13 +99,13 @@ export async function ProgressDashboard() {
         <aside className="space-y-6">
           <div className="slj-card p-6">
             <div>
-              <h2 className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+              <h2 className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
                 Continue
               </h2>
-              <p className="mt-3 font-serif text-2xl leading-tight text-black">
+              <p className="mt-3 font-serif text-2xl leading-tight text-[var(--slj-text)]">
                 {nextMilestoneLabel}
               </p>
-              <p className="mt-2 font-sans text-sm leading-6 text-black/65">
+              <p className="slj-muted mt-2 font-sans text-sm leading-6">
                 Return to your last place in the course, or begin at the first
                 session if you have not started yet.
               </p>
@@ -150,19 +122,19 @@ export async function ProgressDashboard() {
           </div>
 
           <div className="slj-card p-6">
-            <h2 className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+            <h2 className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
               Snapshot
             </h2>
-            <dl className="mt-4 space-y-4 font-sans text-sm text-black/65">
+            <dl className="slj-muted mt-4 space-y-4 font-sans text-sm">
               <div className="flex items-center justify-between gap-3">
-                <dt>Sections done</dt>
-                <dd className="font-medium text-black">
-                  {completedSections} / {totalSections}
+                <dt>Chapters completed</dt>
+                <dd className="font-medium text-[var(--slj-text)]">
+                  {completedChapters} / {totalChapters}
                 </dd>
               </div>
               <div className="flex items-center justify-between gap-3">
                 <dt>Next</dt>
-                <dd className="text-right font-medium text-black">
+                <dd className="text-right font-medium text-[var(--slj-text)]">
                   {nextMilestoneLabel}
                 </dd>
               </div>
@@ -173,12 +145,12 @@ export async function ProgressDashboard() {
         <div>
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
-              <h2 className="font-sans text-xs uppercase tracking-[0.18em] text-black/45">
+              <h2 className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
                 Curriculum
               </h2>
-              <p className="mt-2 font-serif text-2xl text-black">All chapters</p>
+              <p className="mt-2 font-serif text-2xl text-[var(--slj-text)]">All chapters</p>
             </div>
-            <span className="font-sans text-sm text-black/65">
+            <span className="slj-muted font-sans text-sm">
               &nbsp;
             </span>
           </div>
@@ -200,13 +172,13 @@ export async function ProgressDashboard() {
                   href={`/course/${chapter.id}`}
                   className={`group flex items-start gap-4 border p-5 transition-colors ${
                     isCurrent
-                      ? "border-black bg-black/5"
-                      : "border-[#E5E7EB] bg-white hover:bg-black/5"
+                      ? "border-[var(--slj-text)] bg-[var(--slj-hover)]"
+                      : "border-[var(--slj-border)] bg-[var(--slj-surface)] hover:bg-[var(--slj-hover)]"
                   }`}
                 >
                   <div className="mt-0.5 shrink-0">
                     {chapterCompleted ? (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-black bg-black text-white">
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-button-bg)] bg-[var(--slj-button-bg)] text-[var(--slj-button-fg)]">
                         <Check
                           size={14}
                           strokeWidth={2.5}
@@ -214,50 +186,44 @@ export async function ProgressDashboard() {
                         />
                       </div>
                     ) : isCurrent ? (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-black">
-                        <span className="h-2 w-2 rounded-full bg-black" />
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-text)]">
+                        <span className="h-2 w-2 rounded-full bg-[var(--slj-text)]" />
                       </div>
                     ) : (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[#E5E7EB]">
-                        <Circle size={14} className="text-black/45" />
+                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-border)]">
+                        <Circle size={14} className="slj-faint" />
                       </div>
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-start justify-between gap-3">
                       <div>
-                        <h3 className="font-serif text-2xl leading-tight text-black">
+                        <h3 className="font-serif text-2xl leading-tight text-[var(--slj-text)]">
                           {displayTitle}
                         </h3>
-                        <p className="mt-2 max-w-xl font-sans text-sm leading-6 text-black/65">
+                        <p className="slj-muted mt-2 max-w-xl font-sans text-sm leading-6">
                           {sections[0]
                             ? firstHeadingContent(sections[0])
                             : displayTitle}
                         </p>
                       </div>
                       {chapterCompleted ? (
-                        <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
+                        <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
                           Completed
                         </span>
                       ) : isCurrent ? (
-                        <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
+                        <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
                           Current
-                        </span>
-                      ) : chapter.mode === "static" ? (
-                        <span className="font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
-                          Static reading
                         </span>
                       ) : null}
                     </div>
-                    <div className="mt-4 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em] text-black/45">
-                      {chapter.mode === "static" ? (
-                        <span>Reading only</span>
-                      ) : (
+                    {chapter.mode !== "static" && (
+                      <div className="slj-faint mt-4 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em]">
                         <span>{sectionCount} sections</span>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
-                  <div className="hidden shrink-0 self-center text-black/45 transition-colors group-hover:text-black md:block">
+                  <div className="slj-faint hidden shrink-0 self-center transition-colors group-hover:text-[var(--slj-text)] md:block">
                     <ArrowRight size={18} strokeWidth={2} />
                   </div>
                 </Link>

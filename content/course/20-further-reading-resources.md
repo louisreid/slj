@@ -1,9 +1,15 @@
 # FURTHER READING / RESOURCES
 
-Craig Blomberg, Neither Poverty Nor Riches: a Biblical Theology of Possessions (IVP, 2001)
+John Benton, Christians in a Consumer Culture (Christian Focus Publications, 1999). Mike Starkey, Born to Shop (Monarch Books, 1989).
 
-Donald Kraybill, The Upside-down Kingdom (Herald Press, 1991)
+Janet Luhrs, The Simple Living Guide (Broadway Books, 1997).
 
-Keith Tondeur, What Jesus Said About Money and Possessions (Monarch Books, 1998)
+Tom Sine, Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium (Monarch Books, 1995). The Ethical Consumer:
 
-Ron Sider, Rich Christians in An Age of Hunger (Hodder & Stoughton 1998)
+World Development Movement, The Good Life, 1998. Available from WDM:
+
+Local organic produce from suppliers such as farmers’ markets and box schemes are often cheaper than ‘regular’ produce from supermarkets. For information on what is available in your area contact the Soil Association:
+
+John O’Donohue, Anam Cara
+
+‘Often all the possessions we have... are manic attempts to fill this opening [of the soul], but they never stay in place. They always slip, and we are left more vulnerable and exposed than before.’John O’Donohue, Anam Cara

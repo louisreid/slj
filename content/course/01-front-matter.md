@@ -1,10 +1,10 @@
 # Front Matter
 
-SIMPLICITY LOVE
+## Simplicity Love
 
-& JUSTICE
+## & Justice
 
-A DISCUSSION COURSE
+## A Discussion Course
 
 Copyright © James Odgers 2004
 

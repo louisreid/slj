@@ -26,13 +26,13 @@ export default async function GroupJoinPage({
     );
     return (
       <PageShell>
-        <h1 className="font-serif text-4xl font-semibold leading-none text-black">
+        <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
           Join group
         </h1>
-        <p className="mt-3 font-sans text-sm leading-6 text-black/65">
+        <p className="slj-muted mt-3 font-sans text-sm leading-6">
           <Link
             href={signInUrl}
-            className="underline underline-offset-4 hover:text-black"
+            className="underline underline-offset-4 hover:text-[var(--slj-text)]"
           >
             Sign in
           </Link>{" "}
@@ -44,7 +44,7 @@ export default async function GroupJoinPage({
 
   return (
     <PageShell>
-      <h1 className="font-serif text-4xl font-semibold leading-none text-black">
+      <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
         Join group
       </h1>
       <JoinGroupByCode code={code} />

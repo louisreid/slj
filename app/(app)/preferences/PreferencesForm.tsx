@@ -11,7 +11,7 @@ export function PreferencesForm({ userEmail }: { userEmail: string }) {
       <div>
         <label
           htmlFor="confirm-email"
-          className="mb-1 block text-sm text-black/65"
+          className="slj-muted mb-1 block text-sm"
         >
           Type your email to confirm: {userEmail}
         </label>
@@ -26,7 +26,7 @@ export function PreferencesForm({ userEmail }: { userEmail: string }) {
         />
       </div>
       {state?.error && (
-        <p className="text-sm text-black" role="alert">
+        <p className="text-sm text-[var(--slj-text)]" role="alert">
           {state.error}
         </p>
       )}

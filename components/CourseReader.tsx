@@ -238,7 +238,7 @@ export function CourseReader({
   );
 
   const renderedBlocks = useMemo(() => {
-    const nodes: JSX.Element[] = [];
+    const nodes: React.ReactNode[] = [];
     let previousBlock: Section["blocks"][number] | null = null;
 
     for (const section of sections) {

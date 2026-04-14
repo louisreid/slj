@@ -18,6 +18,7 @@ export interface NotesPanelContentProps {
   title?: string;
   emptyMessage?: string;
   activeBlockId?: string | null;
+  onActivateBlock?: (blockId: string) => void;
   noteCountsByBlockId?: Map<string, number>;
 }
 
@@ -29,12 +30,14 @@ function NoteCard({
   onUpdate,
   onDelete,
   isActive,
+  onActivateBlock,
 }: {
   note: Note;
   label: string;
   onUpdate: (id: string, body: string) => Promise<void>;
   onDelete: (id: string) => Promise<void>;
   isActive?: boolean;
+  onActivateBlock?: (blockId: string) => void;
 }) {
   const [editing, setEditing] = useState(false);
   const [localBody, setLocalBody] = useState(note.body);
@@ -66,6 +69,7 @@ function NoteCard({
         isActive ? "border-[var(--slj-text)] bg-[var(--slj-active)]" : ""
       }`}
       data-note-block-id={note.block_id}
+      onFocusCapture={() => onActivateBlock?.(note.block_id)}
     >
       {editing ? (
         <>
@@ -114,7 +118,10 @@ function NoteCard({
           <div className="mt-2 flex items-center justify-end gap-2">
             <button
               type="button"
-              onClick={() => setEditing(true)}
+              onClick={() => {
+                onActivateBlock?.(note.block_id);
+                setEditing(true);
+              }}
               className="slj-faint rounded p-1 transition-colors hover:text-[var(--slj-text)]"
               aria-label="Edit note"
             >
@@ -204,6 +211,7 @@ export function NotesPanelContent({
   title = "Notes",
   emptyMessage = "No notes yet. Use the notes icon next to a paragraph to add one.",
   activeBlockId,
+  onActivateBlock,
   noteCountsByBlockId,
 }: NotesPanelContentProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -278,6 +286,7 @@ export function NotesPanelContent({
                       onUpdate={onUpdate}
                       onDelete={onDelete}
                       isActive={note.block_id === activeBlockId}
+                      onActivateBlock={onActivateBlock}
                     />
                   ))}
                 </li>

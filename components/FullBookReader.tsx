@@ -17,6 +17,7 @@ import {
   getSectionId,
   BlockNode,
   BlockWithNoteAction,
+  isDuplicateAdjacentQuote,
 } from "@/components/BlockContent";
 
 export interface FullBookReaderProps {
@@ -166,15 +167,73 @@ export function FullBookReader({
       onInsert={handleInsertNote}
       onUpdate={handleUpdateNote}
       onDelete={handleDelete}
-      onCancelNewComment={() => setActiveBlockId(null)}
+      onCancelNewNote={() => setActiveBlockId(null)}
       scrollToBlockId={scrollToBlockId}
       onScrolledToBlock={() => setScrollToBlockId(null)}
       isSignedIn={!!user}
       activeBlockId={activeBlockId}
+      onActivateBlock={(blockId) => {
+        setActiveBlockId(blockId);
+        document.getElementById(blockId)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }}
       title="Notes across the course"
-      emptyMessage="Use the comment icon next to a session paragraph to add a note."
+      emptyMessage="Use the notes icon next to a session paragraph to add a note."
     />
   );
+
+  const renderedChapters = useMemo(() => {
+    return chapters.map((chapter) => {
+      const nodes: React.ReactNode[] = [];
+      let previousBlock: Chapter["sections"][number]["blocks"][number] | null = null;
+
+      for (const section of chapter.sections) {
+        for (const block of section.blocks) {
+          if (isDuplicateAdjacentQuote(block, previousBlock)) {
+            previousBlock = block;
+            continue;
+          }
+
+          nodes.push(
+            chapter.mode !== "static" && block.type === "paragraph" ? (
+              <BlockWithNoteAction
+                key={block.block_id}
+                block={block}
+                hasNote={blockIdsWithNotes.has(block.block_id)}
+                onAddOrEditNote={handleAddOrEditNote}
+                isActive={activeBlockId === block.block_id}
+              />
+            ) : (
+              <BlockNode key={block.block_id} block={block} />
+            )
+          );
+
+          previousBlock = block;
+        }
+      }
+
+      return (
+        <section key={chapter.id} id={chapter.id} className="mt-12 first:mt-0">
+          <div className="mb-6 border-b border-[var(--slj-border)] pb-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
+                {chapterTitles[chapter.id] ?? chapter.title}
+              </h1>
+            </div>
+          </div>
+          <div>{nodes}</div>
+        </section>
+      );
+    });
+  }, [
+    chapters,
+    chapterTitles,
+    blockIdsWithNotes,
+    handleAddOrEditNote,
+    activeBlockId,
+  ]);
 
   return (
     <div className="flex flex-col gap-8 md:flex-row md:gap-6">
@@ -197,40 +256,11 @@ export function FullBookReader({
           </ul>
         </nav>
 
-        <article className="slj-shell p-6 font-serif md:p-10">
-          {chapters.map((chapter) => (
-            <section key={chapter.id} id={chapter.id} className="mt-12 first:mt-0">
-              <div className="mb-6 border-b border-[var(--slj-border)] pb-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
-                    {chapterTitles[chapter.id] ?? chapter.title}
-                  </h1>
-                </div>
-              </div>
-              <div>
-                {chapter.sections.map((section) =>
-                  section.blocks.map((block) =>
-                    chapter.mode !== "static" && block.type === "paragraph" ? (
-                      <BlockWithNoteAction
-                        key={block.block_id}
-                        block={block}
-                        hasNote={blockIdsWithNotes.has(block.block_id)}
-                        onAddOrEditNote={handleAddOrEditNote}
-                        isActive={activeBlockId === block.block_id}
-                      />
-                    ) : (
-                      <BlockNode key={block.block_id} block={block} />
-                    )
-                  )
-                )}
-              </div>
-            </section>
-          ))}
-        </article>
+        <article className="slj-shell p-6 font-serif md:p-10">{renderedChapters}</article>
       </div>
 
       <aside
-        className="hidden w-[360px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
+        className="hidden w-[320px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
         aria-label="Notes"
       >
         {loading ? (
@@ -256,7 +286,7 @@ export function FullBookReader({
               aria-hidden
             />
             <aside
-              className="fixed bottom-0 right-0 top-0 z-50 w-[min(340px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
+              className="fixed bottom-0 right-0 top-0 z-50 w-[min(320px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
               aria-label="Notes"
             >
               <div className="mb-4 flex items-center justify-between">

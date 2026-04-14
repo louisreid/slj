@@ -19,6 +19,14 @@ export default async function WorksheetsPage() {
           Print-ready pages for reflection, discussion, and handwritten work
           away from the screen.
         </p>
+        <div className="mt-6">
+          <Link
+            href="/"
+            className="font-sans text-sm font-medium underline underline-offset-4 text-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"
+          >
+            ← Back to course dashboard
+          </Link>
+        </div>
       </div>
 
       <div className="overflow-hidden border border-[var(--slj-border)]">

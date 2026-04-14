@@ -122,3 +122,13 @@
 - [ ] CI (GitHub Actions): lint/typecheck/test
 - [ ] RLS policy tests with Supabase tools/emulator
 - [ ] Basic analytics/reporting dashboard (optional)
+
+## Draft 2 — Readability, navigation, notes UX polish
+- [x] Auth UX: magic-link copy + explicit "check email" state + resend action
+- [x] Auth recovery for invalid/expired link with clear resend path
+- [x] Light mode readability pass (stronger contrast, heavier UI text, white surfaces)
+- [x] Notes UX polish ("Notes" naming, clearer icon affordance, narrower notes panel)
+- [x] Session signposts: front matter grouping on dashboard + prev/next controls in reader
+- [x] Worksheets back behavior points to dashboard (not session one)
+- [x] Quote and Bible verse visual treatment + adjacent duplicate quote guardrail
+- [x] Content maintenance guardrails documented + content lint script

@@ -14,6 +14,14 @@ import { PageShell } from "@/components/ui/surfaces";
 import type { Section } from "@/lib/content";
 import { buildSignInHref } from "@/lib/navigation";
 
+const FRONT_MATTER_CHAPTER_IDS = new Set([
+  "04-preface",
+  "05-reviews",
+  "06-foreword-summer-2004",
+  "07-introduction",
+  "08-further-reading-and-resources",
+]);
+
 function getSectionId(section: Section): string | undefined {
   return section.blocks[0]?.block_id;
 }
@@ -65,6 +73,83 @@ export async function ProgressDashboard() {
   const nextMilestoneLabel = nextChapterForResume
     ? chapterTitles.get(nextChapterForResume.id) ?? nextChapterForResume.title
     : "Start course";
+  const frontMatterChapters = chapters.filter((chapter) =>
+    FRONT_MATTER_CHAPTER_IDS.has(chapter.id)
+  );
+  const sessionChapters = chapters.filter(
+    (chapter) => !FRONT_MATTER_CHAPTER_IDS.has(chapter.id)
+  );
+
+  const renderChapterLink = (chapter: (typeof chapters)[number]) => {
+    const sections = getSections(chapter);
+    const sectionCount = sections.filter((s) => getSectionId(s)).length;
+    const chapterCompleted = completedByChapter.get(chapter.id);
+    const isCurrent = lastRead?.chapterId === chapter.id && !chapterCompleted;
+    const displayTitle = chapterTitles.get(chapter.id) ?? chapter.title;
+
+    return (
+      <Link
+        key={chapter.id}
+        href={`/course/${chapter.id}`}
+        className={`group flex items-start gap-4 border p-5 transition-colors ${
+          isCurrent
+            ? "border-[var(--slj-text)] bg-[var(--slj-hover)]"
+            : "border-[var(--slj-border)] bg-[var(--slj-surface)] hover:bg-[var(--slj-hover)]"
+        }`}
+      >
+        <div className="mt-0.5 shrink-0">
+          {chapterCompleted ? (
+            <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-button-bg)] bg-[var(--slj-button-bg)] text-[var(--slj-button-fg)]">
+              <Check
+                size={14}
+                strokeWidth={2.5}
+                aria-label="Completed"
+              />
+            </div>
+          ) : isCurrent ? (
+            <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-text)]">
+              <span className="h-2 w-2 rounded-full bg-[var(--slj-text)]" />
+            </div>
+          ) : (
+            <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-border)]">
+              <Circle size={14} className="slj-faint" />
+            </div>
+          )}
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              <h3 className="font-serif text-2xl leading-tight text-[var(--slj-text)]">
+                {displayTitle}
+              </h3>
+              <p className="slj-muted mt-2 max-w-xl font-sans text-sm leading-6">
+                {sections[0]
+                  ? firstHeadingContent(sections[0])
+                  : displayTitle}
+              </p>
+            </div>
+            {chapterCompleted ? (
+              <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
+                Completed
+              </span>
+            ) : isCurrent ? (
+              <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
+                Current
+              </span>
+            ) : null}
+          </div>
+          {chapter.mode !== "static" && (
+            <div className="slj-faint mt-4 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em]">
+              <span>{sectionCount} sections</span>
+            </div>
+          )}
+        </div>
+        <div className="slj-faint hidden shrink-0 self-center transition-colors group-hover:text-[var(--slj-text)] md:block">
+          <ArrowRight size={18} strokeWidth={2} />
+        </div>
+      </Link>
+    );
+  };
 
   return (
     <PageShell className="mx-auto max-w-5xl">
@@ -148,7 +233,7 @@ export async function ProgressDashboard() {
               <h2 className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
                 Curriculum
               </h2>
-              <p className="mt-2 font-serif text-2xl text-[var(--slj-text)]">All chapters</p>
+              <p className="mt-2 font-serif text-2xl text-[var(--slj-text)]">Session index</p>
             </div>
             <span className="slj-muted font-sans text-sm">
               &nbsp;
@@ -156,79 +241,19 @@ export async function ProgressDashboard() {
           </div>
 
           <div className="space-y-3">
-            {chapters.map((chapter) => {
-              const sections = getSections(chapter);
-              const sectionCount = sections.filter((s) =>
-                getSectionId(s)
-              ).length;
-              const chapterCompleted = completedByChapter.get(chapter.id);
-              const isCurrent =
-                lastRead?.chapterId === chapter.id && !chapterCompleted;
-              const displayTitle = chapterTitles.get(chapter.id) ?? chapter.title;
-
-              return (
-                <Link
-                  key={chapter.id}
-                  href={`/course/${chapter.id}`}
-                  className={`group flex items-start gap-4 border p-5 transition-colors ${
-                    isCurrent
-                      ? "border-[var(--slj-text)] bg-[var(--slj-hover)]"
-                      : "border-[var(--slj-border)] bg-[var(--slj-surface)] hover:bg-[var(--slj-hover)]"
-                  }`}
-                >
-                  <div className="mt-0.5 shrink-0">
-                    {chapterCompleted ? (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-button-bg)] bg-[var(--slj-button-bg)] text-[var(--slj-button-fg)]">
-                        <Check
-                          size={14}
-                          strokeWidth={2.5}
-                          aria-label="Completed"
-                        />
-                      </div>
-                    ) : isCurrent ? (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-text)]">
-                        <span className="h-2 w-2 rounded-full bg-[var(--slj-text)]" />
-                      </div>
-                    ) : (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-border)]">
-                        <Circle size={14} className="slj-faint" />
-                      </div>
-                    )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div>
-                        <h3 className="font-serif text-2xl leading-tight text-[var(--slj-text)]">
-                          {displayTitle}
-                        </h3>
-                        <p className="slj-muted mt-2 max-w-xl font-sans text-sm leading-6">
-                          {sections[0]
-                            ? firstHeadingContent(sections[0])
-                            : displayTitle}
-                        </p>
-                      </div>
-                      {chapterCompleted ? (
-                        <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
-                          Completed
-                        </span>
-                      ) : isCurrent ? (
-                        <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
-                          Current
-                        </span>
-                      ) : null}
-                    </div>
-                    {chapter.mode !== "static" && (
-                      <div className="slj-faint mt-4 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em]">
-                        <span>{sectionCount} sections</span>
-                      </div>
-                    )}
-                  </div>
-                  <div className="slj-faint hidden shrink-0 self-center transition-colors group-hover:text-[var(--slj-text)] md:block">
-                    <ArrowRight size={18} strokeWidth={2} />
-                  </div>
-                </Link>
-              );
-            })}
+            {frontMatterChapters.length > 0 ? (
+              <section aria-label="Front matter" className="mb-8">
+                <p className="slj-faint mb-3 font-sans text-[11px] uppercase tracking-[0.16em]">
+                  Front matter
+                </p>
+                <div className="space-y-3">
+                  {frontMatterChapters.map((chapter) => renderChapterLink(chapter))}
+                </div>
+              </section>
+            ) : null}
+            <div className="space-y-3">
+              {sessionChapters.map((chapter) => renderChapterLink(chapter))}
+            </div>
           </div>
         </div>
       </div>

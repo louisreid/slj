@@ -22,6 +22,7 @@ import {
   firstHeadingBlock,
   BlockNode,
   BlockWithNoteAction,
+  isDuplicateAdjacentQuote,
 } from "@/components/BlockContent";
 
 const EMPTY_BLOCK_IDS: string[] = [];
@@ -217,23 +218,66 @@ export function CourseReader({
       onInsert={handleInsertNote}
       onUpdate={handleUpdateNote}
       onDelete={handleDelete}
-      onCancelNewComment={() => setActiveBlockId(null)}
+      onCancelNewNote={() => {
+        setActiveBlockId(null);
+        setDrawerOpen(false);
+      }}
       scrollToBlockId={scrollToBlockId}
       onScrolledToBlock={() => setScrollToBlockId(null)}
       isSignedIn={!!user}
       activeBlockId={activeBlockId}
+      onActivateBlock={(blockId) => {
+        setActiveBlockId(blockId);
+        setScrollToBlockId(blockId);
+        document
+          .getElementById(blockId)
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }}
       title="Notes for this chapter"
     />
   );
+
+  const renderedBlocks = useMemo(() => {
+    const nodes: React.ReactNode[] = [];
+    let previousBlock: Section["blocks"][number] | null = null;
+
+    for (const section of sections) {
+      for (const block of section.blocks) {
+        if (isDuplicateAdjacentQuote(block, previousBlock)) {
+          previousBlock = block;
+          continue;
+        }
+        nodes.push(
+          isInteractive && block.type === "paragraph" ? (
+            <BlockWithNoteAction
+              key={block.block_id}
+              block={block}
+              hasNote={blockIdsWithNotes.has(block.block_id)}
+              onAddOrEditNote={handleAddOrEditNote}
+              isActive={activeBlockId === block.block_id}
+            />
+          ) : (
+            <BlockNode key={block.block_id} block={block} />
+          )
+        );
+        previousBlock = block;
+      }
+    }
+
+    return nodes;
+  }, [
+    sections,
+    isInteractive,
+    blockIdsWithNotes,
+    handleAddOrEditNote,
+    activeBlockId,
+  ]);
 
   return (
     <div className="flex flex-col gap-8 md:flex-row md:gap-6">
       <div className="flex-1 min-w-0 max-w-[78ch]">
         {isInteractive && (
-          <nav
-            className="mb-8 slj-card p-5 font-sans text-sm"
-            aria-label="Table of contents"
-          >
+          <nav className="mb-8 slj-card p-5 font-sans text-sm" aria-label="Table of contents">
             <h2 className="slj-faint mb-3 font-sans text-xs uppercase tracking-[0.18em]">
               In this chapter
             </h2>
@@ -285,21 +329,7 @@ export function CourseReader({
               </h1>
             </header>
           ) : null}
-          {sections.map((section) =>
-            section.blocks.map((block) =>
-              isInteractive && block.type === "paragraph" ? (
-                <BlockWithNoteAction
-                  key={block.block_id}
-                  block={block}
-                  hasNote={blockIdsWithNotes.has(block.block_id)}
-                  onAddOrEditNote={handleAddOrEditNote}
-                  isActive={activeBlockId === block.block_id}
-                />
-              ) : (
-                <BlockNode key={block.block_id} block={block} />
-              )
-            )
-          )}
+          {renderedBlocks}
         </article>
 
         <nav
@@ -335,7 +365,7 @@ export function CourseReader({
 
       {isInteractive ? (
         <aside
-          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
+          className="hidden w-[320px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
           aria-label="Notes"
         >
           {loading ? (
@@ -348,7 +378,7 @@ export function CourseReader({
         </aside>
       ) : (
         <aside
-          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block"
+          className="hidden w-[320px] shrink-0 slj-shell p-5 md:block"
           aria-label="Notes"
         >
           <p className="slj-muted font-sans text-sm leading-6">
@@ -374,7 +404,7 @@ export function CourseReader({
                 aria-hidden
               />
               <aside
-                className="fixed bottom-0 right-0 top-0 z-50 w-[min(340px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
+                className="fixed bottom-0 right-0 top-0 z-50 w-[min(320px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
                 aria-label="Notes"
               >
                 <div className="mb-4 flex items-center justify-between">

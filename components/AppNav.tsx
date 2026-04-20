@@ -8,7 +8,7 @@ const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
 // Groups hidden for now; re-add { href: "/groups", label: "Groups", short: "G" } to bring back
 const navItems = [
-  { href: "/course", label: "Course", short: "C" },
+  { href: "/", label: "Course", short: "C" },
   { href: "/worksheets", label: "Worksheets", short: "W" },
 ] as const;
 
@@ -52,15 +52,15 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
   const isActive = (href: string) => {
     if (!pathname) return false;
 
-    if (href === "/course") {
-      return pathname === "/course" || /^\/course\/[^/]+$/.test(pathname);
+    if (href === "/") {
+      return pathname === "/" || pathname === "/course" || pathname.startsWith("/course/");
     }
 
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
   const navItemClass = (active: boolean) =>
-    `flex items-center gap-2 border-l-2 px-3 py-2 text-sm transition-colors ${
+    `flex items-center gap-2 border-l-2 px-3 py-2 text-sm font-medium transition-colors ${
       active
         ? "border-[var(--slj-text)] bg-[var(--slj-hover)] font-medium"
         : "border-transparent text-[var(--slj-text-muted)] hover:bg-[var(--slj-hover)] hover:text-[var(--slj-text)]"

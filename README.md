@@ -31,3 +31,14 @@ Create `.env.local` from `.env.example`. Required:
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` — Anon/public key (RLS enforces security)
 
 For deploy steps, see [docs/ReleaseChecklist.md](docs/ReleaseChecklist.md).
+
+## Content patching workflow (quick fixes)
+
+For occasional content glitches (for example, an accidental heading or duplicated quote),
+you can patch markdown directly without a full re-ingestion.
+
+1. Edit files in `content/course/*.md`
+2. Rebuild manifest IDs: `pnpm generate-manifest`
+3. Optional sanity check: `pnpm lint:content`
+
+See [docs/ContentFixes.md](docs/ContentFixes.md) for detailed guidance.

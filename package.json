@@ -11,7 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test": "jest",
     "generate-manifest": "tsx scripts/generate-manifest.ts",
-    "ingest-from-zip": "tsx scripts/ingest-from-zip.ts"
+    "ingest-from-zip": "tsx scripts/ingest-from-zip.ts",
+    "lint:content": "tsx scripts/lint-content.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",

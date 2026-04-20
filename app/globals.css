@@ -34,7 +34,7 @@
   }
 
   body {
-    @apply font-sans;
+    @apply font-sans font-medium;
     background: var(--slj-bg);
     color: var(--slj-text);
   }
@@ -96,10 +96,12 @@
 
   .slj-muted {
     color: var(--slj-text-muted);
+    font-weight: 500;
   }
 
   .slj-faint {
     color: var(--slj-text-faint);
+    font-weight: 500;
   }
 }
 

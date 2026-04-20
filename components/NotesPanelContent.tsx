@@ -11,13 +11,15 @@ export interface NotesPanelContentProps {
   onInsert: (block_id: string, body: string) => Promise<void>;
   onUpdate: (id: string, body: string) => Promise<void>;
   onDelete: (id: string) => Promise<void>;
-  onCancelNewComment?: () => void;
+  onCancelNewNote?: () => void;
   scrollToBlockId: string | null;
   onScrolledToBlock?: () => void;
   isSignedIn: boolean;
   title?: string;
   emptyMessage?: string;
   activeBlockId?: string | null;
+  onActivateBlock?: (blockId: string) => void;
+  noteCountsByBlockId?: Map<string, number>;
 }
 
 type SaveStatus = "idle" | "saving" | "saved";
@@ -28,12 +30,14 @@ function NoteCard({
   onUpdate,
   onDelete,
   isActive,
+  onActivateBlock,
 }: {
   note: Note;
   label: string;
   onUpdate: (id: string, body: string) => Promise<void>;
   onDelete: (id: string) => Promise<void>;
   isActive?: boolean;
+  onActivateBlock?: (blockId: string) => void;
 }) {
   const [editing, setEditing] = useState(false);
   const [localBody, setLocalBody] = useState(note.body);
@@ -65,6 +69,7 @@ function NoteCard({
         isActive ? "border-[var(--slj-text)] bg-[var(--slj-active)]" : ""
       }`}
       data-note-block-id={note.block_id}
+      onFocusCapture={() => onActivateBlock?.(note.block_id)}
     >
       {editing ? (
         <>
@@ -76,7 +81,7 @@ function NoteCard({
             value={localBody}
             onChange={(e) => setLocalBody(e.target.value)}
             onBlur={handleBlur}
-            aria-label={`Edit comment for ${label}`}
+            aria-label={`Edit note for ${label}`}
             autoFocus
           />
           <div className="mt-2 flex items-center justify-end gap-2">
@@ -113,7 +118,10 @@ function NoteCard({
           <div className="mt-2 flex items-center justify-end gap-2">
             <button
               type="button"
-              onClick={() => setEditing(true)}
+              onClick={() => {
+                onActivateBlock?.(note.block_id);
+                setEditing(true);
+              }}
               className="slj-faint rounded p-1 transition-colors hover:text-[var(--slj-text)]"
               aria-label="Edit note"
             >
@@ -134,7 +142,7 @@ function NoteCard({
   );
 }
 
-function NewCommentComposer({
+function NewNoteComposer({
   blockId,
   onSave,
   onCancel,
@@ -164,8 +172,8 @@ function NewCommentComposer({
         className="slj-input w-full font-sans text-sm p-2.5 min-h-[100px]"
         value={body}
         onChange={(e) => setBody(e.target.value)}
-        placeholder="Write a comment…"
-        aria-label="New comment"
+        placeholder="Write a note…"
+        aria-label="New note"
       />
       <div className="mt-2 flex items-center justify-end gap-2">
         <button
@@ -196,13 +204,15 @@ export function NotesPanelContent({
   onInsert,
   onUpdate,
   onDelete,
-  onCancelNewComment,
+  onCancelNewNote,
   scrollToBlockId,
   onScrolledToBlock,
   isSignedIn,
   title = "Notes",
-  emptyMessage = "No notes yet. Use the comment icon next to a paragraph to add one.",
+  emptyMessage = "No notes yet. Use the notes icon next to a paragraph to add one.",
   activeBlockId,
+  onActivateBlock,
+  noteCountsByBlockId,
 }: NotesPanelContentProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -251,22 +261,24 @@ export function NotesPanelContent({
         </p>
       ) : (
         <>
-          {hasComposer && activeBlockId && (
-            <NewCommentComposer
-              blockId={activeBlockId}
-              onSave={onInsert}
-              onCancel={onCancelNewComment ?? (() => {})}
-            />
-          )}
           <ul className="m-0 list-none p-0">
             {blockIds.map((blockId) => {
               const blockNotes = notesByBlockId.get(blockId);
-              if (!blockNotes?.length) return null;
-              const labelForBlock =
-                blockIdToLabel[blockId] ?? "Comment";
+              const isComposerBlock = hasComposer && activeBlockId === blockId;
+              if (!blockNotes?.length && !isComposerBlock) return null;
+              const labelBase = blockIdToLabel[blockId] ?? "Paragraph";
+              const noteCount = noteCountsByBlockId?.get(blockId) ?? blockNotes?.length ?? 0;
+              const labelForBlock = noteCount > 1 ? `${labelBase} (${noteCount} notes)` : labelBase;
               return (
                 <li key={blockId}>
-                  {blockNotes.map((note) => (
+                  {isComposerBlock ? (
+                    <NewNoteComposer
+                      blockId={blockId}
+                      onSave={onInsert}
+                      onCancel={onCancelNewNote ?? (() => {})}
+                    />
+                  ) : null}
+                  {(blockNotes ?? []).map((note) => (
                     <NoteCard
                       key={note.id}
                       note={note}
@@ -274,12 +286,22 @@ export function NotesPanelContent({
                       onUpdate={onUpdate}
                       onDelete={onDelete}
                       isActive={note.block_id === activeBlockId}
+                      onActivateBlock={onActivateBlock}
                     />
                   ))}
                 </li>
               );
             })}
           </ul>
+          {hasComposer &&
+          activeBlockId &&
+          !blockIds.includes(activeBlockId) ? (
+            <NewNoteComposer
+              blockId={activeBlockId}
+              onSave={onInsert}
+              onCancel={onCancelNewNote ?? (() => {})}
+            />
+          ) : null}
         </>
       )}
     </div>

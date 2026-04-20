@@ -19,13 +19,6 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 const THEME_STORAGE_KEY = "slj-theme";
 
-function getSystemTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setThemeState] = useState<Theme>("light");
 
@@ -37,9 +30,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       document.documentElement.dataset.theme = stored;
       return;
     }
-    const system = getSystemTheme();
-    setThemeState(system);
-    document.documentElement.dataset.theme = system;
+    setThemeState("light");
+    document.documentElement.dataset.theme = "light";
   }, []);
 
   const setTheme = useCallback((next: Theme) => {

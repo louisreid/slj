@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/AppNav";
 import { ProgressDashboard } from "@/app/(app)/progress/page";
 import { APP_RELEASE_LABEL } from "@/lib/release";
+import { getChapterDisplayTitleMap, getChapters } from "@/lib/content";
 
 export default async function LandingPage() {
   const supabase = await createClient();
@@ -11,9 +12,18 @@ export default async function LandingPage() {
   } = await supabase.auth.getUser();
 
   if (user) {
+    const chapters = getChapters();
+    const chapterTitles = getChapterDisplayTitleMap(chapters);
+    const chapterLinks = chapters
+      .filter((chapter) => chapter.mode !== "static")
+      .map((chapter) => ({
+        id: chapter.id,
+        title: chapterTitles.get(chapter.id) ?? chapter.title,
+      }));
+
     return (
       <div className="flex h-screen overflow-hidden bg-[var(--slj-bg)] text-[var(--slj-text)]">
-        <AppNav userEmail={user.email} />
+        <AppNav userEmail={user.email} chapterLinks={chapterLinks} />
         <main className="min-h-0 min-w-0 flex-1 overflow-auto px-4 pb-6 pt-16 md:px-8 md:py-8 lg:px-10 lg:py-10">
           {/* Authenticated home: progress dashboard */}
           <ProgressDashboard />

@@ -152,10 +152,14 @@ export function CourseReader({
     async () => {
       if (!user) return;
       try {
+        const completedAt = new Date().toISOString();
         await upsertChapterProgress(supabase, chapterId, {
-          completed_at: new Date().toISOString(),
+          completed_at: completedAt,
         });
-        setChapterComplete(true);
+        const refreshed = await getChapterProgressForUser(supabase);
+        setChapterComplete(
+          refreshed.some((row) => row.chapter_id === chapterId && row.completed_at != null)
+        );
       } catch {
         // ignore
       }
@@ -361,6 +365,23 @@ export function CourseReader({
             )}
           </span>
         </nav>
+        {isInteractive && user && (
+          <div className="mt-6 flex items-center justify-end">
+            {chapterComplete ? (
+              <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
+                Chapter complete
+              </span>
+            ) : (
+              <button
+                type="button"
+                onClick={handleMarkChapterComplete}
+                className="slj-button px-4 py-2 font-sans text-sm"
+              >
+                Mark complete
+              </button>
+            )}
+          </div>
+        )}
       </div>
 
       {isInteractive ? (

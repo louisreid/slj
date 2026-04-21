@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { APP_RELEASE_LABEL } from "@/lib/release";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
@@ -111,6 +112,11 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
           </ul>
         </nav>
         <div className="shrink-0 border-t border-[var(--slj-border)] p-3">
+          {(!collapsed || drawerOpen) && (
+            <p className="slj-faint mb-2 font-sans text-[11px] uppercase tracking-[0.16em]">
+              {APP_RELEASE_LABEL}
+            </p>
+          )}
           {(!collapsed || drawerOpen) && userEmail && (
             <>
               <p className="slj-faint mb-2 truncate font-sans text-xs">

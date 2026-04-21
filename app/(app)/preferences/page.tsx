@@ -5,6 +5,7 @@ import { PreferencesForm } from "./PreferencesForm";
 import { EmailChangeForm } from "./EmailChangeForm";
 import { PageShell } from "@/components/ui/surfaces";
 import { ThemeToggle } from "./ThemeToggle";
+import { ReaderFontToggle } from "./ReaderFontToggle";
 
 export default async function PreferencesPage() {
   const supabase = await createClient();
@@ -38,6 +39,17 @@ export default async function PreferencesPage() {
           Choose between light and dark mode. This applies to this device only.
         </p>
         <ThemeToggle />
+        <div className="mt-5 border-t border-[var(--slj-border)] pt-4">
+          <p className="font-sans text-sm font-medium text-[var(--slj-text)]">
+            Reading font
+          </p>
+          <p className="slj-muted mt-2 font-sans text-sm leading-6">
+            Compare readable serif options for course text.
+          </p>
+          <div className="mt-3">
+            <ReaderFontToggle />
+          </div>
+        </div>
       </section>
 
       <section className="slj-card p-4">

@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    --font-serif: var(--font-serif-source);
     --slj-bg: #fff;
     --slj-surface: #fff;
     --slj-surface-muted: #fff;
@@ -31,6 +32,18 @@
     --slj-focus: rgba(255, 255, 255, 0.3);
     --slj-button-bg: #fff;
     --slj-button-fg: #000;
+  }
+
+  html[data-reader-font="source-serif"] {
+    --font-serif: var(--font-serif-source);
+  }
+
+  html[data-reader-font="literata"] {
+    --font-serif: var(--font-serif-literata);
+  }
+
+  html[data-reader-font="cormorant"] {
+    --font-serif: var(--font-serif-cormorant);
   }
 
   body {

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/AppNav";
 import { ProgressDashboard } from "@/app/(app)/progress/page";
+import { APP_RELEASE_LABEL } from "@/lib/release";
 
 export default async function LandingPage() {
   const supabase = await createClient();
@@ -37,6 +38,9 @@ export default async function LandingPage() {
           <p className="slj-muted mt-3 max-w-lg font-sans text-sm leading-6">
             A quiet reading space for the course, your private notes, and the
             shared rhythm of group conversation.
+          </p>
+          <p className="slj-faint mt-4 font-sans text-xs uppercase tracking-[0.16em]">
+            {APP_RELEASE_LABEL}
           </p>
           <div className="mt-8">
             <Link href="/auth/sign-in" className="slj-button inline-flex px-5 py-3 text-sm">

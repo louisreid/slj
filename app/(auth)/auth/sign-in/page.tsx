@@ -38,7 +38,8 @@ export default async function SignInPage({
             Simplicity, Love & Justice
           </h1>
           <p className="slj-muted mt-4 font-sans text-sm leading-6">
-            Enter your email and we&apos;ll send a magic link.
+            Enter your email. We&apos;ll send a sign-in link and a one-time code you can paste here if
+            the link does not open.
           </p>
           <div className="mt-6">
             <SignInForm returnTo={returnTo} initialError={authError} />

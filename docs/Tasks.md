@@ -124,7 +124,7 @@
 - [ ] Basic analytics/reporting dashboard (optional)
 
 ## Draft 2 — Readability, navigation, notes UX polish
-- [x] Auth UX: magic-link copy + explicit "check email" state + resend action
+- [x] Auth UX: magic-link copy + explicit "check email" state + resend action + OTP entry (Supabase email token)
 - [x] Auth recovery for invalid/expired link with clear resend path
 - [x] Light mode readability pass (stronger contrast, heavier UI text, white surfaces)
 - [x] Notes UX polish ("Notes" naming, clearer icon affordance, narrower notes panel)

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { APP_RELEASE_LABEL } from "@/lib/release";
+import { ChevronsLeft, ChevronsRight } from "lucide-react";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
@@ -102,11 +103,15 @@ export function AppNav({
           <button
             type="button"
             onClick={toggleCollapsed}
-            className="hidden h-8 w-8 items-center justify-center border border-[var(--slj-border)] bg-[var(--slj-surface)] text-[var(--slj-text)] focus:outline md:flex"
+            className="hidden h-8 w-8 items-center justify-center border border-[var(--slj-border)] bg-[var(--slj-surface)] text-[var(--slj-text-faint)] focus:outline hover:text-[var(--slj-text-muted)] md:flex"
             aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
             title={collapsed ? "Expand navigation" : "Collapse navigation"}
           >
-            <span className="text-lg leading-none">{collapsed ? "→" : "←"}</span>
+            {collapsed ? (
+              <ChevronsRight size={16} strokeWidth={2.1} aria-hidden />
+            ) : (
+              <ChevronsLeft size={16} strokeWidth={2.1} aria-hidden />
+            )}
           </button>
         </div>
           <nav className="flex-1 overflow-auto p-3">

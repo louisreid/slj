@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
   fetchNotesForBlocks,
@@ -61,6 +61,9 @@ export function CourseReader({
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [chapterComplete, setChapterComplete] = useState(false);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
+  const articleRef = useRef<HTMLElement | null>(null);
+  const lastTrackedBlockIdRef = useRef<string | null>(null);
+  const trackingRafRef = useRef<number | null>(null);
   const supabase = createClient();
 
   const sectionIds = useMemo(
@@ -115,7 +118,7 @@ export function CourseReader({
     refetch();
   }, [user, refetch]);
 
-  // Load chapter completion and record last-read on chapter open (interactive only)
+  // Load chapter completion for this chapter (interactive only)
   useEffect(() => {
     if (!isInteractive || !user || sectionIds.length === 0) return;
     let mounted = true;
@@ -127,13 +130,6 @@ export function CourseReader({
           (r) => r.chapter_id === chapterId && r.completed_at != null
         );
         setChapterComplete(!!chapterRow);
-        const firstSectionId = sectionIds[0];
-        const firstBlockId = sections[0]?.blocks[0]?.block_id;
-        if (firstSectionId && firstBlockId) {
-          await upsertProgress(supabase, firstSectionId, {
-            last_block_id: firstBlockId,
-          });
-        }
       } catch {
         // ignore
       }
@@ -142,6 +138,59 @@ export function CourseReader({
       mounted = false;
     };
   }, [isInteractive, user, sectionIds, chapterId, sections, supabase]);
+
+  // Persist last-read position while scrolling to make Continue deterministic.
+  useEffect(() => {
+    if (!isInteractive || !user || sectionIds.length === 0) return;
+    const node = articleRef.current;
+    if (!node) return;
+
+    const paragraphNodes = Array.from(
+      node.querySelectorAll<HTMLElement>("[data-block-id]")
+    );
+    if (paragraphNodes.length === 0) return;
+
+    const updateLastRead = () => {
+      trackingRafRef.current = null;
+      let bestNode: HTMLElement | null = null;
+      let bestDistance = Number.POSITIVE_INFINITY;
+      const viewportAnchor = window.innerHeight * 0.28;
+
+      for (const el of paragraphNodes) {
+        const rect = el.getBoundingClientRect();
+        const visible = rect.bottom > 0 && rect.top < window.innerHeight;
+        if (!visible) continue;
+        const distance = Math.abs(rect.top - viewportAnchor);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestNode = el;
+        }
+      }
+
+      const blockId = bestNode?.dataset.blockId;
+      if (!blockId || lastTrackedBlockIdRef.current === blockId) return;
+      lastTrackedBlockIdRef.current = blockId;
+
+      const sectionId = blockIdToSectionId.get(blockId);
+      if (!sectionId) return;
+      upsertProgress(supabase, sectionId, { last_block_id: blockId }).catch(() => {});
+    };
+
+    const onScroll = () => {
+      if (trackingRafRef.current != null) return;
+      trackingRafRef.current = window.requestAnimationFrame(updateLastRead);
+    };
+
+    updateLastRead();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (trackingRafRef.current != null) {
+        window.cancelAnimationFrame(trackingRafRef.current);
+      }
+      trackingRafRef.current = null;
+    };
+  }, [isInteractive, user, sectionIds, blockIdToSectionId, supabase]);
 
   const blockIdsWithNotes = useMemo(
     () => new Set(notes.map((n) => n.block_id)),
@@ -325,7 +374,7 @@ export function CourseReader({
           </nav>
         )}
 
-        <article className="slj-shell p-6 font-serif md:p-10">
+        <article ref={articleRef} className="slj-shell p-6 font-serif md:p-10">
           {!isInteractive ? (
             <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
               <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">

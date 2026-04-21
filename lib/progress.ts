@@ -98,7 +98,7 @@ export async function upsertChapterProgress(
     user_id: string;
     chapter_id: string;
     updated_at: string;
-    completed_at?: string;
+    completed_at?: string | null;
   } = {
     user_id: user.id,
     chapter_id,
@@ -106,9 +106,28 @@ export async function upsertChapterProgress(
   };
   if (options.completed_at !== undefined) payload.completed_at = options.completed_at;
 
-  const { error } = await supabase.from("chapter_progress").upsert(payload, {
-    onConflict: "user_id,chapter_id",
-  });
+  const { data: existingRow, error: fetchError } = await supabase
+    .from("chapter_progress")
+    .select("id")
+    .eq("user_id", user.id)
+    .eq("chapter_id", chapter_id)
+    .maybeSingle();
+  if (fetchError) throw fetchError;
+
+  // Use explicit update/insert instead of upsert to avoid environment-specific
+  // failures where upsert can silently no-op on this table.
+  let error: { message: string } | null = null;
+  if (existingRow?.id) {
+    const result = await supabase
+      .from("chapter_progress")
+      .update(payload)
+      .eq("id", existingRow.id);
+    error = result.error;
+  } else {
+    const result = await supabase.from("chapter_progress").insert(payload);
+    error = result.error;
+  }
+
   if (error) throw error;
 }
 

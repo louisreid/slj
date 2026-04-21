@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { APP_RELEASE_LABEL } from "@/lib/release";
+import { ChevronsLeft, ChevronsRight } from "lucide-react";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
@@ -15,6 +16,11 @@ const navItems = [
 
 const LOGOUT_CONFIRM_MESSAGE = "You sure you want to log out?";
 
+export interface AppNavChapterLink {
+  id: string;
+  title: string;
+}
+
 function handleSignOutClick(e: React.MouseEvent<HTMLButtonElement>) {
   e.preventDefault();
   if (confirm(LOGOUT_CONFIRM_MESSAGE)) {
@@ -22,7 +28,13 @@ function handleSignOutClick(e: React.MouseEvent<HTMLButtonElement>) {
   }
 }
 
-export function AppNav({ userEmail }: { userEmail?: string | null }) {
+export function AppNav({
+  userEmail,
+  chapterLinks = [],
+}: {
+  userEmail?: string | null;
+  chapterLinks?: AppNavChapterLink[];
+}) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -67,6 +79,13 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
         : "border-transparent text-[var(--slj-text-muted)] hover:bg-[var(--slj-hover)] hover:text-[var(--slj-text)]"
     }`;
 
+  const chapterLinkClass = (active: boolean) =>
+    `block rounded px-3 py-1.5 text-xs transition-colors ${
+      active
+        ? "bg-[var(--slj-hover)] text-[var(--slj-text)]"
+        : "text-[var(--slj-text-muted)] hover:bg-[var(--slj-hover)] hover:text-[var(--slj-text)]"
+    }`;
+
   const navContent = (
     <>
       <div className="flex min-h-0 flex-1 flex-col">
@@ -84,11 +103,15 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
           <button
             type="button"
             onClick={toggleCollapsed}
-            className="hidden h-8 w-8 items-center justify-center border border-[var(--slj-border)] bg-[var(--slj-surface)] text-[var(--slj-text)] focus:outline md:flex"
+            className="hidden h-8 w-8 items-center justify-center border border-[var(--slj-border)] bg-[var(--slj-surface)] text-[var(--slj-text-faint)] focus:outline hover:text-[var(--slj-text-muted)] md:flex"
             aria-label={collapsed ? "Expand navigation" : "Collapse navigation"}
             title={collapsed ? "Expand navigation" : "Collapse navigation"}
           >
-            <span className="text-lg leading-none">{collapsed ? "→" : "←"}</span>
+            {collapsed ? (
+              <ChevronsRight size={16} strokeWidth={2.1} aria-hidden />
+            ) : (
+              <ChevronsLeft size={16} strokeWidth={2.1} aria-hidden />
+            )}
           </button>
         </div>
           <nav className="flex-1 overflow-auto p-3">
@@ -110,6 +133,29 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
               </li>
             ))}
           </ul>
+          {(!collapsed || drawerOpen) && chapterLinks.length > 0 && (
+            <div className="mt-5 border-t border-[var(--slj-border)] pt-4">
+              <p className="slj-faint mb-2 px-3 font-sans text-[11px] uppercase tracking-[0.16em]">
+                Course index
+              </p>
+              <ul className="space-y-0.5">
+                {chapterLinks.map((chapter) => {
+                  const href = `/course/${chapter.id}`;
+                  return (
+                    <li key={chapter.id}>
+                      <Link
+                        href={href}
+                        onClick={closeDrawer}
+                        className={chapterLinkClass(pathname === href)}
+                      >
+                        {chapter.title}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </nav>
         <div className="shrink-0 border-t border-[var(--slj-border)] p-3">
           {(!collapsed || drawerOpen) && (

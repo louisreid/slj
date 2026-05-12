@@ -167,7 +167,7 @@ function NewNoteComposer({
   };
 
   return (
-    <div className="slj-card mb-3 p-3" data-note-block-id={blockId} data-composer>
+    <div className="slj-card mb-3 p-3" data-composer data-composer-block-id={blockId}>
       <textarea
         className="slj-input w-full font-sans text-sm p-2.5 min-h-[100px]"
         value={body}
@@ -225,19 +225,22 @@ export function NotesPanelContent({
 
   useEffect(() => {
     if (!scrollRef.current) return;
-    const target =
-      activeBlockId
-        ? scrollRef.current.querySelector("[data-composer]")
-        : scrollToBlockId
-          ? scrollRef.current.querySelector(
-              `[data-note-block-id="${scrollToBlockId}"]`
-            )
-          : null;
+    let target: Element | null = null;
+    if (activeBlockId) {
+      target =
+        scrollRef.current.querySelector(`[data-composer-block-id="${activeBlockId}"]`) ??
+        scrollRef.current.querySelector("[data-composer]");
+    } else if (scrollToBlockId) {
+      const matches = scrollRef.current.querySelectorAll(
+        `[data-note-block-id="${scrollToBlockId}"]`
+      );
+      target = matches.length ? matches[matches.length - 1]! : null;
+    }
     if (target) {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
       onScrolledToBlock?.();
     }
-  }, [scrollToBlockId, activeBlockId, onScrolledToBlock]);
+  }, [scrollToBlockId, activeBlockId, onScrolledToBlock, notes]);
 
   if (!isSignedIn) {
     return (

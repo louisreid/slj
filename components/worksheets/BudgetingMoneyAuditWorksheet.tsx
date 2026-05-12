@@ -26,7 +26,7 @@ export function BudgetingMoneyAuditWorksheet() {
 
       <section className="mb-8">
         <h2 className="text-lg font-semibold mb-3">Total coming in</h2>
-        <p className="text-sm text-black/70 mb-3">
+        <p className="worksheet-instruction text-sm text-black/70 mb-3">
           Month: _____________
         </p>
         <table className="w-full border border-black/30 border-collapse">
@@ -157,7 +157,7 @@ export function BudgetingMoneyAuditWorksheet() {
 
       <section className="mb-8">
         <h2 className="text-lg font-semibold mb-3">How are you doing?</h2>
-        <p className="text-sm text-black/70 mb-3">
+        <p className="worksheet-instruction text-sm text-black/70 mb-3">
           Money left over = Total coming in minus Total spent.
         </p>
         <div className="space-y-4">
@@ -172,19 +172,24 @@ export function BudgetingMoneyAuditWorksheet() {
 
       <section>
         <h2 className="text-lg font-semibold mb-4">Reflection</h2>
-        <p className="text-sm text-black/70 mb-4">
+        <p className="worksheet-instruction text-sm text-black/70 mb-4">
           Draw up an account of what you spent your income on over the past year.
           Then consider:
         </p>
         <ul className="space-y-4 list-none pl-0">
           {REFLECTION_PROMPTS.map((prompt, i) => (
-            <li key={i} className="break-inside-avoid">
+            <li key={i} className="worksheet-print-prompt break-inside-avoid">
               <p className="text-sm font-medium mb-2">{prompt}</p>
               <div className="border-b border-black/30 min-h-[2.5rem]" />
             </li>
           ))}
         </ul>
       </section>
+
+      <aside className="worksheet-print-footer-quote hidden print:block mt-10 border border-dashed border-black/40 p-3 font-sans text-xs italic leading-relaxed text-black/75 print:border-solid print:border-black print:bg-neutral-100">
+        Optional: use this boxed area for a closing quotation or facilitator note at the foot
+        of the page — visually separate from the numbered prompts above.
+      </aside>
     </article>
   );
 }

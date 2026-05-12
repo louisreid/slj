@@ -26,7 +26,7 @@ export function ThingsToChangeWorksheet() {
         <ul className="space-y-4 list-none pl-0">
           <li>
             <span className="font-medium">Daily practice or habit</span>
-            <p className="text-sm mt-1 text-black/70">
+            <p className="worksheet-instruction text-sm mt-1 text-black/70">
               Could be spiritual (e.g. prayer) or physical (e.g. daily exercise).
             </p>
             <div className="mt-2 border-b border-black/30 min-h-[2.5rem]" />
@@ -89,6 +89,11 @@ export function ThingsToChangeWorksheet() {
           </tbody>
         </table>
       </section>
+
+      <aside className="worksheet-print-footer-quote hidden print:block mt-10 border border-dashed border-black/40 p-3 font-sans text-xs italic leading-relaxed text-black/75 print:border-solid print:border-black print:bg-neutral-100">
+        Optional: use this boxed area for a closing quotation or facilitator note at the foot
+        of the page — visually separate from the main worksheet lines above.
+      </aside>
     </article>
   );
 }

@@ -920,9 +920,14 @@
               "level": 2
             },
             {
-              "block_id": "09-session-one-79620204faec",
+              "block_id": "09-session-one-bf93fe990e5b",
               "type": "paragraph",
-              "content": "Daily practice or habit"
+              "content": "Use the printable **[Things to Change worksheet](/worksheets/print/things-to-change)** (see also [all worksheets](/worksheets)) to write out this section on paper during or after the session."
+            },
+            {
+              "block_id": "09-session-one-ab2eb5d88cf8",
+              "type": "paragraph",
+              "content": "**Daily practice or habit**"
             },
             {
               "block_id": "09-session-one-1199bd80e04e",
@@ -930,39 +935,29 @@
               "content": "Could be spiritual, like prayer, or physical, like daily exercise."
             },
             {
-              "block_id": "09-session-one-0348ba6a55cc",
+              "block_id": "09-session-one-2b95360fe053",
               "type": "paragraph",
-              "content": "Possessions"
+              "content": "**Possessions**"
             },
             {
-              "block_id": "09-session-one-383e7be3de48",
+              "block_id": "09-session-one-4eba420fb4fe",
               "type": "paragraph",
-              "content": "Non-material attachments"
+              "content": "**Non-material attachments**"
             }
           ]
         },
         {
           "blocks": [
             {
-              "block_id": "09-session-one-65412e3b775f",
+              "block_id": "09-session-one-d2f4882203b4",
               "type": "heading",
-              "content": "Immediately",
-              "level": 2
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "09-session-one-c575125ccd8f",
-              "type": "heading",
-              "content": "Within Six Months",
-              "level": 2
+              "content": "Time horizons",
+              "level": 3
             },
             {
-              "block_id": "09-session-one-de4574d4924e",
+              "block_id": "09-session-one-6b3be604e5e5",
               "type": "paragraph",
-              "content": "THINGS TO CHANGEDaily practice or habitCould be spiritual, like prayer, or physical, like daily exercise.PossessionsNon-material attachments"
+              "content": "| Immediately | Within six months |\n| --- | --- |\n|  |  |"
             }
           ]
         },

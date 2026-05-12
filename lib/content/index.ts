@@ -15,5 +15,7 @@ export {
   getChapterDisplayTitleMap,
   getFirstInteractiveChapter,
   getResumeHref,
+  headingTextMatchesDisplayTitle,
+  normalizeHeadingForTitleMatch,
 } from "./display";
 export type { Chapter, Section, Block, Manifest, BlockType, ChapterMode } from "./types";

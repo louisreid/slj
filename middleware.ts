@@ -29,6 +29,15 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser();
 
   const pathname = request.nextUrl.pathname;
+
+  // Playwright E2E only: public read of course + print worksheets (never set in production).
+  if (
+    process.env.NEXT_PUBLIC_PLAYWRIGHT_E2E === "1" &&
+    (pathname.startsWith("/course") || pathname.startsWith("/worksheets/print"))
+  ) {
+    return response;
+  }
+
   const isProtected =
     pathname.startsWith("/course") ||
     pathname.startsWith("/worksheets") ||

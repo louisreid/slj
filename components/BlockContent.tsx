@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { Fragment, type ReactNode } from "react";
 import { MessageSquare } from "lucide-react";
 import type { Block, Section } from "@/lib/content";
 
@@ -39,15 +41,50 @@ export function isDuplicateAdjacentQuote(current: Block, previous: Block | null)
   return normalizeParagraphForCompare(current.content) === normalizeParagraphForCompare(previous.content);
 }
 
+function isFurtherReadingHeading(content: string): boolean {
+  return /^further reading\b/i.test(content.trim());
+}
+
+/** Minimal `[label](href)` support so course paragraphs can link out (e.g. worksheets). */
+function renderInlineMarkdownLinks(text: string): ReactNode {
+  const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+  const out: React.ReactNode[] = [];
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let key = 0;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) {
+      out.push(text.slice(last, m.index));
+    }
+    out.push(
+      <Link
+        key={`mdl-${key++}`}
+        href={m[2]}
+        className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
+      >
+        {m[1]}
+      </Link>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) {
+    out.push(text.slice(last));
+  }
+  return out.length === 0 ? text : <Fragment>{out}</Fragment>;
+}
+
 export function BlockNode({ block }: { block: Block }) {
   if (block.type === "heading") {
     const level = Math.min(Math.max(block.level ?? 1, 1), 6);
     const Tag = HEADING_TAGS[level - 1];
+    const further = isFurtherReadingHeading(block.content);
     const headingClassName =
       level <= 1
         ? "mt-10 text-4xl font-semibold leading-tight first:mt-0 md:text-5xl"
         : level === 2
-          ? "mt-10 text-3xl font-semibold leading-tight first:mt-0"
+          ? further
+            ? "mt-12 border-t border-[var(--slj-border)] pt-8 text-3xl font-semibold leading-tight first:mt-0"
+            : "mt-10 text-3xl font-semibold leading-tight first:mt-0"
           : "mt-8 text-2xl font-semibold leading-tight first:mt-0";
 
     return (
@@ -77,7 +114,7 @@ export function BlockNode({ block }: { block: Block }) {
           {!scripture ? (
             <p className="slj-faint mb-1 font-sans text-[11px] uppercase tracking-[0.16em]">Quote</p>
           ) : null}
-          <p>{block.content}</p>
+          <p>{renderInlineMarkdownLinks(block.content)}</p>
         </blockquote>
       );
     }
@@ -88,7 +125,7 @@ export function BlockNode({ block }: { block: Block }) {
         data-block-id={block.block_id}
         id={block.block_id}
       >
-        {block.content}
+        {renderInlineMarkdownLinks(block.content)}
       </p>
     );
   }

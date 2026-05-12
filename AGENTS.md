@@ -33,6 +33,7 @@ Users can:
 - Lint: `pnpm lint`
 - Typecheck: `pnpm typecheck`
 - Test (unit): `pnpm test`
+- Test (e2e): `pnpm exec playwright install chromium` once, then `pnpm test:e2e` (starts dev with `NEXT_PUBLIC_PLAYWRIGHT_E2E`; placeholder Supabase URL in Playwright config if env unset — local/CI smoke only).
 - Build: `pnpm build`
 - Start: `pnpm start`
 

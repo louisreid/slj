@@ -132,3 +132,4 @@
 - [x] Worksheets back behavior points to dashboard (not session one)
 - [x] Quote and Bible verse visual treatment + adjacent duplicate quote guardrail
 - [x] Content maintenance guardrails documented + content lint script
+- [x] James Odgers feedback (Apr 2025): narrower notes column, note panel scroll after save, duplicate chapter titles (static + full book), Further reading section band, Session 1 worksheet link + Things to Change markdown repair, worksheet print styling, minimal `[text](url)` in course paragraphs, Playwright e2e smoke (`pnpm test:e2e`)

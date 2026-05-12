@@ -119,6 +119,28 @@ export function getChapterDisplayTitle(
   return getChapterDisplayTitleMap(chapters).get(chapter.id) ?? chapter.title;
 }
 
+/**
+ * Compare a markdown heading string to a chapter display title (e.g. "INTRODUCTION" vs "Introduction").
+ */
+export function normalizeHeadingForTitleMatch(text: string): string {
+  return text
+    .trim()
+    .replace(/^#+\s*/u, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/gu, "")
+    .replace(/\s+/gu, " ")
+    .trim();
+}
+
+export function headingTextMatchesDisplayTitle(
+  headingPlainText: string,
+  displayTitle: string
+): boolean {
+  const a = normalizeHeadingForTitleMatch(headingPlainText);
+  const b = normalizeHeadingForTitleMatch(displayTitle);
+  return a.length > 0 && b.length > 0 && a === b;
+}
+
 export function getResumeHref(
   chapters: Chapter[],
   lastRead: LastReadPosition | null

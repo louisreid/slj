@@ -120,19 +120,21 @@ Do not use your car this week for any journey under two miles.
 
 ## Things To Change
 
-Daily practice or habit
+Use the printable **[Things to Change worksheet](/worksheets/print/things-to-change)** (see also [all worksheets](/worksheets)) to write out this section on paper during or after the session.
+
+**Daily practice or habit**
 
 Could be spiritual, like prayer, or physical, like daily exercise.
 
-Possessions
+**Possessions**
 
-Non-material attachments
+**Non-material attachments**
 
-## Immediately
+### Time horizons
 
-## Within Six Months
-
-THINGS TO CHANGEDaily practice or habitCould be spiritual, like prayer, or physical, like daily exercise.PossessionsNon-material attachments
+| Immediately | Within six months |
+| --- | --- |
+|  |  |
 
 ## Prayer
 

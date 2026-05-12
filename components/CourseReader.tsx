@@ -16,6 +16,7 @@ import {
   getChapterProgressForUser,
 } from "@/lib/progress";
 import type { Chapter, Section } from "@/lib/content";
+import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
 import { NotesPanelContent } from "@/components/NotesPanelContent";
 import {
   getSectionId,
@@ -78,6 +79,16 @@ export function CourseReader({
     }
     return m;
   }, [sections]);
+
+  const skipShellHeader = useMemo(() => {
+    const fb = sections[0]?.blocks[0];
+    return (
+      !isInteractive &&
+      fb?.type === "heading" &&
+      (fb.level ?? 1) === 1 &&
+      headingTextMatchesDisplayTitle(fb.content, displayTitle)
+    );
+  }, [sections, displayTitle, isInteractive]);
 
   const refetch = useCallback(async () => {
     if (!user || effectiveBlockIds.length === 0) {
@@ -187,9 +198,14 @@ export function CourseReader({
       if (sectionId) {
         await upsertProgress(supabase, sectionId, { last_block_id: block_id });
       }
-      await refetch();
       setActiveBlockId(null);
-      setScrollToBlockId(block_id);
+      setScrollToBlockId(null);
+      await refetch();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setScrollToBlockId(block_id);
+        });
+      });
     },
     [supabase, refetch, blockIdToSectionId]
   );
@@ -322,7 +338,7 @@ export function CourseReader({
         )}
 
         <article className="slj-shell p-6 font-serif md:p-10">
-          {!isInteractive ? (
+          {!isInteractive && !skipShellHeader ? (
             <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
               <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
                 {displayTitle}
@@ -365,7 +381,7 @@ export function CourseReader({
 
       {isInteractive ? (
         <aside
-          className="hidden w-[320px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
+          className="hidden w-[min(256px,26vw)] max-w-[28vw] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
           aria-label="Notes"
         >
           {loading ? (
@@ -378,7 +394,7 @@ export function CourseReader({
         </aside>
       ) : (
         <aside
-          className="hidden w-[320px] shrink-0 slj-shell p-5 md:block"
+          className="hidden w-[min(256px,26vw)] max-w-[28vw] shrink-0 slj-shell p-5 md:block"
           aria-label="Notes"
         >
           <p className="slj-muted font-sans text-sm leading-6">
@@ -404,7 +420,7 @@ export function CourseReader({
                 aria-hidden
               />
               <aside
-                className="fixed bottom-0 right-0 top-0 z-50 w-[min(320px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
+                className="fixed bottom-0 right-0 top-0 z-50 w-[min(256px,85vw)] max-w-[90vw] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
                 aria-label="Notes"
               >
                 <div className="mb-4 flex items-center justify-between">

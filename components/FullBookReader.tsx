@@ -12,6 +12,7 @@ import {
 } from "@/lib/notes";
 import { upsertProgress } from "@/lib/progress";
 import type { Chapter } from "@/lib/content";
+import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
 import { NotesPanelContent } from "@/components/NotesPanelContent";
 import {
   getSectionId,
@@ -136,9 +137,14 @@ export function FullBookReader({
       if (sectionId) {
         await upsertProgress(supabase, sectionId, { last_block_id: blockId });
       }
-      await refetch();
       setActiveBlockId(null);
-      setScrollToBlockId(blockId);
+      setScrollToBlockId(null);
+      await refetch();
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setScrollToBlockId(blockId);
+        });
+      });
     },
     [supabase, refetch, blockIdToSectionId]
   );
@@ -174,9 +180,10 @@ export function FullBookReader({
       activeBlockId={activeBlockId}
       onActivateBlock={(blockId) => {
         setActiveBlockId(blockId);
+        setScrollToBlockId(blockId);
         document.getElementById(blockId)?.scrollIntoView({
           behavior: "smooth",
-          block: "start",
+          block: "center",
         });
       }}
       title="Notes across the course"
@@ -186,6 +193,13 @@ export function FullBookReader({
 
   const renderedChapters = useMemo(() => {
     return chapters.map((chapter) => {
+      const displayTitle = chapterTitles[chapter.id] ?? chapter.title;
+      const firstBlock = chapter.sections[0]?.blocks[0];
+      const hideShellTitle =
+        firstBlock?.type === "heading" &&
+        (firstBlock.level ?? 1) === 1 &&
+        headingTextMatchesDisplayTitle(firstBlock.content, displayTitle);
+
       const nodes: React.ReactNode[] = [];
       let previousBlock: Chapter["sections"][number]["blocks"][number] | null = null;
 
@@ -216,13 +230,15 @@ export function FullBookReader({
 
       return (
         <section key={chapter.id} id={chapter.id} className="mt-12 first:mt-0">
-          <div className="mb-6 border-b border-[var(--slj-border)] pb-4">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
-                {chapterTitles[chapter.id] ?? chapter.title}
-              </h1>
+          {hideShellTitle ? null : (
+            <div className="mb-6 border-b border-[var(--slj-border)] pb-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
+                  {displayTitle}
+                </h1>
+              </div>
             </div>
-          </div>
+          )}
           <div>{nodes}</div>
         </section>
       );
@@ -260,7 +276,7 @@ export function FullBookReader({
       </div>
 
       <aside
-        className="hidden w-[320px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
+        className="hidden w-[min(256px,26vw)] max-w-[28vw] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
         aria-label="Notes"
       >
         {loading ? (
@@ -286,7 +302,7 @@ export function FullBookReader({
               aria-hidden
             />
             <aside
-              className="fixed bottom-0 right-0 top-0 z-50 w-[min(320px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
+              className="fixed bottom-0 right-0 top-0 z-50 w-[min(256px,85vw)] max-w-[90vw] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
               aria-label="Notes"
             >
               <div className="mb-4 flex items-center justify-between">

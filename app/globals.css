@@ -147,6 +147,9 @@
   .worksheet-print-footer-quote {
     break-inside: avoid;
   }
+  [data-block-row] .margin-notes-column {
+    display: none !important;
+  }
   @page {
     margin: 1.5cm;
   }

@@ -1,12 +1,17 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("James feedback (layout + content)", () => {
-  test("notes aside is under one third of viewport on session chapter", async ({ page }) => {
+  test("margin column is under one third of viewport on session chapter", async ({
+    page,
+  }) => {
     await page.goto("/course/09-session-one");
-    const aside = page.locator('aside[aria-label="Notes"]').first();
-    await expect(aside).toBeVisible();
-    const box = await aside.boundingBox();
-    expect(box?.width ?? 0).toBeLessThan(1280 / 3);
+    const row = page.locator('[data-block-row]').first();
+    await expect(row).toBeVisible();
+    const margin = row.locator(".margin-notes-column");
+    if ((await margin.count()) > 0) {
+      const box = await margin.first().boundingBox();
+      expect(box?.width ?? 0).toBeLessThan(1280 / 3);
+    }
   });
 
   test("introduction shows a single top-level title", async ({ page }) => {
@@ -33,5 +38,12 @@ test.describe("James feedback (layout + content)", () => {
     await expect(
       page.getByRole("heading", { name: "Things to Change" }).first()
     ).toBeVisible();
+  });
+
+  test("notes panel aside is not used on chapter reader", async ({ page }) => {
+    await page.goto("/course/09-session-one");
+    await expect(
+      page.locator('aside[aria-label="Notes"]')
+    ).toHaveCount(0);
   });
 });

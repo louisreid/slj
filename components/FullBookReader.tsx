@@ -13,13 +13,8 @@ import {
 import { upsertProgress } from "@/lib/progress";
 import type { Chapter } from "@/lib/content";
 import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
-import { NotesPanelContent } from "@/components/NotesPanelContent";
-import {
-  getSectionId,
-  BlockNode,
-  BlockWithNoteAction,
-  isDuplicateAdjacentQuote,
-} from "@/components/BlockContent";
+import { buildReaderBlockNodes } from "@/components/buildReaderBlocks";
+import { getSectionId } from "@/components/BlockContent";
 
 export interface FullBookReaderProps {
   chapters: Chapter[];
@@ -37,8 +32,6 @@ export function FullBookReader({
   const [user, setUser] = useState<{ id: string } | null>(null);
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState(true);
-  const [scrollToBlockId, setScrollToBlockId] = useState<string | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const supabase = createClient();
 
@@ -56,6 +49,16 @@ export function FullBookReader({
     }
     return map;
   }, [chapters]);
+
+  const notesByBlockId = useMemo(() => {
+    const map = new Map<string, Note[]>();
+    for (const note of notes) {
+      const arr = map.get(note.block_id) ?? [];
+      arr.push(note);
+      map.set(note.block_id, arr);
+    }
+    return map;
+  }, [notes]);
 
   const refetch = useCallback(async () => {
     if (!user || blockIds.length === 0) {
@@ -108,6 +111,14 @@ export function FullBookReader({
     }
   }, []);
 
+  useEffect(() => {
+    if (!activeBlockId) return;
+    const row = document.querySelector(
+      `[data-block-row="${activeBlockId}"]`
+    );
+    row?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [activeBlockId]);
+
   const blockIdsWithNotes = useMemo(
     () => new Set(notes.map((n) => n.block_id)),
     [notes]
@@ -116,10 +127,7 @@ export function FullBookReader({
   const handleAddOrEditNote = useCallback(
     (blockId: string) => {
       if (!user) return;
-      setScrollToBlockId(blockId);
       setActiveBlockId(blockId);
-      setDrawerOpen(true);
-      document.getElementById(blockId)?.scrollIntoView({ behavior: "smooth", block: "start" });
       const sectionId = blockIdToSectionId.get(blockId);
       if (sectionId) {
         upsertProgress(supabase, sectionId, { last_block_id: blockId }).catch(
@@ -138,13 +146,7 @@ export function FullBookReader({
         await upsertProgress(supabase, sectionId, { last_block_id: blockId });
       }
       setActiveBlockId(null);
-      setScrollToBlockId(null);
       await refetch();
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          setScrollToBlockId(blockId);
-        });
-      });
     },
     [supabase, refetch, blockIdToSectionId]
   );
@@ -165,31 +167,13 @@ export function FullBookReader({
     [supabase, refetch]
   );
 
-  const sharedNotesContent = (
-    <NotesPanelContent
-      blockIds={blockIds}
-      blockIdToLabel={blockIdToLabel}
-      notes={notes}
-      onInsert={handleInsertNote}
-      onUpdate={handleUpdateNote}
-      onDelete={handleDelete}
-      onCancelNewNote={() => setActiveBlockId(null)}
-      scrollToBlockId={scrollToBlockId}
-      onScrolledToBlock={() => setScrollToBlockId(null)}
-      isSignedIn={!!user}
-      activeBlockId={activeBlockId}
-      onActivateBlock={(blockId) => {
-        setActiveBlockId(blockId);
-        setScrollToBlockId(blockId);
-        document.getElementById(blockId)?.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }}
-      title="Notes across the course"
-      emptyMessage="Use the notes icon next to a session paragraph to add a note."
-    />
-  );
+  const handleCancelComposer = useCallback(() => {
+    setActiveBlockId(null);
+  }, []);
+
+  const handleActivateBlock = useCallback((blockId: string) => {
+    setActiveBlockId(blockId);
+  }, []);
 
   const renderedChapters = useMemo(() => {
     return chapters.map((chapter) => {
@@ -200,46 +184,37 @@ export function FullBookReader({
         (firstBlock.level ?? 1) === 1 &&
         headingTextMatchesDisplayTitle(firstBlock.content, displayTitle);
 
-      const nodes: React.ReactNode[] = [];
-      let previousBlock: Chapter["sections"][number]["blocks"][number] | null = null;
+      const isInteractive = chapter.mode !== "static";
+      const blockHandlers = {
+        isInteractive,
+        blockIdsWithNotes,
+        notesByBlockId,
+        blockIdToLabel,
+        activeBlockId,
+        isSignedIn: !!user,
+        onAddOrEditNote: handleAddOrEditNote,
+        onInsert: handleInsertNote,
+        onUpdate: handleUpdateNote,
+        onDelete: handleDelete,
+        onCancelComposer: handleCancelComposer,
+        onActivateBlock: handleActivateBlock,
+      };
 
-      for (const section of chapter.sections) {
-        for (const block of section.blocks) {
-          if (isDuplicateAdjacentQuote(block, previousBlock)) {
-            previousBlock = block;
-            continue;
-          }
-
-          nodes.push(
-            chapter.mode !== "static" && block.type === "paragraph" ? (
-              <BlockWithNoteAction
-                key={block.block_id}
-                block={block}
-                hasNote={blockIdsWithNotes.has(block.block_id)}
-                onAddOrEditNote={handleAddOrEditNote}
-                isActive={activeBlockId === block.block_id}
-              />
-            ) : (
-              <BlockNode key={block.block_id} block={block} />
-            )
-          );
-
-          previousBlock = block;
-        }
-      }
+      const chapterNodes = buildReaderBlockNodes(
+        chapter.sections,
+        blockHandlers
+      );
 
       return (
         <section key={chapter.id} id={chapter.id} className="mt-12 first:mt-0">
           {hideShellTitle ? null : (
             <div className="mb-6 border-b border-[var(--slj-border)] pb-4">
-              <div className="flex flex-wrap items-center gap-3">
-                <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
-                  {displayTitle}
-                </h1>
-              </div>
+              <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
+                {displayTitle}
+              </h1>
             </div>
           )}
-          <div>{nodes}</div>
+          <div>{chapterNodes}</div>
         </section>
       );
     });
@@ -247,88 +222,52 @@ export function FullBookReader({
     chapters,
     chapterTitles,
     blockIdsWithNotes,
-    handleAddOrEditNote,
+    notesByBlockId,
+    blockIdToLabel,
     activeBlockId,
+    user,
+    handleAddOrEditNote,
+    handleInsertNote,
+    handleUpdateNote,
+    handleDelete,
+    handleCancelComposer,
+    handleActivateBlock,
   ]);
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row md:gap-6">
-      <div className="min-w-0 max-w-[78ch] flex-1">
-        <nav className="mb-8 slj-card p-5 font-sans text-sm" aria-label="Table of contents">
-          <h2 className="slj-faint mb-3 font-sans text-xs uppercase tracking-[0.18em]">
-            All chapters
-          </h2>
-          <ul className="space-y-1">
-            {chapters.map((chapter) => (
-              <li key={chapter.id}>
-                <Link
-                  href={`#${chapter.id}`}
-                  className="slj-muted hover:text-[var(--slj-text)] hover:underline underline-offset-4"
-                >
-                  {chapterTitles[chapter.id] ?? chapter.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <article className="slj-shell p-6 font-serif md:p-10">{renderedChapters}</article>
-      </div>
-
-      <aside
-        className="hidden w-[min(256px,26vw)] max-w-[28vw] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
-        aria-label="Notes"
+    <div className="min-w-0 w-full max-w-[min(100%,90rem)]">
+      <nav
+        className="mb-8 slj-card p-5 font-sans text-sm"
+        aria-label="Table of contents"
       >
-        {loading ? (
-          <p className="slj-muted font-sans text-sm">Loading notes...</p>
-        ) : (
-          sharedNotesContent
-        )}
-      </aside>
+        <h2 className="slj-faint mb-3 font-sans text-xs uppercase tracking-[0.18em]">
+          All chapters
+        </h2>
+        {!user ? (
+          <p className="slj-muted mb-3 font-sans text-sm leading-6">
+            Sign in to add private notes beside each paragraph.
+          </p>
+        ) : null}
+        <ul className="space-y-1">
+          {chapters.map((chapter) => (
+            <li key={chapter.id}>
+              <Link
+                href={`#${chapter.id}`}
+                className="slj-muted hover:text-[var(--slj-text)] hover:underline underline-offset-4"
+              >
+                {chapterTitles[chapter.id] ?? chapter.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-      <>
-        <button
-          type="button"
-          onClick={() => setDrawerOpen(true)}
-          className="fixed bottom-6 right-6 border border-[var(--slj-border)] bg-[var(--slj-surface)] px-4 py-2 font-sans text-sm text-[var(--slj-text)] md:hidden"
-        >
-          Notes
-        </button>
-        {drawerOpen && (
-          <>
-            <div
-              className="fixed inset-0 z-40 bg-black/15 md:hidden"
-              onClick={() => setDrawerOpen(false)}
-              aria-hidden
-            />
-            <aside
-              className="fixed bottom-0 right-0 top-0 z-50 w-[min(256px,85vw)] max-w-[90vw] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
-              aria-label="Notes"
-            >
-              <div className="mb-4 flex items-center justify-between">
-                <span className="font-sans text-sm font-medium text-[var(--slj-text)]">
-                  Notes
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setDrawerOpen(false)}
-                  className="h-8 w-8 border border-[var(--slj-border)] bg-[var(--slj-surface)] text-[var(--slj-text)]"
-                  aria-label="Close notes"
-                >
-                  ✕
-                </button>
-              </div>
-              {loading ? (
-                <p className="slj-muted font-sans text-sm">
-                  Loading notes...
-                </p>
-              ) : (
-                sharedNotesContent
-              )}
-            </aside>
-          </>
-        )}
-      </>
+      <article className="slj-shell p-6 font-serif md:p-10">
+        {loading ? (
+          <p className="slj-muted mb-6 font-sans text-sm">Loading notes…</p>
+        ) : null}
+        {renderedChapters}
+      </article>
     </div>
   );
 }

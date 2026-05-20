@@ -1,6 +1,6 @@
 # Plan — Margin notes beside paragraphs
 
-**Status:** Not started  
+**Status:** Implemented (main)  
 **Context:** James Odgers feedback (Apr 2025) — notes must sit **opposite** the relevant paragraph, not in a scroll-synced sidebar.  
 **Related:** [ADR 0003 — Notes anchoring](../adr/0003-notes-anchoring.md) (block IDs unchanged), shipped sidebar work on `main` (`1386907`).
 

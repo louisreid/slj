@@ -137,12 +137,18 @@ export function BlockWithNoteAction({
   hasNote,
   onAddOrEditNote,
   isActive,
+  showNoteAction = true,
 }: {
   block: Block;
   hasNote: boolean;
   onAddOrEditNote: (block_id: string) => void;
   isActive?: boolean;
+  showNoteAction?: boolean;
 }) {
+  if (!showNoteAction) {
+    return <BlockNode block={block} />;
+  }
+
   return (
     <div
       tabIndex={0}

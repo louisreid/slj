@@ -11,7 +11,7 @@
 Users can:
 - Request a magic link and sign in via email
 - Read the course in a clean reader
-- Write PRIVATE margin-style notes anchored to paragraphs/blocks
+- Write PRIVATE margin-style notes anchored to paragraphs/blocks (shown beside each paragraph in the reader, not a separate scrollable list)
 - Track progress (manual per-section completion)
 - Print worksheets (print-only; blank tables for writing)
 - Join a group and see:

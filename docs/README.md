@@ -11,6 +11,7 @@ Start here:
 - `Security.md` — RLS boundaries and logging rules
 - `Testing.md` — draft approach now, hardening later
 - `ReleaseChecklist.md` — draft release steps and later production steps
+- `plans/margin-notes-layout.md` — implementation plan: margin notes beside paragraphs (James feedback)
 - `DEPLOYMENT.md` — Vercel + Supabase + DNS deployment checklist (slj.talksfromthewarehouse.co.uk)
 
 Decisions:

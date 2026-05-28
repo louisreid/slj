@@ -130,85 +130,7 @@ Being a Christ follower should challenge us to face the issues of our world arou
 
 Please tick a box for each question.
 
-## It Doesn’T Cross My Mind
-
-## I Buy
-
-Fair Trade coffee Fair Trade tea
-
-Environmentally friendly washing powder/liquid
-
-Free range eggs
-
-Milk from a milkman
-
-Items with less packaging (where possible)
-
-Items with less transport miles (when aware)
-
-Clothes / shoes from shops with an ethical policy
-
-## I Do It
-
-## I Think About It
-
-## It Doesn’T Cross My
-
-## Mind
-
-## I Recycle
-
-Newspapers / Waste Paper
-
-Glass Aluminium or steel cans &
-
-plastic
-
-Garden waste on a compost heap
-
-Kitchen waste on a compost heap or wormery
-
-Clothes/books
-
-IT DOESN’T CROSS MY MINDIT DOESN’T CROSS MY MINDI BUYI BUYI BUYFair Trade coffee Fair Trade teaEnvironmentally friendly washing powder/liquidFree range eggsMilk from a milkmanItems with less packaging (where possible)Items with less transport miles (when aware)Clothes / shoes from shops with an ethical policyI BUYFair Trade coffee Fair Trade teaEnvironmentally friendly washing powder/liquidFree range eggsMilk from a milkmanItems with less packaging (where possible)Items with less transport miles (when aware)Clothes / shoes from shops with an ethical policyI DO ITI DO ITI THINK ABOUT ITI THINK ABOUT ITIT DOESN’T CROSS MYMINDIT DOESN’T CROSS MYMINDI RECYCLENewspapers / Waste PaperGlass Aluminium or steel cans &plasticGarden waste on a compost heapKitchen waste on a compost heap or wormeryClothes/booksI RECYCLENewspapers / Waste PaperGlass Aluminium or steel cans &plasticGarden waste on a compost heapKitchen waste on a compost heap or wormeryClothes/booksI DO ITI DO ITI THINK ABOUT ITI THINK ABOUT ITIT DOESN’T CROSS MYMINDIT DOESN’T CROSS MYMIND
-
-## I Make A Point Of Using
-
-Local shops instead of supermarkets
-
-Local businesses instead of multinational
-
-Local farmers market and farm shops
-
-Public transport / car sharing
-
-A bike instead of a car A car with a small engine
-
-Energy saving light bulbs &
-
-sava-plugs on my fridge/freezer
-
-Lights / electrical equipment & turn off when finished (not on standby)
-
-Produce which I have grown/made myself
-
-Recycled paper/envelopes/toilet and kitchen paper
-
-Gas and electricity from green tariff
-
-## I Support
-
-Local conservation groups
-
-National environmental organisations
-
-Birds, by providing food in my garden and putting bells on cats I own
-
-Local wildlife by gardening organically
-
-Banks with an ethical policy/ethical investments
-
-I MAKE A POINT OF USINGI MAKE A POINT OF USINGIT DOESN’T CROSS MYMINDIT DOESN’T CROSS MYMINDI MAKE A POINT OF USINGLocal shops instead of supermarketsLocal businesses instead of multinationalLocal farmers market and farm shopsPublic transport / car sharingA bike instead of a car A car with a small engineEnergy saving light bulbs &sava-plugs on my fridge/freezerLights / electrical equipment & turn off when finished (not on standby)Produce which I have grown/made myselfRecycled paper/envelopes/toilet and kitchen paperGas and electricity from green tariffI MAKE A POINT OF USINGLocal shops instead of supermarketsLocal businesses instead of multinationalLocal farmers market and farm shopsPublic transport / car sharingA bike instead of a car A car with a small engineEnergy saving light bulbs &sava-plugs on my fridge/freezerLights / electrical equipment & turn off when finished (not on standby)Produce which I have grown/made myselfRecycled paper/envelopes/toilet and kitchen paperGas and electricity from green tariffI DO ITI DO ITI THINK ABOUT ITI THINK ABOUT ITI SUPPORTLocal conservation groupsNational environmental organisationsBirds, by providing food in my garden and putting bells on cats I ownLocal wildlife by gardening organicallyBanks with an ethical policy/ethical investmentsI SUPPORTLocal conservation groupsNational environmental organisationsBirds, by providing food in my garden and putting bells on cats I ownLocal wildlife by gardening organicallyBanks with an ethical policy/ethical investmentsI DO ITI DO ITI THINK ABOUT ITI THINK ABOUT ITIT DOESN’T CROSS MYMINDIT DOESN’T CROSS MYMIND
+Use the printable questionnaire worksheet (see [all worksheets](/worksheets)) to tick your answers and calculate your score.
 
 Each point is worth
 
@@ -229,8 +151,6 @@ Each point is worth
 You’re thinking about making a difference, but getting around to it remains a challenge! It’s time to do those things you’ve been putting off!
 
 Your lifestyle reflects that you’ve made changes. Challenge yourself to find out more and keep going!
-
-Each point is worthGRAND TOTALEach point is worthGRAND TOTAL2211000 - 2021 - 4041 - 620 - 2021 - 4041 - 62Being a Christ follower doesn’t impact upon your lifestyle or thinking much. Choose an issue which interests you and discover how you can make a differenceYou’re thinking about making a difference, but getting around to it remains a challenge! It’s time to do those things you’ve been putting off!Your lifestyle reflects that you’ve made changes. Challenge yourself to find out more and keep going!Being a Christ follower doesn’t impact upon your lifestyle or thinking much. Choose an issue which interests you and discover how you can make a differenceYou’re thinking about making a difference, but getting around to it remains a challenge! It’s time to do those things you’ve been putting off!Your lifestyle reflects that you’ve made changes. Challenge yourself to find out more and keep going!SCORES & DEFINITIONS
 
 ## ‘'Fair Trade’
 

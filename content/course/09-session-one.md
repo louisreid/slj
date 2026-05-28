@@ -16,9 +16,7 @@ To set some group ground rules.
 
 ‘Therefore, I tell you, do not worry about your life, what you will eat or drink or about your body, what you will wear. Is not life more important than clothes? Look at the birds of the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they? Who of you by worrying can add a single hour to your life?
 
-And why do you worry about clothes? See how the lilies of the field grow. They do not labour or spin. Yet I tell you that not even Solomon in all his splendour was dressed like one of these. If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the fire, will he not much more clothe you, O you of little faith? So do not worry, saying “What shall we eat?” or “What shall we wear?” for the pagans run after all these things, and your heavenly Father knows that you need them. But seek first his kingdom and his righteousness, and all these things will be given to you as well’ (Matthew
-
-6:25–33).
+And why do you worry about clothes? See how the lilies of the field grow. They do not labour or spin. Yet I tell you that not even Solomon in all his splendour was dressed like one of these. If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the fire, will he not much more clothe you, O you of little faith? So do not worry, saying “What shall we eat?” or “What shall we wear?” for the pagans run after all these things, and your heavenly Father knows that you need them. But seek first his kingdom and his righteousness, and all these things will be given to you as well’ (Matthew 6:25–33).
 
 It is rare that the subject of simplicity is raised within the body of Christ. Nevertheless, simplicity is an essential part of the Christian life and also has the potential to speak directly to our society.
 
@@ -56,49 +54,38 @@ However, the reverse is also true. The outward action without the inward reality
 
 Simple living enables us to get rid of the clutter that is in our lives so that we can hear the voice of God more clearly and serve him more readily. As we do that, we will discover what it really means to be rich, for simplicity is not about meanness and poverty, nor is it about unnecessary asceticism, but true life in all its abundance (John 10:10).
 
+E. F. Schumacher describing people who, by conscious choice, were learning to live with less.
+
+‘Many of them had a better time than they ever had in their lives because they were discovering the new freedom – the less you need, the freer you become. They discovered and kept discovering that they were carrying far too much baggage and so they dropped pieces right and left. And the more they dropped, the happier they became... and when they thought they had dropped nearly everything, they discovered that they were still needing and using and wasting more than the great majority of mankind.’
+
+— E. F. Schumacher describing people who, by conscious choice, were learning to live with less.
+
 ## Discussion
 
 Read Matthew 6:19–34.
 
-What do you understand from this passage about simplicity?
-
-E. F. Schumacher describing people who, by conscious choice, were learning to live with less.
-
-‘Many of them had a better time than they ever had in their lives because they were discovering the new freedom – the less you need, the freer you become. They discovered and kept discovering that they were carrying far too much baggage and so they dropped pieces right and left. And the more they dropped, the happier they became... and when they thought they had dropped nearly everything, they discovered that they were still needing and using and wasting more than the great majority of mankind.’E. F. Schumacher describing people who, by conscious choice, were learning to live with less.
-
-What are some of the things in your life that you worry about and how could pursuing a life of simplicity shift or change those things?
-
-The purest outward expression of simplicity can only come from the inward reality. How can you keep that balance over these next weeks?
-
-‘What does it mean to ‘seek first the kingdom of God’ in your life?
-
-Make a list of all of the things that are available to each one of us without money coming into the equation at all - the things that no amount of money could buy even if we had an infinite amount. Salvation is not a bad place to start, and the gifts of the Spirit...
-
-Consider how your life would be different if you lived with less. How is the idea attractive to you? Does the idea cause anxiety?
+- What do you understand from this passage about simplicity?
+- What are some of the things in your life that you worry about and how could pursuing a life of simplicity shift or change those things?
+- The purest outward expression of simplicity can only come from the inward reality. How can you keep that balance over these next weeks?
+- ‘What does it mean to ‘seek first the kingdom of God’ in your life?
+- Make a list of all of the things that are available to each one of us without money coming into the equation at all - the things that no amount of money could buy even if we had an infinite amount. Salvation is not a bad place to start, and the gifts of the Spirit...
+- Consider how your life would be different if you lived with less. How is the idea attractive to you? Does the idea cause anxiety?
 
 Richard Foster makes ten suggestions to help us begin to receive the full benefits of simplicity:
+- Buy things for their usefulness rather than their status.
+- Reject anything that is producing an addiction in you. Learn to distinguish between a real psychological need, like cheerful surroundings, and an addiction.
+- Develop the habit of giving things away.
+- Be on your phone/tablet/laptop/TV less! Set screen limits if you have to.
+- Learn to enjoy things without owning them.
+- Develop a deeper appreciation for creation.
+- Look with a healthy scepticism at all ‘buy now, pay later’ schemes.
+- Obey Jesus’ instructions about plain, honest speech: ‘let what you say simply be “yes” or “no”; anything more than this comes from evil’ (Matthew 5:37).
+- Reject anything that breeds the oppression of others.
+- Shun anything that distracts you from seeking first the Kingdom of God [9].
 
-Buy things for their usefulness rather than their status.
+--- 
 
-Reject anything that is producing an addiction in you. Learn to distinguish between a real psychological need, like cheerful surroundings, and an addiction.
-
-Develop the habit of giving things away.
-
-Be on your phone/tablet/laptop/TV less! Set screen limits if you have to.
-
-Learn to enjoy things without owning them.
-
-Develop a deeper appreciation for creation.
-
-Look with a healthy scepticism at all ‘buy now, pay later’ schemes.
-
-Obey Jesus’ instructions about plain, honest speech: ‘let what you say simply be “yes” or “no”; anything more than this comes from evil’ (Matthew 5:37).
-
-Reject anything that breeds the oppression of others.
-
-Shun anything that distracts you from seeking first the Kingdom of God [9].
-
-Which ones strike you as particularly interesting or challenging?
+- Which ones strike you as particularly interesting or challenging?
 
 ## Action
 
@@ -132,9 +119,7 @@ Could be spiritual, like prayer, or physical, like daily exercise.
 
 ### Time horizons
 
-| Immediately | Within six months |
-| --- | --- |
-|  |  |
+Use the printable worksheet to reflect on what you can change **immediately** and what you can work towards **within six months**.
 
 ## Prayer
 

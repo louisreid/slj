@@ -1,10 +1,20 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { ReactElement } from "react";
 import { getWorksheet } from "@/lib/worksheets";
 import { ThingsToChangeWorksheet } from "@/components/worksheets/ThingsToChangeWorksheet";
 import { BudgetingMoneyAuditWorksheet } from "@/components/worksheets/BudgetingMoneyAuditWorksheet";
+import { TimeSheetWorksheet } from "@/components/worksheets/TimeSheetWorksheet";
+import { TimeCirclesWorksheet } from "@/components/worksheets/TimeCirclesWorksheet";
+import { WhatOnEarthWorksheet } from "@/components/worksheets/WhatOnEarthWorksheet";
 
-const WORKSHEET_IDS = ["things-to-change", "budgeting-money-audit"] as const;
+const WORKSHEET_COMPONENTS: Record<string, ReactElement> = {
+  "things-to-change": <ThingsToChangeWorksheet />,
+  "budgeting-money-audit": <BudgetingMoneyAuditWorksheet />,
+  "time-sheet": <TimeSheetWorksheet />,
+  "time-circles": <TimeCirclesWorksheet />,
+  "what-on-earth-am-i-doing": <WhatOnEarthWorksheet />,
+};
 
 export default async function WorksheetPrintPage({
   params,
@@ -13,7 +23,8 @@ export default async function WorksheetPrintPage({
 }) {
   const { id } = await params;
   const meta = getWorksheet(id);
-  if (!meta || !WORKSHEET_IDS.includes(id as (typeof WORKSHEET_IDS)[number])) {
+  const component = WORKSHEET_COMPONENTS[id];
+  if (!meta || !component) {
     notFound();
   }
 
@@ -28,8 +39,7 @@ export default async function WorksheetPrintPage({
         </Link>
       </div>
       <div className="mx-auto max-w-3xl px-6 py-10 print:py-6">
-        {id === "things-to-change" && <ThingsToChangeWorksheet />}
-        {id === "budgeting-money-audit" && <BudgetingMoneyAuditWorksheet />}
+        {component}
       </div>
     </div>
   );

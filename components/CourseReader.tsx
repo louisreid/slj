@@ -16,12 +16,11 @@ import {
   getChapterProgressForUser,
 } from "@/lib/progress";
 import type { Chapter, Section } from "@/lib/content";
-import { NotesPanelContent } from "@/components/NotesPanelContent";
+import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
+import { buildReaderBlockNodes } from "@/components/buildReaderBlocks";
 import {
   getSectionId,
   firstHeadingBlock,
-  BlockNode,
-  BlockWithNoteAction,
 } from "@/components/BlockContent";
 
 const EMPTY_BLOCK_IDS: string[] = [];
@@ -56,8 +55,6 @@ export function CourseReader({
   const [user, setUser] = useState<{ id: string } | null>(null);
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState(true);
-  const [scrollToBlockId, setScrollToBlockId] = useState<string | null>(null);
-  const [drawerOpen, setDrawerOpen] = useState(false);
   const [chapterComplete, setChapterComplete] = useState(false);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const supabase = createClient();
@@ -77,6 +74,26 @@ export function CourseReader({
     }
     return m;
   }, [sections]);
+
+  const skipShellHeader = useMemo(() => {
+    const fb = sections[0]?.blocks[0];
+    return (
+      !isInteractive &&
+      fb?.type === "heading" &&
+      (fb.level ?? 1) === 1 &&
+      headingTextMatchesDisplayTitle(fb.content, displayTitle)
+    );
+  }, [sections, displayTitle, isInteractive]);
+
+  const notesByBlockId = useMemo(() => {
+    const map = new Map<string, Note[]>();
+    for (const note of notes) {
+      const arr = map.get(note.block_id) ?? [];
+      arr.push(note);
+      map.set(note.block_id, arr);
+    }
+    return map;
+  }, [notes]);
 
   const refetch = useCallback(async () => {
     if (!user || effectiveBlockIds.length === 0) {
@@ -114,7 +131,6 @@ export function CourseReader({
     refetch();
   }, [user, refetch]);
 
-  // Load chapter completion and record last-read on chapter open (interactive only)
   useEffect(() => {
     if (!isInteractive || !user || sectionIds.length === 0) return;
     let mounted = true;
@@ -125,26 +141,6 @@ export function CourseReader({
         const chapterRow = chapterProgressRows.find(
           (r) => r.chapter_id === chapterId && r.completed_at != null
         );
-        // #region agent log
-        fetch("http://127.0.0.1:7598/ingest/4772f03e-76fe-4af8-899a-4ac36d5df9d7", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "c91689" },
-          body: JSON.stringify({
-            sessionId: "c91689",
-            location: "CourseReader.tsx:useEffect:chapterProgress",
-            message: "Chapter progress loaded",
-            data: {
-              chapterId,
-              rowCount: chapterProgressRows.length,
-              chapterIdsInRows: chapterProgressRows.map((r) => r.chapter_id),
-              foundMatch: !!chapterRow,
-              setChapterComplete: !!chapterRow,
-            },
-            timestamp: Date.now(),
-            hypothesisId: "D",
-          }),
-        }).catch(() => {});
-        // #endregion
         setChapterComplete(!!chapterRow);
         const firstSectionId = sectionIds[0];
         const firstBlockId = sections[0]?.blocks[0]?.block_id;
@@ -153,21 +149,8 @@ export function CourseReader({
             last_block_id: firstBlockId,
           });
         }
-      } catch (err) {
-        // #region agent log
-        fetch("http://127.0.0.1:7598/ingest/4772f03e-76fe-4af8-899a-4ac36d5df9d7", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "c91689" },
-          body: JSON.stringify({
-            sessionId: "c91689",
-            location: "CourseReader.tsx:useEffect:chapterProgress:catch",
-            message: "getChapterProgressForUser failed",
-            data: { error: err instanceof Error ? err.message : String(err) },
-            timestamp: Date.now(),
-            hypothesisId: "E",
-          }),
-        }).catch(() => {});
-        // #endregion
+      } catch {
+        // ignore
       }
     })();
     return () => {
@@ -175,74 +158,35 @@ export function CourseReader({
     };
   }, [isInteractive, user, sectionIds, chapterId, sections, supabase]);
 
+  useEffect(() => {
+    if (!activeBlockId) return;
+    const row = document.querySelector(
+      `[data-block-row="${activeBlockId}"]`
+    );
+    row?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [activeBlockId]);
+
   const blockIdsWithNotes = useMemo(
     () => new Set(notes.map((n) => n.block_id)),
     [notes]
   );
 
-  const handleMarkChapterComplete = useCallback(
-    async () => {
-      // #region agent log
-      fetch("http://127.0.0.1:7598/ingest/4772f03e-76fe-4af8-899a-4ac36d5df9d7", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "c91689" },
-        body: JSON.stringify({
-          sessionId: "c91689",
-          location: "CourseReader.tsx:handleMarkChapterComplete:entry",
-          message: "Mark complete clicked",
-          data: { hasUser: !!user, chapterId },
-          timestamp: Date.now(),
-          hypothesisId: "B",
-        }),
-      }).catch(() => {});
-      // #endregion
-      if (!user) return;
-      try {
-        // #region agent log
-        fetch("http://127.0.0.1:7598/ingest/4772f03e-76fe-4af8-899a-4ac36d5df9d7", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "c91689" },
-          body: JSON.stringify({
-            sessionId: "c91689",
-            location: "CourseReader.tsx:handleMarkChapterComplete:beforeUpsert",
-            message: "Calling upsertChapterProgress",
-            data: { chapterId },
-            timestamp: Date.now(),
-            hypothesisId: "C",
-          }),
-        }).catch(() => {});
-        // #endregion
-        await upsertChapterProgress(supabase, chapterId, {
-          completed_at: new Date().toISOString(),
-        });
-        setChapterComplete(true);
-      } catch (err) {
-        // #region agent log
-        fetch("http://127.0.0.1:7598/ingest/4772f03e-76fe-4af8-899a-4ac36d5df9d7", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "X-Debug-Session-Id": "c91689" },
-          body: JSON.stringify({
-            sessionId: "c91689",
-            location: "CourseReader.tsx:handleMarkChapterComplete:catch",
-            message: "upsertChapterProgress failed",
-            data: { chapterId, error: err instanceof Error ? err.message : String(err) },
-            timestamp: Date.now(),
-            hypothesisId: "C",
-          }),
-        }).catch(() => {});
-        // #endregion
-      }
-    },
-    [user, chapterId, supabase]
-  );
+  const handleMarkChapterComplete = useCallback(async () => {
+    if (!user) return;
+    try {
+      await upsertChapterProgress(supabase, chapterId, {
+        completed_at: new Date().toISOString(),
+      });
+      setChapterComplete(true);
+    } catch {
+      // ignore
+    }
+  }, [user, chapterId, supabase]);
 
   const handleAddOrEditNote = useCallback(
     (block_id: string) => {
       if (!user) return;
-      setScrollToBlockId(block_id);
       setActiveBlockId(block_id);
-      setDrawerOpen(true);
-      document.getElementById(block_id)?.scrollIntoView({ behavior: "smooth", block: "start" });
       const sectionId = blockIdToSectionId.get(block_id);
       if (sectionId) {
         upsertProgress(supabase, sectionId, { last_block_id: block_id }).catch(
@@ -260,9 +204,8 @@ export function CourseReader({
       if (sectionId) {
         await upsertProgress(supabase, sectionId, { last_block_id: block_id });
       }
-      await refetch();
       setActiveBlockId(null);
-      setScrollToBlockId(block_id);
+      await refetch();
     },
     [supabase, refetch, blockIdToSectionId]
   );
@@ -283,199 +226,148 @@ export function CourseReader({
     [supabase, refetch]
   );
 
-  const sharedNotesContent = (
-    <NotesPanelContent
-      blockIds={effectiveBlockIds}
-      blockIdToLabel={blockIdToLabel}
-      notes={notes}
-      onInsert={handleInsertNote}
-      onUpdate={handleUpdateNote}
-      onDelete={handleDelete}
-      onCancelNewNote={() => setActiveBlockId(null)}
-      scrollToBlockId={scrollToBlockId}
-      onScrolledToBlock={() => setScrollToBlockId(null)}
-      isSignedIn={!!user}
-      activeBlockId={activeBlockId}
-      title="Notes for this chapter"
-    />
+  const handleCancelComposer = useCallback(() => {
+    setActiveBlockId(null);
+  }, []);
+
+  const handleActivateBlock = useCallback((blockId: string) => {
+    setActiveBlockId(blockId);
+  }, []);
+
+  const blockHandlers = useMemo(
+    () => ({
+      isInteractive,
+      blockIdsWithNotes,
+      notesByBlockId,
+      blockIdToLabel,
+      activeBlockId,
+      isSignedIn: !!user,
+      onAddOrEditNote: handleAddOrEditNote,
+      onInsert: handleInsertNote,
+      onUpdate: handleUpdateNote,
+      onDelete: handleDelete,
+      onCancelComposer: handleCancelComposer,
+      onActivateBlock: handleActivateBlock,
+    }),
+    [
+      isInteractive,
+      blockIdsWithNotes,
+      notesByBlockId,
+      blockIdToLabel,
+      activeBlockId,
+      user,
+      handleAddOrEditNote,
+      handleInsertNote,
+      handleUpdateNote,
+      handleDelete,
+      handleCancelComposer,
+      handleActivateBlock,
+    ]
+  );
+
+  const renderedBlocks = useMemo(
+    () => buildReaderBlockNodes(sections, blockHandlers),
+    [sections, blockHandlers]
   );
 
   return (
-    <div className="flex flex-col gap-8 md:flex-row md:gap-6">
-      <div className="flex-1 min-w-0 max-w-[78ch]">
-        {isInteractive && (
-          <nav
-            className="mb-8 slj-card p-5 font-sans text-sm"
-            aria-label="Table of contents"
-          >
-            <h2 className="slj-faint mb-3 font-sans text-xs uppercase tracking-[0.18em]">
-              In this chapter
-            </h2>
-            {user && (
-              <div className="mb-3 flex items-center justify-between gap-2 border-b border-[var(--slj-border)] pb-3">
-                <span className="font-serif text-base font-semibold text-[var(--slj-text)]">
-                  {displayTitle}
-                </span>
-                {chapterComplete ? (
-                  <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
-                    Complete
-                  </span>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={handleMarkChapterComplete}
-                    className="slj-faint text-xs underline underline-offset-4 hover:text-[var(--slj-text)]"
-                  >
-                    Mark complete
-                  </button>
-                )}
-              </div>
-            )}
-            <ul className="space-y-1 pl-3">
-              {sections.map((section) => {
-                const heading = firstHeadingBlock(section);
-                const sectionId = getSectionId(section);
-                if (!heading || !sectionId) return null;
-                return (
-                  <li key={heading.block_id}>
-                    <Link
-                      href={`#${heading.block_id}`}
-                      className="slj-muted hover:text-[var(--slj-text)] hover:underline underline-offset-4"
-                    >
-                      {heading.content}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        )}
-
-        <article className="slj-shell p-6 font-serif md:p-10">
-          {!isInteractive ? (
-            <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
-              <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
-                {displayTitle}
-              </h1>
-            </header>
-          ) : null}
-          {sections.map((section) =>
-            section.blocks.map((block) =>
-              isInteractive && block.type === "paragraph" ? (
-                <BlockWithNoteAction
-                  key={block.block_id}
-                  block={block}
-                  hasNote={blockIdsWithNotes.has(block.block_id)}
-                  onAddOrEditNote={handleAddOrEditNote}
-                  isActive={activeBlockId === block.block_id}
-                />
-              ) : (
-                <BlockNode key={block.block_id} block={block} />
-              )
-            )
-          )}
-        </article>
-
-        <nav
-          className="mt-8 flex justify-between border-t border-[var(--slj-border)] pt-6 font-sans text-sm"
-          aria-label="Chapter navigation"
-        >
-          <span>
-            {prevChapter ? (
-              <Link
-                href={`/course/${prevChapter.id}`}
-                className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
-              >
-                ← Previous: {prevChapter.title}
-              </Link>
-            ) : (
-              <span className="slj-faint">Previous</span>
-            )}
-          </span>
-          <span>
-            {nextChapter ? (
-              <Link
-                href={`/course/${nextChapter.id}`}
-                className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
-              >
-                Next: {nextChapter.title} →
-              </Link>
-            ) : (
-              <span className="slj-faint">Next</span>
-            )}
-          </span>
-        </nav>
-      </div>
-
-      {isInteractive ? (
-        <aside
-          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block md:max-h-[calc(100vh-6rem)] md:overflow-y-auto"
-          aria-label="Notes"
-        >
-          {loading ? (
-            <p className="slj-muted font-sans text-sm">
-              Loading notes...
-            </p>
-          ) : (
-            sharedNotesContent
-          )}
-        </aside>
-      ) : (
-        <aside
-          className="hidden w-[360px] shrink-0 slj-shell p-5 md:block"
-          aria-label="Notes"
-        >
-          <p className="slj-muted font-sans text-sm leading-6">
-            Notes are available in session chapters.
-          </p>
-        </aside>
-      )}
-
+    <div className="min-w-0 w-full max-w-[min(100%,90rem)]">
       {isInteractive && (
-        <>
-          <button
-            type="button"
-            onClick={() => setDrawerOpen(true)}
-            className="fixed bottom-6 right-6 border border-[var(--slj-border)] bg-[var(--slj-surface)] px-4 py-2 font-sans text-sm text-[var(--slj-text)] md:hidden"
-          >
-            Notes
-          </button>
-          {drawerOpen && (
-            <>
-              <div
-                className="fixed inset-0 z-40 bg-black/15 md:hidden"
-                onClick={() => setDrawerOpen(false)}
-                aria-hidden
-              />
-              <aside
-                className="fixed bottom-0 right-0 top-0 z-50 w-[min(340px,88vw)] overflow-auto border-l border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 md:hidden"
-                aria-label="Notes"
-              >
-                <div className="mb-4 flex items-center justify-between">
-                  <span className="font-sans text-sm font-medium text-[var(--slj-text)]">
-                    Notes
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setDrawerOpen(false)}
-                    className="h-8 w-8 border border-[var(--slj-border)] bg-[var(--slj-surface)] text-[var(--slj-text)]"
-                    aria-label="Close notes"
-                  >
-                    ✕
-                  </button>
-                </div>
-                {loading ? (
-                  <p className="slj-muted font-sans text-sm">
-                    Loading notes...
-                  </p>
-                ) : (
-                  sharedNotesContent
-                )}
-              </aside>
-            </>
+        <nav
+          className="mb-8 slj-card p-5 font-sans text-sm"
+          aria-label="Table of contents"
+        >
+          <h2 className="slj-faint mb-3 font-sans text-xs uppercase tracking-[0.18em]">
+            In this chapter
+          </h2>
+          {!user ? (
+            <p className="slj-muted mb-3 font-sans text-sm leading-6">
+              Sign in to add private notes beside each paragraph.
+            </p>
+          ) : null}
+          {user && (
+            <div className="mb-3 flex items-center justify-between gap-2 border-b border-[var(--slj-border)] pb-3">
+              <span className="font-serif text-base font-semibold text-[var(--slj-text)]">
+                {displayTitle}
+              </span>
+              {chapterComplete ? (
+                <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
+                  Complete
+                </span>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleMarkChapterComplete}
+                  className="slj-faint text-xs underline underline-offset-4 hover:text-[var(--slj-text)]"
+                >
+                  Mark complete
+                </button>
+              )}
+            </div>
           )}
-        </>
+          <ul className="space-y-1 pl-3">
+            {sections.map((section) => {
+              const heading = firstHeadingBlock(section);
+              const sectionId = getSectionId(section);
+              if (!heading || !sectionId) return null;
+              return (
+                <li key={heading.block_id}>
+                  <Link
+                    href={`#${heading.block_id}`}
+                    className="slj-muted hover:text-[var(--slj-text)] hover:underline underline-offset-4"
+                  >
+                    {heading.content}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
       )}
+
+      <article className="slj-shell p-6 font-serif md:p-10">
+        {!isInteractive && !skipShellHeader ? (
+          <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
+            <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
+              {displayTitle}
+            </h1>
+          </header>
+        ) : null}
+        {isInteractive && loading ? (
+          <p className="slj-muted mb-6 font-sans text-sm">Loading notes…</p>
+        ) : null}
+        <div className="space-y-0">{renderedBlocks}</div>
+      </article>
+
+      <nav
+        className="mt-8 flex justify-between border-t border-[var(--slj-border)] pt-6 font-sans text-sm"
+        aria-label="Chapter navigation"
+      >
+        <span>
+          {prevChapter ? (
+            <Link
+              href={`/course/${prevChapter.id}`}
+              className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
+            >
+              ← Previous: {prevChapter.title}
+            </Link>
+          ) : (
+            <span className="slj-faint">Previous</span>
+          )}
+        </span>
+        <span>
+          {nextChapter ? (
+            <Link
+              href={`/course/${nextChapter.id}`}
+              className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
+            >
+              Next: {nextChapter.title} →
+            </Link>
+          ) : (
+            <span className="slj-faint">Next</span>
+          )}
+        </span>
+      </nav>
     </div>
   );
 }

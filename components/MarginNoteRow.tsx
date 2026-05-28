@@ -45,8 +45,8 @@ export function MarginNoteRow({
       data-block-row={block.block_id}
       className={`grid grid-cols-1 gap-x-4 gap-y-3 items-start py-1 ${
         showMarginColumn
-          ? "md:grid-cols-[minmax(0,72ch)_min(256px,28vw)] md:max-w-[calc(72ch+min(256px,28vw)+1rem)] md:mx-auto"
-          : `${textMaxWidthClass} md:mx-auto`
+          ? "md:grid-cols-[minmax(0,72ch)_min(256px,28vw)] md:max-w-[calc(72ch+min(256px,28vw)+1rem)]"
+          : `${textMaxWidthClass}`
       } ${isActive ? "rounded bg-[var(--slj-active)]" : ""}`}
     >
       <div className={`min-w-0 ${showMarginColumn ? "" : "md:w-full"}`}>

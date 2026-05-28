@@ -123,6 +123,23 @@ export function WhatOnEarthWorksheet() {
           <div>21 - 40</div>
           <div>41 - 62</div>
         </div>
+        <div className="mt-6 space-y-3 text-sm">
+          <p>
+            Being a Christ follower doesn’t impact upon your lifestyle or thinking
+            much. Choose an issue which interests you and discover how you can make
+            a difference
+          </p>
+          <p>
+            You’re thinking about making a difference, but getting around to it
+            remains a challenge! It’s time to do those things you’ve been putting
+            off!
+          </p>
+          <p>
+            Your lifestyle reflects that you’ve made changes. Challenge yourself to
+            find out more and keep going!
+          </p>
+        </div>
+        <div className="mt-6 text-sm font-semibold">SCORES &amp; DEFINITIONS</div>
       </section>
     </article>
   );

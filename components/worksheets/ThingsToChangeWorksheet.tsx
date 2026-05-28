@@ -17,18 +17,15 @@ export function ThingsToChangeWorksheet() {
 
   return (
     <article className="worksheet-content font-serif text-black">
-      <h1 className="text-2xl font-semibold mb-8">Things to Change</h1>
+      <h1 className="text-2xl font-semibold mb-8">THINGS TO CHANGE</h1>
 
       <section className="mb-8">
-        <h2 className="text-lg font-semibold mb-3 uppercase tracking-wide">
-          Things to Change
-        </h2>
         <ul className="space-y-4 list-none pl-0">
           <li>
             <span className="font-medium">Daily practice or habit</span>
-            <p className="worksheet-instruction text-sm mt-1 text-black/70">
-              Could be spiritual, like prayer, or physical, like daily exercise.
-            </p>
+            <p className="text-sm mt-1 text-black/70">Could be spiritual, like</p>
+            <p className="text-sm text-black/70">prayer, or physical,</p>
+            <p className="text-sm text-black/70">like daily exercise.</p>
             <div className="mt-2 border-b border-black/30 min-h-[2.5rem]" />
           </li>
           <li>
@@ -43,7 +40,6 @@ export function ThingsToChangeWorksheet() {
       </section>
 
       <section className="mb-8">
-        <h2 className="text-lg font-semibold mb-3">Time horizons</h2>
         <table className="w-full border-collapse">
           <thead>
             <tr className="border-b border-black/30">
@@ -58,6 +54,9 @@ export function ThingsToChangeWorksheet() {
             </tr>
           </tbody>
         </table>
+        <p className="mt-3 text-sm text-black/70">
+          Which ones strike you as particularly interesting or challenging?
+        </p>
       </section>
 
       <section className="mb-8">
@@ -74,20 +73,15 @@ export function ThingsToChangeWorksheet() {
         </div>
       </section>
 
-      <section>
-        <h2 className="text-lg font-semibold mb-4">Reflection and action</h2>
-        <table className="w-full border-collapse">
-          <tbody>
-            {writingSections.map((label) => (
-              <tr key={label} className="border-b border-black/20">
-                <td className="py-2 pr-4 font-medium align-top w-1/3">
-                  {label}
-                </td>
-                <td className="py-2 border-b border-black/15 min-h-[2rem]" />
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="print:break-before-page" />
+
+      <section className="space-y-3">
+        {writingSections.map((label) => (
+          <div key={label} className="flex items-start justify-between gap-6">
+            <div className="w-1/2 text-sm">{label}</div>
+            <div className="w-1/2 border-b border-black/30 min-h-[2rem]" />
+          </div>
+        ))}
       </section>
     </article>
   );

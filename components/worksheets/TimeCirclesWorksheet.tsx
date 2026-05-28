@@ -34,16 +34,30 @@ function BlankCircle({ label }: { label: string }) {
 }
 
 export function TimeCirclesWorksheet() {
+  const layout = [
+    ["MONDAY", "SUNDAY"],
+    ["TUESDAY", "SATURDAY"],
+    ["THURSDAY", ""],
+    ["WEDNESDAY", "FRIDAY"],
+  ] as const;
+
   return (
     <article className="worksheet-content font-serif text-black">
       <h1 className="text-2xl font-semibold mb-6">TIME CIRCLES</h1>
 
       <div className="grid grid-cols-2 gap-10">
-        {CIRCLES.flatMap((pair) => {
-          const items = [pair.labelLeft, pair.labelRight].filter(
-            (x): x is string => Boolean(x),
-          );
-          return items.map((label) => <BlankCircle key={label} label={label} />);
+        {layout.flatMap(([left, right], rowIdx) => {
+          if (!right) {
+            return [
+              <div key={`${left}-${rowIdx}`} className="col-span-2 flex justify-center">
+                <BlankCircle label={left} />
+              </div>,
+            ];
+          }
+          return [
+            <BlankCircle key={`${left}-${rowIdx}-l`} label={left} />,
+            <BlankCircle key={`${right}-${rowIdx}-r`} label={right} />,
+          ];
         })}
       </div>
     </article>

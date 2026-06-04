@@ -392,6 +392,7 @@ export function BlockNode({ block }: { block: Block }) {
 
 export function BlockWithNoteAction({
   block,
+  attributionBlock,
   hasNote,
   onAddOrEditNote,
   isActive,
@@ -399,6 +400,8 @@ export function BlockWithNoteAction({
   dense = false,
 }: {
   block: Block;
+  /** When set, notes anchor to `block` (the quote) and the figure includes the attribution. */
+  attributionBlock?: Block;
   hasNote: boolean;
   onAddOrEditNote: (block_id: string) => void;
   isActive?: boolean;
@@ -406,8 +409,18 @@ export function BlockWithNoteAction({
   dense?: boolean;
 }) {
   if (!showNoteAction) {
-    return <BlockNode block={block} />;
+    return attributionBlock ? (
+      <QuoteFigure quote={block} attribution={attributionBlock} />
+    ) : (
+      <BlockNode block={block} />
+    );
   }
+
+  const blockContent = attributionBlock ? (
+    <QuoteFigure quote={block} attribution={attributionBlock} />
+  ) : (
+    <BlockNode block={block} />
+  );
 
   return (
     <div
@@ -427,7 +440,7 @@ export function BlockWithNoteAction({
       }`}
     >
       <div className={`min-w-0 flex-1 ${dense ? "pr-10" : "pr-12"}`}>
-        <BlockNode block={block} />
+        {blockContent}
       </div>
       <button
         type="button"

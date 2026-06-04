@@ -40,7 +40,7 @@ Use this guide when content extraction introduces occasional heading mistakes (f
      — Gandhi
      ```
      The quote line must start with a curly quote (`‘` / `“`) or similar; put the attribution on the **next line** starting with `—` (preferred) or `-` (short attribution only). A blank line between quote and attribution is optional — the parser splits `—` lines automatically. Standard `>` blockquotes are not parsed — use this pattern instead.
-     - In **session chapters** (with margin notes), quote and attribution stay as **two blocks** so you can add a note on the quote and on the attribution separately. In static chapters (preface, foreword) they still merge into one figure.
+     - In the reader, a quote plus its `—` attribution line render as **one figure**; margin notes attach to the quote block only (not the attribution line alone).
    - **Inline quotation on its own line:** start the paragraph with `^` to skip pull-quote styling (the `^` is removed in the reader). Use when the line begins with `‘`, `“`, or `"` but should read as body text:
      ```markdown
      In light of this, we have to ask ourselves the question that Micah asked:

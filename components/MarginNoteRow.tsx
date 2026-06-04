@@ -8,6 +8,8 @@ import { NewNoteComposer } from "@/components/notes/NewNoteComposer";
 
 export interface MarginNoteRowProps {
   block: Block;
+  /** Merged quote + attribution: notes use `block.block_id` only. */
+  attributionBlock?: Block;
   notes: Note[];
   label: string;
   hasNote: boolean;
@@ -25,6 +27,7 @@ export interface MarginNoteRowProps {
 
 export function MarginNoteRow({
   block,
+  attributionBlock,
   notes,
   label,
   hasNote,
@@ -38,7 +41,9 @@ export function MarginNoteRow({
   onActivateBlock,
   dense = false,
 }: MarginNoteRowProps) {
-  const isActive = activeBlockId === block.block_id;
+  const isActive =
+    activeBlockId === block.block_id ||
+    (attributionBlock != null && activeBlockId === attributionBlock.block_id);
   const showComposer = isSignedIn && isActive;
   const showMarginColumn = isSignedIn && (notes.length > 0 || showComposer);
   const textMaxWidthClass = "md:max-w-[72ch]";
@@ -57,6 +62,7 @@ export function MarginNoteRow({
       <div className={`min-w-0 ${showMarginColumn ? "" : "md:w-full"}`}>
         <BlockWithNoteAction
           block={block}
+          attributionBlock={attributionBlock}
           hasNote={hasNote}
           onAddOrEditNote={onAddOrEditNote}
           isActive={false}

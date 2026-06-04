@@ -46,18 +46,53 @@ export function buildReaderBlockNodes(
         continue;
       }
 
-      if (
-        !handlers.isInteractive &&
+      const quoteWithAttribution =
         block.type === "paragraph" &&
         !block.forceBody &&
         isQuoteLikeParagraph(block.content) &&
         nextBlock?.type === "paragraph" &&
-        isQuoteAttributionParagraph(nextBlock.content)
-      ) {
+        isQuoteAttributionParagraph(nextBlock.content);
+
+      if (!handlers.isInteractive && quoteWithAttribution) {
         nodes.push(
-          <QuoteWithAttribution key={block.block_id} quote={block} attribution={nextBlock} />
+          <QuoteWithAttribution key={block.block_id} quote={block} attribution={nextBlock!} />
         );
         previousBlock = nextBlock;
+        i++;
+        continue;
+      }
+
+      if (handlers.isInteractive && quoteWithAttribution) {
+        const attribution = nextBlock!;
+        const blockNotes = handlers.notesByBlockId.get(block.block_id) ?? [];
+        const attrNotes = handlers.notesByBlockId.get(attribution.block_id) ?? [];
+        const notes = [...blockNotes, ...attrNotes];
+        const labelBase = handlers.blockIdToLabel[block.block_id] ?? "Quote";
+        const label =
+          notes.length > 1 ? `${labelBase} (${notes.length} notes)` : labelBase;
+        const hasNote =
+          handlers.blockIdsWithNotes.has(block.block_id) ||
+          handlers.blockIdsWithNotes.has(attribution.block_id);
+
+        nodes.push(
+          <MarginNoteRow
+            key={block.block_id}
+            block={block}
+            attributionBlock={attribution}
+            notes={notes}
+            label={label}
+            hasNote={hasNote}
+            activeBlockId={handlers.activeBlockId}
+            isSignedIn={handlers.isSignedIn}
+            onAddOrEditNote={handlers.onAddOrEditNote}
+            onInsert={handlers.onInsert}
+            onUpdate={handlers.onUpdate}
+            onDelete={handlers.onDelete}
+            onCancelComposer={handlers.onCancelComposer}
+            onActivateBlock={handlers.onActivateBlock}
+          />
+        );
+        previousBlock = attribution;
         i++;
         continue;
       }
@@ -144,6 +179,24 @@ export function buildReaderBlockNodes(
         continue;
       }
 
+      if (
+        handlers.isInteractive &&
+        block.type === "paragraph" &&
+        isQuoteAttributionParagraph(block.content)
+      ) {
+        const followsQuote =
+          previousBlock?.type === "paragraph" &&
+          !previousBlock.forceBody &&
+          isQuoteLikeParagraph(previousBlock.content);
+        if (followsQuote) {
+          previousBlock = block;
+          continue;
+        }
+        nodes.push(<BlockNode key={block.block_id} block={block} />);
+        previousBlock = block;
+        continue;
+      }
+
       if (handlers.isInteractive && block.type === "paragraph") {
         const blockNotes = handlers.notesByBlockId.get(block.block_id) ?? [];
         const labelBase = handlers.blockIdToLabel[block.block_id] ?? "Paragraph";
@@ -151,7 +204,6 @@ export function buildReaderBlockNodes(
           blockNotes.length > 1
             ? `${labelBase} (${blockNotes.length} notes)`
             : labelBase;
-        const isAttribution = isQuoteAttributionParagraph(block.content);
 
         nodes.push(
           <MarginNoteRow
@@ -168,7 +220,6 @@ export function buildReaderBlockNodes(
             onDelete={handlers.onDelete}
             onCancelComposer={handlers.onCancelComposer}
             onActivateBlock={handlers.onActivateBlock}
-            dense={isAttribution}
           />
         );
       } else {

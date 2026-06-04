@@ -3,10 +3,8 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import { MessageSquare } from "lucide-react";
-import {
-  isWorksheetPrintHref,
-  WorksheetPrintLink,
-} from "@/components/WorksheetPrintLink";
+import { renderContentWithWorksheetCallouts } from "@/components/WorksheetPrintLink";
+import { paragraphContainsWorksheetLink } from "@/lib/worksheet-links";
 import type { Block, Section } from "@/lib/content";
 import {
   INLINE_FOOTNOTE_RE,
@@ -168,25 +166,15 @@ function renderInlineMarkdown(text: string): ReactNode {
       key = footnoted.nextKey;
     }
     if (m[1] != null && m[2] != null) {
-      if (isWorksheetPrintHref(m[2])) {
-        out.push(
-          <WorksheetPrintLink
-            key={`md-${key++}`}
-            href={m[2]}
-            label={m[1]}
-          />
-        );
-      } else {
-        out.push(
-          <Link
-            key={`md-${key++}`}
-            href={m[2]}
-            className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
-          >
-            {m[1]}
-          </Link>
-        );
-      }
+      out.push(
+        <Link
+          key={`md-${key++}`}
+          href={m[2]}
+          className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
+        >
+          {m[1]}
+        </Link>
+      );
     } else {
       const emphasis = m[3] ?? m[4];
       out.push(
@@ -262,11 +250,11 @@ export function QuoteWithAttribution({
 }
 
 function ListItemContent({ content }: { content: string }) {
-  return (
+  return renderContentWithWorksheetCallouts(content, (prose) => (
     <span className="font-serif text-[18px] font-medium leading-[1.72] text-[var(--slj-text)] md:text-[19px]">
-      {renderInlineMarkdown(content)}
+      {renderInlineMarkdown(prose)}
     </span>
-  );
+  ));
 }
 
 export function ListBlock({ block }: { block: Block }) {
@@ -375,6 +363,20 @@ export function BlockNode({ block }: { block: Block }) {
     }
     if (shouldRenderAsQuoteFigure(block)) {
       return <QuoteFigure quote={block} />;
+    }
+
+    if (paragraphContainsWorksheetLink(block.content)) {
+      return (
+        <div
+          className="font-serif text-[18px] font-medium leading-[1.72] text-[var(--slj-text)] md:text-[19px]"
+          data-block-id={block.block_id}
+          id={block.block_id}
+        >
+          {renderContentWithWorksheetCallouts(block.content, (prose) => (
+            <p className="m-0">{renderInlineMarkdown(prose)}</p>
+          ))}
+        </div>
+      );
     }
 
     return (

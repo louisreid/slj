@@ -65,7 +65,10 @@ test.describe("James feedback (layout + content)", () => {
   test("session one links to Things to Change worksheet", async ({ page }) => {
     await page.goto("/course/09-session-one");
     await expect(
-      page.getByRole("link", { name: /things to change worksheet/i })
+      page.getByRole("region", { name: /Things to Change worksheet/i })
+    ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "Open" }).first()
     ).toBeVisible();
   });
 

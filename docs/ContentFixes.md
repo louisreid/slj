@@ -18,7 +18,7 @@ Use this guide when content extraction introduces occasional heading mistakes (f
    - `#` / `##` for real headings only
    - regular paragraphs for scripture references and quote bodies
    - inline emphasis: `*italic*` or `_italic_` (no `**bold**` — not supported); links: `[label](/path)`
-   - **print worksheet icon**: `[](/worksheets/print/{id})` renders a printer icon button (opens print view); optional label: `[Print](/worksheets/print/things-to-change)`
+   - **print worksheet link**: `[](/worksheets/print/{id}) (Title)` or `[Title](/worksheets/print/{id})` renders a bordered callout with **Open** and **Print** buttons (same as the Worksheets page); optional trailing `(Title)` when the link label is empty
    - **Headline quote** (centered key line, like in the printed course): prefix the paragraph with `!!`:
      ```markdown
      !! Simple living is about being joyfully aware of what we do and why we do it

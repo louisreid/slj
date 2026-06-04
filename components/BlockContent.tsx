@@ -240,7 +240,7 @@ function QuoteFigure({ quote, attribution }: { quote: Block; attribution?: Block
       ) : null}
       {attribution && !reference ? (
         <figcaption
-          className="slj-faint mt-3 font-sans text-[13px] font-medium tracking-wide"
+          className="slj-faint mt-2 font-sans text-[13px] font-medium tracking-wide"
           data-block-id={attribution.block_id}
           id={attribution.block_id}
         >

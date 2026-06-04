@@ -31,11 +31,14 @@ export default async function WorksheetPrintPage({
   return (
     <div className="worksheet-print-view min-h-screen bg-white text-black">
       <div className="no-print border-b border-[var(--slj-border)] bg-[var(--slj-bg)] px-6 py-4">
+        <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
+          {meta.session}
+        </p>
         <Link
-          href="/"
-          className="font-sans text-sm font-medium text-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"
+          href="/worksheets"
+          className="mt-2 inline-block font-sans text-sm font-medium text-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"
         >
-          ← Back to Course index
+          ← Back to worksheets
         </Link>
       </div>
       <div className="max-w-3xl px-6 py-10 print:py-6">

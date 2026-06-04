@@ -12,6 +12,8 @@ const WORKSHEETS_INDEX = path.join(CONTENT_DIR, "worksheets", "index.json");
 export type WorksheetMeta = {
   id: string;
   title: string;
+  /** Session where the worksheet is linked in the course (e.g. "Session One"). */
+  session: string;
   description: string;
 };
 

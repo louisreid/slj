@@ -57,8 +57,6 @@ E. F. Schumacher describing people who, by conscious choice, were learning to li
 
 ‘Many of them had a better time than they ever had in their lives because they were discovering the new freedom – the less you need, the freer you become. They discovered and kept discovering that they were carrying far too much baggage and so they dropped pieces right and left. And the more they dropped, the happier they became... and when they thought they had dropped nearly everything, they discovered that they were still needing and using and wasting more than the great majority of mankind.’
 
-— E. F. Schumacher describing people who, by conscious choice, were learning to live with less.
-
 ## Discussion
 
 Read Matthew 6:19–34.

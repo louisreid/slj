@@ -43,6 +43,9 @@ export default async function WorksheetsPage() {
               className="group flex flex-col items-start justify-between gap-4 p-6 transition-colors hover:bg-[var(--slj-hover)] sm:flex-row sm:items-center"
             >
               <div className="flex-1 space-y-1">
+                <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
+                  {ws.session}
+                </p>
                 <h2 className="font-serif text-2xl font-medium tracking-wide text-[var(--slj-text)]">
                   {ws.title}
                 </h2>

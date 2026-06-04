@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import type { ReactElement } from "react";
 import { getWorksheet } from "@/lib/worksheets";
+import { WorksheetPrintBackLink } from "@/components/WorksheetPrintBackLink";
 import { ThingsToChangeWorksheet } from "@/components/worksheets/ThingsToChangeWorksheet";
 import { BudgetingMoneyAuditWorksheet } from "@/components/worksheets/BudgetingMoneyAuditWorksheet";
 import { TimeSheetWorksheet } from "@/components/worksheets/TimeSheetWorksheet";
@@ -18,10 +18,13 @@ const WORKSHEET_COMPONENTS: Record<string, ReactElement> = {
 
 export default async function WorksheetPrintPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ returnTo?: string }>;
 }) {
   const { id } = await params;
+  const { returnTo } = await searchParams;
   const meta = getWorksheet(id);
   const component = WORKSHEET_COMPONENTS[id];
   if (!meta || !component) {
@@ -34,12 +37,7 @@ export default async function WorksheetPrintPage({
         <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
           {meta.session}
         </p>
-        <Link
-          href="/worksheets"
-          className="mt-2 inline-block font-sans text-sm font-medium text-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"
-        >
-          ← Back to worksheets
-        </Link>
+        <WorksheetPrintBackLink returnTo={returnTo} />
       </div>
       <div className="max-w-3xl px-6 py-10 print:py-6">
         {component}

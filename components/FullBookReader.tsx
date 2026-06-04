@@ -14,6 +14,7 @@ import { upsertProgress } from "@/lib/progress";
 import type { Chapter } from "@/lib/content";
 import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
 import { buildReaderBlockNodes } from "@/components/buildReaderBlocks";
+import { CourseChapterHrefProvider } from "@/components/ReaderLocationContext";
 import { getSectionId } from "@/components/BlockContent";
 
 export interface FullBookReaderProps {
@@ -219,15 +220,17 @@ export function FullBookReader({
               </h1>
             </div>
           )}
-          <div
-            className={
-              chapter.mode === "interactive"
-                ? "slj-reader-blocks"
-                : "slj-reader-blocks mx-auto max-w-[72ch]"
-            }
-          >
-            {chapterNodes}
-          </div>
+          <CourseChapterHrefProvider href={`/course/${chapter.id}`}>
+            <div
+              className={
+                chapter.mode === "interactive"
+                  ? "slj-reader-blocks"
+                  : "slj-reader-blocks mx-auto max-w-[72ch]"
+              }
+            >
+              {chapterNodes}
+            </div>
+          </CourseChapterHrefProvider>
         </section>
       );
     });

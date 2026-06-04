@@ -3,6 +3,7 @@
 import type { Block, Section } from "@/lib/content";
 import type { Note } from "@/lib/notes";
 import { MarginNoteRow } from "@/components/MarginNoteRow";
+import { BlockAnchorProvider } from "@/components/ReaderLocationContext";
 import {
   BlockNode,
   isDuplicateAdjacentQuote,
@@ -192,7 +193,11 @@ export function buildReaderBlockNodes(
           previousBlock = block;
           continue;
         }
-        nodes.push(<BlockNode key={block.block_id} block={block} />);
+        nodes.push(
+          <BlockAnchorProvider key={block.block_id} blockId={block.block_id}>
+            <BlockNode block={block} />
+          </BlockAnchorProvider>
+        );
         previousBlock = block;
         continue;
       }
@@ -223,7 +228,11 @@ export function buildReaderBlockNodes(
           />
         );
       } else {
-        nodes.push(<BlockNode key={block.block_id} block={block} />);
+        nodes.push(
+          <BlockAnchorProvider key={block.block_id} blockId={block.block_id}>
+            <BlockNode block={block} />
+          </BlockAnchorProvider>
+        );
       }
 
       previousBlock = block;

@@ -23,6 +23,7 @@ import {
 import type { Chapter, Section } from "@/lib/content";
 import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
 import { buildReaderBlockNodes } from "@/components/buildReaderBlocks";
+import { CourseChapterHrefProvider } from "@/components/ReaderLocationContext";
 import {
   getSectionId,
   firstHeadingBlock,
@@ -377,13 +378,15 @@ export function CourseReader({
         {isInteractive && loading ? (
           <p className="slj-muted mb-6 font-sans text-sm">Loading notes…</p>
         ) : null}
-        <div
-          className={
-            isInteractive ? "slj-reader-blocks" : "slj-reader-blocks mx-auto max-w-[72ch]"
-          }
-        >
-          {renderedBlocks}
-        </div>
+        <CourseChapterHrefProvider href={`/course/${chapterId}`}>
+          <div
+            className={
+              isInteractive ? "slj-reader-blocks" : "slj-reader-blocks mx-auto max-w-[72ch]"
+            }
+          >
+            {renderedBlocks}
+          </div>
+        </CourseChapterHrefProvider>
       </article>
 
       <nav

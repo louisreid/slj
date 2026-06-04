@@ -3,6 +3,7 @@
 import type { Block } from "@/lib/content";
 import type { Note } from "@/lib/notes";
 import { BlockWithNoteAction } from "@/components/BlockContent";
+import { BlockAnchorProvider } from "@/components/ReaderLocationContext";
 import { NoteCard } from "@/components/notes/NoteCard";
 import { NewNoteComposer } from "@/components/notes/NewNoteComposer";
 
@@ -60,15 +61,17 @@ export function MarginNoteRow({
       } ${isActive ? "rounded bg-[var(--slj-active)]" : ""}`}
     >
       <div className={`min-w-0 ${showMarginColumn ? "" : "md:w-full"}`}>
-        <BlockWithNoteAction
-          block={block}
-          attributionBlock={attributionBlock}
-          hasNote={hasNote}
-          onAddOrEditNote={onAddOrEditNote}
-          isActive={false}
-          showNoteAction={isSignedIn}
-          dense={dense}
-        />
+        <BlockAnchorProvider blockId={block.block_id}>
+          <BlockWithNoteAction
+            block={block}
+            attributionBlock={attributionBlock}
+            hasNote={hasNote}
+            onAddOrEditNote={onAddOrEditNote}
+            isActive={false}
+            showNoteAction={isSignedIn}
+            dense={dense}
+          />
+        </BlockAnchorProvider>
       </div>
       {showMarginColumn ? (
         <div

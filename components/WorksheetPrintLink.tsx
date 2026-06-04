@@ -1,5 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { Printer } from "lucide-react";
+import {
+  useWorksheetReturnTo,
+  worksheetHrefWithReturn,
+} from "@/components/ReaderLocationContext";
 
 const PRINT_PATH_RE = /^\/worksheets\/print\/([^/?#]+)/;
 
@@ -23,15 +29,18 @@ type WorksheetPrintLinkProps = {
 };
 
 export function WorksheetPrintLink({ href, label }: WorksheetPrintLinkProps) {
+  const returnTo = useWorksheetReturnTo();
+  const linkHref = worksheetHrefWithReturn(href, returnTo);
   const title = worksheetTitleFromHref(href);
   const ariaLabel = label?.trim()
     ? label
     : `Print ${title} worksheet`;
+  const openInNewTab = returnTo == null;
 
   if (label?.trim()) {
     return (
       <Link
-        href={href}
+        href={linkHref}
         className="inline-flex items-center gap-1.5 underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
       >
         <Printer size={15} className="shrink-0" aria-hidden />
@@ -42,9 +51,10 @@ export function WorksheetPrintLink({ href, label }: WorksheetPrintLinkProps) {
 
   return (
     <Link
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={linkHref}
+      {...(openInNewTab
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
       aria-label={ariaLabel}
       title={ariaLabel}
       className="mx-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center align-[-0.2em] border border-[var(--slj-border)] bg-[var(--slj-hover)] text-[var(--slj-text-muted)] transition-colors hover:border-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"

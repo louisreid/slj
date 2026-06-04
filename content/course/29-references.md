@@ -1,4 +1,8 @@
-End-of-book references for in-text citations such as [2] and [38]. Each heading matches the number shown in the course.
+End-of-book references for in-text citations such as [1], [2], and [38]. Each heading matches the number shown in the course.
+
+## [1]
+
+John Stott, *New Issues Facing Christians Today* (Marshall Pickering, 1990), p.230.
 
 ## [2]
 

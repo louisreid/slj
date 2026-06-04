@@ -6022,15 +6022,30 @@
     {
       "id": "29-references",
       "file": "29-references.md",
-      "title": "[2]",
+      "title": "[1]",
       "mode": "static",
       "sections": [
         {
           "blocks": [
             {
-              "block_id": "29-references-bb94caffa3aa",
+              "block_id": "29-references-d9bf9ccd8f46",
               "type": "paragraph",
-              "content": "End-of-book references for in-text citations such as [2] and [38]. Each heading matches the number shown in the course."
+              "content": "End-of-book references for in-text citations such as [1], [2], and [38]. Each heading matches the number shown in the course."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-2bbc16f42e5a",
+              "type": "heading",
+              "content": "[1]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-84a8829b5fb0",
+              "type": "paragraph",
+              "content": "John Stott, *New Issues Facing Christians Today* (Marshall Pickering, 1990), p.230."
             }
           ]
         },

@@ -1,6 +1,6 @@
-/** TIME SHEET grid (PDF Session Three) — includes duplicate afternoon hour columns. */
+/** TIME SHEET grid (PDF Session Three) — time down the left, days across the top. */
 
-const HOUR_COLUMNS = [
+const HOUR_ROWS = [
   "7-8",
   "8-9",
   "9-10",
@@ -37,32 +37,32 @@ export function TimeSheetWorksheet() {
       <h1 className="text-2xl font-semibold mb-6">TIME SHEET</h1>
 
       <div className="overflow-x-auto">
-        <table className="w-full border border-black/30 border-collapse text-[10px] leading-tight">
+        <table className="worksheet-time-grid w-full border border-black/30 border-collapse text-xs leading-tight">
           <thead>
             <tr className="border-b border-black/30">
-              <th className="border-r border-black/30 p-1.5 text-left font-semibold">
+              <th className="time-label border-r border-black/30 text-left font-semibold whitespace-nowrap">
                 Time
               </th>
-              {HOUR_COLUMNS.map((hour, index) => (
+              {DAYS.map((day) => (
                 <th
-                  key={`${hour}-${index}`}
-                  className="border-r border-black/30 p-1.5 text-left font-semibold last:border-r-0 whitespace-nowrap"
+                  key={day}
+                  className="border-r border-black/30 text-left font-semibold last:border-r-0 whitespace-nowrap"
                 >
-                  {hour}
+                  {day}
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {DAYS.map((day) => (
-              <tr key={day} className="border-b border-black/20">
-                <td className="border-r border-black/20 p-1.5 font-semibold whitespace-nowrap">
-                  {day}
+            {HOUR_ROWS.map((hour, index) => (
+              <tr key={`${hour}-${index}`} className="border-b border-black/20">
+                <td className="time-label border-r border-black/20 font-semibold whitespace-nowrap">
+                  {hour}
                 </td>
-                {HOUR_COLUMNS.map((hour, index) => (
+                {DAYS.map((day) => (
                   <td
-                    key={`${day}-${hour}-${index}`}
-                    className="border-r border-black/20 p-1.5 min-h-[1.4rem] last:border-r-0"
+                    key={`${hour}-${day}-${index}`}
+                    className="slot-cell border-r border-black/20 last:border-r-0"
                   />
                 ))}
               </tr>

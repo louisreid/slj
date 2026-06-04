@@ -19,7 +19,8 @@ Chapters served by the app live in `content/course/`. See also `content/course/R
 - `23-session-eight.md` — SESSION EIGHT
 - `25-session-nine.md` — SESSION NINE
 - `27-session-ten.md` — SESSION TEN
-- `28-notes.md` — NOTES (footnotes `[n]` in sessions link here)
+- `28-further-reading.md` — Further reading (end-of-course bibliography)
+- `29-references.md` — References (footnotes `[n]` in sessions link here)
 
 ## Archived (not in reader)
 

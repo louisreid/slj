@@ -135,6 +135,73 @@
   }
 }
 
+/* Worksheet tables with a full cell grid (e.g. Things to Change) */
+.worksheet-content .worksheet-grid-table {
+  border-collapse: collapse;
+  border: 1px solid #000;
+}
+.worksheet-content .worksheet-grid-table th,
+.worksheet-content .worksheet-grid-table td {
+  border: 1px solid #000;
+  padding: 0.35rem 0.5rem;
+  vertical-align: top;
+}
+.worksheet-content .worksheet-grid-table th {
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Blank worksheet tables: room to write by hand (screen + print) */
+.worksheet-content table.worksheet-write-table--writable tbody td,
+.worksheet-content table.worksheet-write-table--writable thead th {
+  padding: 0.45rem 0.5rem;
+  vertical-align: top;
+}
+.worksheet-content table.worksheet-write-table--writable tbody td {
+  height: 3.25rem;
+}
+.worksheet-content table.worksheet-write-table--writable tbody tr.score-legend-row td {
+  height: auto;
+}
+.worksheet-content .worksheet-grid-table.worksheet-write-table--writable .write-cell {
+  height: 3.25rem;
+}
+
+/* Filled example tables: compact but readable */
+.worksheet-content table.worksheet-write-table--example tbody td,
+.worksheet-content table.worksheet-write-table--example thead th {
+  padding: 0.35rem 0.5rem;
+  vertical-align: top;
+}
+
+/* Tick-box questionnaires */
+.worksheet-content table.worksheet-tick-table tbody td.item-cell {
+  padding: 0.5rem 0.5rem;
+  vertical-align: top;
+}
+.worksheet-content table.worksheet-tick-table tbody td.tick-cell {
+  height: 2.85rem;
+  padding: 0.5rem;
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* Time sheet grid (many rows — slightly shorter cells) */
+.worksheet-content table.worksheet-time-grid tbody td.slot-cell {
+  height: 1.4rem;
+  padding: 0.25rem 0.35rem;
+  vertical-align: top;
+}
+.worksheet-content table.worksheet-time-grid thead th,
+.worksheet-content table.worksheet-time-grid tbody td.time-label {
+  padding: 0.3rem 0.4rem;
+}
+
+/* Ruled answer lines (non-table) */
+.worksheet-content .worksheet-ruled-line {
+  min-height: 3rem;
+}
+
 /* Print (worksheets): no chrome, high contrast, page breaks */
 @media print {
   .no-print {
@@ -151,8 +218,32 @@
   .worksheet-content {
     color: #000 !important;
   }
-  .worksheet-content table {
+  .worksheet-content table:not(.worksheet-grid-table) {
     page-break-inside: avoid;
+  }
+  .worksheet-content .worksheet-grid-table {
+    border: 1pt solid #000;
+  }
+  .worksheet-content .worksheet-grid-table th,
+  .worksheet-content .worksheet-grid-table td {
+    border: 1pt solid #000 !important;
+    padding: 6pt 8pt;
+  }
+  .worksheet-content table.worksheet-write-table--writable tbody td,
+  .worksheet-content .worksheet-grid-table.worksheet-write-table--writable .write-cell {
+    height: 0.85in;
+    min-height: 0.85in;
+  }
+  .worksheet-content table.worksheet-tick-table tbody td.tick-cell {
+    height: 0.75in;
+    min-height: 0.75in;
+  }
+  .worksheet-content table.worksheet-time-grid tbody td.slot-cell {
+    height: 0.38in;
+    min-height: 0.38in;
+  }
+  .worksheet-content .worksheet-ruled-line {
+    min-height: 0.85in;
   }
   .worksheet-content section {
     page-break-inside: avoid;

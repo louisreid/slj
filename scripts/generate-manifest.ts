@@ -89,6 +89,7 @@ function getChapterMode(chapterId: string, fileName: string): ChapterMode {
   if (id.includes("front-matter") || file.includes("front-matter")) return "static";
   if (id.includes("preface") || file.includes("preface")) return "static";
   if (id.includes("notes") || file.includes("notes")) return "static";
+  if (id.includes("references") || file.includes("references")) return "static";
   if (id.includes("reviews") || file.includes("reviews")) return "static";
   if (id.includes("foreword") || file.includes("foreword")) return "static";
   if (id.includes("introduction") || file.includes("introduction")) return "static";
@@ -331,6 +332,26 @@ function parseMarkdownBlocks(md: string): ParsedBlock[] {
   return blocks;
 }
 
+/** Disambiguate duplicate paragraph text within a chapter (e.g. repeated citations in References). */
+function assignStableBlockId(
+  chapterId: string,
+  contentKey: string,
+  sectionHeading: string,
+  blockType: BlockType | "list-item",
+  usedBlockIds: Set<string>
+): string {
+  let id = stableBlockId(chapterId, contentKey);
+  if (
+    usedBlockIds.has(id) &&
+    sectionHeading &&
+    blockType !== "heading"
+  ) {
+    id = stableBlockId(chapterId, `${sectionHeading}\n${contentKey}`);
+  }
+  usedBlockIds.add(id);
+  return id;
+}
+
 function blocksToSections(blocks: ParsedBlock[]): Section[] {
   const sections: Section[] = [];
   let current: Block[] = [];
@@ -386,21 +407,49 @@ function processChapter(fileName: string): Chapter | null {
   const firstHeading = parsed.find((p) => p.type === "heading");
   const title = firstHeading?.content ?? chapterId;
 
+  const usedBlockIds = new Set<string>();
   for (const section of sections) {
+    const sectionHeading =
+      section.blocks.find((b) => b.type === "heading")?.content ?? "";
     for (const block of section.blocks) {
       if (block.type === "list" && block.items?.length) {
         const joined = block.items.map((item) => item.content).join("\n");
-        block.block_id = stableBlockId(chapterId, `list\n${joined}`);
+        block.block_id = assignStableBlockId(
+          chapterId,
+          `list\n${joined}`,
+          sectionHeading,
+          block.type,
+          usedBlockIds
+        );
         for (const item of block.items) {
-          item.block_id = stableBlockId(chapterId, item.content);
+          item.block_id = assignStableBlockId(
+            chapterId,
+            item.content,
+            sectionHeading,
+            "list-item",
+            usedBlockIds
+          );
         }
       } else if (block.type === "verse" && block.lines?.length) {
         const joined = block.lines.map((item) => item.content).join("\n");
         const align = block.verseAlign ?? "right";
-        block.block_id = stableBlockId(chapterId, `verse:${align}\n${joined}`);
+        const key = `verse:${align}\n${joined}`;
+        block.block_id = assignStableBlockId(
+          chapterId,
+          key,
+          sectionHeading,
+          block.type,
+          usedBlockIds
+        );
         block.content = block.lines[0]?.content.slice(0, 80) ?? "Verse";
       } else {
-        block.block_id = stableBlockId(chapterId, block.content);
+        block.block_id = assignStableBlockId(
+          chapterId,
+          block.content,
+          sectionHeading,
+          block.type,
+          usedBlockIds
+        );
       }
     }
   }

@@ -1,7 +1,9 @@
 function BlankCircle({ label }: { label: string }) {
   return (
-    <div className="break-inside-avoid">
-      <div className="mb-2 font-semibold tracking-wide">{label}</div>
+    <div className="break-inside-avoid flex flex-col items-center">
+      <div className="mb-2 w-full text-center font-semibold tracking-wide">
+        {label}
+      </div>
       <svg
         viewBox="0 0 200 200"
         className="w-full max-w-[260px]"

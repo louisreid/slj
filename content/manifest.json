@@ -1910,7 +1910,7 @@
               "content": "Open the printable forms [](/worksheets/print/time-sheet) (Time Sheet) and [](/worksheets/print/time-circles) (Time Circles)."
             },
             {
-              "block_id": "13-session-three-c9bbd78035c5",
+              "block_id": "13-session-three-37bcefca4358",
               "type": "list",
               "content": "",
               "items": [
@@ -1931,15 +1931,10 @@
                   "content": "To what extent does your daily activity help achieve your goals in life? Is it achieving someone else’s goals? If so, whose? Do you endorse those goals?"
                 },
                 {
-                  "block_id": "13-session-three-65fa834ea11b",
-                  "content": "Design yourself a daily round of activities that would bring you closer to doing more of the things you find most satisfying and important in life. When you have completed your design for an ideal daily round, discuss what this review has meant to you with a close friend, partner or family member or with the other members of this group."
+                  "block_id": "13-session-three-d11af8ecca38",
+                  "content": "Design yourself a daily round of activities that would bring you closer to doing more of the things you find most satisfying and important in life. When you have completed your design for an ideal daily round, discuss what this review has meant to you with a close friend, partner or family member or with the other members of this group. (Adapted from Mark A. Burch’s study in Simplicity pp.72–74). [27]"
                 }
               ]
-            },
-            {
-              "block_id": "13-session-three-0a5f419a1865",
-              "type": "paragraph",
-              "content": "(Adapted from Mark A. Burch’s study in Simplicity pp.72–74). [27]"
             },
             {
               "block_id": "13-session-three-e801d82f6dd8",
@@ -3538,7 +3533,7 @@
               "content": "‘The USA now has more registered vehicles than licensed drivers.’"
             },
             {
-              "block_id": "19-session-six-179d707b7ae0",
+              "block_id": "19-session-six-01452bb4d764",
               "type": "paragraph",
               "content": "— Enough! Spring 1999"
             }
@@ -4501,7 +4496,7 @@
               "content": "Read Colossians 1:1–23."
             },
             {
-              "block_id": "23-session-eight-56b7c4fd01db",
+              "block_id": "23-session-eight-1ff77961f022",
               "type": "list",
               "content": "",
               "items": [
@@ -4542,160 +4537,10 @@
                   "content": "Do you ever get involved in environmental campaigns? Is there a particular area you sense God prompting you to take action on?"
                 },
                 {
-                  "block_id": "23-session-eight-8b118a9da7ab",
-                  "content": "Go through the ‘What on Earth am I Doing?’ questionnaire. Open the printable form [](/worksheets/print/what-on-earth-am-i-doing) (What on Earth am I Doing?). Discuss together what issues it raises. Please note the spirit in which it was written: it is meant to be light-hearted, like a quiz in a magazine! Not every question will be applicable to every person, and it is not meant as a legalistic list of things to do."
+                  "block_id": "23-session-eight-021babab62c9",
+                  "content": "Go through the ‘What on Earth am I Doing?’ questionnaire. Open the printable form [](/worksheets/print/what-on-earth-am-i-doing) (What on Earth am I Doing?). Term definitions and score bands are on the worksheet. Discuss together what issues it raises. Please note the spirit in which it was written: it is meant to be light-hearted, like a quiz in a magazine! Not every question will be applicable to every person, and it is not meant as a legalistic list of things to do."
                 }
               ]
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-24a27128b96b",
-              "type": "heading",
-              "content": "‘Fair Trade’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-2ae92b6c3f5e",
-              "type": "paragraph",
-              "content": "is a process which pays producers a good price for their labour, instead of a price which they are forced to accept just to stay in business. As a by-product, the goods are often produced in a more environmentally-friendly manner. It does, however, still perpetuate, very often, local economies that are dependent on Western appetites."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-6444fe9bfd28",
-              "type": "heading",
-              "content": "‘Environmentally Friendly’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-08216d0d106f",
-              "type": "paragraph",
-              "content": "means being sensitive to the need to reduce the use of natural resources, considering pollution and the amount of energy used by producing or using a product."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-35e22ec194f2",
-              "type": "heading",
-              "content": "‘Free Range’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-30c87fa83e8a",
-              "type": "paragraph",
-              "content": "is a term applied to livestock which have continuous day time access to open air. The ground is mainly covered with vegetation, there is a maximum density of livestock per acre, and the feed must be free of animal products. Free range must not be confused with ‘Farm Fresh’ or ‘Country Fresh’ which could still involve factory-farming methods."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-e81dfdfa98cc",
-              "type": "heading",
-              "content": "‘Transport Miles’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-18ea07bb0f17",
-              "type": "paragraph",
-              "content": "refers to the mileage covered by an item from the producer of the raw ingredients to the shop floor. For example, a locally-grown potato may travel to a washing centre, then to a distribution centre before it reaches your local superstore. The local market will sell it dirty direct from the farm! More transport is used and therefore more congestion and pollution is produced by shopping at superstores."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-5d55fd2bf206",
-              "type": "heading",
-              "content": "‘Recycling’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-c26cdd41918f",
-              "type": "paragraph",
-              "content": "is the idea of using materials again. If an item cannot be re-used in its present form, it can be broken down and the materials used again. This process uses far less energy and natural resources than using raw materials each time."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-c5c89f81c81b",
-              "type": "heading",
-              "content": "‘A Wormery’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-0a7792e1edbd",
-              "type": "paragraph",
-              "content": "is a plastic bin with a sealed lid, a sump and a tap to drain off collected liquid. Tiger worms will eat degradable kitchen waste, turning it into a rich compost. The liquid forms an excellent plant feed – home-made Baby Bio!"
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-5a8bb9ba504c",
-              "type": "heading",
-              "content": "‘Multinationals’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-6a8544494f88",
-              "type": "paragraph",
-              "content": "are huge global companies which provide jobs in many nations but which don't necessarily consider the environmental and local economic impact of their business."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-cf417d32784d",
-              "type": "heading",
-              "content": "‘Car Sharing’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-f1498aad6cb2",
-              "type": "paragraph",
-              "content": "makes use of spare places in cars when two or more people are travelling to the same destination at the same time. The pollution caused by car fumes damages the ozone layer (which protects us from harmful sun rays) as well as contributing to diseases such as asthma."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-37601e0b284a",
-              "type": "heading",
-              "content": "‘Farmers’ Markets’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-65c4a542f421",
-              "type": "paragraph",
-              "content": "are markets where local producers can sell their goods direct to the customer. They must come from a thirty-mile radius and the stall has to be staffed by the actual producer. The produce is not only fresher but often contains few chemicals. Less packaging and transportation is required which means there is less waste and fewer road journeys. Farmers’ Markets also encourage people to try home-produced, regional, specialities."
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "23-session-eight-897a6be2b98c",
-              "type": "heading",
-              "content": "‘Bicycling’",
-              "level": 3
-            },
-            {
-              "block_id": "23-session-eight-0a1edd5f6487",
-              "type": "paragraph",
-              "content": "is a far more environmentally-friendly means of transportation than driving. For example, a bicycle can travel up to 1,037km on the energy equivalent of one litre of petrol (nearly 300mpg)."
             }
           ]
         },
@@ -5926,231 +5771,6 @@
               "block_id": "27-session-ten-f21c53521f0f",
               "type": "paragraph",
               "content": "— Thomas Merton, Seven Storey Mountain"
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "27-session-ten-74081810944e",
-              "type": "heading",
-              "content": "Further reading",
-              "level": 2
-            },
-            {
-              "block_id": "27-session-ten-6d21253ea646",
-              "type": "list",
-              "content": "",
-              "items": [
-                {
-                  "block_id": "27-session-ten-059b5f023061",
-                  "content": "Randy Alcorn, Money, Posessions and Eternity (Tyndale House Publishers, 2003)."
-                },
-                {
-                  "block_id": "27-session-ten-edf051c6fc9f",
-                  "content": "James Allcock, Robert Innes and David Sheppard, God at Work Part II (Grove Booklets E96)."
-                },
-                {
-                  "block_id": "27-session-ten-285c5629b8c8",
-                  "content": "David Batstone, Saving the Corporate Soul and (Who Knows?) Maybe Your Own (Jossey-Bars, 2003)."
-                },
-                {
-                  "block_id": "27-session-ten-681a45d6f27b",
-                  "content": "Heidi & Rolland Baker, There is Always Enough (Sovereign World Limited, 2014)."
-                },
-                {
-                  "block_id": "27-session-ten-9ed540267940",
-                  "content": "Richard Bauckham and Trevor Hart, Hope Against Hope: Christian Eschatology in Contemporary Context (Dartman, Longman and Todd, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-79d120483656",
-                  "content": "John Benton, Christians in a Consumer Culture (Christian Focus Publications, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-009d3a694b19",
-                  "content": "R. J. Berry (ed.), The Care of Creation: Focusing Concern and Action (IVP, 2000)."
-                },
-                {
-                  "block_id": "27-session-ten-1cd03dd21673",
-                  "content": "Wendell Berry, The Gift of Good Land (Counterpoint, 2009)."
-                },
-                {
-                  "block_id": "27-session-ten-ab17b2966ba4",
-                  "content": "Wendell Berry, Sex, Economy, Freedom, & Community: Eight Essays (Counterpoint, 2018)."
-                },
-                {
-                  "block_id": "27-session-ten-4191cd455047",
-                  "content": "Craig Blomberg, Neither Poverty Nor Riches: a Biblical Theology of Possessions (Apollos, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-99b2dbd2cce5",
-                  "content": "Dietrich Bonhoeffer, LifeTogether (SCM Press, 2015)."
-                },
-                {
-                  "block_id": "27-session-ten-b26e7d049d5e",
-                  "content": "Dave Bookless, Planetwise: Dare to Care For God's World (IVP UK, 2008)."
-                },
-                {
-                  "block_id": "27-session-ten-b28d2d8f714f",
-                  "content": "William Booth, In Darkest England and the Way Out (2014)."
-                },
-                {
-                  "block_id": "27-session-ten-60d8a48d5da2",
-                  "content": "Larry Burkett, Debt-Free Living (Moody Press, 1989)."
-                },
-                {
-                  "block_id": "27-session-ten-36e038467643",
-                  "content": "Raniero Cantalamessa, Poverty (St Pauls, 2018)."
-                },
-                {
-                  "block_id": "27-session-ten-99e4b711a65b",
-                  "content": "Rachel Carson, Silent Spring (Penguin Classics, 2000)."
-                },
-                {
-                  "block_id": "27-session-ten-005d5c7bb7c4",
-                  "content": "Graham Dow, A Christian Understanding of Daily Work (Grove Booklet P57)."
-                },
-                {
-                  "block_id": "27-session-ten-265af1012d98",
-                  "content": "Richard J. Foster, Celebration of Discipline (Hodder & Stoughton, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-7e657932c5de",
-                  "content": "Richard J. Foster, Freedom of Simplicity (Harper Paperbacks, 1989)."
-                },
-                {
-                  "block_id": "27-session-ten-4b549152982e",
-                  "content": "Richard J. Foster, Money, Sex and Power: The Challenge of the Disciplined Life (Hodder & Stoughton, 2009)."
-                },
-                {
-                  "block_id": "27-session-ten-181f33a48290",
-                  "content": "Jean Giono, The Man Who Planted Trees (Harvill Press, 1995)."
-                },
-                {
-                  "block_id": "27-session-ten-7a6941696145",
-                  "content": "Anand Giridhadaras, Winners Take All: The Elite Charade of Changing the World (Penguin, 2020)."
-                },
-                {
-                  "block_id": "27-session-ten-484a3d986ee9",
-                  "content": "John Goldingay and Robert Innes, God at Work Part I (Grove Booklet E94)."
-                },
-                {
-                  "block_id": "27-session-ten-ab7d9ec772c6",
-                  "content": "Colin Gunton, Christ and Creation (Paternoster, 1992)."
-                },
-                {
-                  "block_id": "27-session-ten-af7d19c6f826",
-                  "content": "Tim Keller, Generous Justice (Hodder and Stoughton, 2012)."
-                },
-                {
-                  "block_id": "27-session-ten-ca4a85e1ea18",
-                  "content": "Donald Kraybill, The Upside-down Kingdom (Marshalls Paperback, 1978)."
-                },
-                {
-                  "block_id": "27-session-ten-edb77239b2fb",
-                  "content": "Douglas Meeks, God the Economist: The Doctrine of God and Political Economy (Fortress Press, 1989)."
-                },
-                {
-                  "block_id": "27-session-ten-84cc29712ce2",
-                  "content": "Paul Mills, A Brief Theology of Time. Part 2: Resisting the Tyranny of Time (Cambridge Papers 11.4, 2002)."
-                },
-                {
-                  "block_id": "27-session-ten-a2c7ca39aee5",
-                  "content": "Paul Mills, Faith Versus Prudence? Christians and Financial Security (Cambridge Papers, 1995)."
-                },
-                {
-                  "block_id": "27-session-ten-85e51c677765",
-                  "content": "Paul Mills, Investing as a Christian (Cambridge Papers, June 1996)."
-                },
-                {
-                  "block_id": "27-session-ten-a8ebced2a1c1",
-                  "content": "Michael Northcott, The Environment and Christian Ethics (SPCK, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-3efa2c30ba3c",
-                  "content": "Henri Nouwen, Compassion (Darton, Longman and Todd Ltd, 2008)."
-                },
-                {
-                  "block_id": "27-session-ten-b30911e5fbb4",
-                  "content": "James Odgers, Talking Issues (2017)."
-                },
-                {
-                  "block_id": "27-session-ten-cf83a2a8696c",
-                  "content": "Lawrence Osborn, Guardians of Creation: Nature in Theology and the Christian Life (Apollos, 1993)."
-                },
-                {
-                  "block_id": "27-session-ten-abc47050dedd",
-                  "content": "Jonathan Sacks, Faith in the Future (Dartman, Longman and Todd, 1995)."
-                },
-                {
-                  "block_id": "27-session-ten-25a8c0df38f5",
-                  "content": "E. F. Schumacher, Small is Beautiful: a Study of Economics as if People Really Mattered (Vintage 1993)."
-                },
-                {
-                  "block_id": "27-session-ten-f8bc4d904d65",
-                  "content": "Michael Schut (ed.), Simpler Living:Compassionate Life: a Christian Perspective (Living the Good News, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-9dc92ae90694",
-                  "content": "Ron J. Sider, Rich Christians in an Age of Hunger (Hodder and Stoughton, 1997)."
-                },
-                {
-                  "block_id": "27-session-ten-508f6490a5d4",
-                  "content": "Ron J. Sider, ed., Lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle (London, Paternoster, 1981.)."
-                },
-                {
-                  "block_id": "27-session-ten-63ce8688f058",
-                  "content": "Tom and Christine Sine, Living on Purpose: Finding God’s Best for Your Life (Monarch, 2002)."
-                },
-                {
-                  "block_id": "27-session-ten-928fe596e997",
-                  "content": "Tom Sine, Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium (Monarch, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-45c1cce75a57",
-                  "content": "John Stott, New Issues Facing Christians Today (Marshall Pickering, 1990)."
-                },
-                {
-                  "block_id": "27-session-ten-78b523c0bcae",
-                  "content": "Alan Storkey, Transforming Economics (SPCK, 1986)."
-                },
-                {
-                  "block_id": "27-session-ten-8bd3f9f2789c",
-                  "content": "Keith Tondeur, Financial Tips for the Family: an Essential Guide (Hodder & Stoughton, 1997)."
-                },
-                {
-                  "block_id": "27-session-ten-8e12eea50292",
-                  "content": "Keith Tondeur, What Jesus said about Money and Possessions (Monarch Books, 1998)."
-                },
-                {
-                  "block_id": "27-session-ten-1c038792f971",
-                  "content": "Keith Tondeur, Your Money and Your Life (Triangle, 1996)."
-                },
-                {
-                  "block_id": "27-session-ten-73603535a4dd",
-                  "content": "Jean Vanier, Becoming Human (Darton, Longman and Todd Ltd, 1999)."
-                },
-                {
-                  "block_id": "27-session-ten-28b03ebaaa87",
-                  "content": "Jean Vanier, Community and Growth (Darton, Longman and Todd Ltd, 1996)."
-                },
-                {
-                  "block_id": "27-session-ten-9ff5594b095d",
-                  "content": "John Wesley, Wesley’s 52 Standard Sermons (Schmul Publishers, 1988)."
-                },
-                {
-                  "block_id": "27-session-ten-be526afa5db6",
-                  "content": "Norman Wirzba, From Nature to Creation: A Christian Vision for Understanding and Loving Our World (Baker Academic, 2015)."
-                },
-                {
-                  "block_id": "27-session-ten-d11563ea6422",
-                  "content": "Christopher J.H, Wright, God's People in God's Land: Family, Land, and Property in the Old Testament (WM.B Eerdmans-Lightning Source, 1990)."
-                },
-                {
-                  "block_id": "27-session-ten-abb4618c0923",
-                  "content": "N.T Wright, Surprised by Hope: Rethinking Heaven, the Resurrection, and the Mission of the Church (HarperOne, 2018)."
-                }
-              ]
             },
             {
               "block_id": "27-session-ten-69bdc5a4d768",
@@ -6167,36 +5787,263 @@
       ]
     },
     {
-      "id": "28-notes",
-      "file": "28-notes.md",
-      "title": "Notes",
+      "id": "28-further-reading",
+      "file": "28-further-reading.md",
+      "title": "Further reading",
       "mode": "static",
       "sections": [
         {
           "blocks": [
             {
-              "block_id": "28-notes-4dfcf72d49cc",
+              "block_id": "28-further-reading-436cddaa6d3a",
               "type": "heading",
-              "content": "Notes",
-              "level": 1
+              "content": "Further reading",
+              "level": 2
             },
             {
-              "block_id": "28-notes-ff21dd925a88",
+              "block_id": "28-further-reading-a6c0831d107f",
+              "type": "list",
+              "content": "",
+              "items": [
+                {
+                  "block_id": "28-further-reading-788dece410c7",
+                  "content": "Randy Alcorn, Money, Posessions and Eternity (Tyndale House Publishers, 2003)."
+                },
+                {
+                  "block_id": "28-further-reading-8e0cef920f6b",
+                  "content": "James Allcock, Robert Innes and David Sheppard, God at Work Part II (Grove Booklets E96)."
+                },
+                {
+                  "block_id": "28-further-reading-46a211248371",
+                  "content": "David Batstone, Saving the Corporate Soul and (Who Knows?) Maybe Your Own (Jossey-Bars, 2003)."
+                },
+                {
+                  "block_id": "28-further-reading-29ce7e021efc",
+                  "content": "Heidi & Rolland Baker, There is Always Enough (Sovereign World Limited, 2014)."
+                },
+                {
+                  "block_id": "28-further-reading-c612f9ac6531",
+                  "content": "Richard Bauckham and Trevor Hart, Hope Against Hope: Christian Eschatology in Contemporary Context (Dartman, Longman and Todd, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-a5075cca440c",
+                  "content": "John Benton, Christians in a Consumer Culture (Christian Focus Publications, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-7ee63405cf75",
+                  "content": "R. J. Berry (ed.), The Care of Creation: Focusing Concern and Action (IVP, 2000)."
+                },
+                {
+                  "block_id": "28-further-reading-6d09d52af1d9",
+                  "content": "Wendell Berry, The Gift of Good Land (Counterpoint, 2009)."
+                },
+                {
+                  "block_id": "28-further-reading-80d590e11521",
+                  "content": "Wendell Berry, Sex, Economy, Freedom, & Community: Eight Essays (Counterpoint, 2018)."
+                },
+                {
+                  "block_id": "28-further-reading-fad54bd9747c",
+                  "content": "Craig Blomberg, Neither Poverty Nor Riches: a Biblical Theology of Possessions (Apollos, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-afbe5690d261",
+                  "content": "Dietrich Bonhoeffer, LifeTogether (SCM Press, 2015)."
+                },
+                {
+                  "block_id": "28-further-reading-71b2184f2cb3",
+                  "content": "Dave Bookless, Planetwise: Dare to Care For God's World (IVP UK, 2008)."
+                },
+                {
+                  "block_id": "28-further-reading-c24fb54200e5",
+                  "content": "William Booth, In Darkest England and the Way Out (2014)."
+                },
+                {
+                  "block_id": "28-further-reading-5c22176b9dd9",
+                  "content": "Larry Burkett, Debt-Free Living (Moody Press, 1989)."
+                },
+                {
+                  "block_id": "28-further-reading-ac8cb6494393",
+                  "content": "Raniero Cantalamessa, Poverty (St Pauls, 2018)."
+                },
+                {
+                  "block_id": "28-further-reading-d2e7c3f29f08",
+                  "content": "Rachel Carson, Silent Spring (Penguin Classics, 2000)."
+                },
+                {
+                  "block_id": "28-further-reading-24b11c88ae0e",
+                  "content": "Graham Dow, A Christian Understanding of Daily Work (Grove Booklet P57)."
+                },
+                {
+                  "block_id": "28-further-reading-632fbab7a568",
+                  "content": "Richard J. Foster, Celebration of Discipline (Hodder & Stoughton, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-e9a8c7cbcdfe",
+                  "content": "Richard J. Foster, Freedom of Simplicity (Harper Paperbacks, 1989)."
+                },
+                {
+                  "block_id": "28-further-reading-ce7ea552b63b",
+                  "content": "Richard J. Foster, Money, Sex and Power: The Challenge of the Disciplined Life (Hodder & Stoughton, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-0c76ebe7d0c3",
+                  "content": "Jean Giono, The Man Who Planted Trees (Harvill Press, 1995)."
+                },
+                {
+                  "block_id": "28-further-reading-5315eec11648",
+                  "content": "Anand Giridhadaras, Winners Take All: The Elite Charade of Changing the World (Penguin, 2020)."
+                },
+                {
+                  "block_id": "28-further-reading-8145991121bc",
+                  "content": "John Goldingay and Robert Innes, God at Work Part I (Grove Booklet E94)."
+                },
+                {
+                  "block_id": "28-further-reading-69eec4c4214d",
+                  "content": "Colin Gunton, Christ and Creation (Paternoster, 1992)."
+                },
+                {
+                  "block_id": "28-further-reading-3ce5dda0f167",
+                  "content": "Tim Keller, Generous Justice (Hodder and Stoughton, 2012)."
+                },
+                {
+                  "block_id": "28-further-reading-5a8f6a0513b8",
+                  "content": "Donald Kraybill, The Upside-down Kingdom (Marshalls Paperback, 1978)."
+                },
+                {
+                  "block_id": "28-further-reading-7a0b4acaf92d",
+                  "content": "Douglas Meeks, God the Economist: The Doctrine of God and Political Economy (Fortress Press, 1989)."
+                },
+                {
+                  "block_id": "28-further-reading-ef7861e1e631",
+                  "content": "Paul Mills, A Brief Theology of Time. Part 2: Resisting the Tyranny of Time (Cambridge Papers 11.4, 2002)."
+                },
+                {
+                  "block_id": "28-further-reading-36260f52b457",
+                  "content": "Paul Mills, Faith Versus Prudence? Christians and Financial Security (Cambridge Papers, 1995)."
+                },
+                {
+                  "block_id": "28-further-reading-aedfab8d0db4",
+                  "content": "Paul Mills, Investing as a Christian (Cambridge Papers, June 1996)."
+                },
+                {
+                  "block_id": "28-further-reading-63c7ba986225",
+                  "content": "Michael Northcott, The Environment and Christian Ethics (SPCK, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-f4cb41b9fa30",
+                  "content": "Henri Nouwen, Compassion (Darton, Longman and Todd Ltd, 2008)."
+                },
+                {
+                  "block_id": "28-further-reading-5598fde27200",
+                  "content": "James Odgers, Talking Issues (2017)."
+                },
+                {
+                  "block_id": "28-further-reading-5127d5ec1647",
+                  "content": "Lawrence Osborn, Guardians of Creation: Nature in Theology and the Christian Life (Apollos, 1993)."
+                },
+                {
+                  "block_id": "28-further-reading-7c871879c58e",
+                  "content": "Jonathan Sacks, Faith in the Future (Dartman, Longman and Todd, 1995)."
+                },
+                {
+                  "block_id": "28-further-reading-9cbb5ace21e8",
+                  "content": "E. F. Schumacher, Small is Beautiful: a Study of Economics as if People Really Mattered (Vintage 1993)."
+                },
+                {
+                  "block_id": "28-further-reading-2ae1f4ab1a32",
+                  "content": "Michael Schut (ed.), Simpler Living:Compassionate Life: a Christian Perspective (Living the Good News, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-d4255abc0d31",
+                  "content": "Ron J. Sider, Rich Christians in an Age of Hunger (Hodder and Stoughton, 1997)."
+                },
+                {
+                  "block_id": "28-further-reading-271e33faf9eb",
+                  "content": "Ron J. Sider, ed., Lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle (London, Paternoster, 1981.)."
+                },
+                {
+                  "block_id": "28-further-reading-8a405386cceb",
+                  "content": "Tom and Christine Sine, Living on Purpose: Finding God’s Best for Your Life (Monarch, 2002)."
+                },
+                {
+                  "block_id": "28-further-reading-c1bc2d290c1e",
+                  "content": "Tom Sine, Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium (Monarch, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-41dceaec47fc",
+                  "content": "John Stott, New Issues Facing Christians Today (Marshall Pickering, 1990)."
+                },
+                {
+                  "block_id": "28-further-reading-ab6667848c97",
+                  "content": "Alan Storkey, Transforming Economics (SPCK, 1986)."
+                },
+                {
+                  "block_id": "28-further-reading-b463ca65258d",
+                  "content": "Keith Tondeur, Financial Tips for the Family: an Essential Guide (Hodder & Stoughton, 1997)."
+                },
+                {
+                  "block_id": "28-further-reading-65cf9ff44d44",
+                  "content": "Keith Tondeur, What Jesus said about Money and Possessions (Monarch Books, 1998)."
+                },
+                {
+                  "block_id": "28-further-reading-2da4777ada6f",
+                  "content": "Keith Tondeur, Your Money and Your Life (Triangle, 1996)."
+                },
+                {
+                  "block_id": "28-further-reading-74154d05cc87",
+                  "content": "Jean Vanier, Becoming Human (Darton, Longman and Todd Ltd, 1999)."
+                },
+                {
+                  "block_id": "28-further-reading-b3a2007a522d",
+                  "content": "Jean Vanier, Community and Growth (Darton, Longman and Todd Ltd, 1996)."
+                },
+                {
+                  "block_id": "28-further-reading-8f3e3de78af1",
+                  "content": "John Wesley, Wesley’s 52 Standard Sermons (Schmul Publishers, 1988)."
+                },
+                {
+                  "block_id": "28-further-reading-9f5943d41639",
+                  "content": "Norman Wirzba, From Nature to Creation: A Christian Vision for Understanding and Loving Our World (Baker Academic, 2015)."
+                },
+                {
+                  "block_id": "28-further-reading-3b1e8a9ee5da",
+                  "content": "Christopher J.H, Wright, God's People in God's Land: Family, Land, and Property in the Old Testament (WM.B Eerdmans-Lightning Source, 1990)."
+                },
+                {
+                  "block_id": "28-further-reading-4779bcb63bfc",
+                  "content": "N.T Wright, Surprised by Hope: Rethinking Heaven, the Resurrection, and the Mission of the Church (HarperOne, 2018)."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29-references",
+      "file": "29-references.md",
+      "title": "[2]",
+      "mode": "static",
+      "sections": [
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-bb94caffa3aa",
               "type": "paragraph",
-              "content": "End-of-book notes for in-text references such as [2] and [38]. Each heading matches the number shown in the course."
+              "content": "End-of-book references for in-text citations such as [2] and [38]. Each heading matches the number shown in the course."
             }
           ]
         },
         {
           "blocks": [
             {
-              "block_id": "28-notes-7b92f90038f2",
+              "block_id": "29-references-1fc1acd3b230",
               "type": "heading",
               "content": "[2]",
               "level": 2
             },
             {
-              "block_id": "28-notes-52dfaf97dff6",
+              "block_id": "29-references-a43bdc805362",
               "type": "paragraph",
               "content": "Papers that were presented at the consultation can be read in: Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to Simple Lifestyle* (Paternoster, 1981)."
             }
@@ -6205,13 +6052,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-76632c6e8e41",
+              "block_id": "29-references-efeb7b6786d9",
               "type": "heading",
               "content": "[3]",
               "level": 2
             },
             {
-              "block_id": "28-notes-70fb2e5a3f18",
+              "block_id": "29-references-e5767228210f",
               "type": "paragraph",
               "content": "John Stott (ed.), *Making Christ Known* (Paternoster, 1996), p.142. See also [Lausanne Occasional Papers](https://lausanne.org)."
             }
@@ -6220,13 +6067,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-55c96ecad5ae",
+              "block_id": "29-references-2642dcce8bb5",
               "type": "heading",
               "content": "[4]",
               "level": 2
             },
             {
-              "block_id": "28-notes-6675526ccf8d",
+              "block_id": "29-references-5d49ba181ab3",
               "type": "paragraph",
               "content": "Janet Luhrs, *The Simple Living Guide* (Broadway, 1997), p.210."
             }
@@ -6235,13 +6082,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-c927c9e81d26",
+              "block_id": "29-references-56e4aaf75d68",
               "type": "heading",
               "content": "[5]",
               "level": 2
             },
             {
-              "block_id": "28-notes-ad7714ef972f",
+              "block_id": "29-references-77f02712372c",
               "type": "paragraph",
               "content": "Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to a Simple Lifestyle* (Paternoster, 1981), p.9."
             }
@@ -6250,13 +6097,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-4cccf514064b",
+              "block_id": "29-references-9ea587a030c8",
               "type": "heading",
               "content": "[6]",
               "level": 2
             },
             {
-              "block_id": "28-notes-3b3513483dc7",
+              "block_id": "29-references-352974c5b47d",
               "type": "paragraph",
               "content": "See the Session One reading and discussion on simplicity in the light of Jesus’ teaching."
             }
@@ -6265,13 +6112,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-62664787e790",
+              "block_id": "29-references-ee78e63b9ce7",
               "type": "heading",
               "content": "[7]",
               "level": 2
             },
             {
-              "block_id": "28-notes-ba1bd1bc2c74",
+              "block_id": "29-references-7e759aa1a6ca",
               "type": "paragraph",
               "content": "Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), pp.110–115."
             }
@@ -6280,13 +6127,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-7c20b4508a10",
+              "block_id": "29-references-b2a901f2ff13",
               "type": "heading",
               "content": "[8]",
               "level": 2
             },
             {
-              "block_id": "28-notes-3df24294e8de",
+              "block_id": "29-references-148d054d8c33",
               "type": "paragraph",
               "content": "Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), p.99."
             }
@@ -6295,13 +6142,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-7c625a99190b",
+              "block_id": "29-references-06e4e4cc27e2",
               "type": "heading",
               "content": "[9]",
               "level": 2
             },
             {
-              "block_id": "28-notes-7c1a147d9052",
+              "block_id": "29-references-136876490be1",
               "type": "paragraph",
               "content": "Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), p.107. Reproduced by permission of Hodder & Stoughton Limited."
             }
@@ -6310,13 +6157,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-9b045d891b49",
+              "block_id": "29-references-f357eb6b1e1c",
               "type": "heading",
               "content": "[10]",
               "level": 2
             },
             {
-              "block_id": "28-notes-a5a95a230fd8",
+              "block_id": "29-references-dc587c014072",
               "type": "paragraph",
               "content": "Quoted in Ron Sider, *Lifestyle in the Eighties* (Paternoster, 1981), p.11."
             }
@@ -6325,13 +6172,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-91691644dce4",
+              "block_id": "29-references-1a19d3626a8c",
               "type": "heading",
               "content": "[11]",
               "level": 2
             },
             {
-              "block_id": "28-notes-1df4715ecba8",
+              "block_id": "29-references-18d65dc90d78",
               "type": "paragraph",
               "content": "Taken from Fusion cell notes material: Issue 8, 2000, p.33."
             }
@@ -6340,13 +6187,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-7919704dff1b",
+              "block_id": "29-references-fe414203528b",
               "type": "heading",
               "content": "[12]",
               "level": 2
             },
             {
-              "block_id": "28-notes-ba200e379979",
+              "block_id": "29-references-2f906795b156",
               "type": "paragraph",
               "content": "See Session Two on community in church history (Desert Fathers and related examples)."
             }
@@ -6355,13 +6202,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-fa06b65df665",
+              "block_id": "29-references-5e9b6796c055",
               "type": "heading",
               "content": "[13]",
               "level": 2
             },
             {
-              "block_id": "28-notes-666bed1d0b70",
+              "block_id": "29-references-4e2f62d1f3df",
               "type": "paragraph",
               "content": "Esther de Waal, *The Celtic Vision* (Dartman Longman and Todd, 1988), p.12."
             }
@@ -6370,13 +6217,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-a9b2d87ed328",
+              "block_id": "29-references-097ca89454e9",
               "type": "heading",
               "content": "[14]",
               "level": 2
             },
             {
-              "block_id": "28-notes-9bc27478d815",
+              "block_id": "29-references-154c60e999cf",
               "type": "paragraph",
               "content": "Ray Simpson, *Exploring Celtic Spirituality* (Hodder & Stoughton, 1995), pp.195–201."
             }
@@ -6385,13 +6232,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-621b06d37139",
+              "block_id": "29-references-1acb87e6d218",
               "type": "heading",
               "content": "[15]",
               "level": 2
             },
             {
-              "block_id": "28-notes-7f14ff1646d6",
+              "block_id": "29-references-570dcfd82d9f",
               "type": "paragraph",
               "content": "Roy McCloughry, ‘Community Ethics’ in *New Dictionary of Christian Ethics and Pastoral Theology* (IVP, 1995), p.110."
             }
@@ -6400,13 +6247,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-9d74de6f4a2f",
+              "block_id": "29-references-0debe79d452c",
               "type": "heading",
               "content": "[16]",
               "level": 2
             },
             {
-              "block_id": "28-notes-5c9cb6a24014",
+              "block_id": "29-references-ecb4c318105e",
               "type": "paragraph",
               "content": "J. Sacks, *Faith in the Future* (Dartman, Longman and Todd, 1995), p.78."
             }
@@ -6415,13 +6262,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-725b55f530a0",
+              "block_id": "29-references-e25a3d1fc4c6",
               "type": "heading",
               "content": "[17]",
               "level": 2
             },
             {
-              "block_id": "28-notes-8b1a196616e0",
+              "block_id": "29-references-166eb1c66900",
               "type": "paragraph",
               "content": "Taken from the Co-housing Network website: www.cohousing.co.uk"
             }
@@ -6430,13 +6277,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-7c220f5a0fbe",
+              "block_id": "29-references-fda167d6ef23",
               "type": "heading",
               "content": "[18]",
               "level": 2
             },
             {
-              "block_id": "28-notes-cd8609bb76a1",
+              "block_id": "29-references-716e9985a4fe",
               "type": "paragraph",
               "content": "Juliet Schor, quoted in Michael Schut (ed.), *Simpler Living* (Thomas More Press, 1999), pp.34–35."
             }
@@ -6445,13 +6292,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-ee1c60d91c6a",
+              "block_id": "29-references-06b3f2d606fb",
               "type": "heading",
               "content": "[19]",
               "level": 2
             },
             {
-              "block_id": "28-notes-06dc56a618a8",
+              "block_id": "29-references-0607f20e99d1",
               "type": "paragraph",
               "content": "Tom Sine, *Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millennium* (Monarch, 1995), p.128."
             }
@@ -6460,13 +6307,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-8c13118c435c",
+              "block_id": "29-references-54455db51420",
               "type": "heading",
               "content": "[20]",
               "level": 2
             },
             {
-              "block_id": "28-notes-008ed38bda6e",
+              "block_id": "29-references-2d817977acfb",
               "type": "paragraph",
               "content": "Story Songs Ltd. Sung by Harry Chapin."
             }
@@ -6475,13 +6322,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-13f6767441ea",
+              "block_id": "29-references-b67dd07b44cf",
               "type": "heading",
               "content": "[21]",
               "level": 2
             },
             {
-              "block_id": "28-notes-f6140b649a94",
+              "block_id": "29-references-17cb2046a9a0",
               "type": "paragraph",
               "content": "Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.253."
             }
@@ -6490,13 +6337,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-68cdac381ccb",
+              "block_id": "29-references-278e573e74c0",
               "type": "heading",
               "content": "[22]",
               "level": 2
             },
             {
-              "block_id": "28-notes-70be08396954",
+              "block_id": "29-references-648c0324b9c0",
               "type": "paragraph",
               "content": "Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), pp.50–51."
             }
@@ -6505,13 +6352,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-d8170d70990b",
+              "block_id": "29-references-500fd8fe6bb3",
               "type": "heading",
               "content": "[23]",
               "level": 2
             },
             {
-              "block_id": "28-notes-f8ead0bacba2",
+              "block_id": "29-references-d6b4c639b2d1",
               "type": "paragraph",
               "content": "Henri Nouwen, ‘Contemplation and Ministry’ quoted in Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.54."
             }
@@ -6520,13 +6367,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-934875f1003b",
+              "block_id": "29-references-0df1e9dfea4b",
               "type": "heading",
               "content": "[24]",
               "level": 2
             },
             {
-              "block_id": "28-notes-366fa4d3736f",
+              "block_id": "29-references-235d545b802b",
               "type": "paragraph",
               "content": "Paul Mills, *A brief theology of time. Part 2: Resisting the tyranny of time*, Cambridge Papers 11:4, The Jubilee Centre, 2002."
             }
@@ -6535,13 +6382,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-d2beec18869d",
+              "block_id": "29-references-c444448d96c6",
               "type": "heading",
               "content": "[25]",
               "level": 2
             },
             {
-              "block_id": "28-notes-331e36ab94b6",
+              "block_id": "29-references-a1c5512c7dc4",
               "type": "paragraph",
               "content": "Taken from T. Sine, *Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium* (Monarch, 1995), pp.238–239."
             }
@@ -6550,13 +6397,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-e9a4674aba0d",
+              "block_id": "29-references-f84002f6e222",
               "type": "heading",
               "content": "[26]",
               "level": 2
             },
             {
-              "block_id": "28-notes-97a434801141",
+              "block_id": "29-references-73450f2f1cb2",
               "type": "paragraph",
               "content": "See Session Three discussion questions on how you spend your time."
             }
@@ -6565,13 +6412,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-ca1553b5cdbc",
+              "block_id": "29-references-4c3a68784f4d",
               "type": "heading",
               "content": "[27]",
               "level": 2
             },
             {
-              "block_id": "28-notes-eedbaa74e8e4",
+              "block_id": "29-references-9ebc4702a9d4",
               "type": "paragraph",
               "content": "Adapted from Mark A. Burch’s study in *Simplicity* (New Society Publishers, 1993), pp.72–74."
             }
@@ -6580,13 +6427,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-243a2232f0cf",
+              "block_id": "29-references-ebd44596a6f0",
               "type": "heading",
               "content": "[28]",
               "level": 2
             },
             {
-              "block_id": "28-notes-29f735cc9b68",
+              "block_id": "29-references-e34fcb168866",
               "type": "paragraph",
               "content": "E.M. Forster, *Howard’s End* (Penguin, 1969), p.72."
             }
@@ -6595,13 +6442,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-cb5901beb3a6",
+              "block_id": "29-references-521bb0d9e68c",
               "type": "heading",
               "content": "[29]",
               "level": 2
             },
             {
-              "block_id": "28-notes-1144cbe3e8ff",
+              "block_id": "29-references-2692a3e028b8",
               "type": "paragraph",
               "content": "Craig Blomberg, *Neither Poverty Nor Riches: A Biblical Theology of Possessions* (IVP, 2001), p.83."
             }
@@ -6610,13 +6457,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-ec1427e2944c",
+              "block_id": "29-references-49feb30ec772",
               "type": "heading",
               "content": "[30]",
               "level": 2
             },
             {
-              "block_id": "28-notes-557d918a8d06",
+              "block_id": "29-references-5e850838de0b",
               "type": "paragraph",
               "content": "Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to Simple Lifestyle* (Paternoster, 1981), p.6."
             }
@@ -6625,13 +6472,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-8afd0476ca51",
+              "block_id": "29-references-aa178de30eb0",
               "type": "heading",
               "content": "[31]",
               "level": 2
             },
             {
-              "block_id": "28-notes-0f04dac6dcb4",
+              "block_id": "29-references-a3412d560e23",
               "type": "paragraph",
               "content": "Craig Blomberg, *Neither Poverty Nor Riches: A Biblical Theology of Possessions* (IVP, 2001), pp.61–71."
             }
@@ -6640,13 +6487,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-31ba2f5346d7",
+              "block_id": "29-references-741790ae8913",
               "type": "heading",
               "content": "[32]",
               "level": 2
             },
             {
-              "block_id": "28-notes-bdb7ae3180a3",
+              "block_id": "29-references-2e1776f4f2b1",
               "type": "paragraph",
               "content": "John Stott, *Issues Facing Christians Today* (Marshall Pickering, 1984), p.166."
             }
@@ -6655,13 +6502,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-57c628b3a816",
+              "block_id": "29-references-b2968d60eb1f",
               "type": "heading",
               "content": "[33]",
               "level": 2
             },
             {
-              "block_id": "28-notes-39c932c484fc",
+              "block_id": "29-references-cf18fcfea34f",
               "type": "paragraph",
               "content": "The Message translation of the Bible gives an excellent re-reading of this passage – well worth looking at if you have a copy. Eugene H. Peterson (ed.), *The Message* (NavPress, 2002)."
             }
@@ -6670,13 +6517,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-d31536f75f4a",
+              "block_id": "29-references-bf5b531156fd",
               "type": "heading",
               "content": "[34]",
               "level": 2
             },
             {
-              "block_id": "28-notes-821f6f1fa004",
+              "block_id": "29-references-77b09168bcab",
               "type": "paragraph",
               "content": "Donald B. Kraybill, *The Upside-down Kingdom* (Herald, 1991), pp.114–129."
             }
@@ -6685,13 +6532,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-ef682aafc3d4",
+              "block_id": "29-references-0c31b24a464d",
               "type": "heading",
               "content": "[35]",
               "level": 2
             },
             {
-              "block_id": "28-notes-7273f8f043d3",
+              "block_id": "29-references-1e5ba9444034",
               "type": "paragraph",
               "content": "https://www.jrf.org.uk/data/overall-uk-poverty-rates and https://commonslibrary.parliament.uk/research-briefings/sn02110/"
             }
@@ -6700,13 +6547,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-6f5d4decabe4",
+              "block_id": "29-references-8a09a6bce4cc",
               "type": "heading",
               "content": "[36]",
               "level": 2
             },
             {
-              "block_id": "28-notes-56f5935f8f3f",
+              "block_id": "29-references-fbbed77c727f",
               "type": "paragraph",
               "content": "https://www.worldvision.org/sponsorship-news-stories/global-poverty-facts#multidimensional"
             }
@@ -6715,13 +6562,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-f69a11ff0596",
+              "block_id": "29-references-494c3c31f7ce",
               "type": "heading",
               "content": "[37]",
               "level": 2
             },
             {
-              "block_id": "28-notes-79c0b93da425",
+              "block_id": "29-references-420345358fa0",
               "type": "paragraph",
               "content": "See Donald B. Kraybill, *The Upside-down Kingdom* (Herald, 1991) pp.152–155 for a fuller explanation of this."
             }
@@ -6730,13 +6577,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-3a701e77747e",
+              "block_id": "29-references-69735b0fe02a",
               "type": "heading",
               "content": "[38]",
               "level": 2
             },
             {
-              "block_id": "28-notes-dd279fbd99e8",
+              "block_id": "29-references-d3b19aff4ca8",
               "type": "paragraph",
               "content": "John Wesley, Sermon 29 in *Wesley’s 52 Standard Sermons* (Schmul Publishing)."
             }
@@ -6745,13 +6592,13 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-a789efaf2fe4",
+              "block_id": "29-references-320019b13e66",
               "type": "heading",
               "content": "[39]",
               "level": 2
             },
             {
-              "block_id": "28-notes-a45e093bd86d",
+              "block_id": "29-references-7f4e38ff3938",
               "type": "paragraph",
               "content": "Taken from Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.260."
             }
@@ -6760,13 +6607,388 @@
         {
           "blocks": [
             {
-              "block_id": "28-notes-c2290eec9d06",
+              "block_id": "29-references-9d4f2081b6a2",
+              "type": "heading",
+              "content": "[40]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-98cbfbb348bd",
+              "type": "paragraph",
+              "content": "Adapted from Mark A. Burch, *Simplicity* (New Society Publishers, 1993), p.88."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-58ff9fd8fc68",
+              "type": "heading",
+              "content": "[41]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-dee104d34ed4",
+              "type": "paragraph",
+              "content": "This is dependent on the world situation. In times of war, or increased instability, the arms trade is the biggest industry."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-3ccc61f2ee4f",
+              "type": "heading",
+              "content": "[42]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-328de05e116b",
+              "type": "paragraph",
+              "content": "World Tourist Organisation (WTO). “Tourist arrivals” is the term used to measure tourism."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-9714aaf4a707",
+              "type": "heading",
+              "content": "[43]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-8b34b713051b",
+              "type": "paragraph",
+              "content": "Association of British Tourist Associations."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-2e04e6cf7034",
+              "type": "heading",
+              "content": "[44]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-71ca3b7f515f",
+              "type": "paragraph",
+              "content": "John Stott, *Issues Facing Christians Today* (Marshall Pickering, 1984), p.166."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-232e78082a18",
+              "type": "heading",
+              "content": "[45]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-65c66c303fc9",
+              "type": "paragraph",
+              "content": "Taken from Dominguez and Robin, *Your Money or Your Life* (Penguin, 1999), pp.229–230."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-5ba44e63c4b1",
+              "type": "heading",
+              "content": "[46]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-6efe35ecd7eb",
+              "type": "paragraph",
+              "content": "Taken from his autobiography published 1984."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-baad79e0f834",
+              "type": "heading",
+              "content": "[47]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-cacc2cf75a1a",
+              "type": "paragraph",
+              "content": "Oxford English Dictionary."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-0b1e06f1a93b",
+              "type": "heading",
+              "content": "[48]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-d6891d65a5d3",
+              "type": "paragraph",
+              "content": "For those interested in looking at this further, two good books on capitalism are: Robert Heilbroner, *The Nature and Logic of Capitalism* (Norton and Co. 1985) and Bob Goudzwaard, *Capitalism and Progress: A Diagnosis of Western Society* (Paternoster, 1997)."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-006abad5f936",
+              "type": "heading",
+              "content": "[49]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-1163a0498f57",
+              "type": "paragraph",
+              "content": "Wendell Berry (1993), *Sex, Economy, Freedom & Community: Eight Essays*."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-fba5627a8fe2",
+              "type": "heading",
+              "content": "[50]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-9a3f63a4e280",
+              "type": "paragraph",
+              "content": "D. Batstone, *Saving the Corporate Soul*, p.11. Copyright © D. Batstone 2003. Reprinted by permission of John Wiley & Sons Inc."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-2a20fd27120e",
+              "type": "heading",
+              "content": "[51]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-3593d2e99c74",
+              "type": "paragraph",
+              "content": "Much of the material here is taken from Paul Mills’ excellent paper *Faith Versus Prudence? Christians and Financial Security*, Cambridge Papers 4:1 (The Jubilee Centre, 1995). To obtain a copy phone the Jubilee Centre on 01223 566319 or see [jubilee-centre.org](https://www.jubilee-centre.org)."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-344f6bfa3a06",
+              "type": "heading",
+              "content": "[52]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-8ddf658ea856",
+              "type": "paragraph",
+              "content": "Ibid pp.3–4."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-6973a26a0fbd",
+              "type": "heading",
+              "content": "[53]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-86b80e032d6f",
+              "type": "paragraph",
+              "content": "Larry Burkett, *Debt-free Living* (Moody Press, 1999), p.57."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-fdaeddeb3503",
+              "type": "heading",
+              "content": "[54]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-9b34a81c2472",
+              "type": "paragraph",
+              "content": "Credit Action: 01223 324034; [creditaction.com](https://www.creditaction.com)."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-27175f54c23b",
+              "type": "heading",
+              "content": "[55]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-89b110dc7ef9",
+              "type": "paragraph",
+              "content": "Taken from Keith Tondeur, *Financial Tips for the Family*, pp.58–59."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-7b44850cc851",
+              "type": "heading",
+              "content": "[56]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-7878bcf7c464",
+              "type": "paragraph",
+              "content": "From an unpublished paper entitled, *Tithing: Biblically Non-Christian?* See also R.T. Kendall, *The Gift of Giving* (Hodder & Stoughton, 1982)."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-6021d2472e85",
+              "type": "heading",
+              "content": "[57]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-28c5d3d292fc",
+              "type": "paragraph",
+              "content": "To look further at the question of interest, see Paul Mills, *The Ban on Interest*, Cambridge Papers 3:1 (The Jubilee Centre, 1993)."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-1e393a751616",
+              "type": "heading",
+              "content": "[58]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-2420c68528b4",
+              "type": "paragraph",
+              "content": "To explore this further, see The Wheat Economy available from info@faithinthesoil.co.uk."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-d321714e645d",
+              "type": "heading",
+              "content": "[59]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-0401990ede1c",
+              "type": "paragraph",
+              "content": "See Paul Mills, *Investing as a Christian* Cambridge Papers 7:6 (The Jubilee Centre, 1996) for a helpful look at the current investment options (e.g. Banks, National Savings, shares etc.) in the light of some of these principles."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-06bac8b90434",
+              "type": "heading",
+              "content": "[60]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-af8de1489005",
+              "type": "paragraph",
+              "content": "The Besom provides some practical ways of beginning to outwork this. Contact them for more details. [thebesomnetwork.org](https://www.thebesomnetwork.org)."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-2ab8ff9604da",
+              "type": "heading",
+              "content": "[61]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-fadd48def4f5",
+              "type": "paragraph",
+              "content": "Paul Mills, *Investing as a Christian*, Cambridge Papers 7:6 (The Jubilee Centre, 1996), p.1."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-8da32aa383f5",
+              "type": "heading",
+              "content": "[62]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-1d88199ef3fc",
+              "type": "paragraph",
+              "content": "The World Development Movement’s *The Good Life* is a good place to start for further information."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-492d356cce3b",
+              "type": "heading",
+              "content": "[63]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-1b69b5e4639c",
+              "type": "paragraph",
+              "content": "Burkett, *Debt-free Living* (Moody Press, 1989) p.142."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-4daf306d0588",
+              "type": "heading",
+              "content": "[64]",
+              "level": 2
+            },
+            {
+              "block_id": "29-references-69f65c4e35c3",
+              "type": "paragraph",
+              "content": "Much of the following has been adapted from Tom and Christine Sine’s material in *Mustard Seed Vs McWorld*, Fusion cell notes issue 8 and the Spring Harvest 1999 Study Guide."
+            }
+          ]
+        },
+        {
+          "blocks": [
+            {
+              "block_id": "29-references-4519651ea5c1",
               "type": "heading",
               "content": "[65]",
               "level": 2
             },
             {
-              "block_id": "28-notes-2ea3f9ebe68d",
+              "block_id": "29-references-740177e3aa8b",
               "type": "paragraph",
               "content": "T. Sine, *Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium* (Monarch, 1995), p.281."
             }

@@ -19,7 +19,7 @@ After you save a file, wait for `[watch:content] manifest updated` in terminal 2
 pnpm generate-manifest
 ```
 
-## Chapters in the app (15)
+## Chapters in the app (16)
 
 | File | Reader chapter |
 |------|----------------|
@@ -36,8 +36,9 @@ pnpm generate-manifest
 | `21-session-seven.md` | Session seven |
 | `23-session-eight.md` | Session eight |
 | `25-session-nine.md` | Session nine |
-| `27-session-ten.md` | Session ten |
-| `28-notes.md` | Notes (end-of-book references for `[n]` footnotes) |
+| `27-session-ten.md` | What next? (session ten) |
+| `28-further-reading.md` | Further reading (end-of-course bibliography) |
+| `29-references.md` | References (end-of-book citations for `[n]` footnotes) |
 
 Odd numbers between sessions are reserved for notes/further-reading stubs from older ingests; those live in [../archive/](../archive/) if needed.
 

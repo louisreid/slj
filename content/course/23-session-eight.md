@@ -111,40 +111,7 @@ Read Colossians 1:1–23.
 - How might you get to know the food producers in your area that are looking after animals and the soil well and actively support their businesses?
 - How aware are you of different parts of creation where you live? For example, do you ever stop to smell a flower or watch a bird fly? If, as a result of earlier sessions, you are beginning to walk or cycle more instead of driving, then you may naturally have found this happening more often.
 - Do you ever get involved in environmental campaigns? Is there a particular area you sense God prompting you to take action on?
-- Go through the ‘What on Earth am I Doing?’ questionnaire. Open the printable form [](/worksheets/print/what-on-earth-am-i-doing) (What on Earth am I Doing?). Discuss together what issues it raises. Please note the spirit in which it was written: it is meant to be light-hearted, like a quiz in a magazine! Not every question will be applicable to every person, and it is not meant as a legalistic list of things to do.
-
-
-
-
-### ‘Fair Trade’ 
-is a process which pays producers a good price for their labour, instead of a price which they are forced to accept just to stay in business. As a by-product, the goods are often produced in a more environmentally-friendly manner. It does, however, still perpetuate, very often, local economies that are dependent on Western appetites.
-
-### ‘Environmentally Friendly’ 
-means being sensitive to the need to reduce the use of natural resources, considering pollution and the amount of energy used by producing or using a product.
-
-### ‘Free Range’ 
-is a term applied to livestock which have continuous day time access to open air. The ground is mainly covered with vegetation, there is a maximum density of livestock per acre, and the feed must be free of animal products. Free range must not be confused with ‘Farm Fresh’ or ‘Country Fresh’ which could still involve factory-farming methods.
-
-### ‘Transport Miles’ 
-refers to the mileage covered by an item from the producer of the raw ingredients to the shop floor. For example, a locally-grown potato may travel to a washing centre, then to a distribution centre before it reaches your local superstore. The local market will sell it dirty direct from the farm! More transport is used and therefore more congestion and pollution is produced by shopping at superstores.
-
-### ‘Recycling’ 
-is the idea of using materials again. If an item cannot be re-used in its present form, it can be broken down and the materials used again. This process uses far less energy and natural resources than using raw materials each time.
-
-### ‘A Wormery’ 
-is a plastic bin with a sealed lid, a sump and a tap to drain off collected liquid. Tiger worms will eat degradable kitchen waste, turning it into a rich compost. The liquid forms an excellent plant feed – home-made Baby Bio!
-
-### ‘Multinationals’ 
-are huge global companies which provide jobs in many nations but which don't necessarily consider the environmental and local economic impact of their business.
-
-### ‘Car Sharing’ 
-makes use of spare places in cars when two or more people are travelling to the same destination at the same time. The pollution caused by car fumes damages the ozone layer (which protects us from harmful sun rays) as well as contributing to diseases such as asthma.
-
-### ‘Farmers’ Markets’ 
-are markets where local producers can sell their goods direct to the customer. They must come from a thirty-mile radius and the stall has to be staffed by the actual producer. The produce is not only fresher but often contains few chemicals. Less packaging and transportation is required which means there is less waste and fewer road journeys. Farmers’ Markets also encourage people to try home-produced, regional, specialities.
-
-### ‘Bicycling’ 
-is a far more environmentally-friendly means of transportation than driving. For example, a bicycle can travel up to 1,037km on the energy equivalent of one litre of petrol (nearly 300mpg).
+- Go through the ‘What on Earth am I Doing?’ questionnaire. Open the printable form [](/worksheets/print/what-on-earth-am-i-doing) (What on Earth am I Doing?). Term definitions and score bands are on the worksheet. Discuss together what issues it raises. Please note the spirit in which it was written: it is meant to be light-hearted, like a quiz in a magazine! Not every question will be applicable to every person, and it is not meant as a legalistic list of things to do.
 
 ## Action
 

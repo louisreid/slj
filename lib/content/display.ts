@@ -21,7 +21,7 @@ function getStaticKind(chapter: Chapter):
   | "reviews"
   | "foreword"
   | "introduction"
-  | "notes"
+  | "references"
   | "further-reading"
   | null {
   const haystack = `${chapter.id} ${chapter.file} ${chapter.title}`.toLowerCase();
@@ -31,7 +31,7 @@ function getStaticKind(chapter: Chapter):
   if (haystack.includes("reviews")) return "reviews";
   if (haystack.includes("foreword")) return "foreword";
   if (haystack.includes("introduction")) return "introduction";
-  if (haystack.includes("notes")) return "notes";
+  if (haystack.includes("references") || haystack.includes("notes")) return "references";
   if (haystack.includes("further-reading")) return "further-reading";
 
   return null;
@@ -55,10 +55,10 @@ function getBaseDisplayTitle(chapter: Chapter, sessionContext: string | null): s
       return "Foreword";
     case "introduction":
       return "Introduction";
-    case "notes":
-      return sessionContext ? `${sessionContext} notes` : "Notes";
+    case "references":
+      return "References";
     case "further-reading":
-      return sessionContext ? `${sessionContext} further reading` : "Further reading";
+      return "Further reading";
     default:
       return chapter.title
         .toLowerCase()

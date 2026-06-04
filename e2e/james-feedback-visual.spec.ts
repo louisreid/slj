@@ -36,7 +36,7 @@ test.describe("James feedback (layout + content)", () => {
     const footnote = page.getByRole("link", { name: "[38]", exact: true }).first();
     await expect(footnote).toBeVisible();
     await footnote.click();
-    await expect(page).toHaveURL(/\/course\/28-notes#note-38/);
+    await expect(page).toHaveURL(/\/course\/29-references#note-38/);
     await expect(page.locator("#note-38")).toBeVisible();
   });
 
@@ -45,8 +45,14 @@ test.describe("James feedback (layout + content)", () => {
   }) => {
     await page.goto("/worksheets/print/budgeting-money-audit");
     await expect(
+      page.getByRole("heading", { name: /Looking after your personal money/i })
+    ).toBeVisible();
+    await expect(
       page.getByRole("heading", { name: /Mrs R\. E\. Joyce/i })
     ).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: "[51]" })
+    ).toHaveAttribute("href", "/course/29-references#note-51");
   });
 
   test("full book shows one h1 for session one chapter", async ({ page }) => {

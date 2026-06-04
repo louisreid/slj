@@ -71,6 +71,22 @@ const DEFINITIONS = [
     term: "A WORMERY",
     text: "is a plastic bin with a sealed lid, a sump and a tap to drain off collected liquid. Tiger worms will eat degradable kitchen waste, turning it into a rich compost. The liquid forms an excellent plant feed – home-made Baby Bio!",
   },
+  {
+    term: "MULTINATIONALS",
+    text: "are huge global companies which provide jobs in many nations but which don't necessarily consider the environmental and local economic impact of their business.",
+  },
+  {
+    term: "CAR SHARING",
+    text: "makes use of spare places in cars when two or more people are travelling to the same destination at the same time. The pollution caused by car fumes damages the ozone layer (which protects us from harmful sun rays) as well as contributing to diseases such as asthma.",
+  },
+  {
+    term: "FARMERS' MARKETS",
+    text: "are markets where local producers can sell their goods direct to the customer. They must come from a thirty-mile radius and the stall has to be staffed by the actual producer. The produce is not only fresher but often contains few chemicals. Less packaging and transportation is required which means there is less waste and fewer road journeys. Farmers' Markets also encourage people to try home-produced, regional, specialities.",
+  },
+  {
+    term: "BICYCLING",
+    text: "is a far more environmentally-friendly means of transportation than driving. For example, a bicycle can travel up to 1,037km on the energy equivalent of one litre of petrol (nearly 300mpg).",
+  },
 ] as const;
 
 const SCORE_BANDS = [
@@ -92,14 +108,14 @@ function TickMatrix({ title, items }: { title: string; items: string[] }) {
   return (
     <section className="mb-8 break-inside-avoid">
       <h2 className="text-lg font-semibold mb-3">{title}</h2>
-      <table className="w-full border border-black/30 border-collapse text-sm">
+      <table className="worksheet-tick-table w-full border border-black/30 border-collapse text-sm">
         <thead>
           <tr className="border-b border-black/30">
-            <th className="border-r border-black/30 p-2 text-left font-semibold w-[42%]" />
+            <th className="border-r border-black/30 text-left font-semibold w-[42%]" />
             {CHOICE_COLUMNS.map((col) => (
               <th
                 key={col}
-                className="border-r border-black/30 p-2 text-left font-semibold last:border-r-0"
+                className="border-r border-black/30 text-left font-semibold last:border-r-0"
               >
                 {col}
               </th>
@@ -109,13 +125,13 @@ function TickMatrix({ title, items }: { title: string; items: string[] }) {
         <tbody>
           {items.map((label) => (
             <tr key={label} className="border-b border-black/20">
-              <td className="border-r border-black/20 p-2 align-top">{label}</td>
+              <td className="item-cell border-r border-black/20">{label}</td>
               {CHOICE_COLUMNS.map((col) => (
                 <td
                   key={`${label}-${col}`}
-                  className="border-r border-black/20 p-2 last:border-r-0"
+                  className="tick-cell border-r border-black/20 last:border-r-0"
                 >
-                  <div className="h-5 w-5 border border-black/50" />
+                  <div className="mx-auto h-5 w-5 border border-black/50" />
                 </td>
               ))}
             </tr>
@@ -153,28 +169,47 @@ export function WhatOnEarthWorksheet() {
       <TickMatrix title="I SUPPORT" items={I_SUPPORT} />
 
       <section className="break-inside-avoid">
-        <div className="mb-2 font-semibold">Each point is worth</div>
-        <div className="mb-4 font-semibold">GRAND TOTAL</div>
-        <div className="flex items-center gap-6 mb-6 text-sm font-semibold">
-          <span>2</span>
-          <span>1</span>
-          <span>0</span>
-        </div>
+        <table className="worksheet-write-table worksheet-write-table--writable w-full border border-black/30 border-collapse text-sm mb-3">
+          <tbody>
+            <tr className="score-legend-row border-b border-black/20">
+              <td className="border-r border-black/20 font-semibold w-[42%]">
+                Each point is worth
+              </td>
+              <td className="border-r border-black/20 text-center font-semibold w-[18%]">
+                2
+              </td>
+              <td className="border-r border-black/20 text-center font-semibold w-[18%]">
+                1
+              </td>
+              <td className="text-center font-semibold w-[18%]">0</td>
+            </tr>
+            <tr className="border-b border-black/20">
+              <td className="border-r border-black/20 font-semibold">GRAND TOTAL</td>
+              <td colSpan={3} />
+            </tr>
+          </tbody>
+        </table>
+        <p className="text-sm mb-6">
+          Count one point for each tick: <span className="font-semibold">I DO IT</span> = 2,{" "}
+          <span className="font-semibold">I THINK ABOUT IT</span> = 1,{" "}
+          <span className="font-semibold">IT DOESN&apos;T CROSS MY MIND</span> = 0. Add your
+          totals and write the sum in GRAND TOTAL.
+        </p>
 
-        <table className="w-full border-collapse text-sm mb-6">
+        <h2 className="text-sm font-semibold mb-3">SCORES &amp; DEFINITIONS</h2>
+        <table className="w-full border border-black/30 border-collapse text-sm mb-8">
           <tbody>
             {SCORE_BANDS.map((band) => (
               <tr key={band.range} className="border-b border-black/20 align-top">
-                <td className="py-2 pr-4 font-semibold whitespace-nowrap w-20">
+                <td className="border-r border-black/20 p-2 font-semibold whitespace-nowrap w-20">
                   {band.range}
                 </td>
-                <td className="py-2">{band.text}</td>
+                <td className="p-2">{band.text}</td>
               </tr>
             ))}
           </tbody>
         </table>
 
-        <h2 className="text-sm font-semibold mb-4">SCORES &amp; DEFINITIONS</h2>
         <dl className="space-y-4 text-sm">
           {DEFINITIONS.map((item) => (
             <div key={item.term} className="break-inside-avoid">

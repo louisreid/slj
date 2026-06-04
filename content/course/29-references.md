@@ -1,6 +1,4 @@
-# Notes
-
-End-of-book notes for in-text references such as [2] and [38]. Each heading matches the number shown in the course.
+End-of-book references for in-text citations such as [2] and [38]. Each heading matches the number shown in the course.
 
 ## [2]
 
@@ -153,6 +151,106 @@ John Wesley, Sermon 29 in *Wesley’s 52 Standard Sermons* (Schmul Publishing).
 ## [39]
 
 Taken from Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.260.
+
+## [40]
+
+Adapted from Mark A. Burch, *Simplicity* (New Society Publishers, 1993), p.88.
+
+## [41]
+
+This is dependent on the world situation. In times of war, or increased instability, the arms trade is the biggest industry.
+
+## [42]
+
+World Tourist Organisation (WTO). “Tourist arrivals” is the term used to measure tourism.
+
+## [43]
+
+Association of British Tourist Associations.
+
+## [44]
+
+John Stott, *Issues Facing Christians Today* (Marshall Pickering, 1984), p.166.
+
+## [45]
+
+Taken from Dominguez and Robin, *Your Money or Your Life* (Penguin, 1999), pp.229–230.
+
+## [46]
+
+Taken from his autobiography published 1984.
+
+## [47]
+
+Oxford English Dictionary.
+
+## [48]
+
+For those interested in looking at this further, two good books on capitalism are: Robert Heilbroner, *The Nature and Logic of Capitalism* (Norton and Co. 1985) and Bob Goudzwaard, *Capitalism and Progress: A Diagnosis of Western Society* (Paternoster, 1997).
+
+## [49]
+
+Wendell Berry (1993), *Sex, Economy, Freedom & Community: Eight Essays*.
+
+## [50]
+
+D. Batstone, *Saving the Corporate Soul*, p.11. Copyright © D. Batstone 2003. Reprinted by permission of John Wiley & Sons Inc.
+
+## [51]
+
+Much of the material here is taken from Paul Mills’ excellent paper *Faith Versus Prudence? Christians and Financial Security*, Cambridge Papers 4:1 (The Jubilee Centre, 1995). To obtain a copy phone the Jubilee Centre on 01223 566319 or see [jubilee-centre.org](https://www.jubilee-centre.org).
+
+## [52]
+
+Ibid pp.3–4.
+
+## [53]
+
+Larry Burkett, *Debt-free Living* (Moody Press, 1999), p.57.
+
+## [54]
+
+Credit Action: 01223 324034; [creditaction.com](https://www.creditaction.com).
+
+## [55]
+
+Taken from Keith Tondeur, *Financial Tips for the Family*, pp.58–59.
+
+## [56]
+
+From an unpublished paper entitled, *Tithing: Biblically Non-Christian?* See also R.T. Kendall, *The Gift of Giving* (Hodder & Stoughton, 1982).
+
+## [57]
+
+To look further at the question of interest, see Paul Mills, *The Ban on Interest*, Cambridge Papers 3:1 (The Jubilee Centre, 1993).
+
+## [58]
+
+To explore this further, see The Wheat Economy available from info@faithinthesoil.co.uk.
+
+## [59]
+
+See Paul Mills, *Investing as a Christian* Cambridge Papers 7:6 (The Jubilee Centre, 1996) for a helpful look at the current investment options (e.g. Banks, National Savings, shares etc.) in the light of some of these principles.
+
+## [60]
+
+The Besom provides some practical ways of beginning to outwork this. Contact them for more details. [thebesomnetwork.org](https://www.thebesomnetwork.org).
+
+## [61]
+
+Paul Mills, *Investing as a Christian*, Cambridge Papers 7:6 (The Jubilee Centre, 1996), p.1.
+
+## [62]
+
+The World Development Movement’s *The Good Life* is a good place to start for further information.
+
+## [63]
+
+Burkett, *Debt-free Living* (Moody Press, 1989) p.142.
+
+## [64]
+
+Much of the following has been adapted from Tom and Christine Sine’s material in *Mustard Seed Vs McWorld*, Fusion cell notes issue 8 and the Spring Harvest 1999 Study Guide.
 
 ## [65]
 

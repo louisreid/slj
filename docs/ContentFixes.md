@@ -68,7 +68,7 @@ Use this guide when content extraction introduces occasional heading mistakes (f
 
 ## Footnotes (`[n]`)
 
-- In-text references like `[38]` in session chapters link to [`content/course/28-notes.md`](../content/course/28-notes.md).
+- In-text references like `[38]` in session chapters link to [`content/course/29-references.md`](../content/course/29-references.md).
 - Each note is an `## [n]` heading followed by one or more paragraphs.
 - After editing notes, run `pnpm generate-manifest` (or `pnpm watch:content`).
 - Footnote links are rendered in the reader automatically; do not use `[n](url)` unless you intend a normal markdown link.

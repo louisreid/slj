@@ -159,9 +159,7 @@ Open the printable forms [](/worksheets/print/time-sheet) (Time Sheet) and [](/w
 - If some activities are not rewarding or satisfying, what are they for? Are they necessary or could they be changed, reorganised or eliminated?
 - To what extent is your daily round of activity focused on aspects of material culture? What rewards does this bring into your life?
 - To what extent does your daily activity help achieve your goals in life? Is it achieving someone else’s goals? If so, whose? Do you endorse those goals?
-- Design yourself a daily round of activities that would bring you closer to doing more of the things you find most satisfying and important in life. When you have completed your design for an ideal daily round, discuss what this review has meant to you with a close friend, partner or family member or with the other members of this group.
-
-(Adapted from Mark A. Burch’s study in Simplicity pp.72–74). [27]
+- Design yourself a daily round of activities that would bring you closer to doing more of the things you find most satisfying and important in life. When you have completed your design for an ideal daily round, discuss what this review has meant to you with a close friend, partner or family member or with the other members of this group. (Adapted from Mark A. Burch’s study in Simplicity pp.72–74). [27]
 
 OR Begin to read some of the contemplative literature that makes up our rich Christian heritage - good people to start with are Thomas à Kempis, Thomas Merton and Henri Nouwen.
 

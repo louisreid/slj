@@ -8,9 +8,9 @@ import {
 
 describe("footnotes", () => {
   it("builds stable note anchors and hrefs", () => {
-    expect(NOTES_CHAPTER_ID).toBe("28-notes");
+    expect(NOTES_CHAPTER_ID).toBe("29-references");
     expect(noteAnchorId(38)).toBe("note-38");
-    expect(noteChapterHref(38)).toBe("/course/28-notes#note-38");
+    expect(noteChapterHref(38)).toBe("/course/29-references#note-38");
   });
 
   it("parses note heading numbers", () => {

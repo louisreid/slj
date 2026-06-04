@@ -9,63 +9,74 @@ type WeekRow = {
 type WeekMoneyTableProps = {
   rows: readonly WeekRow[];
   totalRowLabel?: string;
+  totalRowWeeks?: readonly [string, string, string, string];
+  totalRowTotal?: string;
   showTotalColumn?: boolean;
+  /** Blank form rows with space to write amounts by hand. */
+  writable?: boolean;
 };
+
+const tableClass = (writable: boolean) =>
+  [
+    "w-full border border-black/30 border-collapse text-sm worksheet-write-table",
+    writable ? "worksheet-write-table--writable" : "worksheet-write-table--example",
+  ].join(" ");
 
 export function WeekMoneyTable({
   rows,
   totalRowLabel,
+  totalRowWeeks,
+  totalRowTotal,
   showTotalColumn = true,
+  writable = false,
 }: WeekMoneyTableProps) {
   return (
-    <table className="w-full border border-black/30 border-collapse text-sm">
+    <table className={tableClass(writable)}>
       <thead>
         <tr className="border-b border-black/30">
-          <th className="border-r border-black/30 p-2 text-left font-semibold">
-            &nbsp;
-          </th>
+          <th className="border-r border-black/30 text-left font-semibold">&nbsp;</th>
           {WEEKS.map((week) => (
             <th
               key={week}
-              className="border-r border-black/30 p-2 text-left font-semibold last:border-r-0"
+              className="border-r border-black/30 text-left font-semibold last:border-r-0"
             >
               {week}
             </th>
           ))}
           {showTotalColumn ? (
-            <th className="p-2 text-left font-semibold">Total</th>
+            <th className="text-left font-semibold">Total</th>
           ) : null}
         </tr>
       </thead>
       <tbody>
-        {rows.map((row) => (
-          <tr key={row.label} className="border-b border-black/20">
-            <td className="border-r border-black/20 p-2 font-semibold align-top">
+        {rows.map((row, index) => (
+          <tr key={`${row.label}-${index}`} className="border-b border-black/20">
+            <td className="border-r border-black/20 font-semibold align-top">
               {row.label}
             </td>
-            {WEEKS.map((week, index) => (
+            {WEEKS.map((week, weekIndex) => (
               <td
                 key={`${row.label}-${week}`}
-                className="border-r border-black/20 p-2 min-h-[2rem] last:border-r-0"
+                className="border-r border-black/20 last:border-r-0"
               >
-                {row.weeks?.[index] ?? ""}
+                {row.weeks?.[weekIndex] ?? ""}
               </td>
             ))}
-            {showTotalColumn ? (
-              <td className="p-2 min-h-[2rem]">{row.total ?? ""}</td>
-            ) : null}
+            {showTotalColumn ? <td>{row.total ?? ""}</td> : null}
           </tr>
         ))}
         {totalRowLabel ? (
           <tr className="border-b border-black/30 font-semibold">
-            <td className="border-r border-black/30 p-2">{totalRowLabel}</td>
-            {WEEKS.map((week) => (
+            <td className="border-r border-black/30">{totalRowLabel}</td>
+            {WEEKS.map((week, index) => (
               <td
                 key={`${totalRowLabel}-${week}`}
-                className="border-r border-black/30 p-2 last:border-r-0"
-              />
+                className="border-r border-black/30 last:border-r-0"
+              >
+                {totalRowWeeks?.[index] ?? ""}
+              </td>
             ))}
-            {showTotalColumn ? <td className="p-2" /> : null}
+            {showTotalColumn ? <td>{totalRowTotal ?? ""}</td> : null}
           </tr>
         ) : null}
       </tbody>

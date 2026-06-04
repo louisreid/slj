@@ -1,5 +1,5 @@
 /** End-of-book notes chapter used for `[n]` footnote links in the reader. */
-export const NOTES_CHAPTER_ID = "28-notes";
+export const NOTES_CHAPTER_ID = "29-references";
 
 export function noteAnchorId(noteNumber: number): string {
   return `note-${noteNumber}`;

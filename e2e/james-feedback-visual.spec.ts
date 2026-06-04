@@ -19,6 +19,36 @@ test.describe("James feedback (layout + content)", () => {
     await expect(page.locator("article h1")).toHaveCount(1);
   });
 
+  test("foreword shows a single top-level title", async ({ page }) => {
+    await page.goto("/course/06-foreword-summer-2004");
+    await expect(page.locator("article h1")).toHaveCount(1);
+  });
+
+  test("introduction includes Further Reading subsection", async ({ page }) => {
+    await page.goto("/course/07-introduction");
+    await expect(
+      page.getByRole("heading", { name: /Further Reading and Resources/i })
+    ).toBeVisible();
+  });
+
+  test("session five footnote links to notes chapter", async ({ page }) => {
+    await page.goto("/course/17-session-five");
+    const footnote = page.getByRole("link", { name: "[38]", exact: true }).first();
+    await expect(footnote).toBeVisible();
+    await footnote.click();
+    await expect(page).toHaveURL(/\/course\/28-notes#note-38/);
+    await expect(page.locator("#note-38")).toBeVisible();
+  });
+
+  test("budgeting worksheet shows Mrs R. E. Joyce example heading", async ({
+    page,
+  }) => {
+    await page.goto("/worksheets/print/budgeting-money-audit");
+    await expect(
+      page.getByRole("heading", { name: /Mrs R\. E\. Joyce/i })
+    ).toBeVisible();
+  });
+
   test("full book shows one h1 for session one chapter", async ({ page }) => {
     await page.goto("/course/all");
     const section = page.locator('[id="09-session-one"]');

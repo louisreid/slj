@@ -15,7 +15,15 @@ import * as yauzl from "yauzl";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const COURSE_DIR = path.join(CONTENT_DIR, "course");
+const ARCHIVE_DIR = path.join(CONTENT_DIR, "archive");
 const DOCS_DIR = path.join(process.cwd(), "docs");
+
+/** Ingest stubs / duplicates — not served by the reader (see content/archive/README.md). */
+const ARCHIVE_CHAPTER_IDS = new Set([
+  "01-front-matter",
+  "02-preface",
+  "03-further-reading",
+]);
 
 /** Chapter file: 01-foo.md, 02-bar.md, … (exclude 00-INDEX.md) */
 const CHAPTER_FILE_RE = /^(\d{2})-(.+\.md)$/;
@@ -115,7 +123,16 @@ async function main(): Promise<void> {
       continue;
     }
 
+    const chapterId = ent.name.replace(/\.md$/i, "");
     const src = path.join(extractRoot, ent.name);
+    if (ARCHIVE_CHAPTER_IDS.has(chapterId)) {
+      if (!fs.existsSync(ARCHIVE_DIR)) fs.mkdirSync(ARCHIVE_DIR, { recursive: true });
+      const dest = path.join(ARCHIVE_DIR, ent.name);
+      fs.copyFileSync(src, dest);
+      console.log(`Archived ${ent.name} → content/archive/ (not served in reader)`);
+      continue;
+    }
+
     const dest = path.join(COURSE_DIR, ent.name);
     fs.copyFileSync(src, dest);
     chapterCount++;

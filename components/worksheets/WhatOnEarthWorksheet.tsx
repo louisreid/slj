@@ -40,36 +40,68 @@ const I_SUPPORT = [
   "Banks with an ethical policy/ethical investments",
 ];
 
-type ChoiceKey = "I_DO_IT" | "I_THINK_ABOUT_IT" | "IT_DOESNT_CROSS_MY_MIND";
+const CHOICE_COLUMNS = [
+  "I DO IT",
+  "I THINK ABOUT IT",
+  "IT DOESN'T CROSS MY MIND",
+] as const;
 
-const CHOICES: { key: ChoiceKey; label: string }[] = [
-  { key: "I_DO_IT", label: "I DO IT" },
-  { key: "I_THINK_ABOUT_IT", label: "I THINK ABOUT IT" },
-  { key: "IT_DOESNT_CROSS_MY_MIND", label: "IT DOESN’T CROSS MY MIND" },
-];
+const DEFINITIONS = [
+  {
+    term: "FAIR TRADE",
+    text: "is a process which pays producers a good price for their labour, instead of a price which they are forced to accept just to stay in business. As a by-product, the goods are often produced in a more environmentally-friendly manner. It does, however, still perpetuate, very often, local economies that are dependent on Western appetites.",
+  },
+  {
+    term: "ENVIRONMENTALLY FRIENDLY",
+    text: "means being sensitive to the need to reduce the use of natural resources, considering pollution and the amount of energy used by producing or using a product.",
+  },
+  {
+    term: "FREE RANGE",
+    text: "is a term applied to livestock which have continuous day time access to open air. The ground is mainly covered with vegetation, there is a maximum density of livestock per acre, and the feed must be free of animal products. Free range must not be confused with 'Farm Fresh' or 'Country Fresh' which could still involve factory-farming methods.",
+  },
+  {
+    term: "TRANSPORT MILES",
+    text: "refers to the mileage covered by an item from the producer of the raw ingredients to the shop floor. For example, a locally-grown potato may travel to a washing centre, then to a distribution centre before it reaches your local superstore. The local market will sell it dirty direct from the farm! More transport is used and therefore more congestion and pollution is produced by shopping at superstores.",
+  },
+  {
+    term: "RECYCLING",
+    text: "is the idea of using materials again. If an item cannot be re-used in its present form, it can be broken down and the materials used again. This process uses far less energy and natural resources than using raw materials each time.",
+  },
+  {
+    term: "A WORMERY",
+    text: "is a plastic bin with a sealed lid, a sump and a tap to drain off collected liquid. Tiger worms will eat degradable kitchen waste, turning it into a rich compost. The liquid forms an excellent plant feed – home-made Baby Bio!",
+  },
+] as const;
 
-function Matrix({
-  title,
-  items,
-}: {
-  title: string;
-  items: string[];
-}) {
+const SCORE_BANDS = [
+  {
+    range: "0 - 20",
+    text: "Being a Christ follower doesn't impact upon your lifestyle or thinking much. Choose an issue which interests you and discover how you can make a difference",
+  },
+  {
+    range: "21 - 40",
+    text: "You're thinking about making a difference, but getting around to it remains a challenge! It's time to do those things you've been putting off!",
+  },
+  {
+    range: "41 - 62",
+    text: "Your lifestyle reflects that you've made changes. Challenge yourself to find out more and keep going!",
+  },
+] as const;
+
+function TickMatrix({ title, items }: { title: string; items: string[] }) {
   return (
-    <section className="mb-10 break-inside-avoid">
+    <section className="mb-8 break-inside-avoid">
       <h2 className="text-lg font-semibold mb-3">{title}</h2>
       <table className="w-full border border-black/30 border-collapse text-sm">
         <thead>
           <tr className="border-b border-black/30">
-            <th className="border-r border-black/30 p-2 text-left font-semibold">
-              &nbsp;
-            </th>
-            {CHOICES.map((c) => (
+            <th className="border-r border-black/30 p-2 text-left font-semibold w-[42%]" />
+            {CHOICE_COLUMNS.map((col) => (
               <th
-                key={c.key}
+                key={col}
                 className="border-r border-black/30 p-2 text-left font-semibold last:border-r-0"
               >
-                {c.label}
+                {col}
               </th>
             ))}
           </tr>
@@ -77,10 +109,10 @@ function Matrix({
         <tbody>
           {items.map((label) => (
             <tr key={label} className="border-b border-black/20">
-              <td className="border-r border-black/20 p-2">{label}</td>
-              {CHOICES.map((c) => (
+              <td className="border-r border-black/20 p-2 align-top">{label}</td>
+              {CHOICE_COLUMNS.map((col) => (
                 <td
-                  key={c.key}
+                  key={`${label}-${col}`}
                   className="border-r border-black/20 p-2 last:border-r-0"
                 >
                   <div className="h-5 w-5 border border-black/50" />
@@ -98,48 +130,59 @@ export function WhatOnEarthWorksheet() {
   return (
     <article className="worksheet-content font-serif text-black">
       <h1 className="text-2xl font-semibold mb-4">WHAT ON EARTH AM I DOING?</h1>
+      <p className="text-sm text-black/70 mb-3">
+        Being a Christ follower should challenge us to face the issues of our world
+        around us and do something about them.
+      </p>
+      <p className="text-sm text-black/70 mb-3">
+        These questions provide a measure of checking out your lifestyle and thinking
+        with reference to the environment. Your answers and scores should be a stimulus
+        for discussion and action – mark yourself as honestly as you can! Use the
+        definitions overleaf to clarify the questions.
+      </p>
       <p className="text-sm text-black/70 mb-6">
         Please tick a box for each question.
       </p>
 
-      <Matrix title="I BUY" items={I_BUY} />
-      <Matrix title="I RECYCLE" items={I_RECYCLE} />
+      <TickMatrix title="I BUY" items={I_BUY} />
+      <TickMatrix title="I RECYCLE" items={I_RECYCLE} />
 
       <div className="print:break-before-page" />
 
-      <Matrix title="I MAKE A POINT OF USING" items={I_MAKE_A_POINT_OF_USING} />
-      <Matrix title="I SUPPORT" items={I_SUPPORT} />
+      <TickMatrix title="I MAKE A POINT OF USING" items={I_MAKE_A_POINT_OF_USING} />
+      <TickMatrix title="I SUPPORT" items={I_SUPPORT} />
 
       <section className="break-inside-avoid">
         <div className="mb-2 font-semibold">Each point is worth</div>
         <div className="mb-4 font-semibold">GRAND TOTAL</div>
-        <div className="flex items-center gap-4 mb-4">
-          <div className="border border-black/30 px-3 py-2 font-semibold">2</div>
-          <div className="border border-black/30 px-3 py-2 font-semibold">1</div>
-          <div className="border border-black/30 px-3 py-2 font-semibold">0</div>
+        <div className="flex items-center gap-6 mb-6 text-sm font-semibold">
+          <span>2</span>
+          <span>1</span>
+          <span>0</span>
         </div>
-        <div className="space-y-2 text-sm">
-          <div>0 - 20</div>
-          <div>21 - 40</div>
-          <div>41 - 62</div>
-        </div>
-        <div className="mt-6 space-y-3 text-sm">
-          <p>
-            Being a Christ follower doesn’t impact upon your lifestyle or thinking
-            much. Choose an issue which interests you and discover how you can make
-            a difference
-          </p>
-          <p>
-            You’re thinking about making a difference, but getting around to it
-            remains a challenge! It’s time to do those things you’ve been putting
-            off!
-          </p>
-          <p>
-            Your lifestyle reflects that you’ve made changes. Challenge yourself to
-            find out more and keep going!
-          </p>
-        </div>
-        <div className="mt-6 text-sm font-semibold">SCORES &amp; DEFINITIONS</div>
+
+        <table className="w-full border-collapse text-sm mb-6">
+          <tbody>
+            {SCORE_BANDS.map((band) => (
+              <tr key={band.range} className="border-b border-black/20 align-top">
+                <td className="py-2 pr-4 font-semibold whitespace-nowrap w-20">
+                  {band.range}
+                </td>
+                <td className="py-2">{band.text}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <h2 className="text-sm font-semibold mb-4">SCORES &amp; DEFINITIONS</h2>
+        <dl className="space-y-4 text-sm">
+          {DEFINITIONS.map((item) => (
+            <div key={item.term} className="break-inside-avoid">
+              <dt className="font-semibold">{item.term}</dt>
+              <dd className="mt-1">{item.text}</dd>
+            </div>
+          ))}
+        </dl>
       </section>
     </article>
   );

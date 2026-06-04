@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Check, Play, Circle, ArrowRight } from "lucide-react";
+import { Play, ArrowRight } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import {
   getChapterDisplayTitleMap,
@@ -9,8 +9,20 @@ import {
   getSections,
 } from "@/lib/content";
 import { getLastReadPosition } from "@/lib/progress-actions";
+import {
+  getChapterCompletionStats,
+  getInteractiveSessionNumberMap,
+} from "@/lib/progress-summary";
+import { isMissingChapterProgressTable } from "@/lib/progress-errors";
 import { PageShell } from "@/components/ui/surfaces";
-import type { Section } from "@/lib/content";
+import type { Chapter, Section } from "@/lib/content";
+
+const FRONT_MATTER_CHAPTER_IDS = new Set([
+  "04-preface",
+  "05-reviews",
+  "06-foreword-summer-2004",
+  "07-introduction",
+]);
 
 function getSectionId(section: Section): string | undefined {
   return section.blocks[0]?.block_id;
@@ -21,7 +33,16 @@ function firstHeadingContent(section: Section): string {
   return heading?.content ?? "Section";
 }
 
-export async function ProgressDashboard() {
+export type ProgressDashboardVariant = "home" | "progress";
+
+export interface ProgressDashboardProps {
+  /** home: flat curriculum list; progress: front matter + sessions grouping */
+  variant?: ProgressDashboardVariant;
+}
+
+export async function ProgressDashboard({
+  variant = "home",
+}: ProgressDashboardProps = {}) {
   const supabase = await createClient();
   const {
     data: { user },
@@ -29,10 +50,12 @@ export async function ProgressDashboard() {
 
   if (!user) return null;
 
-  const { data: chapterProgressRows } = await supabase
+  const { data: chapterProgressRows, error: progressError } = await supabase
     .from("chapter_progress")
     .select("chapter_id, completed_at")
     .eq("user_id", user.id);
+
+  const progressSetupMissing = isMissingChapterProgressTable(progressError);
 
   const completedByChapter = new Map<string, boolean>();
   for (const row of chapterProgressRows ?? []) {
@@ -46,14 +69,8 @@ export async function ProgressDashboard() {
   const chapterTitles = getChapterDisplayTitleMap(chapters);
   const continueHref = getResumeHref(chapters, lastRead);
 
-  const totalChapters = chapters.length;
-  const completedChapters = chapters.filter((ch) =>
-    completedByChapter.get(ch.id)
-  ).length;
-  const percent =
-    totalChapters > 0
-      ? Math.round((completedChapters / totalChapters) * 100)
-      : 0;
+  const { total: totalChapters, completed: completedChapters, percent } =
+    getChapterCompletionStats(chapters, completedByChapter);
 
   const nextChapterForResume = lastRead
     ? chapters.find((ch) => ch.id === lastRead.chapterId)
@@ -62,8 +79,127 @@ export async function ProgressDashboard() {
     ? chapterTitles.get(nextChapterForResume.id) ?? nextChapterForResume.title
     : "Start course";
 
+  const frontMatterChapters =
+    variant === "progress"
+      ? chapters.filter((chapter) => FRONT_MATTER_CHAPTER_IDS.has(chapter.id))
+      : [];
+  const sessionChapters =
+    variant === "progress"
+      ? chapters.filter((chapter) => !FRONT_MATTER_CHAPTER_IDS.has(chapter.id))
+      : chapters;
+
+  const curriculumSubtitle =
+    variant === "progress" ? "Session index" : "All chapters";
+
+  const sessionNumberByChapterId = getInteractiveSessionNumberMap(chapters);
+
+  const renderChapterLink = (chapter: Chapter, rich: boolean) => {
+    const sections = getSections(chapter);
+    const sectionCount = sections.filter((s) => getSectionId(s)).length;
+    const chapterCompleted = completedByChapter.get(chapter.id);
+    const isCurrent = lastRead?.chapterId === chapter.id && !chapterCompleted;
+    const displayTitle = chapterTitles.get(chapter.id) ?? chapter.title;
+    const firstHeading =
+      sections.length > 0 ? firstHeadingContent(sections[0]) : "";
+    const isStatic = chapter.mode === "static";
+    const sessionNumber = sessionNumberByChapterId.get(chapter.id);
+
+    return (
+      <Link
+        key={chapter.id}
+        href={`/course/${chapter.id}`}
+        className={`group flex items-start border p-5 transition-colors ${
+          isStatic ? "gap-0" : "gap-4"
+        } ${
+          isCurrent
+            ? "border-[var(--slj-text)] bg-[var(--slj-hover)]"
+            : "border-[var(--slj-border)] bg-[var(--slj-surface)] hover:bg-[var(--slj-hover)]"
+        }`}
+      >
+        {sessionNumber != null ? (
+          <div className="mt-0.5 shrink-0" aria-hidden>
+            {chapterCompleted ? (
+              <div
+                className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-button-bg)] bg-[var(--slj-button-bg)] font-sans text-xs font-medium tabular-nums text-[var(--slj-button-fg)]"
+                title="Completed"
+              >
+                {sessionNumber}
+              </div>
+            ) : isCurrent ? (
+              <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-text)] font-sans text-xs font-medium tabular-nums text-[var(--slj-text)]">
+                {sessionNumber}
+              </div>
+            ) : (
+              <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-border)] font-sans text-xs font-medium tabular-nums slj-faint">
+                {sessionNumber}
+              </div>
+            )}
+          </div>
+        ) : null}
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-start justify-between gap-3">
+            <div>
+              {rich ? (
+                <>
+                  <h3 className="font-serif text-2xl leading-tight text-[var(--slj-text)]">
+                    {displayTitle}
+                  </h3>
+                  <p className="slj-muted mt-2 max-w-xl font-sans text-sm leading-6">
+                    {firstHeading || displayTitle}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="font-serif text-xl text-[var(--slj-text)]">
+                    {displayTitle}
+                  </div>
+                  {firstHeading ? (
+                    <div className="slj-muted mt-1 font-sans text-sm">
+                      {firstHeading}
+                    </div>
+                  ) : null}
+                </>
+              )}
+            </div>
+            {rich && chapterCompleted ? (
+              <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
+                Completed
+              </span>
+            ) : rich && isCurrent ? (
+              <span className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
+                Current
+              </span>
+            ) : null}
+          </div>
+          {chapter.mode !== "static" && (
+            <div className="slj-faint mt-4 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em]">
+              <span>{sectionCount} sections</span>
+            </div>
+          )}
+        </div>
+        <div className="slj-faint hidden shrink-0 self-center transition-colors group-hover:text-[var(--slj-text)] md:block">
+          <ArrowRight size={18} strokeWidth={2} />
+        </div>
+      </Link>
+    );
+  };
+
+  const richCards = variant === "progress";
+
   return (
     <PageShell className="mx-auto max-w-5xl">
+      {progressSetupMissing ? (
+        <p
+          className="slj-muted mb-8 border border-[var(--slj-border)] bg-[var(--slj-surface)] p-4 font-sans text-sm"
+          role="status"
+        >
+          Chapter completion is not available until the{" "}
+          <code className="text-xs">chapter_progress</code> migration is applied
+          in Supabase. Run <code className="text-xs">pnpm db:push</code> (see
+          README).
+        </p>
+      ) : null}
+
       <section className="mb-12 border-b border-[var(--slj-border)] pb-10">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
@@ -123,7 +259,7 @@ export async function ProgressDashboard() {
             </h2>
             <dl className="slj-muted mt-4 space-y-4 font-sans text-sm">
               <div className="flex items-center justify-between gap-3">
-                <dt>Chapters completed</dt>
+                <dt>Sessions completed</dt>
                 <dd className="font-medium text-[var(--slj-text)]">
                   {completedChapters} / {totalChapters}
                 </dd>
@@ -145,78 +281,33 @@ export async function ProgressDashboard() {
                 Curriculum
               </h2>
               <p className="mt-2 font-serif text-2xl text-[var(--slj-text)]">
-                All chapters
+                {curriculumSubtitle}
               </p>
             </div>
             <span className="slj-muted font-sans text-sm">&nbsp;</span>
           </div>
 
           <div className="space-y-3">
-            {chapters.map((chapter) => {
-              const sections = getSections(chapter);
-              const sectionCount = sections.filter((s) => getSectionId(s)).length;
-              const chapterCompleted = completedByChapter.get(chapter.id);
-              const isCurrent = lastRead?.chapterId === chapter.id && !chapterCompleted;
-              const displayTitle = chapterTitles.get(chapter.id) ?? chapter.title;
-
-              const firstHeading = sections.length > 0 ? firstHeadingContent(sections[0]) : "";
-
-              return (
-                <Link
-                  key={chapter.id}
-                  href={`/course/${chapter.id}`}
-                  className={`group flex items-start gap-4 border p-5 transition-colors ${
-                    isCurrent
-                      ? "border-[var(--slj-text)] bg-[var(--slj-hover)]"
-                      : "border-[var(--slj-border)] bg-[var(--slj-surface)] hover:bg-[var(--slj-hover)]"
-                  }`}
-                >
-                  <div className="mt-0.5 shrink-0">
-                    {chapterCompleted ? (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-button-bg)] bg-[var(--slj-button-bg)] text-[var(--slj-button-fg)]">
-                        <Check size={14} strokeWidth={2.5} aria-label="Completed" />
-                      </div>
-                    ) : isCurrent ? (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-text)]">
-                        <span className="h-2 w-2 rounded-full bg-[var(--slj-text)]" />
-                      </div>
-                    ) : (
-                      <div className="flex h-6 w-6 items-center justify-center rounded-full border border-[var(--slj-border)]">
-                        <Circle size={14} className="slj-faint" />
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="min-w-0 flex-1">
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div>
-                        <div className="font-serif text-xl text-[var(--slj-text)]">
-                          {displayTitle}
-                        </div>
-                        {firstHeading ? (
-                          <div className="slj-muted mt-1 font-sans text-sm">
-                            {firstHeading}
-                          </div>
-                        ) : null}
-                      </div>
-                    </div>
-                    {chapter.mode !== "static" && (
-                      <div className="slj-faint mt-4 flex items-center gap-4 font-sans text-[11px] uppercase tracking-[0.16em]">
-                        <span>{sectionCount} sections</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="slj-faint hidden shrink-0 self-center transition-colors group-hover:text-[var(--slj-text)] md:block">
-                    <ArrowRight size={18} strokeWidth={2} />
-                  </div>
-                </Link>
-              );
-            })}
+            {variant === "progress" && frontMatterChapters.length > 0 ? (
+              <section aria-label="Front matter" className="mb-8">
+                <p className="slj-faint mb-3 font-sans text-[11px] uppercase tracking-[0.16em]">
+                  Front matter
+                </p>
+                <div className="space-y-3">
+                  {frontMatterChapters.map((chapter) =>
+                    renderChapterLink(chapter, richCards)
+                  )}
+                </div>
+              </section>
+            ) : null}
+            <div className="space-y-3">
+              {sessionChapters.map((chapter) =>
+                renderChapterLink(chapter, richCards)
+              )}
+            </div>
           </div>
         </div>
       </div>
     </PageShell>
   );
 }
-

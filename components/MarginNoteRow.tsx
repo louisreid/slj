@@ -19,6 +19,8 @@ export interface MarginNoteRowProps {
   onDelete: (id: string) => Promise<void>;
   onCancelComposer: () => void;
   onActivateBlock: (blockId: string) => void;
+  /** Tighter layout when the row is a bulleted list item (not a full paragraph). */
+  dense?: boolean;
 }
 
 export function MarginNoteRow({
@@ -34,6 +36,7 @@ export function MarginNoteRow({
   onDelete,
   onCancelComposer,
   onActivateBlock,
+  dense = false,
 }: MarginNoteRowProps) {
   const isActive = activeBlockId === block.block_id;
   const showComposer = isSignedIn && isActive;
@@ -43,7 +46,9 @@ export function MarginNoteRow({
   return (
     <div
       data-block-row={block.block_id}
-      className={`grid grid-cols-1 gap-x-4 gap-y-3 items-start py-1 ${
+      className={`grid grid-cols-1 gap-x-4 items-start ${
+        dense ? "gap-y-1 py-0" : "gap-y-3 py-1"
+      } ${
         showMarginColumn
           ? "md:grid-cols-[minmax(0,72ch)_min(256px,28vw)] md:max-w-[calc(72ch+min(256px,28vw)+1rem)]"
           : `${textMaxWidthClass}`
@@ -56,6 +61,7 @@ export function MarginNoteRow({
           onAddOrEditNote={onAddOrEditNote}
           isActive={false}
           showNoteAction={isSignedIn}
+          dense={dense}
         />
       </div>
       {showMarginColumn ? (

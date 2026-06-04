@@ -1,16 +1,11 @@
-# SESSION FOUR
-
 ## Neither Poverty Nor Riches
 
-‘Give me neither poverty nor riches but give me only my daily bread. Otherwise, I may have too much and disown you and say, “Who is the Lord?” or I may become poor and steal, and so dishonour the name of my God’
-
-(Proverbs 30:8–9)
+@scripture ‘Give me neither poverty nor riches but give me only my daily bread. Otherwise, I may have too much and disown you and say, “Who is the Lord?” or I may become poor and steal, and so dishonour the name of my God’ @Proverbs 30:8–9
 
 ## Goals
 
-To gain an understanding of what the Bible teaches about money and possessions.
-
-To begin to explore its implications for us today.
+- To gain an understanding of what the Bible teaches about money and possessions.
+- To begin to explore its implications for us today.
 
 ## Reading
 
@@ -22,9 +17,8 @@ So many of the issues involved with living a simpler lifestyle revolve around ou
 
 Next week’s materials will build on that, looking more at what that means for us now, and then a later session picks up on some of the broader issues to do with our use of money, considering topics that are not so commonly discussed.
 
-T. S. Eliot
-
-When the stranger asks the meaning of the city – whether people huddle together because they love one another – will the answer be: ‘We all dwell together to make money from each other’ or ‘This is a community’?T. S. Eliot
+'When the stranger asks the meaning of the city – whether people huddle together because they love one another – will the answer be: ‘We all dwell together to make money from each other’ or ‘This is a community’?'
+— T. S. Eliot
 
 The Bible is the story of God’s unfolding plan for humanity, starting with the very Creation of the world. The Creation narrative of Genesis 1 and 2 bursts in on us in a wonderful stream of positivity: everything God created was good. There is no rejection of the material world, but an absolute embracing of it.
 
@@ -40,27 +34,22 @@ We see, then, that throughout the Old Testament two strands appear regarding mon
 
 And yet the other strand is that a person’s money or property should never be gained at the expense of another, who is thereby left in a poorer state. The Lausanne paper so clearly states that:
 
-‘involuntary poverty is an offence against the goodness of God’.
-
-[30]
+‘involuntary poverty is an offence against the goodness of God [30].'
 
 The prophets provide us with a strong denunciation of the situation of gross inequality that arose within Israel. Craig Blomberg points to five specific sins of Israel relating to material possessions against which the prophets cry out: worshipping idols made of costly materials (Isaiah 2:7–8); trusting in ritual rather than repentance (Jeremiah 7:4); extorting, robbing and oppressing to gain more land (Ezekiel 22:29); boasting in wealth (Amos 6:4–6) and financial motivation for a leader’s ministry (Micah 3:11). In contrast to this, the five things which Israel should do are to seek justice for the marginalised (Isaiah 58:6–7); not boast in riches but be generous in giving them away (Jeremiah 9:23–24); lament one’s sins and the horrible consequences they generate (Lamentations); seek the welfare of the city (Jeremiah 29:7) and cling to promises of restoration (Isaiah Chapters 54–55 and 60–66) [31].
 
 So while we do not find an ascetism in the Old Testament that condemns money or possessions in themselves, there are voices, such as those heard in the laws of the Jubilee, that point clearly to there being limits to wealth. They demonstrate that our understanding of these things should always be within the context of an overriding concern for the poor.
 
-When we turn to look at Jesus we will be disappointed if we hope to find Him only concerned with individual piety. The fact that for Him giving is as important as praying and fasting (Matthew 6) and that,
+When we turn to look at Jesus we will be disappointed if we hope to find Him only concerned with individual piety. The fact that for Him giving is as important as praying and fasting (Matthew 6) and that, apart from the kingdom of God, Jesus talks more about money than about anything else, shows how crucial this issue was to Him. And, if we are hoping for a soft approach from Him, we will again be sorely disappointed. Jesus was very clear that we cannot serve both God and Mammon (gradually being minimised to mere 'money' in successive translations) (Matthew 6:24) and taught strongly about the dangers of money. He described riches as a strangler (Luke 8:14) and as a worry (Luke 12:22–34). Money can blind us to the eternal realities of life (Luke 16:9–31) and indeed can be a curse for us (Luke 6:20–24) [32].
 
-‘There is enough in the world for man’s need but not for man’s greed.’ Gandhi
-
-‘There is enough in the world for man’s need but not for man’s greed.’ Gandhi‘There is enough in the world for man’s need but not for man’s greed.’ Gandhi
-
-apart from the kingdom of God, Jesus talks more about money than about anything else, shows how crucial this issue was to Him. And, if we are hoping for a soft approach from Him, we will again be sorely disappointed. Jesus was very clear that we cannot serve both God and Mammon (gradually being minimised to mere 'money' in successive translations) (Matthew 6:24) and taught strongly about the dangers of money. He described riches as a strangler (Luke 8:14) and as a worry (Luke 12:22–34). Money can blind us to the eternal realities of life (Luke 16:9–31) and indeed can be a curse for us (Luke 6:20–24) [32].
+‘There is enough in the world for man’s need but not for man’s greed.’
+— Gandhi
 
 More positively, Jesus gives the flipside to why we should not be preoccupied with money: because we should seek first the kingdom of God (Matthew 6:33), as we saw in Session One. Jesus challenges head-on our society’s obsession with material things (our ‘treasures’) and instead puts before us the values of the kingdom (Matthew 6:19– 34). [33] The gauntlet is thrown down: what do we put our security in? Is it in God’s provision or in our material possessions? Which are more important to us? What are we investing in for the long-term? Do we have an eternal perspective when we consider these things? How important are clothes and food to us? Do we ‘run after these things’ rather than after the kingdom of God?
 
 Jesus’ message of radical kingdom economics is summed up in two incidents in His life. Firstly, in Luke 19, Zacchaeus shows us a person who, before meeting Jesus, put all his trust and value in his wealth. Martin Luther once said that:
 
-‘every person needs two conversions: one of the heart and one of the wallet’.
+!! ‘every person needs two conversions: one of the heart and one of the wallet’
 
 Here we see a person demonstrating those two conversions working together. Zacchaeus’ money was made at the expense of the poor people of Jericho and he knew that the only appropriate response on meeting Jesus was to give back all that money – and not just to give it back, but return it fourfold!
 
@@ -82,38 +71,28 @@ What good is it if a person claims to have faith but has no deeds? Can such fait
 
 ‘One way is to accumulate more. The other way is to desire less’.
 
-G. K. Chesterton
-
-‘One way is to accumulate more. The other way is to desire less’.G. K. Chesterton‘One way is to accumulate more. The other way is to desire less’.G. K. Chesterton
+— G. K. Chesterton
 
 ## Discussion
 
-Look together at the Jubilee laws (Leviticus 25) and discuss their implications. What effects would they have had on the nation of Israel?
-
-In the reading we saw that the Old Testament teaches that a person’s money or property should never be gained at the expense of another. How does that apply to us today, both individually and corporately? Is it too late to do anything about it? What challenges does the story of Zacchaeus (Luke 19) present to us?
-
-In your own words, what was the central message of Jesus’ economic teaching?
-
-What, if any, constraints do you think there should be today on the accumulation and retention of money and possessions?
-
-In what ways are we not acting on the Bible’s teaching? What stops us? Fear? Indifference? Introspection? Inertia? Incompetence?
-
-Do we treat people differently in our church according to their financial status?
+- Look together at the Jubilee laws (Leviticus 25) and discuss their implications. What effects would they have had on the nation of Israel?
+- In the reading we saw that the Old Testament teaches that a person’s money or property should never be gained at the expense of another. How does that apply to us today, both individually and corporately? Is it too late to do anything about it? What challenges does the story of Zacchaeus (Luke 19) present to us?
+- In your own words, what was the central message of Jesus’ economic teaching?
+- What, if any, constraints do you think there should be today on the accumulation and retention of money and possessions?
+- In what ways are we not acting on the Bible’s teaching? What stops us? Fear? Indifference? Introspection? Inertia? Incompetence?
+- Do we treat people differently in our church according to their financial status?
 
 ## Action
 
 Use this week to pray through what the Bible teaches about money and possessions and ask God to speak to you about one particular area in your life that needs changing in this regard. Allow God to begin changing you through his Holy Spirit – remember, we cannot do anything ourselves but have to allow God to work in us.
 
-## Further reading / resources
+## Further reading
 
-Craig Blomberg, Neither Poverty Nor Riches: a Biblical Theology of Possessions (IVP, 2001)
+- Craig Blomberg, Neither Poverty Nor Riches: a Biblical Theology of Possessions (IVP, 2001).
+- Donald Kraybill, The Upside-down Kingdom (Herald Press, 1991).
+- Keith Tondeur, What Jesus Said About Money and Possessions (Monarch Books, 1998).
+- Ron Sider, Rich Christians in An Age of Hunger (Hodder & Stoughton 1998).
 
-Donald Kraybill, The Upside-down Kingdom (Herald Press, 1991)
+'If any one of you has material possessions and sees a brother or sister in need but has no pity on them, how can the love of God be in you?'
 
-Keith Tondeur, What Jesus Said About Money and Possessions (Monarch Books, 1998)
-
-Ron Sider, Rich Christians in An Age of Hunger (Hodder & Stoughton 1998)
-
-1 John 3:17
-
-'If any one of you has material possessions and sees a brother or sister in need but has no pity on them, how can the love of God be in you?'1 John 3:17
+- 1 John 3:17

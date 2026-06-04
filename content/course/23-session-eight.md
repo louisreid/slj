@@ -1,32 +1,26 @@
-# SESSION EIGHT
-
-## Caring For God'S World
+## Caring For God's World
 
 ‘The Lord God took the man and put him in the Garden of Eden to work it and take care of it’ (Genesis 2:15).
 
 ## Goals
 
-To begin to consider our responsibility as Christ followers for the created world.
+- To begin to consider our responsibility as Christ followers for the created world.
+- To become aware of the ways in which God’s Creation is being degraded.
+- To consider how we might change our lifestyles to live more faithfully as disciples of Christ.
 
-To become aware of the ways in which God’s Creation is being degraded.
-
-To consider how we might change our lifestyles to live more faithfully as disciples of Christ.
-
-## Readingnotes
+## Reading
 
 Do you ever take the time to stand outside in the dark on a summer’s night and watch the shooting stars, or go to the beach in the rain and feel the power of the sea, or walk around your area noticing the flowers and plants in the gardens around you? There is so much pleasure waiting to be discovered in the smell of the buddleia bush by the road or the sound of the blackbird on the fence. What a beautiful world we live in! Part of living a simpler lifestyle is having the space to notice and enjoy the world that God has created and being attentive to the ways in which we can better care for creation.
 
 In the light of this, it’s important for us to be aware of the widespread environmental degradation that has resulted from our consumption habits and carelessness.
 
-As Ron Sider wrote in “Rich Christians in an Age of Hunger’ back in the 1970s:
+As Ron Sider wrote in *Rich Christians in an Age of Hunger* back in the 1970s:
 
-'We face a painful choice. To maintain and expand out our material abundance, we are polluting our air and water and destroying our lands and forests. We simply cannot continue these present economic patterns and reduce global poverty and preserve a liveable planet all at the same time. We could choose both justice for the poor and a liveable planet - but only if we give up rampant materialism and make hard choices to reverse the environmental destruction.’
+!! We face a painful choice. To maintain and expand our material abundance, we are polluting our air and water and destroying our lands and forests. We simply cannot continue these present economic patterns and reduce global poverty and preserve a liveable planet all at the same time. We could choose both justice for the poor and a liveable planet – but only if we give up rampant materialism and make hard choices to reverse the environmental destruction.
 
 Some of the key environmental issues we currently face are:
 
-‘The heavens declare the glory of God; The skies proclaim the work of his hands’ Psalm 19:1–2
-
-‘The heavens declare the glory of God; The skies proclaim the work of his hands’ Psalm 19:1–2‘The heavens declare the glory of God; The skies proclaim the work of his hands’ Psalm 19:1–2
+@scripture ‘The heavens declare the glory of God; the skies proclaim the work of his hands.’ @Psalm 19:1–2
 
 ## The Widespread Abuse Of Farm Animals
 
@@ -62,7 +56,11 @@ The widespread degradation of God’s creation we currently face is interconnect
 
 Therefore, as Christ followers, when we seek to address these issues, it’s vital that we start from a place of prayer. It’s very easy to become quickly overwhelmed with the scope and scale of the issues. And we can’t tackle everything. So, prayerfully asking God what He wants us to focus on, and remembering to implement small, humble acts of obedience, as opposed to seeking a results-orientated large-scale approach, is key.
 
-As Wendell Berry writes, “The real work of planet-saving will be small, humble, and humbling, and (insofar as it involves love) pleasing and rewarding. Its jobs will be too many to count, too many to report, too many to be publicly noticed or rewarded, too small to make anyone rich or famous.” [49]
+As Wendell Berry writes:
+
+‘The real work of planet-saving will be small, humble, and humbling, and (insofar as it involves love) pleasing and rewarding. Its jobs will be too many to count, too many to report, too many to be publicly noticed or rewarded, too small to make anyone rich or famous.’
+
+— Wendell Berry
 
 Our small steps might seem insignificant, but they matter to God.
 
@@ -72,7 +70,7 @@ There are a number of different reasons as to why this has been the case. Someti
 
 The first is a dualistic world view, a problem that the church has been wrestling with right from its early contact with Greek philosophy. Dualism teaches an unhealthy separation between body and spirit, earth and heaven, natural and spiritual, reason and religion, and so on. It inherently exalts the latter in each of these cases and denigrates the former. The result is that nature or creation is thought to be inferior to the supernatural realm. The important thing, therefore, is to focus one’s attention on ‘heavenly/spiritual’ matters rather than concerning oneself with what goes on ‘down here’.
 
-The second fallacy, which flows from this unhealthy dualism, is a hierarchical understanding of creation. This sees ‘God, whose nature is pure spirit, at the top, and the earth, whose nature is material, at the bottom’.The rest of creation, from humanity to animals and plants and so on, are ranged in between in descending importance. As we will see later, there is some truth in this. However, if the earth is seen as distant from God and therefore of little value to him, the consequences are obvious.
+The second fallacy, which flows from this unhealthy dualism, is a hierarchical understanding of creation. This sees ‘God, whose nature is pure spirit, at the top, and the earth, whose nature is material, at the bottom’. The rest of creation, from humanity to animals and plants and so on, are ranged in between in descending importance. As we will see later, there is some truth in this. However, if the earth is seen as distant from God and therefore of little value to him, the consequences are obvious.
 
 The third belief is anthropocentrism – the belief that everything revolves around humanity and was made for our benefit. This has come about through a misunderstanding of the account of creation and, in particular, of the words ‘dominion’ and ‘subdue’ in Genesis 1:28. Again, we shall see that there is some truth in teaching a distinction between humanity and the rest of creation but not when this leads to legitimising domination and oppression rather than actively caring for creation.
 
@@ -88,7 +86,7 @@ And as part of creation, made from the dust, we are to be humble and have our ey
 
 How this notion contrasts to the secular environmental movement! In secular environmental circles humanity is invariably viewed as a parasite which the earth would do better without, due to the destruction that our (particularly Western-style) lifestyles have caused. The biblical narrative, however, presents a picture of humanity’s potential, with Christ’s help, to bless creation. Of course, we humans have often failed in this call, but
 
-now is the time to reclaim our identity as Christ’s Creation stewards and learn to reorientate our desires to live lightly on the earth and bless, rather than degrade what God has so lovingly made.
+!! now is the time to reclaim our identity as Christ’s Creation stewards and learn to reorientate our desires to live lightly on the earth and bless, rather than degrade what God has so lovingly made.
 
 we know the result of humanity turning away from God and choosing to go our own way and the results that followed from that. The Fall changed our relationship both with God and with the rest of creation which would now carry within it both the curse and blessing of God. However, the rest of the Bible tells the story of His plan for our salvation. Israel is called to be his people and model his purposes for stewardship and there is a particular relationship with the land that acts as a spiritual barometer of her obedience (for example, Deuteronomy 30:15–16; Isaiah 5:8–10; Jeremiah 5:23–25).
 
@@ -104,150 +102,92 @@ Finally, we must note again the link between humanity and the wider creation. It
 
 Read Colossians 1:1–23.
 
-Jesus’ death was not only for the sake of people but was also for ‘all things on earth and in heaven’ (v.20).
+- Jesus’ death was not only for the sake of people but was also for ‘all things on earth and in heaven’ (v.20). Is that a new concept for you? How does it help you understand your responsibility for God’s world?
+- How might we ‘proclaim the gospel to every creature under heaven’ (v.23)?
+- Look at the quote again from Ron Sider at the beginning of this Session. What is your response to what he says?
+- What particularly concerns you about the current state of creation? (If you are aware that you are not very concerned about environmental issues, why do you think that is?)
+- When praying, ask God to reveal His love for creation and how he’d like you specifically to look after what’s he’s made in your context.
+- Discuss as a group how much do you know about the way your food is produced? Has it been farmed in creation-friendly ways or have the farming practices abused parts of God’s creation?
+- How might you get to know the food producers in your area that are looking after animals and the soil well and actively support their businesses?
+- How aware are you of different parts of creation where you live? For example, do you ever stop to smell a flower or watch a bird fly? If, as a result of earlier sessions, you are beginning to walk or cycle more instead of driving, then you may naturally have found this happening more often.
+- Do you ever get involved in environmental campaigns? Is there a particular area you sense God prompting you to take action on?
+- Go through the ‘What on Earth am I Doing?’ questionnaire. Open the printable form [](/worksheets/print/what-on-earth-am-i-doing) (What on Earth am I Doing?). Discuss together what issues it raises. Please note the spirit in which it was written: it is meant to be light-hearted, like a quiz in a magazine! Not every question will be applicable to every person, and it is not meant as a legalistic list of things to do.
 
-Is that a new concept for you? How does it help you understand your responsibility for God’s world? – How might we ‘proclaim the gospel to every creature under heaven’ (v.23)?
 
-Look at the quote again from Ron Sider at the beginning of this Session. What is your response to what he says?
 
-What particularly concerns you about the current state of creation? (If you are aware that you are not very concerned about environmental issues, why do you think that is?)
 
-When praying, ask God to reveal His love for creation and how he’d like you specifically to look after what’s he’s made in your context?
-
-Discuss as a group how much do you know about the way your food is produced? Has it been farmed in creation-friendly ways or have the farming practices abused parts of God’s creation?
-
-How might you get to know the food producers in your area that are looking after animals and the soil well and actively support their businesses?
-
-How aware are you of different parts of creation where you live? For example, do you ever stop to smell a flower or watch a bird fly? If, as a result of earlier sessions, you are beginning to walk or cycle more instead of driving, then you may naturally have found this happening more often.
-
-Do you ever get involved in environmental campaigns? Is there a particular area you sense God prompting you to take action on?
-
-Go through the ‘What on Earth am I Doing?’ questionnaire below. Discuss together what issues it raises. Please note the spirit in which it was written: it is meant to be light-hearted, like a quiz in a magazine! Not every question will be applicable to every person, and it is not meant as a legalistic list of things to do.
-
-## What On Earth Am I Doing?
-
-Being a Christ follower should challenge us to face the issues of our world around us and do something about them. These questions provide a measure of checking out your lifestyle and thinking with reference to the environment. Your answers and scores should be a stimulus for discussion and action – mark yourself as honestly as you can! Use the definitions overleaf to clarify the questions.
-
-Please tick a box for each question.
-
-Use the printable questionnaire worksheet (see [all worksheets](/worksheets)) to tick your answers and calculate your score.
-
-Each point is worth
-
-## Grand Total
-
-2
-
-1
-
-0
-
-0 - 20
-
-21 - 40
-
-41 - 62
-
-You’re thinking about making a difference, but getting around to it remains a challenge! It’s time to do those things you’ve been putting off!
-
-Your lifestyle reflects that you’ve made changes. Challenge yourself to find out more and keep going!
-
-## ‘'Fair Trade’
-
+### ‘Fair Trade’ 
 is a process which pays producers a good price for their labour, instead of a price which they are forced to accept just to stay in business. As a by-product, the goods are often produced in a more environmentally-friendly manner. It does, however, still perpetuate, very often, local economies that are dependent on Western appetites.
 
-## ‘Environmentally Friendly’
-
+### ‘Environmentally Friendly’ 
 means being sensitive to the need to reduce the use of natural resources, considering pollution and the amount of energy used by producing or using a product.
 
-## 'Free Range'
-
+### ‘Free Range’ 
 is a term applied to livestock which have continuous day time access to open air. The ground is mainly covered with vegetation, there is a maximum density of livestock per acre, and the feed must be free of animal products. Free range must not be confused with ‘Farm Fresh’ or ‘Country Fresh’ which could still involve factory-farming methods.
 
-## ‘'Transport Miles'
-
+### ‘Transport Miles’ 
 refers to the mileage covered by an item from the producer of the raw ingredients to the shop floor. For example, a locally-grown potato may travel to a washing centre, then to a distribution centre before it reaches your local superstore. The local market will sell it dirty direct from the farm! More transport is used and therefore more congestion and pollution is produced by shopping at superstores.
 
-‘RECYCLING' is the idea of using materials again. If an item cannot be re-used in its present form, it can be broken down and the materials used again. This process uses far less energy and natural resources than using raw materials each time.
+### ‘Recycling’ 
+is the idea of using materials again. If an item cannot be re-used in its present form, it can be broken down and the materials used again. This process uses far less energy and natural resources than using raw materials each time.
 
-'A WORMERY' is a plastic bin with a sealed lid, a sump and a tap to drain off collected liquid. Tiger worms will eat degradable kitchen waste, turning it into a rich compost. The liquid forms an excellent plant feed – home-made Baby Bio!
+### ‘A Wormery’ 
+is a plastic bin with a sealed lid, a sump and a tap to drain off collected liquid. Tiger worms will eat degradable kitchen waste, turning it into a rich compost. The liquid forms an excellent plant feed – home-made Baby Bio!
 
-'MULTINATIONALS' are huge global companies which provide jobs in many nations but which don't necessarily consider the environmental and local economic impact of their business.
+### ‘Multinationals’ 
+are huge global companies which provide jobs in many nations but which don't necessarily consider the environmental and local economic impact of their business.
 
-## 'Car Sharing'
-
+### ‘Car Sharing’ 
 makes use of spare places in cars when two or more people are travelling to the same destination at the same time. The pollution caused by car fumes damages the ozone layer (which protects us from harmful sun rays) as well as contributing to diseases such as asthma.
 
-## ‘Farmers’ Markets'
-
+### ‘Farmers’ Markets’ 
 are markets where local producers can sell their goods direct to the customer. They must come from a thirty-mile radius and the stall has to be staffed by the actual producer. The produce is not only fresher but often contains few chemicals. Less packaging and transportation is required which means there is less waste and fewer road journeys. Farmers’ Markets also encourage people to try home-produced, regional, specialities.
 
-## ‘'Bicycling'
-
+### ‘Bicycling’ 
 is a far more environmentally-friendly means of transportation than driving. For example, a bicycle can travel up to 1,037km on the energy equivalent of one litre of petrol (nearly 300mpg).
 
 ## Action
 
 Begin to put into action some of the things you have discussed. Consider which of the issues particularly affects you or to which you have a particular response. Work out how you could set about finding out more about it/them and set yourself a timetable to do so.
 
-Take an issue that is of particular concern to you (perhaps taken from the statistics above or from the lifestyle Audit) and find out how you can get involved with it (for example, by writing to your MP or your local council).
+Take an issue that is of particular concern to you (perhaps taken from the statistics above or from the lifestyle audit) and find out how you can get involved with it (for example, by writing to your MP or your local council).
 
-Friends of the Earth are very helpful with ideas (
+Friends of the Earth are very helpful with ideas ([www.foe.org.uk](https://www.foe.org.uk)).
 
 OR: Write a letter to your great-great-great-grandchild. Visualise the child opening it somewhere in the twenty second century. This is a real-life assignment and you can actually arrange for the letter to be delivered. You could write things like this:
 
-Describe to your descendant what the world is like for you now.
-
-Describe what worries you about the future and what you do to assure the future for your descendants.
-
-What are your concerns for the world that your descendants would inherit?
-
-What do you imagine the world of 2100 AD to be like?
-
-Based on your experience of life in the twenty-first century, what would you pass along to your descendant by way of ‘advice’?
+- Describe to your descendant what the world is like for you now.
+- Describe what worries you about the future and what you do to assure the future for your descendants.
+- What are your concerns for the world that your descendants would inherit?
+- What do you imagine the world of 2100 AD to be like?
+- Based on your experience of life in the twenty-first century, what would you pass along to your descendant by way of ‘advice’?
 
 Now in your imagination, return to this time and the place you are in. What has writing this letter meant to you? What are you feeling and thinking about?
 
 OR: Visit your local landfill. Find out how long before it will reach capacity and what will be done when it is full. Count the number of bin bags you put out each month and try to halve that number!
 
-G. K. Chesterton
+## Further reading
 
-'St Francis was a man who did not want to see the wood for the trees. He wanted to see each tree as a separate and almost sacred thing.'G. K. Chesterton
+### Books
+- R.J. Berry (ed.), The Care of Creation (IVP, 2000).
+- D. Bookless, Planetwise (IVP, 2008).
+- D. Bookless, God Doesn't Do Waste (IVP, 2010).
+- T. Gorringe, Harvest (SPCK, 2006).
+- P. Harris, Under the Bright Wings (Regent College, 2000).
+- J. Jones, Jesus and the Earth (SPCK, 2003).
+- N.T. Wright, Surprised By Hope (Harper One, 2008).
 
-## Further reading / resources
+### Websites 
+- A Rocha: [www.arocha.org](https://www.arocha.org).
+- Christian Ecology Link: [www.christian-ecology.org.uk](https://www.christian-ecology.org.uk).
+- Friends of the Earth website, publications and membership magazine: [www.foe.org.uk](https://www.foe.org.uk).
+- Going for Green: [www.gfg.iclnet.co.uk](https://www.gfg.iclnet.co.uk).
 
-## Books:
+### Films
+- “Kiss the Ground”, Netflix, 2020.
+- “Making Peace with Creation” by Loren Wilkinson & Regent College.
+- ‘Faith in the Soil’ Film, Candour Creative.
 
-R.J. Berry (ed.), The Care of Creation (IVP, 2000)
+‘St Francis was a man who did not want to see the wood for the trees. He wanted to see each tree as a separate and almost sacred thing.’
 
-D. Bookless, Planetwise (IVP, 2008)
-
-D. Bookless, God Doesn't Do Waste (IVP, 2010)
-
-T. Gorringe, Harvest (SPCK, 2006)
-
-P. Harris, Under the Bright Wings (Regent College, 2000)
-
-J. Jones, Jesus and the Earth (SPCK, 2003).
-
-Wright, Surprised By Hope (Harper One, 2008)
-
-## Websites:
-
-A Rocha:
-
-Christian Ecology Link:
-
-Friends of the Earth website, publications and membership magazine (
-
-Going for Green:
-
-## Films:
-
-"Kiss the Ground", Netflix, 2020
-
-"Making Peace with Creation" by Loren Wilkinson & Regent College
-
-'Faith in the Soil' Film, Candour Creative
-
-‘St Francis was a man who did not want to see the wood for the trees. He wanted to see each tree as a separate and almost sacred thing.’G. K. Chesterton
+— G. K. Chesterton

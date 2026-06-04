@@ -3,7 +3,17 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 import { MessageSquare } from "lucide-react";
+import {
+  isWorksheetPrintHref,
+  WorksheetPrintLink,
+} from "@/components/WorksheetPrintLink";
 import type { Block, Section } from "@/lib/content";
+import {
+  INLINE_FOOTNOTE_RE,
+  noteChapterHref,
+  parseNoteHeadingNumber,
+} from "@/lib/content/footnotes";
+import { SCRIPTURE_CITATION_TAIL_RE, SCRIPTURE_REF } from "@/lib/content/scripture";
 
 const HEADING_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
 
@@ -15,8 +25,10 @@ export function firstHeadingBlock(section: Section): Block | undefined {
   return section.blocks.find((b) => b.type === "heading");
 }
 
-const SCRIPTURE_REF_REGEX =
-  /(?:^|\(|\s)(?:[1-3]\s*)?[A-Za-z]+(?:\s+[A-Za-z]+)*\s+\d{1,3}:\d{1,3}(?:[–-]\d{1,3})?(?:\)|[.,”'"])?/u;
+const SCRIPTURE_REF_REGEX = new RegExp(
+  `(?:^|\\(|\\s)(${SCRIPTURE_REF.source})(?:\\)|[.,”'"])`,
+  "u"
+);
 
 function normalizeParagraphForCompare(content: string): string {
   return content
@@ -30,8 +42,76 @@ export function isQuoteLikeParagraph(content: string): boolean {
   return /^([>"“”‘’']|\u2014)/u.test(trimmed);
 }
 
+/** Line after a quote: em dash or hyphen + short attribution (not a discussion bullet). */
+export function isQuoteAttributionParagraph(content: string): boolean {
+  const trimmed = content.trim();
+  if (/^—\s+\S/u.test(trimmed)) return true;
+  if (/^-\s+\S/u.test(trimmed)) {
+    if (trimmed.length > 160 || /\?\s*$/u.test(trimmed)) return false;
+    return true;
+  }
+  return false;
+}
+
+export function formatQuoteAttribution(content: string): string {
+  const trimmed = content.trim();
+  if (trimmed.startsWith("—")) return trimmed;
+  if (trimmed.startsWith("-")) return `—${trimmed.slice(1)}`;
+  return `— ${trimmed}`;
+}
+
 export function isScriptureParagraph(content: string): boolean {
   return SCRIPTURE_REF_REGEX.test(content.trim());
+}
+
+export function parseBibleQuoteContent(
+  content: string
+): { quoteText: string; reference: string } | null {
+  const trimmed = content.trim();
+  if (!isQuoteLikeParagraph(trimmed)) return null;
+  const match = trimmed.match(SCRIPTURE_CITATION_TAIL_RE);
+  if (!match) return null;
+  const reference = match[1].trim();
+  const quoteText = trimmed.slice(0, match.index).trim();
+  if (!quoteText || !SCRIPTURE_REF_REGEX.test(`(${reference})`)) return null;
+  return { quoteText, reference };
+}
+
+export function isBibleQuoteParagraph(content: string): boolean {
+  if (parseBibleQuoteContent(content)) return true;
+  return isQuoteLikeParagraph(content) && isScriptureParagraph(content);
+}
+
+function getScriptureFigureProps(block: Block): {
+  isBible: boolean;
+  quoteText: string;
+  reference: string | null;
+} {
+  if (block.scriptureRef) {
+    return {
+      isBible: true,
+      quoteText: block.content,
+      reference: block.scriptureRef,
+    };
+  }
+  const parsed = parseBibleQuoteContent(block.content);
+  if (parsed) {
+    return {
+      isBible: true,
+      quoteText: parsed.quoteText,
+      reference: parsed.reference,
+    };
+  }
+  if (block.forceScripture || isBibleQuoteParagraph(block.content)) {
+    return { isBible: true, quoteText: block.content, reference: null };
+  }
+  return { isBible: false, quoteText: block.content, reference: null };
+}
+
+function shouldRenderAsQuoteFigure(block: Block): boolean {
+  if (block.forceBody || block.headlineQuote) return false;
+  if (block.scriptureRef || block.forceScripture) return true;
+  return isQuoteLikeParagraph(block.content);
 }
 
 export function isDuplicateAdjacentQuote(current: Block, previous: Block | null): boolean {
@@ -45,32 +125,196 @@ function isFurtherReadingHeading(content: string): boolean {
   return /^further reading\b/i.test(content.trim());
 }
 
-/** Minimal `[label](href)` support so course paragraphs can link out (e.g. worksheets). */
-function renderInlineMarkdownLinks(text: string): ReactNode {
-  const re = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+function renderTextWithFootnotes(text: string, keyStart: number): { nodes: React.ReactNode[]; nextKey: number } {
+  const nodes: React.ReactNode[] = [];
+  let last = 0;
+  let key = keyStart;
+  const re = new RegExp(INLINE_FOOTNOTE_RE.source, INLINE_FOOTNOTE_RE.flags);
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) {
+      nodes.push(text.slice(last, m.index));
+    }
+    const noteNumber = Number.parseInt(m[1], 10);
+    nodes.push(
+      <Link
+        key={`fn-${key++}`}
+        href={noteChapterHref(noteNumber)}
+        className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
+      >
+        [{noteNumber}]
+      </Link>
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) {
+    nodes.push(text.slice(last));
+  }
+  return { nodes, nextKey: key };
+}
+
+/** Minimal inline markdown: `[label](href)`, `[](print-url)` icon, `*italic*`, `_italic_`, footnote `[n]`. */
+function renderInlineMarkdown(text: string): ReactNode {
+  const re = /\[([^\]]*)\]\(([^)\s]+)\)|\*([^*]+)\*|_([^_]+)_/g;
   const out: React.ReactNode[] = [];
   let last = 0;
   let m: RegExpExecArray | null;
   let key = 0;
   while ((m = re.exec(text)) !== null) {
     if (m.index > last) {
-      out.push(text.slice(last, m.index));
+      const segment = text.slice(last, m.index);
+      const footnoted = renderTextWithFootnotes(segment, key);
+      out.push(...footnoted.nodes);
+      key = footnoted.nextKey;
     }
-    out.push(
-      <Link
-        key={`mdl-${key++}`}
-        href={m[2]}
-        className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
-      >
-        {m[1]}
-      </Link>
-    );
+    if (m[1] != null && m[2] != null) {
+      if (isWorksheetPrintHref(m[2])) {
+        out.push(
+          <WorksheetPrintLink
+            key={`md-${key++}`}
+            href={m[2]}
+            label={m[1]}
+          />
+        );
+      } else {
+        out.push(
+          <Link
+            key={`md-${key++}`}
+            href={m[2]}
+            className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
+          >
+            {m[1]}
+          </Link>
+        );
+      }
+    } else {
+      const emphasis = m[3] ?? m[4];
+      out.push(
+        <em key={`md-${key++}`} className="italic">
+          {emphasis}
+        </em>
+      );
+    }
     last = m.index + m[0].length;
   }
   if (last < text.length) {
-    out.push(text.slice(last));
+    const footnoted = renderTextWithFootnotes(text.slice(last), key);
+    out.push(...footnoted.nodes);
+    key = footnoted.nextKey;
   }
   return out.length === 0 ? text : <Fragment>{out}</Fragment>;
+}
+
+const PULL_QUOTE_BODY =
+  "font-serif text-[17px] italic leading-[1.75] text-[var(--slj-text)] md:text-[18px]";
+const SCRIPTURE_QUOTE_BODY =
+  "font-serif text-[18px] font-semibold not-italic leading-[1.72] text-[var(--slj-text)] md:text-[19px]";
+
+function QuoteFigure({ quote, attribution }: { quote: Block; attribution?: Block }) {
+  const { isBible, quoteText, reference } = getScriptureFigureProps(quote);
+
+  return (
+    <figure
+      className={
+        isBible
+          ? "slj-scripture-quote border-l-[5px] border-[var(--slj-text)] bg-[var(--slj-hover)] pl-5 pr-3 py-1"
+          : "slj-pull-quote border-l-4 border-[var(--slj-border)] pl-5 pr-2"
+      }
+      data-block-id={quote.block_id}
+      id={quote.block_id}
+    >
+      <blockquote className="m-0 border-0 p-0">
+        <p className={isBible ? SCRIPTURE_QUOTE_BODY : PULL_QUOTE_BODY}>
+          {renderInlineMarkdown(quoteText)}
+        </p>
+      </blockquote>
+      {reference ? (
+        <figcaption className="mt-3 border-t border-[var(--slj-border)] pt-2">
+          <span className="slj-faint block font-sans text-[10px] font-medium uppercase tracking-[0.2em]">
+            Scripture
+          </span>
+          <cite className="mt-1 block font-sans text-[13px] font-medium not-italic text-[var(--slj-text-muted)]">
+            {reference}
+          </cite>
+        </figcaption>
+      ) : null}
+      {attribution && !reference ? (
+        <figcaption
+          className="slj-faint mt-3 font-sans text-[13px] font-medium tracking-wide"
+          data-block-id={attribution.block_id}
+          id={attribution.block_id}
+        >
+          {formatQuoteAttribution(attribution.content)}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+export function QuoteWithAttribution({
+  quote,
+  attribution,
+}: {
+  quote: Block;
+  attribution: Block;
+}) {
+  return <QuoteFigure quote={quote} attribution={attribution} />;
+}
+
+function ListItemContent({ content }: { content: string }) {
+  return (
+    <span className="font-serif text-[18px] font-medium leading-[1.72] text-[var(--slj-text)] md:text-[19px]">
+      {renderInlineMarkdown(content)}
+    </span>
+  );
+}
+
+export function ListBlock({ block }: { block: Block }) {
+  if (block.type !== "list" || !block.items?.length) return null;
+  return (
+    <ul
+      className="slj-bullets list-disc space-y-1 pl-6 font-serif marker:text-[var(--slj-text)]"
+      data-block-id={block.block_id}
+    >
+      {block.items.map((item) => (
+        <li
+          key={item.block_id}
+          id={item.block_id}
+          data-block-id={item.block_id}
+          className="pl-1 leading-[1.72] text-[var(--slj-text)]"
+        >
+          <ListItemContent content={item.content} />
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+/** Multi-line poetry or lyrics (`>>` right column, `::` centered). */
+export function VerseBlock({ block }: { block: Block }) {
+  if (block.type !== "verse" || !block.lines?.length) return null;
+  const centered = block.verseAlign === "center";
+  return (
+    <div
+      className={
+        centered
+          ? "mx-auto max-w-[36rem] text-center font-serif text-[15px] leading-[1.38] text-[var(--slj-text)] md:text-[16px]"
+          : "ml-auto max-w-[28rem] text-right font-serif text-[15px] leading-[1.38] text-[var(--slj-text)] md:text-[16px]"
+      }
+      data-block-id={block.block_id}
+      id={block.block_id}
+    >
+      {block.lines.map((line, index) =>
+        line.content === "" ? (
+          <div key={`gap-${index}`} className="h-3" aria-hidden="true" />
+        ) : (
+          <div key={line.block_id || `${index}-${line.content}`}>
+            {renderInlineMarkdown(line.content)}
+          </div>
+        )
+      )}
+    </div>
+  );
 }
 
 export function BlockNode({ block }: { block: Block }) {
@@ -87,45 +331,59 @@ export function BlockNode({ block }: { block: Block }) {
             : "mt-10 text-3xl font-semibold leading-tight first:mt-0"
           : "mt-8 text-2xl font-semibold leading-tight first:mt-0";
 
+    const noteNumber = parseNoteHeadingNumber(block.content);
+    const headingId = noteNumber != null ? `note-${noteNumber}` : block.block_id;
+
     return (
       <Tag
         className={`font-serif text-[var(--slj-text)] ${headingClassName}`}
         data-block-id={block.block_id}
-        id={block.block_id}
+        id={headingId}
       >
         {block.content}
       </Tag>
     );
   }
+  if (block.type === "list") {
+    return <ListBlock block={block} />;
+  }
+  if (block.type === "verse") {
+    return <VerseBlock block={block} />;
+  }
   if (block.type === "paragraph") {
-    const quoteLike = isQuoteLikeParagraph(block.content);
-    const scripture = isScriptureParagraph(block.content);
-    if (quoteLike) {
+    if (block.headlineQuote) {
       return (
-        <blockquote
-          className={`mt-6 border-l-4 border-[var(--slj-border)] pl-5 pr-2 ${
-            scripture
-              ? "font-serif text-[18px] font-semibold leading-[1.72] text-[var(--slj-text)] md:text-[19px]"
-              : "font-serif text-[17px] italic leading-[1.75] text-[var(--slj-text)] md:text-[18px]"
-          }`}
+        <p
+          className="py-5 text-center font-serif text-[22px] font-semibold leading-[1.45] text-[var(--slj-text)] md:text-[24px]"
           data-block-id={block.block_id}
           id={block.block_id}
         >
-          {!scripture ? (
-            <p className="slj-faint mb-1 font-sans text-[11px] uppercase tracking-[0.16em]">Quote</p>
-          ) : null}
-          <p>{renderInlineMarkdownLinks(block.content)}</p>
-        </blockquote>
+          {renderInlineMarkdown(block.content)}
+        </p>
       );
+    }
+    if (isQuoteAttributionParagraph(block.content)) {
+      return (
+        <p
+          className="slj-faint -mt-1 mb-0 border-l-4 border-transparent pl-5 font-sans text-[13px] font-medium tracking-wide text-[var(--slj-text-muted)]"
+          data-block-id={block.block_id}
+          id={block.block_id}
+        >
+          {formatQuoteAttribution(block.content)}
+        </p>
+      );
+    }
+    if (shouldRenderAsQuoteFigure(block)) {
+      return <QuoteFigure quote={block} />;
     }
 
     return (
       <p
-        className="mt-5 font-serif text-[18px] font-medium leading-[1.72] text-[var(--slj-text)] md:text-[19px]"
+        className="font-serif text-[18px] font-medium leading-[1.72] text-[var(--slj-text)] md:text-[19px]"
         data-block-id={block.block_id}
         id={block.block_id}
       >
-        {renderInlineMarkdownLinks(block.content)}
+        {renderInlineMarkdown(block.content)}
       </p>
     );
   }
@@ -138,12 +396,14 @@ export function BlockWithNoteAction({
   onAddOrEditNote,
   isActive,
   showNoteAction = true,
+  dense = false,
 }: {
   block: Block;
   hasNote: boolean;
   onAddOrEditNote: (block_id: string) => void;
   isActive?: boolean;
   showNoteAction?: boolean;
+  dense?: boolean;
 }) {
   if (!showNoteAction) {
     return <BlockNode block={block} />;
@@ -158,17 +418,25 @@ export function BlockWithNoteAction({
           onAddOrEditNote(block.block_id);
         }
       }}
-      className={`group/block relative -mx-2 flex items-center rounded px-2 py-1 transition-colors ${
+      className={`group/block relative flex rounded transition-colors ${
+        dense
+          ? "-mx-1 items-start px-1 py-0"
+          : "-mx-2 items-center px-2 py-1"
+      } ${
         isActive ? "bg-[var(--slj-active)]" : "hover:bg-[var(--slj-hover)] focus-within:bg-[var(--slj-hover)]"
       }`}
     >
-      <div className="min-w-0 flex-1 pr-12">
+      <div className={`min-w-0 flex-1 ${dense ? "pr-10" : "pr-12"}`}>
         <BlockNode block={block} />
       </div>
       <button
         type="button"
         onClick={() => onAddOrEditNote(block.block_id)}
-        className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded border border-transparent bg-transparent text-[var(--slj-text-muted)] transition-colors hover:border-[var(--slj-border)] hover:text-[var(--slj-text)] focus-visible:border-[var(--slj-border)] focus-visible:text-[var(--slj-text)] md:opacity-0 md:group-hover/block:opacity-100 md:group-focus-within/block:opacity-100"
+        className={`absolute flex items-center justify-center rounded border border-transparent bg-transparent text-[var(--slj-text-muted)] transition-colors hover:border-[var(--slj-border)] hover:text-[var(--slj-text)] focus-visible:border-[var(--slj-border)] focus-visible:text-[var(--slj-text)] md:opacity-0 md:group-hover/block:opacity-100 md:group-focus-within/block:opacity-100 ${
+          dense
+            ? "right-1 top-0.5 h-8 w-8"
+            : "right-2 top-1/2 h-9 w-9 -translate-y-1/2"
+        }`}
         aria-label={hasNote ? "Edit note" : "Add note for this paragraph"}
       >
         <MessageSquare size={16} strokeWidth={2.1} />

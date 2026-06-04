@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
@@ -15,6 +16,10 @@ import {
   upsertChapterProgress,
   getChapterProgressForUser,
 } from "@/lib/progress";
+import {
+  isMissingChapterProgressTable,
+  progressErrorMessage,
+} from "@/lib/progress-errors";
 import type { Chapter, Section } from "@/lib/content";
 import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
 import { buildReaderBlockNodes } from "@/components/buildReaderBlocks";
@@ -56,8 +61,12 @@ export function CourseReader({
   const [notes, setNotes] = useState<Note[]>([]);
   const [loading, setLoading] = useState(true);
   const [chapterComplete, setChapterComplete] = useState(false);
+  const [savingComplete, setSavingComplete] = useState(false);
+  const [completeError, setCompleteError] = useState<string | null>(null);
+  const [progressSetupMissing, setProgressSetupMissing] = useState(false);
   const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const supabase = createClient();
+  const router = useRouter();
 
   const sectionIds = useMemo(
     () =>
@@ -70,7 +79,14 @@ export function CourseReader({
     const m = new Map<string, string>();
     for (const section of sections) {
       const sid = getSectionId(section);
-      if (sid) for (const b of section.blocks) m.set(b.block_id, sid);
+      if (sid) {
+        for (const b of section.blocks) {
+          m.set(b.block_id, sid);
+          if (b.type === "list" && b.items) {
+            for (const item of b.items) m.set(item.block_id, sid);
+          }
+        }
+      }
     }
     return m;
   }, [sections]);
@@ -149,8 +165,10 @@ export function CourseReader({
             last_block_id: firstBlockId,
           });
         }
-      } catch {
-        // ignore
+      } catch (err) {
+        if (isMissingChapterProgressTable(err)) {
+          setProgressSetupMissing(true);
+        }
       }
     })();
     return () => {
@@ -172,16 +190,26 @@ export function CourseReader({
   );
 
   const handleMarkChapterComplete = useCallback(async () => {
-    if (!user) return;
+    if (!user || savingComplete) return;
+    setSavingComplete(true);
+    setCompleteError(null);
     try {
       await upsertChapterProgress(supabase, chapterId, {
         completed_at: new Date().toISOString(),
       });
       setChapterComplete(true);
-    } catch {
-      // ignore
+      router.refresh();
+    } catch (err) {
+      if (isMissingChapterProgressTable(err)) {
+        setProgressSetupMissing(true);
+        setCompleteError(null);
+      } else {
+        setCompleteError(progressErrorMessage(err));
+      }
+    } finally {
+      setSavingComplete(false);
     }
-  }, [user, chapterId, supabase]);
+  }, [user, chapterId, supabase, savingComplete, router]);
 
   const handleAddOrEditNote = useCallback(
     (block_id: string) => {
@@ -298,13 +326,26 @@ export function CourseReader({
                 <button
                   type="button"
                   onClick={handleMarkChapterComplete}
-                  className="slj-faint text-xs underline underline-offset-4 hover:text-[var(--slj-text)]"
+                  disabled={savingComplete}
+                  className="slj-faint text-xs underline underline-offset-4 hover:text-[var(--slj-text)] disabled:opacity-50"
                 >
-                  Mark complete
+                  {savingComplete ? "Saving…" : "Mark complete"}
                 </button>
               )}
             </div>
           )}
+          {progressSetupMissing ? (
+            <p className="slj-muted mb-3 font-sans text-sm" role="status">
+              Progress tracking is not set up on the database yet. Apply the{" "}
+              <code className="text-xs">chapter_progress</code> migration in
+              Supabase (see README).
+            </p>
+          ) : null}
+          {completeError ? (
+            <p className="slj-muted mb-3 font-sans text-sm" role="alert">
+              {completeError}
+            </p>
+          ) : null}
           <ul className="space-y-1 pl-3">
             {sections.map((section) => {
               const heading = firstHeadingBlock(section);
@@ -336,7 +377,13 @@ export function CourseReader({
         {isInteractive && loading ? (
           <p className="slj-muted mb-6 font-sans text-sm">Loading notes…</p>
         ) : null}
-        <div className="space-y-0">{renderedBlocks}</div>
+        <div
+          className={
+            isInteractive ? "slj-reader-blocks" : "slj-reader-blocks mx-auto max-w-[72ch]"
+          }
+        >
+          {renderedBlocks}
+        </div>
       </article>
 
       <nav

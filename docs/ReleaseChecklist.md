@@ -16,7 +16,7 @@ Auth callbacks use the request origin; if the production URL is not in Redirect 
 ## Draft deploy
 - [ ] Env vars set in Vercel
 - [ ] Supabase redirect URLs and Site URL configured (see above)
-- [ ] Migrations applied
+- [ ] Migrations applied (in order: `20250218000001_initial_schema.sql`, `20250218000002_rls_policies.sql`, `20250306000001_chapter_progress.sql`, then any later files in `supabase/migrations/`)
 - [ ] RLS enabled for all tables
 - [ ] Manual smoke test:
   - [ ] sign in (email code)

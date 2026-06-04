@@ -11,11 +11,27 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 const MANIFEST_PATH = path.join(CONTENT_DIR, "manifest.json");
 
 let cachedManifest: Manifest | null = null;
+let cachedManifestMtimeMs: number | null = null;
 
 function loadManifest(): Manifest {
+  const isDev = process.env.NODE_ENV === "development";
+  if (isDev && fs.existsSync(MANIFEST_PATH)) {
+    const mtimeMs = fs.statSync(MANIFEST_PATH).mtimeMs;
+    if (cachedManifest && cachedManifestMtimeMs === mtimeMs) {
+      return cachedManifest;
+    }
+    const raw = fs.readFileSync(MANIFEST_PATH, "utf-8");
+    cachedManifest = JSON.parse(raw) as Manifest;
+    cachedManifestMtimeMs = mtimeMs;
+    return cachedManifest;
+  }
+
   if (cachedManifest) return cachedManifest;
   const raw = fs.readFileSync(MANIFEST_PATH, "utf-8");
   cachedManifest = JSON.parse(raw) as Manifest;
+  if (fs.existsSync(MANIFEST_PATH)) {
+    cachedManifestMtimeMs = fs.statSync(MANIFEST_PATH).mtimeMs;
+  }
   return cachedManifest;
 }
 
@@ -41,10 +57,26 @@ export function getSections(chapter: Chapter): Section[] {
 }
 
 /**
- * All blocks for a chapter (flattened, in order). Useful for rendering with data-block-id.
+ * All blocks for a chapter (flattened, in order). List items expand to pseudo-paragraphs for notes/progress.
  */
 export function getBlocks(chapter: Chapter): Block[] {
-  return chapter.sections.flatMap((s) => s.blocks);
+  const result: Block[] = [];
+  for (const section of chapter.sections) {
+    for (const block of section.blocks) {
+      if (block.type === "list" && block.items?.length) {
+        for (const item of block.items) {
+          result.push({
+            block_id: item.block_id,
+            type: "paragraph",
+            content: item.content,
+          });
+        }
+      } else {
+        result.push(block);
+      }
+    }
+  }
+  return result;
 }
 
 /**
@@ -54,8 +86,18 @@ export function getBlockById(blockId: string): { block: Block; chapterId: string
   const manifest = loadManifest();
   for (const chapter of manifest.chapters) {
     for (const section of chapter.sections) {
-      const block = section.blocks.find((b) => b.block_id === blockId);
-      if (block) return { block, chapterId: chapter.id };
+      for (const block of section.blocks) {
+        if (block.block_id === blockId) return { block, chapterId: chapter.id };
+        if (block.type === "list" && block.items) {
+          const item = block.items.find((li) => li.block_id === blockId);
+          if (item) {
+            return {
+              block: { block_id: item.block_id, type: "paragraph", content: item.content },
+              chapterId: chapter.id,
+            };
+          }
+        }
+      }
     }
   }
   return undefined;

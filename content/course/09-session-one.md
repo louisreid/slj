@@ -1,22 +1,18 @@
-# SESSION ONE
-
 ## What Is Simplicity?
 
 ‘If any one of you has material possessions and sees a brother or sister in need but has no pity on them, how can the love of God be in you?’ (1 John 3:17)
 
 ## Goals
 
-To understand as a group what voluntary simplicity is.
-
-To set some personal goals.
-
-To set some group ground rules.
+- To understand as a group what voluntary simplicity is.
+- To set some personal goals.
+- To set some group ground rules.
 
 ## Reading
 
-‘Therefore, I tell you, do not worry about your life, what you will eat or drink or about your body, what you will wear. Is not life more important than clothes? Look at the birds of the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they? Who of you by worrying can add a single hour to your life?
+@scripture ‘Therefore, I tell you, do not worry about your life, what you will eat or drink or about your body, what you will wear. Is not life more important than clothes? Look at the birds of the air; they do not sow or reap or store away in barns, and yet your heavenly Father feeds them. Are you not much more valuable than they? Who of you by worrying can add a single hour to your life?
 
-And why do you worry about clothes? See how the lilies of the field grow. They do not labour or spin. Yet I tell you that not even Solomon in all his splendour was dressed like one of these. If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the fire, will he not much more clothe you, O you of little faith? So do not worry, saying “What shall we eat?” or “What shall we wear?” for the pagans run after all these things, and your heavenly Father knows that you need them. But seek first his kingdom and his righteousness, and all these things will be given to you as well’ (Matthew 6:25–33).
+@scripture ‘And why do you worry about clothes? See how the lilies of the field grow. They do not labour or spin. Yet I tell you that not even Solomon in all his splendour was dressed like one of these. If that is how God clothes the grass of the field, which is here today and tomorrow is thrown into the fire, will he not much more clothe you, O you of little faith? So do not worry, saying “What shall we eat?” or “What shall we wear?” for the pagans run after all these things, and your heavenly Father knows that you need them. But seek first his kingdom and his righteousness, and all these things will be given to you as well’ @Matthew 6:25–33
 
 It is rare that the subject of simplicity is raised within the body of Christ. Nevertheless, simplicity is an essential part of the Christian life and also has the potential to speak directly to our society.
 
@@ -24,11 +20,13 @@ Henry Thoreau, one of the great writers on this issue, said that ‘a person is 
 
 Simple living is about stopping that treadmill and giving ourselves the space to choose how we want to live our lives. There are many voices around us that tell us that happiness is to be found in good clothes and nice jewellery; in a job that commands respect; in crashing out in front of the televisio in order to recover; in having a busy diary. Simplicity asks us to sit and listen to those other whispers inside us that we seldom have the time to hear. It helps us discover the happiness that comes – not from having an abundance of money and things – but from having the space for intimacy in our friendships, space for ourselves and, primarily, the space for God.
 
-‘I cannot tell you with truth that when this belief came to me I discarded everything immediately. I must confess to you that progress at first was slow... it was also painful at the beginning. But as days went by I saw I had to throw overboard many other things which I used to consider as mine, and a time came when it became a matter of positive joy to give up those things... A great burden fell off my shoulders and I felt I could now walk with ease... The possession of anything then became a troublesome thing and a burden’. Gandhi, on simplicity.
+‘I cannot tell you with truth that when this belief came to me I discarded everything immediately. I must confess to you that progress at first was slow... it was also painful at the beginning. But as days went by I saw I had to throw overboard many other things which I used to consider as mine, and a time came when it became a matter of positive joy to give up those things... A great burden fell off my shoulders and I felt I could now walk with ease... The possession of anything then became a troublesome thing and a burden’.
+
+— Gandhi, on simplicity
 
 Too often our days are spent thinking about the future: we drive the children to school or drive to work while planning what we will do that day, on auto-pilot, hardly noticing anything or anybody we drive past. As we talk to a friend on the phone, we are thinking what we will have for lunch and fail to hear what she is really saying. We shove a plastic container in the microwave and eat its contents while thinking about a later meeting and miss the pleasure of eating good, simple food. We can live in the present as well as the future, having the room to savour each moment of our lives.
 
-Simple living is about being joyfully aware of what we do and why we do it
+!! Simple living is about being joyfully aware of what we do and why we do it
 
 When approaching such an issue, we should always look at Jesus’ own words and his attitude to life [6]. The Sermon on the Mount makes it clear that the key point in every aspect of our lives is to seek first the kingdom of God and its righteousness and then everything else will follow naturally. Jesus is to be our cornerstone, and every aspect of our lives should hinge upon Him.
 
@@ -40,7 +38,8 @@ Simplicity is something every Christ follower should take seriously. It is deepl
 
 However, we need to be aware that moving towards simplicity will require not only going against the materialism of our society, but also against where this materialism has crept into our churches and church groups.
 
-‘Here is Edward Bear coming down the stairs now, bump bump bump bump on the back of his head. It is, as far as he knows, the only way of coming down the stairs but sometimes he feels there really is another way if he could only stop bumping for a moment and think of it.’ A. A. Milne, from Winnie-the-Pooh.
+‘Here is Edward Bear coming down the stairs now, bump bump bump bump on the back of his head. It is, as far as he knows, the only way of coming down the stairs but sometimes he feels there really is another way if he could only stop bumping for a moment and think of it.’ 
+- A. A. Milne (Winnie-the-Pooh)
 
 For simplicity to be both fulfilling and sustaining, one must choose it. To some there may be no appeal to living simply and the best reason for not leading a simple life is not wanting to! Simplicity is more a state of mind than a particular standard of living. All Christians should consciously prioritise their activities with God thus developing a wholeness in their walk with Christ and a holiness in their approach to decision-making.
 
@@ -82,9 +81,6 @@ Richard Foster makes ten suggestions to help us begin to receive the full benefi
 - Obey Jesus’ instructions about plain, honest speech: ‘let what you say simply be “yes” or “no”; anything more than this comes from evil’ (Matthew 5:37).
 - Reject anything that breeds the oppression of others.
 - Shun anything that distracts you from seeking first the Kingdom of God [9].
-
---- 
-
 - Which ones strike you as particularly interesting or challenging?
 
 ## Action
@@ -95,31 +91,17 @@ These personal goals could be from the list of ‘Five simple things you could d
 
 Five simple things you can do right now:
 
-Think of a neighbour or a friend who needs some help, whether financially or in some other way, and do something to meet that need this week.
+- Think of a neighbour or a friend who needs some help, whether financially or in some other way, and do something to meet that need this week.
+- Set aside two half-hour periods during this week when you can have some space for sitting quietly.
+- Go through your clothes and give away anything you have not worn over the past year.
+- Look at the amount of packaging involved in the food you buy and work on reducing it to a bare minimum.
+- Do not use your car this week for any journey under two miles.
 
-Set aside two half-hour periods during this week when you can have some space for sitting quietly.
-
-Go through your clothes and give away anything you have not worn over the past year.
-
-Look at the amount of packaging involved in the food you buy and work on reducing it to a bare minimum.
-
-Do not use your car this week for any journey under two miles.
+Steps I can take to move toward simplicity:
 
 ## Things To Change
 
-Use the printable **[Things to Change worksheet](/worksheets/print/things-to-change)** (see also [all worksheets](/worksheets)) to write out this section on paper during or after the session.
-
-**Daily practice or habit**
-
-Could be spiritual, like prayer, or physical, like daily exercise.
-
-**Possessions**
-
-**Non-material attachments**
-
-### Time horizons
-
-Use the printable worksheet to reflect on what you can change **immediately** and what you can work towards **within six months**.
+Write this section on paper during or after the session. Open the printable form [](/worksheets/print/things-to-change) (Things to Change).
 
 ## Prayer
 
@@ -129,10 +111,9 @@ Close your meeting by praying for one another.
 
 ## Further reading
 
-Richard Foster, Celebration of Discipline (Hodder & Stoughton, 1989).
+- Richard Foster, Celebration of Discipline (Hodder & Stoughton, 1989).
+- Richard Foster, Freedom of Simplicity (HarperCollins, 1989).
+- Michael Schut (ed.), Simpler Living: Compassionate Life (Thomas More Press, 1999)
 
-Richard Foster, Freedom of Simplicity (HarperCollins, 1989).
-
-Michael Schut (ed.), Simpler Living: Compassionate Life (Thomas More Press, 1999)
-
-'When the church commits itself to a pattern of corporate life based on radical biblical principles, it immediately challenges the moral, political, economic and social structures of the world around it...only in this way will the proclamation of the gospel make much impact amongst the vast majority of people who, at this moment, are thoroughly disillusioned by the church as an institution.' David Watson – Discipleship
+'When the church commits itself to a pattern of corporate life based on radical biblical principles, it immediately challenges the moral, political, economic and social structures of the world around it...only in this way will the proclamation of the gospel make much impact amongst the vast majority of people who, at this moment, are thoroughly disillusioned by the church as an institution.' 
+- David Watson – Discipleship

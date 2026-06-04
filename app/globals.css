@@ -116,6 +116,23 @@
     color: var(--slj-text-faint);
     font-weight: 500;
   }
+
+  /** Vertical rhythm between reader blocks (paragraphs, headings, quote rows). */
+  .slj-reader-blocks {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem; /* 20px — DesignGuidelines paragraph spacing */
+  }
+
+  /** Bible quotes: stronger rule + caption (see BlockContent parseBibleQuoteContent). */
+  .slj-scripture-quote blockquote + figcaption cite {
+    font-style: normal;
+  }
+
+  /** Bulleted lists: keep item spacing tight (especially with margin-note rows). */
+  .slj-bullets > li {
+    margin: 0;
+  }
 }
 
 /* Print (worksheets): no chrome, high contrast, page breaks */

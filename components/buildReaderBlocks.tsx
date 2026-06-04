@@ -3,7 +3,15 @@
 import type { Block, Section } from "@/lib/content";
 import type { Note } from "@/lib/notes";
 import { MarginNoteRow } from "@/components/MarginNoteRow";
-import { BlockNode, isDuplicateAdjacentQuote } from "@/components/BlockContent";
+import {
+  BlockNode,
+  isDuplicateAdjacentQuote,
+  isQuoteAttributionParagraph,
+  isQuoteLikeParagraph,
+  ListBlock,
+  QuoteWithAttribution,
+  VerseBlock,
+} from "@/components/BlockContent";
 
 export interface ReaderBlockHandlers {
   isInteractive: boolean;
@@ -28,8 +36,110 @@ export function buildReaderBlockNodes(
   let previousBlock: Block | null = null;
 
   for (const section of sections) {
-    for (const block of section.blocks) {
+    const blocks = section.blocks;
+    for (let i = 0; i < blocks.length; i++) {
+      const block = blocks[i];
+      const nextBlock = blocks[i + 1] ?? null;
+
       if (isDuplicateAdjacentQuote(block, previousBlock)) {
+        previousBlock = block;
+        continue;
+      }
+
+      if (
+        !handlers.isInteractive &&
+        block.type === "paragraph" &&
+        !block.forceBody &&
+        isQuoteLikeParagraph(block.content) &&
+        nextBlock?.type === "paragraph" &&
+        isQuoteAttributionParagraph(nextBlock.content)
+      ) {
+        nodes.push(
+          <QuoteWithAttribution key={block.block_id} quote={block} attribution={nextBlock} />
+        );
+        previousBlock = nextBlock;
+        i++;
+        continue;
+      }
+
+      if (block.type === "list" && block.items?.length) {
+        if (handlers.isInteractive) {
+          nodes.push(
+            <ul
+              key={block.block_id}
+              className="slj-bullets list-disc space-y-1 pl-6 font-serif marker:text-[var(--slj-text)]"
+            >
+              {block.items.map((item) => {
+                const itemBlock = {
+                  block_id: item.block_id,
+                  type: "paragraph" as const,
+                  content: item.content,
+                  /** List items stay plain text even when they start with ‘ or “ */
+                  forceBody: true,
+                };
+                const blockNotes = handlers.notesByBlockId.get(item.block_id) ?? [];
+                const labelBase = handlers.blockIdToLabel[item.block_id] ?? "List item";
+                const label =
+                  blockNotes.length > 1
+                    ? `${labelBase} (${blockNotes.length} notes)`
+                    : labelBase;
+                return (
+                  <li key={item.block_id} id={item.block_id} className="list-item pl-1">
+                    <MarginNoteRow
+                      block={itemBlock}
+                      notes={blockNotes}
+                      label={label}
+                      hasNote={handlers.blockIdsWithNotes.has(item.block_id)}
+                      activeBlockId={handlers.activeBlockId}
+                      isSignedIn={handlers.isSignedIn}
+                      onAddOrEditNote={handlers.onAddOrEditNote}
+                      onInsert={handlers.onInsert}
+                      onUpdate={handlers.onUpdate}
+                      onDelete={handlers.onDelete}
+                      onCancelComposer={handlers.onCancelComposer}
+                      onActivateBlock={handlers.onActivateBlock}
+                      dense
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          );
+        } else {
+          nodes.push(<ListBlock key={block.block_id} block={block} />);
+        }
+        previousBlock = block;
+        continue;
+      }
+
+      if (block.type === "verse" && block.lines?.length) {
+        if (handlers.isInteractive) {
+          const blockNotes = handlers.notesByBlockId.get(block.block_id) ?? [];
+          const labelBase = handlers.blockIdToLabel[block.block_id] ?? "Song lyrics";
+          const label =
+            blockNotes.length > 1
+              ? `${labelBase} (${blockNotes.length} notes)`
+              : labelBase;
+          nodes.push(
+            <MarginNoteRow
+              key={block.block_id}
+              block={block}
+              notes={blockNotes}
+              label={label}
+              hasNote={handlers.blockIdsWithNotes.has(block.block_id)}
+              activeBlockId={handlers.activeBlockId}
+              isSignedIn={handlers.isSignedIn}
+              onAddOrEditNote={handlers.onAddOrEditNote}
+              onInsert={handlers.onInsert}
+              onUpdate={handlers.onUpdate}
+              onDelete={handlers.onDelete}
+              onCancelComposer={handlers.onCancelComposer}
+              onActivateBlock={handlers.onActivateBlock}
+            />
+          );
+        } else {
+          nodes.push(<VerseBlock key={block.block_id} block={block} />);
+        }
         previousBlock = block;
         continue;
       }
@@ -41,6 +151,7 @@ export function buildReaderBlockNodes(
           blockNotes.length > 1
             ? `${labelBase} (${blockNotes.length} notes)`
             : labelBase;
+        const isAttribution = isQuoteAttributionParagraph(block.content);
 
         nodes.push(
           <MarginNoteRow
@@ -57,6 +168,7 @@ export function buildReaderBlockNodes(
             onDelete={handlers.onDelete}
             onCancelComposer={handlers.onCancelComposer}
             onActivateBlock={handlers.onActivateBlock}
+            dense={isAttribution}
           />
         );
       } else {

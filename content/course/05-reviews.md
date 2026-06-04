@@ -1,12 +1,10 @@
-# REVIEWS
-
 ‘People on the course were immediately stimulated and challenged.’
 
 ‘People enjoyed discussing the issues the course raised and found it possible to relate to them, despite all being at very different stages of their Christian lives. The overwhelming positive is the quality and breadth of the materials. You could not fault the course for not being practical enough! Another real bonus has been that the course has given us a vocabulary for challenging each other about our lifestyles, how we spend our money, etc., which we previously lacked.’
 
 ‘The emphasis is practical and people have been jogged into ‘doing’ something about it all.’
 
-We just finished the Simplicity course. We used it with a group of mums during the day time and it was a brilliant success, challenging all our mindsets and creating a lot of change!’
+'We just finished the Simplicity course. We used it with a group of mums during the day time and it was a brilliant success, challenging all our mindsets and creating a lot of change!’
 
 ‘I enjoyed it – I enjoy this full-on, confrontational challenge stuff as then something tends to click inside my head and heart!’
 
@@ -14,7 +12,7 @@ We just finished the Simplicity course. We used it with a group of mums during t
 
 ‘The course spoke very powerfully to me in an issue I had been dealing with at work. In essence, the Lord provides for all our needs yet I wanted to badger bosses for more money rather than go and ask my heavenly father. I was then prompted to remember [a man] who prayerfully takes his financial needs to the Lord, who in turn has covered them, rather than go and ask friends for more money.
 
-Once this light was switched on, I was then able to recognise I have more than enough, and should I need more I will go to the Lord and ask him first.’
+'Once this light was switched on, I was then able to recognise I have more than enough, and should I need more I will go to the Lord and ask him first.’
 
 ‘Personal Money was a breakthrough area in my life. Hope I’ve formed a habit. I’m still doing it and still saving my £2.’
 

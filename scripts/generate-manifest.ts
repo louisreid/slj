@@ -6,19 +6,62 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import { createHash } from "crypto";
+import { stableBlockId } from "../lib/content/blockId";
+import { extractParagraphMarkers } from "../lib/content/paragraphMarkers";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const COURSE_DIR = path.join(CONTENT_DIR, "course");
 const MANIFEST_PATH = path.join(CONTENT_DIR, "manifest.json");
 
-type BlockType = "heading" | "paragraph";
+/** Active chapter files only: `04-preface.md`, `09-session-one.md`, etc. */
+const CHAPTER_FILE_RE = /^(\d{2})-(.+\.md)$/;
+
+type BlockType = "heading" | "paragraph" | "list" | "verse";
+
+interface ListItem {
+  block_id: string;
+  content: string;
+}
 
 interface Block {
   block_id: string;
   type: BlockType;
   content: string;
   level?: number;
+  forceBody?: boolean;
+  scriptureRef?: string;
+  forceScripture?: boolean;
+  headlineQuote?: boolean;
+  items?: ListItem[];
+  lines?: ListItem[];
+  verseAlign?: "right" | "center";
+}
+
+type ParsedBlock = {
+  type: BlockType;
+  level?: number;
+  content: string;
+  forceBody?: boolean;
+  scriptureRef?: string;
+  forceScripture?: boolean;
+  headlineQuote?: boolean;
+  items?: ListItem[];
+  lines?: ListItem[];
+  verseAlign?: "right" | "center";
+};
+
+function pushParagraph(blocks: ParsedBlock[], raw: string): void {
+  const { content, forceBody, scriptureRef, forceScripture, headlineQuote } =
+    extractParagraphMarkers(raw);
+  if (!content) return;
+  blocks.push({
+    type: "paragraph",
+    content,
+    ...(forceBody ? { forceBody: true } : {}),
+    ...(scriptureRef ? { scriptureRef } : {}),
+    ...(forceScripture ? { forceScripture: true } : {}),
+    ...(headlineQuote ? { headlineQuote: true } : {}),
+  });
 }
 
 interface Section {
@@ -37,14 +80,6 @@ interface Chapter {
 
 interface Manifest {
   chapters: Chapter[];
-}
-
-function stableBlockId(chapterId: string, content: string): string {
-  const hash = createHash("sha256")
-    .update(chapterId + "\n" + content)
-    .digest("hex")
-    .slice(0, 12);
-  return `${chapterId}-${hash}`;
 }
 
 /** Static = reference-only (no note affordances). Interactive = default for sessions. */
@@ -95,8 +130,102 @@ function getUppercaseHeadingLevel(trimmed: string): number | null {
   return 2;
 }
 
-function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; content: string }[] {
-  const blocks: { type: BlockType; level?: number; content: string }[] = [];
+/** Single `-` line after a quote (e.g. `- Gandhi`) — not a bulleted list. */
+function isQuoteAttributionLine(itemText: string): boolean {
+  const trimmed = itemText.trim();
+  if (/^—\s+\S/u.test(trimmed)) return true;
+  if (trimmed.length > 160 || /\?\s*$/u.test(trimmed)) return false;
+  return trimmed.length > 0 && trimmed.length <= 160;
+}
+
+/** Standalone attribution line (e.g. `— Gandhi, on simplicity` on its own line). */
+function isStandaloneAttributionLine(text: string): boolean {
+  const trimmed = text.trim();
+  if (/^—\s+\S/u.test(trimmed)) return true;
+  if (/^-\s+\S/u.test(trimmed)) {
+    return isQuoteAttributionLine(trimmed.replace(/^-\s+/, ""));
+  }
+  return false;
+}
+
+function shouldParseAsList(items: string[]): boolean {
+  if (items.length >= 2) return true;
+  if (items.length === 1) return !isQuoteAttributionLine(items[0]);
+  return false;
+}
+
+function collectBulletItems(
+  lines: string[],
+  startIndex: number
+): { items: string[]; nextIndex: number } {
+  const items: string[] = [];
+  let i = startIndex;
+  while (i < lines.length) {
+    const l = lines[i];
+    if (/^#{1,6}\s/.test(l)) break;
+    if (l.trim() === "" && items.length > 0) {
+      i++;
+      break;
+    }
+    if (l.trim() === "" && items.length === 0) {
+      i++;
+      continue;
+    }
+    const bullet = l.match(/^-\s+(.*)$/);
+    if (!bullet) break;
+    items.push(bullet[1].trim());
+    i++;
+  }
+  return { items, nextIndex: i };
+}
+
+function pushListBlock(blocks: ParsedBlock[], items: string[]): void {
+  blocks.push({ type: "list", content: "", items: items.map((content) => ({ block_id: "", content })) });
+}
+
+type VersePrefix = ">>" | "::";
+
+function collectVerseLines(
+  lines: string[],
+  startIndex: number,
+  prefix: VersePrefix
+): { lines: string[]; nextIndex: number } {
+  const verseLines: string[] = [];
+  const prefixRe = prefix === "::" ? /^::\s?(.*)$/ : /^>>\s?(.*)$/;
+  let i = startIndex;
+  while (i < lines.length) {
+    const trimmed = lines[i].trim();
+    if (trimmed === "" && verseLines.length > 0) {
+      i++;
+      break;
+    }
+    if (trimmed === "" && verseLines.length === 0) {
+      i++;
+      continue;
+    }
+    const match = lines[i].match(prefixRe);
+    if (!match) break;
+    verseLines.push(match[1].trim());
+    i++;
+  }
+  return { lines: verseLines, nextIndex: i };
+}
+
+function pushVerseBlock(
+  blocks: ParsedBlock[],
+  lines: string[],
+  align: "right" | "center"
+): void {
+  blocks.push({
+    type: "verse",
+    content: "",
+    verseAlign: align,
+    lines: lines.map((content) => ({ block_id: "", content })),
+  });
+}
+
+function parseMarkdownBlocks(md: string): ParsedBlock[] {
+  const blocks: ParsedBlock[] = [];
   const lines = md.split(/\r?\n/);
   let i = 0;
 
@@ -109,13 +238,41 @@ function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; con
       if (content && !isScriptureReferenceLine(content)) {
         blocks.push({ type: "heading", level, content });
       } else if (content) {
-        // Treat scripture-like lines as paragraph content instead of headings
         blocks.push({ type: "paragraph", content });
       }
       i++;
       continue;
     }
-    // Paragraph: collect until blank line or # heading
+
+    if (/^>>/.test(line.trim())) {
+      const { lines: verseLines, nextIndex } = collectVerseLines(lines, i, ">>");
+      i = nextIndex;
+      if (verseLines.length > 0) {
+        pushVerseBlock(blocks, verseLines, "right");
+      }
+      continue;
+    }
+
+    if (/^::/.test(line.trim())) {
+      const { lines: verseLines, nextIndex } = collectVerseLines(lines, i, "::");
+      i = nextIndex;
+      if (verseLines.length > 0) {
+        pushVerseBlock(blocks, verseLines, "center");
+      }
+      continue;
+    }
+
+    if (/^-\s+/.test(line.trim())) {
+      const { items, nextIndex } = collectBulletItems(lines, i);
+      i = nextIndex;
+      if (shouldParseAsList(items)) {
+        pushListBlock(blocks, items);
+      } else if (items.length === 1) {
+        pushParagraph(blocks, `- ${items[0]}`);
+      }
+      continue;
+    }
+
     const paragraphLines: string[] = [];
     while (i < lines.length) {
       const l = lines[i];
@@ -125,6 +282,35 @@ function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; con
         break;
       }
       if (l.trim() !== "") {
+        if (/^-\s+/.test(l) && paragraphLines.length === 0) {
+          const { items, nextIndex } = collectBulletItems(lines, i);
+          i = nextIndex;
+          if (shouldParseAsList(items)) {
+            pushListBlock(blocks, items);
+          } else if (items.length === 1) {
+            pushParagraph(blocks, `- ${items[0]}`);
+          }
+          break;
+        }
+        if (/^-\s+/.test(l) && paragraphLines.length > 0) {
+          pushParagraph(blocks, paragraphLines.join("\n"));
+          const { items, nextIndex } = collectBulletItems(lines, i);
+          i = nextIndex;
+          if (shouldParseAsList(items)) {
+            pushListBlock(blocks, items);
+          } else if (items.length === 1) {
+            pushParagraph(blocks, `- ${items[0]}`);
+          }
+          paragraphLines.length = 0;
+          break;
+        }
+        if (isStandaloneAttributionLine(l) && paragraphLines.length > 0) {
+          pushParagraph(blocks, paragraphLines.join("\n"));
+          pushParagraph(blocks, l.trim());
+          paragraphLines.length = 0;
+          i++;
+          continue;
+        }
         if (paragraphLines.length === 0) {
           const level = getUppercaseHeadingLevel(l.trim());
           if (level != null) {
@@ -138,14 +324,14 @@ function parseMarkdownBlocks(md: string): { type: BlockType; level?: number; con
       i++;
     }
     if (paragraphLines.length > 0) {
-      blocks.push({ type: "paragraph", content: paragraphLines.join("\n").trim() });
+      pushParagraph(blocks, paragraphLines.join("\n"));
     }
   }
 
   return blocks;
 }
 
-function blocksToSections(blocks: { type: BlockType; level?: number; content: string }[]): Section[] {
+function blocksToSections(blocks: ParsedBlock[]): Section[] {
   const sections: Section[] = [];
   let current: Block[] = [];
 
@@ -155,10 +341,17 @@ function blocksToSections(blocks: { type: BlockType; level?: number; content: st
       current = [];
     }
     current.push({
-      block_id: "", // filled by caller with chapterId
+      block_id: "",
       type: b.type,
       content: b.content,
+      ...(b.forceBody ? { forceBody: true } : {}),
+      ...(b.scriptureRef ? { scriptureRef: b.scriptureRef } : {}),
+      ...(b.forceScripture ? { forceScripture: true } : {}),
+      ...(b.headlineQuote ? { headlineQuote: true } : {}),
       ...(b.type === "heading" && b.level != null ? { level: b.level } : {}),
+      ...(b.type === "list" && b.items ? { items: b.items } : {}),
+      ...(b.type === "verse" && b.lines ? { lines: b.lines } : {}),
+      ...(b.type === "verse" && b.verseAlign ? { verseAlign: b.verseAlign } : {}),
     });
   }
   if (current.length > 0) {
@@ -172,11 +365,8 @@ function processChapter(fileName: string): Chapter | null {
   const chapterId = fileName.replace(/\.md$/i, "");
   const filePath = path.join(COURSE_DIR, fileName);
 
-  // Exclude specific content-only chapters from the manifest:
-  // - Index / contents wrapper
-  // - Front matter wrapper
-  // - Early preface + further-reading stubs
-  // - Standalone numeric notes index
+  // Exclude chapters that should live in content/archive/ or docs (not the reader).
+  // Kept so a mistaken copy into content/course/ does not create duplicate chapters.
   if (
     chapterId === "00-INDEX" ||
     chapterId === "01-front-matter" ||
@@ -196,10 +386,22 @@ function processChapter(fileName: string): Chapter | null {
   const firstHeading = parsed.find((p) => p.type === "heading");
   const title = firstHeading?.content ?? chapterId;
 
-  // Assign stable block_id to each block
   for (const section of sections) {
     for (const block of section.blocks) {
-      block.block_id = stableBlockId(chapterId, block.content);
+      if (block.type === "list" && block.items?.length) {
+        const joined = block.items.map((item) => item.content).join("\n");
+        block.block_id = stableBlockId(chapterId, `list\n${joined}`);
+        for (const item of block.items) {
+          item.block_id = stableBlockId(chapterId, item.content);
+        }
+      } else if (block.type === "verse" && block.lines?.length) {
+        const joined = block.lines.map((item) => item.content).join("\n");
+        const align = block.verseAlign ?? "right";
+        block.block_id = stableBlockId(chapterId, `verse:${align}\n${joined}`);
+        block.content = block.lines[0]?.content.slice(0, 80) ?? "Verse";
+      } else {
+        block.block_id = stableBlockId(chapterId, block.content);
+      }
     }
   }
 
@@ -218,7 +420,10 @@ function main(): void {
     fs.mkdirSync(COURSE_DIR, { recursive: true });
   }
 
-  const files = fs.readdirSync(COURSE_DIR).filter((f) => f.endsWith(".md")).sort();
+  const files = fs
+    .readdirSync(COURSE_DIR)
+    .filter((f) => CHAPTER_FILE_RE.test(f))
+    .sort();
   const chapters: Chapter[] = [];
 
   for (const file of files) {

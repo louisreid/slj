@@ -180,7 +180,7 @@ On **https://slj.talksfromthewarehouse.co.uk**:
 1. **Sign in via email code** — `/auth/sign-in`, enter email, enter the emailed code, and confirm signed-in state.
 2. **Load course reader** — Open course; confirm content loads.
 3. **Create note** — Add a private margin note to a block; confirm it saves and appears.
-4. **Mark progress** — Toggle section completion; confirm it persists after refresh.
+4. **Mark progress** — In an interactive session chapter, click **Mark complete**; confirm it persists after refresh and updates `/progress` (requires `chapter_progress` migration applied).
 5. **Print worksheet** — Open worksheets, use browser Print; confirm print-friendly layout.
 6. **Join group + edit shared notes** — Join a group, edit shared group notes, save; confirm edits persist (e.g. after refresh).
 

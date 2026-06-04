@@ -7,7 +7,8 @@ A discussion course app: read content, take private notes, track progress, join 
 1. Clone the repo and install: `pnpm i`
 2. Copy env template: `cp .env.example .env.local`
 3. Fill in Supabase credentials in `.env.local` (URL and anon key from [Supabase Dashboard → API](https://supabase.com/dashboard/project/_/settings/api))
-4. Run dev server: `pnpm dev` → open [http://localhost:3000](http://localhost:3000)
+4. Apply Supabase migrations: `pnpm db:push` (requires `supabase login`; uses Supabase CLI v2.104+). If `SUPABASE_ACCESS_TOKEN` in `.env.local` is expired, remove it or the script uses a clean workdir.
+5. Run dev server: `pnpm dev` → open [http://localhost:3000](http://localhost:3000)
 
 ## Commands (pnpm)
 

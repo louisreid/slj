@@ -134,3 +134,13 @@
 - [x] Content maintenance guardrails documented + content lint script
 - [x] James Odgers feedback (Apr 2025): narrower notes column, note panel scroll after save, duplicate chapter titles (static + full book), Further reading section band, Session 1 worksheet link + Things to Change markdown repair, worksheet print styling, minimal `[text](url)` in course paragraphs, Playwright e2e smoke (`pnpm test:e2e`)
 - [x] Margin notes layout — notes beside paragraphs (not sidebar): see [plans/margin-notes-layout.md](plans/margin-notes-layout.md) (Phases A–D)
+
+## James May 2026 review (James Odgers)
+
+- [x] End-of-book notes chapter (`28-notes.md`) + `[n]` hyperlinks in reader
+- [x] Static chapter reading measure (`max-w-[72ch]` on foreword, intro, etc.)
+- [x] Introduction: private margin notes how-to
+- [x] Budgeting worksheet: Mrs R. E. Joyce example heading
+- [x] Remove empty `08-further-reading-and-resources.md` stub; docs/index updated
+- [x] E2e smoke: foreword h1, intro further reading, footnote link, Joyce heading
+- [x] Spot-check script: [James-May-2026-SpotCheck.md](James-May-2026-SpotCheck.md)

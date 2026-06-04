@@ -15,7 +15,7 @@ How to get course content from Word (or a zip of markdown chapters) into the app
 ## Option 2: Manual copy
 
 1. Unzip the chapter markdown somewhere.
-2. Copy only the chapter files (`01-*.md` through `35-*.md` or whatever your numbering is) into `content/course/`. Do **not** copy `00-INDEX.md` into `content/course/` or it will appear as a chapter.
+2. Copy only **active** chapter files into `content/course/` (see `content/course/README.md` for the current list, e.g. `04-preface.md` through `27-session-ten.md`). Do **not** copy ingest stubs (`01-front-matter`, `02-preface`, `03-further-reading`) or `00-INDEX.md` into `content/course/` — put those in `content/archive/` or `docs/course-00-INDEX.md` instead.
 3. Run `pnpm generate-manifest`.
 
 ## Option 3: Word → single Markdown → split (future)
@@ -24,4 +24,6 @@ If you have one big Word doc and convert it to a single Markdown file (e.g. with
 
 ## After any content change
 
-- Run `pnpm generate-manifest` so block IDs in `content/manifest.json` stay in sync. The build runs this automatically before `pnpm build`.
+- **While editing:** run `pnpm watch:content` in a second terminal (alongside `pnpm dev`). It runs `generate-manifest` whenever you save a file in `content/course/`. In development, the app polls for manifest changes and refreshes the page automatically — no manual browser refresh or full Next.js rebuild. React/CSS edits still hot-reload via Next as usual.
+- **One-off:** `pnpm generate-manifest` so block IDs in `content/manifest.json` stay in sync.
+- **Production build:** `pnpm build` runs `generate-manifest` automatically via `prebuild`.

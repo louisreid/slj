@@ -23,6 +23,17 @@
 - `last_block_id` (nullable)
 - `updated_at`
 
+Used for **last-read position** (`last_block_id`). Section-level `completed_at` is not used in V1 UI.
+
+### chapter_progress (private)
+- `id`
+- `user_id`
+- `chapter_id`
+- `completed_at` (nullable)
+- `updated_at`
+
+Manual **chapter completion** (interactive sessions). Course % counts only chapters with `mode !== "static"`.
+
 ### groups
 - `id`
 - `name`
@@ -42,11 +53,13 @@
 ## Invariants
 - `notes.user_id = auth.uid()`
 - `progress.user_id = auth.uid()`
+- `chapter_progress.user_id = auth.uid()`
 - group read/write requires membership
 - invite_code is not secret, but controls join flow
 
 ## Indexes (minimum)
 - notes: (user_id, block_id)
 - progress: (user_id, section_id)
+- chapter_progress: (user_id, chapter_id)
 - group_members: (group_id, user_id)
 - groups: (invite_code)

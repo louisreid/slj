@@ -1,5 +1,3 @@
-# PREFACE
-
 This course book was first published by Alpha/HTB in 2004 - and Sandy Millar, then the vicar there, wrote a very kind foreword. But that is some 21 years ago and the world and the Church in this country have both moved on a long way since then. This is an updated edition, whilst the last edition in 2008 was no more than a reprint.
 
 Many hundreds of people have done this course over the years, and a few of their reactions follow on the next page. I believe it continues to be a useful resource for home groups and whole Churches – especially those who have been involved, or want to be involved, in ministries with the poor in their local area. As I say in the foreword, we developed these materials to accompany one particular ministry – The Besom (now, org) which I founded in 1987 after returning from working with Jackie Pullinger in Hong Kong, and which still flourishes in other hands.
@@ -12,4 +10,4 @@ Since starting The Besom, my wife and I have spent much of our time encouraging 
 
 As ever, if there are mistakes of any sort in this book, they are mine. This edition was brilliantly updated for republication by Sarah Lamour, save for the chapter on Caring for God's World which was brought up to date by the ever-inspiring Will and Pip Campbell-Clause. Clara Wells assisted greatly in the formatting. My many thanks to all four.
 
-James Odgers Summer 2025
+_James Odgers, Summer 2025_

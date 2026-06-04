@@ -1,6 +1,6 @@
 {
   "name": "slj",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -12,8 +12,10 @@
     "test": "jest",
     "test:e2e": "playwright test",
     "generate-manifest": "tsx scripts/generate-manifest.ts",
+    "watch:content": "tsx scripts/watch-content.ts",
     "ingest-from-zip": "tsx scripts/ingest-from-zip.ts",
-    "lint:content": "tsx scripts/lint-content.ts"
+    "lint:content": "tsx scripts/lint-content.ts",
+    "db:push": "bash scripts/apply-chapter-progress.sh"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",

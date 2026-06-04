@@ -38,7 +38,7 @@ export default async function WorksheetPrintPage({
           ← Back to Course index
         </Link>
       </div>
-      <div className="mx-auto max-w-3xl px-6 py-10 print:py-6">
+      <div className="max-w-3xl px-6 py-10 print:py-6">
         {component}
       </div>
     </div>

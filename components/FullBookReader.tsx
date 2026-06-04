@@ -43,6 +43,11 @@ export function FullBookReader({
         if (sectionId) {
           for (const block of section.blocks) {
             map.set(block.block_id, sectionId);
+            if (block.type === "list" && block.items) {
+              for (const item of block.items) {
+                map.set(item.block_id, sectionId);
+              }
+            }
           }
         }
       }
@@ -214,7 +219,15 @@ export function FullBookReader({
               </h1>
             </div>
           )}
-          <div>{chapterNodes}</div>
+          <div
+            className={
+              chapter.mode === "interactive"
+                ? "slj-reader-blocks"
+                : "slj-reader-blocks mx-auto max-w-[72ch]"
+            }
+          >
+            {chapterNodes}
+          </div>
         </section>
       );
     });

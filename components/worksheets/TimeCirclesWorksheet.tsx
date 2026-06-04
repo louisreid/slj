@@ -1,15 +1,3 @@
-type CircleSpec = {
-  labelLeft: string;
-  labelRight?: string;
-};
-
-const CIRCLES: CircleSpec[] = [
-  { labelLeft: "MONDAY", labelRight: "SUNDAY" },
-  { labelLeft: "TUESDAY", labelRight: "SATURDAY" },
-  { labelLeft: "WEDNESDAY", labelRight: "FRIDAY" },
-  { labelLeft: "THURSDAY" },
-];
-
 function BlankCircle({ label }: { label: string }) {
   return (
     <div className="break-inside-avoid">
@@ -37,8 +25,8 @@ export function TimeCirclesWorksheet() {
   const layout = [
     ["MONDAY", "SUNDAY"],
     ["TUESDAY", "SATURDAY"],
-    ["THURSDAY", ""],
     ["WEDNESDAY", "FRIDAY"],
+    ["THURSDAY", ""],
   ] as const;
 
   return (

@@ -18,4 +18,13 @@ export {
   headingTextMatchesDisplayTitle,
   normalizeHeadingForTitleMatch,
 } from "./display";
-export type { Chapter, Section, Block, Manifest, BlockType, ChapterMode } from "./types";
+export type {
+  Chapter,
+  Section,
+  Block,
+  ListItem,
+  Manifest,
+  BlockType,
+  ChapterMode,
+} from "./types";
+export { stableBlockId } from "./blockId";

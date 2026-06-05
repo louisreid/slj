@@ -1,4 +1,4 @@
-# AGENTS.md — Simplicity, Love & Justice (A Discussion Course)
+# AGENTS.md — Simplicity Love & Justice (A Discussion Course)
 
 ## Stack (boring + durable)
 - Next.js (App Router) + TypeScript

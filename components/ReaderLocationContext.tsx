@@ -62,3 +62,12 @@ export function worksheetHrefWithReturn(
   const sep = worksheetPath.includes("?") ? "&" : "?";
   return `${worksheetPath}${sep}returnTo=${encodeURIComponent(returnTo)}`;
 }
+
+export function worksheetHrefWithAutoprint(
+  worksheetPath: string,
+  returnTo: string | null
+): string {
+  const href = worksheetHrefWithReturn(worksheetPath, returnTo);
+  const sep = href.includes("?") ? "&" : "?";
+  return `${href}${sep}autoprint=1`;
+}

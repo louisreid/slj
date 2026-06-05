@@ -5,6 +5,7 @@ import { Printer } from "lucide-react";
 import type { ReactNode } from "react";
 import {
   useWorksheetReturnTo,
+  worksheetHrefWithAutoprint,
   worksheetHrefWithReturn,
 } from "@/components/ReaderLocationContext";
 import {
@@ -25,6 +26,7 @@ type WorksheetCalloutProps = {
 export function WorksheetCallout({ worksheet }: WorksheetCalloutProps) {
   const returnTo = useWorksheetReturnTo();
   const openHref = worksheetHrefWithReturn(worksheet.href, returnTo);
+  const printHref = worksheetHrefWithAutoprint(worksheet.href, returnTo);
 
   return (
     <div
@@ -52,9 +54,7 @@ export function WorksheetCallout({ worksheet }: WorksheetCalloutProps) {
             Open
           </Link>
           <Link
-            href={openHref}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={printHref}
             className="slj-button-secondary inline-flex h-10 min-w-[5.5rem] items-center justify-center px-5 text-xs uppercase tracking-[0.18em]"
           >
             Print

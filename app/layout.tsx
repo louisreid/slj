@@ -7,6 +7,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { COURSE_TITLE } from "@/lib/site-branding";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -33,7 +34,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Simplicity, Love & Justice",
+  title: COURSE_TITLE,
   description: "A discussion course",
 };
 

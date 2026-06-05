@@ -61,9 +61,7 @@ export default async function WorksheetsPage() {
                   Open
                 </Link>
                 <Link
-                  href={`/worksheets/print/${ws.id}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={`/worksheets/print/${ws.id}?autoprint=1`}
                   className="slj-button-secondary inline-flex h-10 items-center justify-center px-5 text-xs uppercase tracking-[0.18em]"
                 >
                   Print

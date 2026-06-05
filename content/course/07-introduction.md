@@ -24,7 +24,7 @@ It is sometimes said that simple living is a luxury that only the middle classes
 
 Therefore, there is much in these materials that can and should be embraced by almost everyone in the West. _‘As with all other aspects of simplifying, going against the grain takes a little more creativity and energy, but the results are well worth it.’_ [4]
 
-With all this in mind, Simplicity, Love and Justice is designed to help groups of Christ followers to look at different aspects of their lives and re-evaluate the decisions they have made and the values that they have accepted.
+With all this in mind, Simplicity Love and Justice is designed to help groups of Christ followers to look at different aspects of their lives and re-evaluate the decisions they have made and the values that they have accepted.
 
 In summary, the aim of the material is to help us:
 

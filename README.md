@@ -1,4 +1,4 @@
-# Simplicity, Love & Justice
+# Simplicity Love & Justice
 
 A discussion course app: read content, take private notes, track progress, join groups.
 

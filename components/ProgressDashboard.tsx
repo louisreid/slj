@@ -15,6 +15,7 @@ import {
 } from "@/lib/progress-summary";
 import { isMissingChapterProgressTable } from "@/lib/progress-errors";
 import { PageShell } from "@/components/ui/surfaces";
+import { COURSE_TITLE, PREFACE_HREF } from "@/lib/site-branding";
 import type { Chapter, Section } from "@/lib/content";
 
 const FRONT_MATTER_CHAPTER_IDS = new Set([
@@ -207,7 +208,7 @@ export async function ProgressDashboard({
               Progress
             </p>
             <h1 className="mt-4 font-serif text-4xl font-semibold leading-none text-[var(--slj-text)] md:text-5xl">
-              Simplicity, Love & Justice
+              {COURSE_TITLE}
             </h1>
           </div>
           <div className="flex items-end gap-3">
@@ -242,13 +243,19 @@ export async function ProgressDashboard({
                 session if you have not started yet.
               </p>
             </div>
-            <div className="mt-6">
+            <div className="mt-6 space-y-3">
               <Link
                 href={continueHref}
                 className="slj-button inline-flex w-full items-center justify-center gap-2 px-4 py-3 text-sm"
               >
                 <span>Continue</span>
                 <Play size={16} strokeWidth={2.25} />
+              </Link>
+              <Link
+                href={PREFACE_HREF}
+                className="slj-button-secondary inline-flex w-full items-center justify-center px-4 py-3 text-sm"
+              >
+                Start at Preface
               </Link>
             </div>
           </div>

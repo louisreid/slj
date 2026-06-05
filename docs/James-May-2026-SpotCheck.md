@@ -20,8 +20,10 @@ pnpm test:e2e
 4. **Session 5** — no inline money tables in reader; Action links to budgeting worksheet; click `[38]` in prose → Notes chapter at Wesley entry.
 5. **Session 7** — no duplicate “hut in a palace” blocks.
 6. **Session 8** — covetousness quote not split awkwardly; What on Earth worksheet link.
-7. **Worksheets** — open/print all five from `/worksheets`; budgeting print shows “Mrs R. E. Joyce” before August example.
+7. **Worksheets** — open/print all five from `/worksheets`; budgeting print shows “Mrs R. E. Joyce” before August example; Print from course returns via Back to course.
 8. **Desktop + mobile** — margin note icon discoverable after reading intro blurb.
+9. **Footer** — copyright + digital edition notice on app pages.
+10. **Nav** — Course = dashboard; Contents = chapters; Start at Preface on dashboard.
 
 ## Changelog bullets (email template)
 
@@ -30,3 +32,4 @@ pnpm test:e2e
 - Introduction explains how private margin notes work.
 - Session worksheets linked from Action/Discussion; personal finance example on print worksheet only.
 - Further reading merged into Introduction.
+- Copyright footer; Contents nav; Start at Preface; title matches print (Simplicity Love & Justice).

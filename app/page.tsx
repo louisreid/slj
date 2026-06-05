@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/AppNav";
+import { SiteFooter } from "@/components/SiteFooter";
 import { ProgressDashboard } from "@/components/ProgressDashboard";
+import { COURSE_SUBTITLE, COURSE_TITLE } from "@/lib/site-branding";
 
 export default async function LandingPage() {
   const supabase = await createClient();
@@ -22,14 +24,14 @@ export default async function LandingPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[var(--slj-bg)] px-6 py-10 text-[var(--slj-text)] md:px-10 md:py-14">
-      <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-5xl items-center">
+    <main className="flex min-h-screen flex-col bg-[var(--slj-bg)] px-6 py-10 text-[var(--slj-text)] md:px-10 md:py-14">
+      <div className="mx-auto flex w-full max-w-5xl flex-1 items-center">
         <section className="w-full max-w-2xl border border-[var(--slj-border)] bg-[var(--slj-surface)] p-8 md:p-12">
           <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">
-            A Discussion Course
+            {COURSE_SUBTITLE}
           </p>
           <h1 className="mt-4 font-serif text-5xl font-semibold leading-none md:text-7xl">
-            Simplicity, Love & Justice
+            {COURSE_TITLE}
           </h1>
           <p className="slj-muted mt-6 max-w-xl font-serif text-2xl leading-tight md:text-3xl">
             Read slowly, reflect honestly, and keep your notes close at hand.
@@ -45,6 +47,7 @@ export default async function LandingPage() {
           </div>
         </section>
       </div>
+      <SiteFooter className="mx-auto mt-10 w-full max-w-5xl" />
     </main>
   );
 }

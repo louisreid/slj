@@ -4,12 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { APP_RELEASE_LABEL } from "@/lib/release";
+import { COURSE_SUBTITLE, COURSE_TITLE } from "@/lib/site-branding";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
 // Groups hidden for now; re-add { href: "/groups", label: "Groups", short: "G" } to bring back
 const navItems = [
   { href: "/", label: "Course", short: "C" },
+  { href: "/course/04-preface", label: "Contents", short: "T" },
   { href: "/worksheets", label: "Worksheets", short: "W" },
 ] as const;
 
@@ -54,7 +56,11 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
     if (!pathname) return false;
 
     if (href === "/") {
-      return pathname === "/" || pathname === "/course" || pathname.startsWith("/course/");
+      return pathname === "/";
+    }
+
+    if (href === "/course/04-preface") {
+      return pathname.startsWith("/course/");
     }
 
     return pathname === href || pathname.startsWith(`${href}/`);
@@ -74,10 +80,10 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
           {(!collapsed || drawerOpen) && (
             <Link href="/" className="space-y-1" onClick={closeDrawer}>
               <p className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
-                A Discussion Course
+                {COURSE_SUBTITLE}
               </p>
               <p className="font-serif text-xl font-semibold leading-tight text-[var(--slj-text)]">
-                Simplicity, Love & Justice
+                {COURSE_TITLE}
               </p>
             </Link>
           )}

@@ -14,13 +14,13 @@ Do you ever take the time to stand outside in the dark on a summer’s night and
 
 In the light of this, it’s important for us to be aware of the widespread environmental degradation that has resulted from our consumption habits and carelessness.
 
+‘The heavens declare the glory of God; the skies proclaim the work of his hands.’ (Psalm 19:1–2)
+
 As Ron Sider wrote in *Rich Christians in an Age of Hunger* back in the 1970s:
 
 !! We face a painful choice. To maintain and expand our material abundance, we are polluting our air and water and destroying our lands and forests. We simply cannot continue these present economic patterns and reduce global poverty and preserve a liveable planet all at the same time. We could choose both justice for the poor and a liveable planet – but only if we give up rampant materialism and make hard choices to reverse the environmental destruction.
 
 Some of the key environmental issues we currently face are:
-
-@scripture ‘The heavens declare the glory of God; the skies proclaim the work of his hands.’ @Psalm 19:1–2
 
 ## The Widespread Abuse Of Farm Animals
 
@@ -153,7 +153,7 @@ OR: Visit your local landfill. Find out how long before it will reach capacity a
 ### Films
 - “Kiss the Ground”, Netflix, 2020.
 - “Making Peace with Creation” by Loren Wilkinson & Regent College.
-- ‘Faith in the Soil’ Film, Candour Creative.
+- ‘Faith in the Soil’ Film, Candour Creative: [www.faithinthesoil.co.uk](https://www.faithinthesoil.co.uk).
 
 ‘St Francis was a man who did not want to see the wood for the trees. He wanted to see each tree as a separate and almost sacred thing.’
 

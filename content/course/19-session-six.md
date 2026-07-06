@@ -22,15 +22,15 @@ The result is that consumerism is now the dominant force in our society. The wor
 
 Truly, the drive of consumerism is fierce. As community and family identity have increasingly been eroded, so finding our identity in our possessions has become the norm. Our possessions have possessed us. How swiftly we have moved from ‘How do you do?’ to ‘What do you do?’
 
-‘We buy things we do not want to impress people we do not like.’
-
-— Anon
-
 As identity is now primarily found in what we consume, so people often build their supporting communities around their consumption habits. If you don’t believe that, think about your family and friends. Ask yourself to what extent your bonding with them is done around the things you consume – things like dinner out, coffee in a cafe or a shopping trip. How much of your conversation is about activities or objects of consumption?
 
 Because of this, consumerism is, at its heart, self-centred and individualistic. This unites it closely to its partner, post-modernity, which focuses on the autonomy of the individual and the ‘rights’ of individuals to whatever they want.
 
 As our internet become inundated with ‘Watchdog’ programmes which look at the rights of the consumer to stand up against shoddy goods, one cannot help but wish that the consumer would demonstrate equal passion over issues of fair trade and the environmental consequences of consumption (that is, the rights of the producer). Standing over all of this is the power of money. Money is all-important because without it one cannot consume. It is endlessly presented as the bringer of status, power and freedom, and thence, that elusive prize: happiness.
+
+‘We buy things we do not want to impress people we do not like.’
+
+— Anon
 
 As followers of Jesus, we know a different story. We know that we do not need to be surrounded by ‘stuff’ in order to find fulfilment. We can experience the freedom that Paul expresses in Philippians 4:v12 - v13:
 

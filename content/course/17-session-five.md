@@ -72,8 +72,6 @@ Jesus clearly states in verse 23: ‘How hard it is for the rich to enter the ki
 
 ‘I tell you the truth, no one who has left home or brothers or sisters or mother or father or children or fields for me and the gospel will fail to receive a hundred times as much in this present age (homes, brothers, sisters, mothers, children and fields – and with them, persecutions) and in the age to come, eternal life. But many who are first will be last and the last will be first’ (Mark 10:29–31).
 
-‘With people this is impossible, but not with God; all things are possible with God.’
-
 ‘Covetousness we call ambition. Hoarding we call prudence. Greed we call industry.’
 
 — Anon

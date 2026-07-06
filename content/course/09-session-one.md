@@ -18,7 +18,7 @@ It is rare that the subject of simplicity is raised within the body of Christ. N
 
 Henry Thoreau, one of the great writers on this issue, said that ‘a person is rich in proportion to the things they can leave alone’ and, in many ways, this sums up what simple living is all about. Partly, it’s about our choices. As we look at our lives, do we know how we’ve ended up living how we’re living and why? What choices have we made that control our present lifestyle? When we wanted that new house or car were we aware that the trade-off would mean working longer hours to pay for them and seeing less of the people we love? Too often we find ourselves on the treadmill of life, paying the consequences for choices we hardly knew we were making.
 
-Simple living is about stopping that treadmill and giving ourselves the space to choose how we want to live our lives. There are many voices around us that tell us that happiness is to be found in good clothes and nice jewellery; in a job that commands respect; in crashing out in front of the televisio in order to recover; in having a busy diary. Simplicity asks us to sit and listen to those other whispers inside us that we seldom have the time to hear. It helps us discover the happiness that comes – not from having an abundance of money and things – but from having the space for intimacy in our friendships, space for ourselves and, primarily, the space for God.
+Simple living is about stopping that treadmill and giving ourselves the space to choose how we want to live our lives. There are many voices around us that tell us that happiness is to be found in good clothes and nice jewellery; in a job that commands respect; in crashing out in front of the television in order to recover; in having a busy diary. Simplicity asks us to sit and listen to those other whispers inside us that we seldom have the time to hear. It helps us discover the happiness that comes – not from having an abundance of money and things – but from having the space for intimacy in our friendships, space for ourselves and, primarily, the space for God.
 
 ‘I cannot tell you with truth that when this belief came to me I discarded everything immediately. I must confess to you that progress at first was slow... it was also painful at the beginning. But as days went by I saw I had to throw overboard many other things which I used to consider as mine, and a time came when it became a matter of positive joy to give up those things... A great burden fell off my shoulders and I felt I could now walk with ease... The possession of anything then became a troublesome thing and a burden’.
 
@@ -79,7 +79,8 @@ Richard Foster makes ten suggestions to help us begin to receive the full benefi
 - Obey Jesus’ instructions about plain, honest speech: ‘let what you say simply be “yes” or “no”; anything more than this comes from evil’ (Matthew 5:37).
 - Reject anything that breeds the oppression of others.
 - Shun anything that distracts you from seeking first the Kingdom of God [9].
-- Which ones strike you as particularly interesting or challenging?
+
+Which ones strike you as particularly interesting or challenging?
 
 ## Action
 

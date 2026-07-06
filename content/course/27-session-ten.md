@@ -23,7 +23,7 @@
 
 Over the past two or three months you have been meeting as a group to consider what it means to live a simpler lifestyle. We have discussed why it is important and how we can begin to adopt some of the principles ourselves. We have covered many issues and have left a number out (most notably the more inner dimensions of simplicity). What is certainly true is that a whole book could be written on each of the topics and each session has only served as a starting block for what will be a lifetime’s journey.
 
-Because of the nature of the material, many of you will now need to take time to go over some of the particular areas that interested and challenged you: to go through the recommended reading and resources; to pray through your responses and talk with other people about how you will begin to grapple with these things. What is certain is that it could be all too easy for you to sit back and think ‘you'’ve done that’ and forget all that you have been learning.
+Because of the nature of the material, many of you will now need to take time to go over some of the particular areas that interested and challenged you: to go through the recommended reading and resources; to pray through your responses and talk with other people about how you will begin to grapple with these things. What is certain is that it could be all too easy for you to sit back and think ‘you've done that’ and forget all that you have been learning.
 
 ‘A person is rich in proportion to the things he can leave along the way.’
 

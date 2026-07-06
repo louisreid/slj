@@ -65,19 +65,19 @@ We must remember at all times that it is our natural inclination to hold on to a
 
 !! We must always guard ourselves against the desire to accumulate as much as possible in order to make ourselves as secure as possible:
 
-‘Rejection of the worship of Money must result in a lower level of financial accumulation than would otherwise be the case...
+Rejection of the worship of Money must result in a lower level of financial accumulation than would otherwise be the case...
 
-The need to avoid pure hoarding, and bondage to possessions, implies that Christ followers need to be crystal clear about the purpose for which they are saving, or continuing to own valuable assets (eg a large house). Once that purpose has been achieved, saving should cease, and the surplus given away’. In the story of the rich young ruler which we looked at in Session 5, the man missed the key to what Jesus was offering: the opportunity to live in a community where there was more than enough for everyone and where he could learn to love and love deeply by being loved and loved deeply. In a community such as that described in Acts 2 and 4, the need to save and to insure substantially falls away.
+The need to avoid pure hoarding, and bondage to possessions, implies that Christ followers need to be crystal clear about the purpose for which they are saving, or continuing to own valuable assets (eg a large house). Once that purpose has been achieved, saving should cease, and the surplus given away.' In the story of the rich young ruler which we looked at in Session 5, the man missed the key to what Jesus was offering: the opportunity to live in a community where there was more than enough for everyone and where he could learn to love and love deeply by being loved and loved deeply. In a community such as that described in Acts 2 and 4, the need to save and to insure substantially falls away.
 
 ## Credit & Debit
 
-If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw.
-
-— Centre for A New American Dream
+> If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw.
+>
+> — Centre for A New American Dream
 
 The idea of credit is, of course, a misnomer like ‘life’ insurance. What we are really talking about here is debt. Using credit unwisely has become one of the biggest financial problems of our society. Nearly every day the post and the adverts we’re bombarded with on various digital platforms bring more tempting offers of credit cards and their facilities, offering ‘good’ rates of interest and various rewards such as air miles; those cards we do use regularly raise our credit limits, thus encouraging us to spend more and get ever more into debt.
 
-While borrowing is permitted in the Bible it does still contain warnings against going into debt (eg Proverbs 22:7; 17:18). As Burkitt says, ‘regardless of how it seems today, debt is not normal in any economy and should not be normal for God’s people’. Unless we have a cast-iron will, we should be extremely careful about using credit cards (and that also applies to store cards). The same is true of bank overdrafts. In reality, we are spending money that we do not have and, while our society encourages this and tells us it is fine, we should resist the pressure at all times. Debit cards are much the preferable option as the money goes out of our account almost immediately.
+While borrowing is permitted in the Bible it does still contain warnings against going into debt (eg Proverbs 22:7; 17:18). As Burkett says, ‘regardless of how it seems today, debt is not normal in any economy and should not be normal for God’s people’ [53]. Unless we have a cast-iron will, we should be extremely careful about using credit cards (and that also applies to store cards). The same is true of bank overdrafts. In reality, we are spending money that we do not have and, while our society encourages this and tells us it is fine, we should resist the pressure at all times. Debit cards are much the preferable option as the money goes out of our account almost immediately.
 
 If we do find ourselves in a situation where our finances have got out of our control, then we must take action. A good idea is to contact Credit Action ([www.creditaction.co.uk](https://www.creditaction.co.uk)) or Christians Against Poverty ([www.capuk.org](https://www.capuk.org)) – both Christian organisations that help people in such situations, as well as providing excellent advice on a whole variety of financial topics.
 
@@ -90,7 +90,14 @@ Some suggestions:
 - If you have to keep a credit card, ensure it is one which benefits a charity when you use it.
 - If you still want to use a credit card, only do so on the understanding that you pay off your entire credit each month, rather than paying it off in instalments and paying interest.
 - Get rid of all your store cards.
-- Discipline your finances so you do not use your overdraft. Before you buy anything on credit ask yourself these questions: Do I really need this item? Do I need it now? What benefit will it bring me/my family? Has advertising/peer pressure played a part in this decision? Can I delay buying this until I can afford to pay cash for it? Will this purchase increase my levels of credit to dangerous levels?
+- Discipline your finances so you do not use your overdraft.
+- Before you buy anything on credit ask yourself these questions:
+- Do I really need this item?
+- Do I need it now?
+- What benefit will it bring me/my family?
+- Has advertising/peer pressure played a part in this decision?
+- Can I delay buying this until I can afford to pay cash for it?
+- Will this purchase increase my levels of credit to dangerous levels?
 - Consider within the group whether or not some members might be able to pay off the debts of others or otherwise reduce a debt burden on a brother or a sister in Christ.
 
 
@@ -106,7 +113,7 @@ Never does the Bible teach that it is an optional extra for those with enough su
 
 Firstly, what God has done for us, both through the Exodus of the children of God, and then through the supreme Exodus – that which Jesus’ death and resurrection brought, the ultimate gift (John 3:16); and secondly, the understanding that everything we have belongs to God and so should be available to others.
 
-Discussions on giving generally revolve around whether or not it is biblical to tithe, by which is usually meant to give 10 percent of your income (whether net or gross). The tithing system in the Old Testament is in reality not so clear or easy to pin down to such a neat figure. Scholars think that actually the tithing system, all in all, amounted to a good 25 percent of the people’s income. Either way, while tithing can be a helpful guideline, there is no clear New Testament mandate for tithing. Rather what comes through is an attitude of far more generous extravagance in one’s giving (2 Corinthians 9:6–7).
+Discussions on giving generally revolve around whether or not it is biblical to tithe, by which is usually meant to give 10 percent of your income (whether net or gross). The tithing system in the Old Testament is in reality not so clear or easy to pin down to such a neat figure. Scholars think that actually the tithing system, all in all, amounted to a good 25 percent of the people’s income. Either way, while tithing can be a helpful guideline, there is no clear New Testament mandate for tithing. Rather what comes through is an attitude of far more generous extravagance in one’s giving (2 Corinthians 9).
 
 !! The emphasis is not so much on how much we should give, but on how much it is right for us to keep.
 

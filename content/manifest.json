@@ -14,9 +14,9 @@
               "content": "This course book was first published by Alpha/HTB in 2004 - and Sandy Millar, then the vicar there, wrote a very kind foreword. But that is some 21 years ago and the world and the Church in this country have both moved on a long way since then. This is an updated edition, whilst the last edition in 2008 was no more than a reprint."
             },
             {
-              "block_id": "04-preface-b3c2f420d830",
+              "block_id": "04-preface-757a1e43d785",
               "type": "paragraph",
-              "content": "Many hundreds of people have done this course over the years, and a few of their reactions follow on the next page. I believe it continues to be a useful resource for home groups and whole Churches – especially those who have been involved, or want to be involved, in ministries with the poor in their local area. As I say in the foreword, we developed these materials to accompany one particular ministry – The Besom (now, org) which I founded in 1987 after returning from working with Jackie Pullinger in Hong Kong, and which still flourishes in other hands."
+              "content": "Many hundreds of people have done this course over the years, and a few of their reactions follow on the next page. I believe it continues to be a useful resource for home groups and whole Churches – especially those who have been involved, or want to be involved, in ministries with the poor in their local area. As I say in the foreword, we developed these materials to accompany one particular ministry – [The Besom](https://www.thebesomnetwork.org/) which I founded in 1987 after returning from working with Jackie Pullinger in Hong Kong, and which still flourishes in other hands."
             },
             {
               "block_id": "04-preface-2247bc93b930",
@@ -29,14 +29,14 @@
               "content": "The faith of the Christ follower is incomplete unless we seek to follow John’s command in 1 John 2: 6: ‘Whoever claims to live in Him, must live as Jesus did’. And Jesus, of course, spent most of His time here on earth amongst the poor and the needy. So, working with the poor is not just for the select few but for all of us, however old, whatever our background and whether we have a lot or a little that we can give in terms of time, money, skills or things."
             },
             {
-              "block_id": "04-preface-13398e2de09a",
+              "block_id": "04-preface-bfa4da28b137",
               "type": "paragraph",
-              "content": "Since starting The Besom, my wife and I have spent much of our time encouraging others towards the poor. We were involved for some 16 years, as you will read in this book, in seeking to help mainly single mums and widows in the African- and Caribbean-heritage communities in South London to start up microbusinesses and to stand on their own feet, with all the dignity and self-confidence that that brings. We also established a training farm for new entrants in Somerset that concentrated on small business start up in traditional farming activities – see . In all that we have sought to do, we have tried to set up communities of believers who can help each other and then go out to help others. All have focussed on how we are best to live in a world that is so unequal and where so many do little more than survive at best."
+              "content": "Since starting The Besom, my wife and I have spent much of our time encouraging others towards the poor. We were involved for some 16 years, as you will read in this book, in seeking to help mainly single mums and widows in the African- and Caribbean-heritage communities in South London to start up microbusinesses and to stand on their own feet, with all the dignity and self-confidence that that brings. We also established a training farm for new entrants in Somerset that concentrated on small business start up in traditional farming activities – see [Faith in the Soil](https://www.faithinthesoil.co.uk). In all that we have sought to do, we have tried to set up communities of believers who can help each other and then go out to help others. All have focussed on how we are best to live in a world that is so unequal and where so many do little more than survive at best."
             },
             {
-              "block_id": "04-preface-e9219e4ba5de",
+              "block_id": "04-preface-5d207dc29a12",
               "type": "paragraph",
-              "content": "As ever, if there are mistakes of any sort in this book, they are mine. This edition was brilliantly updated for republication by Sarah Lamour, save for the chapter on Caring for God's World which was brought up to date by the ever-inspiring Will and Pip Campbell-Clause. Clara Wells assisted greatly in the formatting. My many thanks to all four."
+              "content": "As ever, if there are mistakes of any sort in this book, they are mine. This edition was brilliantly updated for republication by Sarah Lamour, save for the chapter on Caring for God's World which was brought up to date by the ever-inspiring Will and Pip Campbell-Clause ([www.cactusfoodandfaith.com](https://www.cactusfoodandfaith.com)). Clara Wells assisted greatly in the formatting. My many thanks to all four."
             },
             {
               "block_id": "04-preface-c7aa32b726e1",
@@ -173,9 +173,9 @@
               "content": "After a forensic – and rather arrogant – examination of the evidence over several years (I was a rookie lawyer then, after all!) I discovered to my surprise and discomfort that the Gospel record was a true one. This affected my life, however, not one jot because an intellectual faith is no faith at all. In Hong Kong I met several of those who had been healed immediately and painlessly of long-term heroin addiction in the ministry of Jackie Pullinger-To and I realised for the first time that if Jesus was alive today he would naturally be working in the same ways and in the same places as He did when he was here incarnate. The transformed lives of those men were a sufficient proof of that rather obvious fact. And it was then that my heart began to break for the poor and the marginalised. Jackie’s description of poverty, by the way, is useful: ‘Broadly speaking, we will interpret the poor as those who for some time are unable to free themselves from poverty and who need help.’"
             },
             {
-              "block_id": "06-foreword-summer-2004-24f5167c7ed1",
+              "block_id": "06-foreword-summer-2004-2a17df779c1d",
               "type": "paragraph",
-              "content": "Yet I still continued along a path I chose rather than His path for me. Two years later He showed me how determined He is to ensure that we go His way and not ours. That unequal battle took me spiralling down to a very dark place from which I could not go on in my own strength. And I surrendered, at last, and then He began to show me some of the astonishing things He had prepared for me. At His behest, I left the law to go to work with Jackie and returned to found a sort of bank with three others in the City of London (that He blessed outrageously) and to start The Besom ( I left the bank after seven years to establish FACE to Face, a ministry that encourages self-employment among the poor in our churches."
+              "content": "Yet I still continued along a path I chose rather than His path for me. Two years later He showed me how determined He is to ensure that we go His way and not ours. That unequal battle took me spiralling down to a very dark place from which I could not go on in my own strength. And I surrendered, at last, and then He began to show me some of the astonishing things He had prepared for me. At His behest, I left the law to go to work with Jackie and returned to found a sort of bank with three others in the City of London (that He blessed outrageously) and to start The Besom (I left the bank after seven years to establish FACE to Face, a ministry that encourages self-employment among the poor in our churches)."
             },
             {
               "block_id": "06-foreword-summer-2004-c3d598b092de",
@@ -408,21 +408,6 @@
               "type": "heading",
               "content": "How to use the material",
               "level": 2
-            }
-          ]
-        },
-        {
-          "blocks": [
-            {
-              "block_id": "07-introduction-2c6f1070410c",
-              "type": "heading",
-              "content": "Private notes in the reader",
-              "level": 3
-            },
-            {
-              "block_id": "07-introduction-3f73ac2166b9",
-              "type": "paragraph",
-              "content": "From Session One onward, you can keep **private notes** beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover a paragraph on desktop—or read on mobile—and use the note icon beside that paragraph. Your notes are only visible to you."
             },
             {
               "block_id": "07-introduction-7a5a7a63d764",
@@ -565,6 +550,11 @@
               "content": "With this format in mind, it will be clear that each group member will need to set aside time between meetings to think through the previous session thoroughly and prepare for the next. It may also be worth considering doing the last session as a weekend away, as a chance to spend time with one another, reflecting on what the Spirit has been teaching the group over the weeks, to pray for its members and to discuss how they may support one another in any future commitments they feel led to make."
             },
             {
+              "block_id": "07-introduction-5cba81eeceb5",
+              "type": "paragraph",
+              "content": "In the digital version of this course, from Session One onward you can keep **private notes** beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover over a paragraph on desktop—or tap the note icon beside a paragraph on mobile. Your notes are only visible to you."
+            },
+            {
               "block_id": "07-introduction-d0652247e07b",
               "type": "paragraph",
               "content": "‘... Become nothing before God, learn to keep silent; in this silence is the beginning which is first to seek God’s kingdom’"
@@ -582,7 +572,7 @@
               "block_id": "07-introduction-6fa2326f746b",
               "type": "heading",
               "content": "Further Reading and Resources",
-              "level": 2
+              "level": 3
             },
             {
               "block_id": "07-introduction-cd8fa8e524e3",
@@ -608,11 +598,6 @@
               "block_id": "07-introduction-18d95f0c0ce3",
               "type": "paragraph",
               "content": "It is important, again, that each member of the group is encouraged, no matter how they react to the issues. No one should be criticised and comparisons between group members are particularly unhelpful (and miss the point of an essentially personal quest). Don’t move on to the next subject until you feel ready to tackle it. You may find that you stay on one subject for a few weeks without looking at any others."
-            },
-            {
-              "block_id": "07-introduction-d6d8205cbdaf",
-              "type": "paragraph",
-              "content": "We would love to hear from you. On your journey of discovery you will discover things that are not covered by this discussion course. Please write to us and tell us what you learn so that we can include your experiences in later editions."
             },
             {
               "block_id": "07-introduction-74b93e564aa1",
@@ -711,9 +696,9 @@
               "content": "Henry Thoreau, one of the great writers on this issue, said that ‘a person is rich in proportion to the things they can leave alone’ and, in many ways, this sums up what simple living is all about. Partly, it’s about our choices. As we look at our lives, do we know how we’ve ended up living how we’re living and why? What choices have we made that control our present lifestyle? When we wanted that new house or car were we aware that the trade-off would mean working longer hours to pay for them and seeing less of the people we love? Too often we find ourselves on the treadmill of life, paying the consequences for choices we hardly knew we were making."
             },
             {
-              "block_id": "09-session-one-478ec484edde",
+              "block_id": "09-session-one-58959aeffd29",
               "type": "paragraph",
-              "content": "Simple living is about stopping that treadmill and giving ourselves the space to choose how we want to live our lives. There are many voices around us that tell us that happiness is to be found in good clothes and nice jewellery; in a job that commands respect; in crashing out in front of the televisio in order to recover; in having a busy diary. Simplicity asks us to sit and listen to those other whispers inside us that we seldom have the time to hear. It helps us discover the happiness that comes – not from having an abundance of money and things – but from having the space for intimacy in our friendships, space for ourselves and, primarily, the space for God."
+              "content": "Simple living is about stopping that treadmill and giving ourselves the space to choose how we want to live our lives. There are many voices around us that tell us that happiness is to be found in good clothes and nice jewellery; in a job that commands respect; in crashing out in front of the television in order to recover; in having a busy diary. Simplicity asks us to sit and listen to those other whispers inside us that we seldom have the time to hear. It helps us discover the happiness that comes – not from having an abundance of money and things – but from having the space for intimacy in our friendships, space for ourselves and, primarily, the space for God."
             },
             {
               "block_id": "09-session-one-56ea01135ad3",
@@ -864,7 +849,7 @@
               "content": "Richard Foster makes ten suggestions to help us begin to receive the full benefits of simplicity:"
             },
             {
-              "block_id": "09-session-one-b38b8a51d8bc",
+              "block_id": "09-session-one-6acafbcd7c78",
               "type": "list",
               "content": "",
               "items": [
@@ -907,12 +892,13 @@
                 {
                   "block_id": "09-session-one-06b6b204cda3",
                   "content": "Shun anything that distracts you from seeking first the Kingdom of God [9]."
-                },
-                {
-                  "block_id": "09-session-one-90aadcd7f565",
-                  "content": "Which ones strike you as particularly interesting or challenging?"
                 }
               ]
+            },
+            {
+              "block_id": "09-session-one-90aadcd7f565",
+              "type": "paragraph",
+              "content": "Which ones strike you as particularly interesting or challenging?"
             }
           ]
         },
@@ -1900,7 +1886,7 @@
               "content": "Open the printable forms [](/worksheets/print/time-sheet) (Time Sheet) and [](/worksheets/print/time-circles) (Time Circles)."
             },
             {
-              "block_id": "13-session-three-74e70556f178",
+              "block_id": "13-session-three-37bcefca4358",
               "type": "list",
               "content": "",
               "items": [
@@ -1921,8 +1907,8 @@
                   "content": "To what extent does your daily activity help achieve your goals in life? Is it achieving someone else’s goals? If so, whose? Do you endorse those goals?"
                 },
                 {
-                  "block_id": "13-session-three-3d462cabcf75",
-                  "content": "Design yourself a daily round of activities that would bring you closer to doing more of the things you find most satisfying and important in life. When you have completed your design for an ideal daily round, discuss what this review has meant to you with a close friend, partner or family member or with the other members of this group. image.png(Adapted from Mark A. Burch’s study in Simplicity pp.72–74). [27]"
+                  "block_id": "13-session-three-d11af8ecca38",
+                  "content": "Design yourself a daily round of activities that would bring you closer to doing more of the things you find most satisfying and important in life. When you have completed your design for an ideal daily round, discuss what this review has meant to you with a close friend, partner or family member or with the other members of this group. (Adapted from Mark A. Burch’s study in Simplicity pp.72–74). [27]"
                 }
               ]
             },
@@ -2801,11 +2787,6 @@
               "scriptureRef": "Mark 10:29–31"
             },
             {
-              "block_id": "17-session-five-525895841fdc",
-              "type": "paragraph",
-              "content": "‘With people this is impossible, but not with God; all things are possible with God.’"
-            },
-            {
               "block_id": "17-session-five-87091afbdc64",
               "type": "paragraph",
               "content": "‘Covetousness we call ambition. Hoarding we call prudence. Greed we call industry.’"
@@ -3105,16 +3086,6 @@
               "content": "Truly, the drive of consumerism is fierce. As community and family identity have increasingly been eroded, so finding our identity in our possessions has become the norm. Our possessions have possessed us. How swiftly we have moved from ‘How do you do?’ to ‘What do you do?’"
             },
             {
-              "block_id": "19-session-six-90f67824b6ab",
-              "type": "paragraph",
-              "content": "‘We buy things we do not want to impress people we do not like.’"
-            },
-            {
-              "block_id": "19-session-six-8c7082d9b158",
-              "type": "paragraph",
-              "content": "— Anon"
-            },
-            {
               "block_id": "19-session-six-eb6427889e5f",
               "type": "paragraph",
               "content": "As identity is now primarily found in what we consume, so people often build their supporting communities around their consumption habits. If you don’t believe that, think about your family and friends. Ask yourself to what extent your bonding with them is done around the things you consume – things like dinner out, coffee in a cafe or a shopping trip. How much of your conversation is about activities or objects of consumption?"
@@ -3128,6 +3099,16 @@
               "block_id": "19-session-six-1ff26ab05345",
               "type": "paragraph",
               "content": "As our internet become inundated with ‘Watchdog’ programmes which look at the rights of the consumer to stand up against shoddy goods, one cannot help but wish that the consumer would demonstrate equal passion over issues of fair trade and the environmental consequences of consumption (that is, the rights of the producer). Standing over all of this is the power of money. Money is all-important because without it one cannot consume. It is endlessly presented as the bringer of status, power and freedom, and thence, that elusive prize: happiness."
+            },
+            {
+              "block_id": "19-session-six-90f67824b6ab",
+              "type": "paragraph",
+              "content": "‘We buy things we do not want to impress people we do not like.’"
+            },
+            {
+              "block_id": "19-session-six-8c7082d9b158",
+              "type": "paragraph",
+              "content": "— Anon"
             },
             {
               "block_id": "19-session-six-db09e48522a4",
@@ -4222,6 +4203,12 @@
               "content": "In the light of this, it’s important for us to be aware of the widespread environmental degradation that has resulted from our consumption habits and carelessness."
             },
             {
+              "block_id": "23-session-eight-facc9f64b7c3",
+              "type": "paragraph",
+              "content": "‘The heavens declare the glory of God; the skies proclaim the work of his hands.’",
+              "scriptureRef": "Psalm 19:1–2"
+            },
+            {
               "block_id": "23-session-eight-492cf89d5a66",
               "type": "paragraph",
               "content": "As Ron Sider wrote in *Rich Christians in an Age of Hunger* back in the 1970s:"
@@ -4236,13 +4223,6 @@
               "block_id": "23-session-eight-9f67b25f4e1b",
               "type": "paragraph",
               "content": "Some of the key environmental issues we currently face are:"
-            },
-            {
-              "block_id": "23-session-eight-facc9f64b7c3",
-              "type": "paragraph",
-              "content": "‘The heavens declare the glory of God; the skies proclaim the work of his hands.’",
-              "scriptureRef": "Psalm 19:1–2",
-              "forceScripture": true
             }
           ]
         },
@@ -4698,7 +4678,7 @@
               "level": 3
             },
             {
-              "block_id": "23-session-eight-d9990dbfa646",
+              "block_id": "23-session-eight-5adcd2105bee",
               "type": "list",
               "content": "",
               "items": [
@@ -4711,8 +4691,8 @@
                   "content": "“Making Peace with Creation” by Loren Wilkinson & Regent College."
                 },
                 {
-                  "block_id": "23-session-eight-51c07d445958",
-                  "content": "‘Faith in the Soil’ Film, Candour Creative."
+                  "block_id": "23-session-eight-cab7e79d8afd",
+                  "content": "‘Faith in the Soil’ Film, Candour Creative: [www.faithinthesoil.co.uk](https://www.faithinthesoil.co.uk)."
                 }
               ]
             },
@@ -4965,14 +4945,14 @@
               "headlineQuote": true
             },
             {
-              "block_id": "25-session-nine-180daa4dba3a",
+              "block_id": "25-session-nine-cdbef3beb12c",
               "type": "paragraph",
-              "content": "‘Rejection of the worship of Money must result in a lower level of financial accumulation than would otherwise be the case..."
+              "content": "Rejection of the worship of Money must result in a lower level of financial accumulation than would otherwise be the case..."
             },
             {
-              "block_id": "25-session-nine-5d70e23a0185",
+              "block_id": "25-session-nine-3ad7c30e0ed2",
               "type": "paragraph",
-              "content": "The need to avoid pure hoarding, and bondage to possessions, implies that Christ followers need to be crystal clear about the purpose for which they are saving, or continuing to own valuable assets (eg a large house). Once that purpose has been achieved, saving should cease, and the surplus given away’. In the story of the rich young ruler which we looked at in Session 5, the man missed the key to what Jesus was offering: the opportunity to live in a community where there was more than enough for everyone and where he could learn to love and love deeply by being loved and loved deeply. In a community such as that described in Acts 2 and 4, the need to save and to insure substantially falls away."
+              "content": "The need to avoid pure hoarding, and bondage to possessions, implies that Christ followers need to be crystal clear about the purpose for which they are saving, or continuing to own valuable assets (eg a large house). Once that purpose has been achieved, saving should cease, and the surplus given away.' In the story of the rich young ruler which we looked at in Session 5, the man missed the key to what Jesus was offering: the opportunity to live in a community where there was more than enough for everyone and where he could learn to love and love deeply by being loved and loved deeply. In a community such as that described in Acts 2 and 4, the need to save and to insure substantially falls away."
             }
           ]
         },
@@ -4985,14 +4965,9 @@
               "level": 2
             },
             {
-              "block_id": "25-session-nine-ba5c9dadb232",
+              "block_id": "25-session-nine-5b3e43da3162",
               "type": "paragraph",
-              "content": "If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw."
-            },
-            {
-              "block_id": "25-session-nine-be920fba1b76",
-              "type": "paragraph",
-              "content": "— Centre for A New American Dream"
+              "content": "> If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw.\n>\n> — Centre for A New American Dream"
             },
             {
               "block_id": "25-session-nine-20c35cd8ffe8",
@@ -5000,9 +4975,9 @@
               "content": "The idea of credit is, of course, a misnomer like ‘life’ insurance. What we are really talking about here is debt. Using credit unwisely has become one of the biggest financial problems of our society. Nearly every day the post and the adverts we’re bombarded with on various digital platforms bring more tempting offers of credit cards and their facilities, offering ‘good’ rates of interest and various rewards such as air miles; those cards we do use regularly raise our credit limits, thus encouraging us to spend more and get ever more into debt."
             },
             {
-              "block_id": "25-session-nine-babacbb91d8b",
+              "block_id": "25-session-nine-1c37a122b98b",
               "type": "paragraph",
-              "content": "While borrowing is permitted in the Bible it does still contain warnings against going into debt (eg Proverbs 22:7; 17:18). As Burkitt says, ‘regardless of how it seems today, debt is not normal in any economy and should not be normal for God’s people’. Unless we have a cast-iron will, we should be extremely careful about using credit cards (and that also applies to store cards). The same is true of bank overdrafts. In reality, we are spending money that we do not have and, while our society encourages this and tells us it is fine, we should resist the pressure at all times. Debit cards are much the preferable option as the money goes out of our account almost immediately."
+              "content": "While borrowing is permitted in the Bible it does still contain warnings against going into debt (eg Proverbs 22:7; 17:18). As Burkett says, ‘regardless of how it seems today, debt is not normal in any economy and should not be normal for God’s people’ [53]. Unless we have a cast-iron will, we should be extremely careful about using credit cards (and that also applies to store cards). The same is true of bank overdrafts. In reality, we are spending money that we do not have and, while our society encourages this and tells us it is fine, we should resist the pressure at all times. Debit cards are much the preferable option as the money goes out of our account almost immediately."
             },
             {
               "block_id": "25-session-nine-1c16143b23d9",
@@ -5015,7 +4990,7 @@
               "content": "Some suggestions:"
             },
             {
-              "block_id": "25-session-nine-8403ae58b30b",
+              "block_id": "25-session-nine-952ab9b5a52a",
               "type": "list",
               "content": "",
               "items": [
@@ -5048,8 +5023,36 @@
                   "content": "Get rid of all your store cards."
                 },
                 {
-                  "block_id": "25-session-nine-c5abb8e9ad39",
-                  "content": "Discipline your finances so you do not use your overdraft. Before you buy anything on credit ask yourself these questions: Do I really need this item? Do I need it now? What benefit will it bring me/my family? Has advertising/peer pressure played a part in this decision? Can I delay buying this until I can afford to pay cash for it? Will this purchase increase my levels of credit to dangerous levels?"
+                  "block_id": "25-session-nine-cc09787253cf",
+                  "content": "Discipline your finances so you do not use your overdraft."
+                },
+                {
+                  "block_id": "25-session-nine-89307a322fe3",
+                  "content": "Before you buy anything on credit ask yourself these questions:"
+                },
+                {
+                  "block_id": "25-session-nine-54c0b524c6ef",
+                  "content": "Do I really need this item?"
+                },
+                {
+                  "block_id": "25-session-nine-ee9e1d8d3276",
+                  "content": "Do I need it now?"
+                },
+                {
+                  "block_id": "25-session-nine-0d1ac4417a50",
+                  "content": "What benefit will it bring me/my family?"
+                },
+                {
+                  "block_id": "25-session-nine-ce77b27feea9",
+                  "content": "Has advertising/peer pressure played a part in this decision?"
+                },
+                {
+                  "block_id": "25-session-nine-ee90669d06db",
+                  "content": "Can I delay buying this until I can afford to pay cash for it?"
+                },
+                {
+                  "block_id": "25-session-nine-c00a9185ecdb",
+                  "content": "Will this purchase increase my levels of credit to dangerous levels?"
                 },
                 {
                   "block_id": "25-session-nine-c5bd00b9bfde",
@@ -5093,10 +5096,9 @@
               "content": "Firstly, what God has done for us, both through the Exodus of the children of God, and then through the supreme Exodus – that which Jesus’ death and resurrection brought, the ultimate gift (John 3:16); and secondly, the understanding that everything we have belongs to God and so should be available to others."
             },
             {
-              "block_id": "25-session-nine-b9e78337b335",
+              "block_id": "25-session-nine-e57e10e57640",
               "type": "paragraph",
-              "content": "Discussions on giving generally revolve around whether or not it is biblical to tithe, by which is usually meant to give 10 percent of your income (whether net or gross). The tithing system in the Old Testament is in reality not so clear or easy to pin down to such a neat figure. Scholars think that actually the tithing system, all in all, amounted to a good 25 percent of the people’s income. Either way, while tithing can be a helpful guideline, there is no clear New Testament mandate for tithing. Rather what comes through is an attitude of far more generous extravagance in one’s giving",
-              "scriptureRef": "2 Corinthians 9:6–7"
+              "content": "Discussions on giving generally revolve around whether or not it is biblical to tithe, by which is usually meant to give 10 percent of your income (whether net or gross). The tithing system in the Old Testament is in reality not so clear or easy to pin down to such a neat figure. Scholars think that actually the tithing system, all in all, amounted to a good 25 percent of the people’s income. Either way, while tithing can be a helpful guideline, there is no clear New Testament mandate for tithing. Rather what comes through is an attitude of far more generous extravagance in one’s giving (2 Corinthians 9)."
             },
             {
               "block_id": "25-session-nine-b59f9e60cde1",
@@ -5473,9 +5475,9 @@
               "content": "Over the past two or three months you have been meeting as a group to consider what it means to live a simpler lifestyle. We have discussed why it is important and how we can begin to adopt some of the principles ourselves. We have covered many issues and have left a number out (most notably the more inner dimensions of simplicity). What is certainly true is that a whole book could be written on each of the topics and each session has only served as a starting block for what will be a lifetime’s journey."
             },
             {
-              "block_id": "27-session-ten-4ee29c283aed",
+              "block_id": "27-session-ten-925af96529ec",
               "type": "paragraph",
-              "content": "Because of the nature of the material, many of you will now need to take time to go over some of the particular areas that interested and challenged you: to go through the recommended reading and resources; to pray through your responses and talk with other people about how you will begin to grapple with these things. What is certain is that it could be all too easy for you to sit back and think ‘you'’ve done that’ and forget all that you have been learning."
+              "content": "Because of the nature of the material, many of you will now need to take time to go over some of the particular areas that interested and challenged you: to go through the recommended reading and resources; to pray through your responses and talk with other people about how you will begin to grapple with these things. What is certain is that it could be all too easy for you to sit back and think ‘you've done that’ and forget all that you have been learning."
             },
             {
               "block_id": "27-session-ten-ddece44ccdfd",
@@ -6048,9 +6050,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-a43bdc805362",
+              "block_id": "29-references-f47c0eb1ee49",
               "type": "paragraph",
-              "content": "Papers that were presented at the consultation can be read in: Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to Simple Lifestyle* (Paternoster, 1981)."
+              "content": "John Stott (ed.), *Making Christ Known* (Paternoster, 1996), p.142. [www.lausanne.org](https://www.lausanne.org)"
             }
           ]
         },
@@ -6063,9 +6065,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-e5767228210f",
+              "block_id": "29-references-e2b4a0417ee0",
               "type": "paragraph",
-              "content": "John Stott (ed.), *Making Christ Known* (Paternoster, 1996), p.142. See also [Lausanne Occasional Papers](https://lausanne.org)."
+              "content": "Papers that were presented at the consultation can be read in: Ron Sider, *lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle* (Paternoster, 1981)."
             }
           ]
         },
@@ -6093,9 +6095,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-77f02712372c",
+              "block_id": "29-references-71f4319c5131",
               "type": "paragraph",
-              "content": "Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to a Simple Lifestyle* (Paternoster, 1981), p.9."
+              "content": "Quoted in Ron Sider, *lifestyle in the Eighties* (Paternoster, 1981), p.11."
             }
           ]
         },
@@ -6108,9 +6110,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-352974c5b47d",
+              "block_id": "29-references-c2a9cd57972f",
               "type": "paragraph",
-              "content": "See the Session One reading and discussion on simplicity in the light of Jesus’ teaching."
+              "content": "For a broader theological basis for simplicity, see Ruth Valerio, *Simplicity: Living Life to the Full*."
             }
           ]
         },
@@ -6123,9 +6125,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-7e759aa1a6ca",
+              "block_id": "29-references-136876490be1",
               "type": "paragraph",
-              "content": "Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), pp.110–115."
+              "content": "Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), p.107. Reproduced by permission of Hodder & Stoughton Limited."
             }
           ]
         },
@@ -6153,9 +6155,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-136876490be1",
+              "block_id": "29-references-7e759aa1a6ca",
               "type": "paragraph",
-              "content": "Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), p.107. Reproduced by permission of Hodder & Stoughton Limited."
+              "content": "Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), pp.110–115."
             }
           ]
         },
@@ -6168,9 +6170,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-dc587c014072",
+              "block_id": "29-references-ff55c169c812",
               "type": "paragraph",
-              "content": "Quoted in Ron Sider, *Lifestyle in the Eighties* (Paternoster, 1981), p.11."
+              "content": "Ron Sider, *lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle* (Paternoster, 1981), p.9."
             }
           ]
         },
@@ -6198,9 +6200,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-2f906795b156",
+              "block_id": "29-references-9bfd7637bb06",
               "type": "paragraph",
-              "content": "See Session Two on community in church history (Desert Fathers and related examples)."
+              "content": "These examples have been taken from Ray Simpson, *Exploring Celtic Spirituality* (Hodder & Stoughton, 1995), pp.37–38."
             }
           ]
         },
@@ -6243,9 +6245,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-570dcfd82d9f",
+              "block_id": "29-references-7239e3e9b8ef",
               "type": "paragraph",
-              "content": "Roy McCloughry, ‘Community Ethics’ in *New Dictionary of Christian Ethics and Pastoral Theology* (IVP, 1995), p.110."
+              "content": "From Racial Justice Sunday pack, 2002."
             }
           ]
         },
@@ -6273,9 +6275,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-166eb1c66900",
+              "block_id": "29-references-84f66e3a91f9",
               "type": "paragraph",
-              "content": "Taken from the Co-housing Network website: www.cohousing.co.uk"
+              "content": "Taken from the Co-housing Network website: [www.cohousing.co.uk](https://www.cohousing.co.uk)"
             }
           ]
         },
@@ -6333,9 +6335,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-17cb2046a9a0",
+              "block_id": "29-references-358439bd1b7b",
               "type": "paragraph",
-              "content": "Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.253."
+              "content": "Roy McCloughry, ‘Community Ethics’ in *New Dictionary of Christian Ethics and Pastoral Theology* (IVP, 1995), 110."
             }
           ]
         },
@@ -6348,9 +6350,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-648c0324b9c0",
+              "block_id": "29-references-7b67df6268b6",
               "type": "paragraph",
-              "content": "Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), pp.50–51."
+              "content": "Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), p.253."
             }
           ]
         },
@@ -6363,9 +6365,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-d6b4c639b2d1",
+              "block_id": "29-references-7fb69641780b",
               "type": "paragraph",
-              "content": "Henri Nouwen, ‘Contemplation and Ministry’ quoted in Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.54."
+              "content": "Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), pp.50–51."
             }
           ]
         },
@@ -6378,9 +6380,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-235d545b802b",
+              "block_id": "29-references-4acafb4f22e3",
               "type": "paragraph",
-              "content": "Paul Mills, *A brief theology of time. Part 2: Resisting the tyranny of time*, Cambridge Papers 11:4, The Jubilee Centre, 2002."
+              "content": "Henri Nouwen, ‘Contemplation and Ministry’ quoted in Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), p.54."
             }
           ]
         },
@@ -6393,9 +6395,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-a1c5512c7dc4",
+              "block_id": "29-references-235d545b802b",
               "type": "paragraph",
-              "content": "Taken from T. Sine, *Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium* (Monarch, 1995), pp.238–239."
+              "content": "Paul Mills, *A brief theology of time. Part 2: Resisting the tyranny of time*, Cambridge Papers 11:4, The Jubilee Centre, 2002."
             }
           ]
         },
@@ -6408,9 +6410,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-73450f2f1cb2",
+              "block_id": "29-references-a1c5512c7dc4",
               "type": "paragraph",
-              "content": "See Session Three discussion questions on how you spend your time."
+              "content": "Taken from T. Sine, *Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium* (Monarch, 1995), pp.238–239."
             }
           ]
         },
@@ -6438,9 +6440,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-e34fcb168866",
+              "block_id": "29-references-1d66dbc4a170",
               "type": "paragraph",
-              "content": "E.M. Forster, *Howard’s End* (Penguin, 1969), p.72."
+              "content": "E.M.Forster, *Howard’s End*, (Penguin, 1969), p.72."
             }
           ]
         },
@@ -6468,9 +6470,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-5e850838de0b",
+              "block_id": "29-references-848c5a507c37",
               "type": "paragraph",
-              "content": "Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to Simple Lifestyle* (Paternoster, 1981), p.6."
+              "content": "Ron Sider, *lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle* (Paternoster, 1981), p.6."
             }
           ]
         },
@@ -6498,9 +6500,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-2e1776f4f2b1",
+              "block_id": "29-references-77b09168bcab",
               "type": "paragraph",
-              "content": "John Stott, *Issues Facing Christians Today* (Marshall Pickering, 1984), p.166."
+              "content": "Donald B. Kraybill, *The Upside-down Kingdom* (Herald, 1991), pp.114–129."
             }
           ]
         },
@@ -6528,9 +6530,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-77b09168bcab",
+              "block_id": "29-references-babcda3527b3",
               "type": "paragraph",
-              "content": "Donald B. Kraybill, *The Upside-down Kingdom* (Herald, 1991), pp.114–129."
+              "content": "Hengel, ‘Property and Riches in the Early Church’, in *Earliest Christianity* (SCM Press, 1979), p.232."
             }
           ]
         },
@@ -6543,9 +6545,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-1e5ba9444034",
+              "block_id": "29-references-601239574bc1",
               "type": "paragraph",
-              "content": "https://www.jrf.org.uk/data/overall-uk-poverty-rates and https://commonslibrary.parliament.uk/research-briefings/sn02110/"
+              "content": "[https://www.jrf.org.uk/data/overall-uk-poverty-rates](https://www.jrf.org.uk/data/overall-uk-poverty-rates) and [https://commonslibrary.parliament.uk/research-briefings/sn02110/](https://commonslibrary.parliament.uk/research-briefings/sn02110/)"
             }
           ]
         },
@@ -6558,9 +6560,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-fbbed77c727f",
+              "block_id": "29-references-066507fe8aa9",
               "type": "paragraph",
-              "content": "https://www.worldvision.org/sponsorship-news-stories/global-poverty-facts#multidimensional"
+              "content": "[https://www.worldvision.org/sponsorship-news-stories/global-poverty-facts#multidimensional](https://www.worldvision.org/sponsorship-news-stories/global-poverty-facts#multidimensional)"
             }
           ]
         },
@@ -6603,9 +6605,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-7f4e38ff3938",
+              "block_id": "29-references-790ee05ff672",
               "type": "paragraph",
-              "content": "Taken from Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.260."
+              "content": "Taken from, Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), p.260."
             }
           ]
         },
@@ -6648,9 +6650,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-328de05e116b",
+              "block_id": "29-references-27d91136af02",
               "type": "paragraph",
-              "content": "World Tourist Organisation (WTO). “Tourist arrivals” is the term used to measure tourism."
+              "content": "World Tourist Organisation (WTO). ‘Tourist arrivals’ is the term used to measure tourism."
             }
           ]
         },
@@ -6678,7 +6680,7 @@
               "level": 2
             },
             {
-              "block_id": "29-references-71ca3b7f515f",
+              "block_id": "29-references-2e1776f4f2b1",
               "type": "paragraph",
               "content": "John Stott, *Issues Facing Christians Today* (Marshall Pickering, 1984), p.166."
             }
@@ -6783,9 +6785,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-3593d2e99c74",
+              "block_id": "29-references-f8440f5c1bb8",
               "type": "paragraph",
-              "content": "Much of the material here is taken from Paul Mills’ excellent paper *Faith Versus Prudence? Christians and Financial Security*, Cambridge Papers 4:1 (The Jubilee Centre, 1995). To obtain a copy phone the Jubilee Centre on 01223 566319 or see [jubilee-centre.org](https://www.jubilee-centre.org)."
+              "content": "Much of the material here is taken from Paul Mills’ excellent paper *Faith Versus Prudence? Christians and Financial Security*, Cambridge Papers 4:1 (The Jubilee Centre, 1995). To obtain a copy phone the Jubilee Centre on 01223 566319 or see [www.jubilee-centre.org](https://www.jubilee-centre.org)"
             }
           ]
         },
@@ -6828,9 +6830,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-9b34a81c2472",
+              "block_id": "29-references-29226c2cc6cf",
               "type": "paragraph",
-              "content": "Credit Action: 01223 324034; [creditaction.com](https://www.creditaction.com)."
+              "content": "Credit Action: 01223 324034; [www.creditaction.com](https://www.creditaction.com)."
             }
           ]
         },
@@ -6873,9 +6875,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-28c5d3d292fc",
+              "block_id": "29-references-6f37193fa20f",
               "type": "paragraph",
-              "content": "To look further at the question of interest, see Paul Mills, *The Ban on Interest*, Cambridge Papers 3:1 (The Jubilee Centre, 1993)."
+              "content": "To look further at the question of interest, see Paul Mills, *The Ban on Interest*, Cambridge Papers 3:1(The Jubilee Centre, 1993)."
             }
           ]
         },
@@ -6888,9 +6890,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-2420c68528b4",
+              "block_id": "29-references-efdaaee9bd3e",
               "type": "paragraph",
-              "content": "To explore this further, see The Wheat Economy available from info@faithinthesoil.co.uk."
+              "content": "To explore this further, see *The Wheat Economy* available from [info@faithinthesoil.co.uk](mailto:info@faithinthesoil.co.uk)."
             }
           ]
         },
@@ -6903,9 +6905,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-0401990ede1c",
+              "block_id": "29-references-1156a9feb562",
               "type": "paragraph",
-              "content": "See Paul Mills, *Investing as a Christian* Cambridge Papers 7:6 (The Jubilee Centre, 1996) for a helpful look at the current investment options (e.g. Banks, National Savings, shares etc.) in the light of some of these principles."
+              "content": "See Paul Mills, *Investing as a Christian* Cambridge Papers 7:6 (The Jubilee Centre, 1996) for a helpful look at the current investment options (eg Banks, National Savings, shares etc) in the light of some of these principles."
             }
           ]
         },
@@ -6918,9 +6920,9 @@
               "level": 2
             },
             {
-              "block_id": "29-references-af8de1489005",
+              "block_id": "29-references-4d8a80a78b00",
               "type": "paragraph",
-              "content": "The Besom provides some practical ways of beginning to outwork this. Contact them for more details. [thebesomnetwork.org](https://www.thebesomnetwork.org)."
+              "content": "The Besom provides some practical ways of beginning to outwork this. Contact them for more details. [www.thebesomnetwork.org](https://www.thebesomnetwork.org)"
             }
           ]
         },

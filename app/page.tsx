@@ -3,7 +3,12 @@ import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/AppNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { ProgressDashboard } from "@/components/ProgressDashboard";
-import { COURSE_SUBTITLE, COURSE_TITLE } from "@/lib/site-branding";
+import { buildNavChapters } from "@/lib/nav-chapters";
+import {
+  COURSE_AUTHOR,
+  COURSE_SUBTITLE,
+  COURSE_TITLE,
+} from "@/lib/site-branding";
 
 export default async function LandingPage() {
   const supabase = await createClient();
@@ -14,7 +19,7 @@ export default async function LandingPage() {
   if (user) {
     return (
       <div className="flex h-screen overflow-hidden bg-[var(--slj-bg)] text-[var(--slj-text)]">
-        <AppNav userEmail={user.email} />
+        <AppNav userEmail={user.email} chapters={buildNavChapters()} />
         <main className="min-h-0 min-w-0 flex-1 overflow-auto px-4 pb-6 pt-16 md:px-8 md:py-8 lg:px-10 lg:py-10">
           {/* Authenticated home: progress dashboard */}
           <ProgressDashboard />
@@ -33,12 +38,8 @@ export default async function LandingPage() {
           <h1 className="mt-4 font-serif text-5xl font-semibold leading-none md:text-7xl">
             {COURSE_TITLE}
           </h1>
-          <p className="slj-muted mt-6 max-w-xl font-serif text-2xl leading-tight md:text-3xl">
-            Read slowly, reflect honestly, and keep your notes close at hand.
-          </p>
-          <p className="slj-muted mt-3 max-w-lg font-sans text-sm leading-6">
-            A quiet reading space for the course, your private notes, and the
-            shared rhythm of group conversation.
+          <p className="slj-muted mt-6 font-serif text-2xl leading-tight md:text-3xl">
+            {COURSE_AUTHOR}
           </p>
           <div className="mt-8">
             <Link href="/auth/sign-in" className="slj-button inline-flex px-5 py-3 text-sm">

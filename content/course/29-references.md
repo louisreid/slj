@@ -6,11 +6,11 @@ John Stott, *New Issues Facing Christians Today* (Marshall Pickering, 1990), p.2
 
 ## [2]
 
-Papers that were presented at the consultation can be read in: Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to Simple Lifestyle* (Paternoster, 1981).
+John Stott (ed.), *Making Christ Known* (Paternoster, 1996), p.142. [www.lausanne.org](https://www.lausanne.org)
 
 ## [3]
 
-John Stott (ed.), *Making Christ Known* (Paternoster, 1996), p.142. See also [Lausanne Occasional Papers](https://lausanne.org).
+Papers that were presented at the consultation can be read in: Ron Sider, *lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle* (Paternoster, 1981).
 
 ## [4]
 
@@ -18,15 +18,15 @@ Janet Luhrs, *The Simple Living Guide* (Broadway, 1997), p.210.
 
 ## [5]
 
-Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to a Simple Lifestyle* (Paternoster, 1981), p.9.
+Quoted in Ron Sider, *lifestyle in the Eighties* (Paternoster, 1981), p.11.
 
 ## [6]
 
-See the Session One reading and discussion on simplicity in the light of Jesus’ teaching.
+For a broader theological basis for simplicity, see Ruth Valerio, *Simplicity: Living Life to the Full*.
 
 ## [7]
 
-Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), pp.110–115.
+Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), p.107. Reproduced by permission of Hodder & Stoughton Limited.
 
 ## [8]
 
@@ -34,11 +34,11 @@ Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), p.99.
 
 ## [9]
 
-Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), p.107. Reproduced by permission of Hodder & Stoughton Limited.
+Richard Foster, *Celebration of Discipline* (Hodder & Stoughton, 1999), pp.110–115.
 
 ## [10]
 
-Quoted in Ron Sider, *Lifestyle in the Eighties* (Paternoster, 1981), p.11.
+Ron Sider, *lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle* (Paternoster, 1981), p.9.
 
 ## [11]
 
@@ -46,7 +46,7 @@ Taken from Fusion cell notes material: Issue 8, 2000, p.33.
 
 ## [12]
 
-See Session Two on community in church history (Desert Fathers and related examples).
+These examples have been taken from Ray Simpson, *Exploring Celtic Spirituality* (Hodder & Stoughton, 1995), pp.37–38.
 
 ## [13]
 
@@ -58,7 +58,7 @@ Ray Simpson, *Exploring Celtic Spirituality* (Hodder & Stoughton, 1995), pp.195�
 
 ## [15]
 
-Roy McCloughry, ‘Community Ethics’ in *New Dictionary of Christian Ethics and Pastoral Theology* (IVP, 1995), p.110.
+From Racial Justice Sunday pack, 2002.
 
 ## [16]
 
@@ -66,7 +66,7 @@ J. Sacks, *Faith in the Future* (Dartman, Longman and Todd, 1995), p.78.
 
 ## [17]
 
-Taken from the Co-housing Network website: www.cohousing.co.uk
+Taken from the Co-housing Network website: [www.cohousing.co.uk](https://www.cohousing.co.uk)
 
 ## [18]
 
@@ -82,27 +82,27 @@ Story Songs Ltd. Sung by Harry Chapin.
 
 ## [21]
 
-Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.253.
+Roy McCloughry, ‘Community Ethics’ in *New Dictionary of Christian Ethics and Pastoral Theology* (IVP, 1995), 110.
 
 ## [22]
 
-Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), pp.50–51.
+Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), p.253.
 
 ## [23]
 
-Henri Nouwen, ‘Contemplation and Ministry’ quoted in Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.54.
+Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), pp.50–51.
 
 ## [24]
 
-Paul Mills, *A brief theology of time. Part 2: Resisting the tyranny of time*, Cambridge Papers 11:4, The Jubilee Centre, 2002.
+Henri Nouwen, ‘Contemplation and Ministry’ quoted in Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), p.54.
 
 ## [25]
 
-Taken from T. Sine, *Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium* (Monarch, 1995), pp.238–239.
+Paul Mills, *A brief theology of time. Part 2: Resisting the tyranny of time*, Cambridge Papers 11:4, The Jubilee Centre, 2002.
 
 ## [26]
 
-See Session Three discussion questions on how you spend your time.
+Taken from T. Sine, *Mustard Seed Vs. McWorld: Reinventing Christian Life for a New Millenium* (Monarch, 1995), pp.238–239.
 
 ## [27]
 
@@ -110,7 +110,7 @@ Adapted from Mark A. Burch’s study in *Simplicity* (New Society Publishers, 19
 
 ## [28]
 
-E.M. Forster, *Howard’s End* (Penguin, 1969), p.72.
+E.M.Forster, *Howard’s End*, (Penguin, 1969), p.72.
 
 ## [29]
 
@@ -118,7 +118,7 @@ Craig Blomberg, *Neither Poverty Nor Riches: A Biblical Theology of Possessions*
 
 ## [30]
 
-Ron Sider, *Lifestyle in the Eighties: An Evangelical Commitment to Simple Lifestyle* (Paternoster, 1981), p.6.
+Ron Sider, *lifestyle in the Eighties: An Evangelical Commitment to Simple lifestyle* (Paternoster, 1981), p.6.
 
 ## [31]
 
@@ -126,7 +126,7 @@ Craig Blomberg, *Neither Poverty Nor Riches: A Biblical Theology of Possessions*
 
 ## [32]
 
-John Stott, *Issues Facing Christians Today* (Marshall Pickering, 1984), p.166.
+Donald B. Kraybill, *The Upside-down Kingdom* (Herald, 1991), pp.114–129.
 
 ## [33]
 
@@ -134,15 +134,15 @@ The Message translation of the Bible gives an excellent re-reading of this passa
 
 ## [34]
 
-Donald B. Kraybill, *The Upside-down Kingdom* (Herald, 1991), pp.114–129.
+Hengel, ‘Property and Riches in the Early Church’, in *Earliest Christianity* (SCM Press, 1979), p.232.
 
 ## [35]
 
-https://www.jrf.org.uk/data/overall-uk-poverty-rates and https://commonslibrary.parliament.uk/research-briefings/sn02110/
+[https://www.jrf.org.uk/data/overall-uk-poverty-rates](https://www.jrf.org.uk/data/overall-uk-poverty-rates) and [https://commonslibrary.parliament.uk/research-briefings/sn02110/](https://commonslibrary.parliament.uk/research-briefings/sn02110/)
 
 ## [36]
 
-https://www.worldvision.org/sponsorship-news-stories/global-poverty-facts#multidimensional
+[https://www.worldvision.org/sponsorship-news-stories/global-poverty-facts#multidimensional](https://www.worldvision.org/sponsorship-news-stories/global-poverty-facts#multidimensional)
 
 ## [37]
 
@@ -154,7 +154,7 @@ John Wesley, Sermon 29 in *Wesley’s 52 Standard Sermons* (Schmul Publishing).
 
 ## [39]
 
-Taken from Michael Schut (ed.), *Simpler Living: Compassionate Life* (Thomas More Press, 1999), p.260.
+Taken from, Michael Schut (ed.), *Simpler Living:Compassionate Life* (Thomas More Press, 1999), p.260.
 
 ## [40]
 
@@ -166,7 +166,7 @@ This is dependent on the world situation. In times of war, or increased instabil
 
 ## [42]
 
-World Tourist Organisation (WTO). “Tourist arrivals” is the term used to measure tourism.
+World Tourist Organisation (WTO). ‘Tourist arrivals’ is the term used to measure tourism.
 
 ## [43]
 
@@ -202,7 +202,7 @@ D. Batstone, *Saving the Corporate Soul*, p.11. Copyright © D. Batstone 2003. R
 
 ## [51]
 
-Much of the material here is taken from Paul Mills’ excellent paper *Faith Versus Prudence? Christians and Financial Security*, Cambridge Papers 4:1 (The Jubilee Centre, 1995). To obtain a copy phone the Jubilee Centre on 01223 566319 or see [jubilee-centre.org](https://www.jubilee-centre.org).
+Much of the material here is taken from Paul Mills’ excellent paper *Faith Versus Prudence? Christians and Financial Security*, Cambridge Papers 4:1 (The Jubilee Centre, 1995). To obtain a copy phone the Jubilee Centre on 01223 566319 or see [www.jubilee-centre.org](https://www.jubilee-centre.org)
 
 ## [52]
 
@@ -214,7 +214,7 @@ Larry Burkett, *Debt-free Living* (Moody Press, 1999), p.57.
 
 ## [54]
 
-Credit Action: 01223 324034; [creditaction.com](https://www.creditaction.com).
+Credit Action: 01223 324034; [www.creditaction.com](https://www.creditaction.com).
 
 ## [55]
 
@@ -226,19 +226,19 @@ From an unpublished paper entitled, *Tithing: Biblically Non-Christian?* See als
 
 ## [57]
 
-To look further at the question of interest, see Paul Mills, *The Ban on Interest*, Cambridge Papers 3:1 (The Jubilee Centre, 1993).
+To look further at the question of interest, see Paul Mills, *The Ban on Interest*, Cambridge Papers 3:1(The Jubilee Centre, 1993).
 
 ## [58]
 
-To explore this further, see The Wheat Economy available from info@faithinthesoil.co.uk.
+To explore this further, see *The Wheat Economy* available from [info@faithinthesoil.co.uk](mailto:info@faithinthesoil.co.uk).
 
 ## [59]
 
-See Paul Mills, *Investing as a Christian* Cambridge Papers 7:6 (The Jubilee Centre, 1996) for a helpful look at the current investment options (e.g. Banks, National Savings, shares etc.) in the light of some of these principles.
+See Paul Mills, *Investing as a Christian* Cambridge Papers 7:6 (The Jubilee Centre, 1996) for a helpful look at the current investment options (eg Banks, National Savings, shares etc) in the light of some of these principles.
 
 ## [60]
 
-The Besom provides some practical ways of beginning to outwork this. Contact them for more details. [thebesomnetwork.org](https://www.thebesomnetwork.org).
+The Besom provides some practical ways of beginning to outwork this. Contact them for more details. [www.thebesomnetwork.org](https://www.thebesomnetwork.org)
 
 ## [61]
 

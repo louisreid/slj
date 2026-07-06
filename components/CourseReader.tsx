@@ -28,6 +28,10 @@ import {
   getSectionId,
   firstHeadingBlock,
 } from "@/components/BlockContent";
+import {
+  getAppScrollParent,
+  restoreScrollPosition,
+} from "@/lib/scroll-return";
 
 const EMPTY_BLOCK_IDS: string[] = [];
 
@@ -35,6 +39,7 @@ export interface CourseReaderProps {
   chapterId: string;
   chapter: Chapter;
   displayTitle: string;
+  sessionLabel?: string;
   sections: Section[];
   blockIds: string[];
   blockIdToLabel: Record<string, string>;
@@ -46,6 +51,7 @@ export function CourseReader({
   chapterId,
   chapter,
   displayTitle,
+  sessionLabel,
   sections,
   blockIds,
   blockIdToLabel,
@@ -299,16 +305,34 @@ export function CourseReader({
     [sections, blockHandlers]
   );
 
+  useEffect(() => {
+    const scrollParent = getAppScrollParent();
+    if (scrollParent) {
+      scrollParent.scrollTop = 0;
+    }
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      restoreScrollPosition(scrollParent, 0, hash);
+    }
+  }, [chapterId]);
+
+  const readerColumnClass = "slj-reader-blocks slj-reader-column";
+
   return (
     <div className="min-w-0 w-full max-w-[min(100%,90rem)]">
       {isInteractive && (
         <nav
-          className="mb-8 slj-card p-5 font-sans text-sm"
+          className="mb-8 slj-card p-5 font-sans text-sm slj-reader-column"
           aria-label="Table of contents"
         >
           <h2 className="slj-faint mb-3 font-sans text-xs uppercase tracking-[0.18em]">
             In this chapter
           </h2>
+          {sessionLabel ? (
+            <p className="slj-faint mb-2 font-sans text-[11px] uppercase tracking-[0.16em]">
+              {sessionLabel}
+            </p>
+          ) : null}
           {!user ? (
             <p className="slj-muted mb-3 font-sans text-sm leading-6">
               Sign in to add private notes beside each paragraph.
@@ -368,35 +392,37 @@ export function CourseReader({
       )}
 
       <article className="slj-shell p-6 font-serif md:p-10">
-        {!isInteractive && !skipShellHeader ? (
-          <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
-            <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
-              {displayTitle}
-            </h1>
-          </header>
-        ) : null}
-        {isInteractive && loading ? (
-          <p className="slj-muted mb-6 font-sans text-sm">Loading notes…</p>
-        ) : null}
-        <CourseChapterHrefProvider href={`/course/${chapterId}`}>
-          <div
-            className={
-              isInteractive ? "slj-reader-blocks" : "slj-reader-blocks mx-auto max-w-[72ch]"
-            }
-          >
+        <div className={readerColumnClass}>
+          {!isInteractive && !skipShellHeader ? (
+            <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
+              <h1 className="font-serif text-4xl font-semibold leading-none text-[var(--slj-text)]">
+                {displayTitle}
+              </h1>
+            </header>
+          ) : null}
+          {isInteractive && sessionLabel ? (
+            <p className="slj-faint -mt-2 mb-6 font-sans text-xs uppercase tracking-[0.18em]">
+              {sessionLabel}
+            </p>
+          ) : null}
+          {isInteractive && loading ? (
+            <p className="slj-muted mb-6 font-sans text-sm">Loading notes…</p>
+          ) : null}
+          <CourseChapterHrefProvider href={`/course/${chapterId}`}>
             {renderedBlocks}
-          </div>
-        </CourseChapterHrefProvider>
+          </CourseChapterHrefProvider>
+        </div>
       </article>
 
       <nav
-        className="mt-8 flex justify-between border-t border-[var(--slj-border)] pt-6 font-sans text-sm"
+        className="mt-8 flex justify-between border-t border-[var(--slj-border)] pt-6 font-sans text-sm slj-reader-column"
         aria-label="Chapter navigation"
       >
         <span>
           {prevChapter ? (
             <Link
               href={`/course/${prevChapter.id}`}
+              prefetch
               className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
             >
               ← Previous: {prevChapter.title}
@@ -409,6 +435,7 @@ export function CourseReader({
           {nextChapter ? (
             <Link
               href={`/course/${nextChapter.id}`}
+              prefetch
               className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
             >
               Next: {nextChapter.title} →

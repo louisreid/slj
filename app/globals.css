@@ -124,6 +124,14 @@
     row-gap: 1.25rem; /* 20px — DesignGuidelines paragraph spacing */
   }
 
+  .slj-reader-blocks p {
+    text-align: justify;
+  }
+
+  .slj-reader-column {
+    @apply mx-auto w-full max-w-[72ch];
+  }
+
   /** Bible quotes: stronger rule + caption (see BlockContent parseBibleQuoteContent). */
   .slj-scripture-quote blockquote + figcaption cite {
     font-style: normal;

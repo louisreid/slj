@@ -13,6 +13,7 @@ import {
   getChapterCompletionStats,
   getInteractiveSessionNumberMap,
 } from "@/lib/progress-summary";
+import { formatSessionLabel } from "@/lib/session-labels";
 import { isMissingChapterProgressTable } from "@/lib/progress-errors";
 import { PageShell } from "@/components/ui/surfaces";
 import { COURSE_TITLE, PREFACE_HREF } from "@/lib/site-branding";
@@ -142,6 +143,11 @@ export async function ProgressDashboard({
             <div>
               {rich ? (
                 <>
+                  {sessionNumber != null ? (
+                    <p className="slj-faint mb-1 font-sans text-[11px] uppercase tracking-[0.16em]">
+                      {formatSessionLabel(sessionNumber)}
+                    </p>
+                  ) : null}
                   <h3 className="font-serif text-2xl leading-tight text-[var(--slj-text)]">
                     {displayTitle}
                   </h3>
@@ -151,6 +157,11 @@ export async function ProgressDashboard({
                 </>
               ) : (
                 <>
+                  {sessionNumber != null ? (
+                    <p className="slj-faint mb-1 font-sans text-[10px] uppercase tracking-[0.14em]">
+                      {formatSessionLabel(sessionNumber)}
+                    </p>
+                  ) : null}
                   <div className="font-serif text-xl text-[var(--slj-text)]">
                     {displayTitle}
                   </div>

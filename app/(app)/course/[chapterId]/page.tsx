@@ -7,6 +7,8 @@ import {
   getSections,
 } from "@/lib/content";
 import { CourseReader } from "@/components/CourseReader";
+import { getInteractiveSessionNumberMap } from "@/lib/progress-summary";
+import { formatSessionLabel } from "@/lib/session-labels";
 
 export default async function ChapterPage({
   params,
@@ -29,6 +31,10 @@ export default async function ChapterPage({
 
   const chapters = getChapters();
   const chapterTitles = getChapterDisplayTitleMap(chapters);
+  const sessionNumbers = getInteractiveSessionNumberMap(chapters);
+  const sessionNum = sessionNumbers.get(chapter.id);
+  const sessionLabel =
+    sessionNum != null ? formatSessionLabel(sessionNum) : undefined;
   const currentIndex = chapters.findIndex((ch) => ch.id === chapter.id);
   const prevChapter = currentIndex > 0 ? chapters[currentIndex - 1] : null;
   const nextChapter =
@@ -41,6 +47,7 @@ export default async function ChapterPage({
       chapterId={chapter.id}
       chapter={chapter}
       displayTitle={chapterTitles.get(chapter.id) ?? chapter.title}
+      sessionLabel={sessionLabel}
       sections={sections}
       blockIds={blockIds}
       blockIdToLabel={blockIdToLabel}

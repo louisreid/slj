@@ -8,6 +8,7 @@ import {
   worksheetHrefWithAutoprint,
   worksheetHrefWithReturn,
 } from "@/components/ReaderLocationContext";
+import { saveScrollBeforeNavigate } from "@/components/ScrollReturnManager";
 import {
   extractWorksheetLinks,
   type WorksheetLinkRef,
@@ -49,12 +50,14 @@ export function WorksheetCallout({ worksheet }: WorksheetCalloutProps) {
         <div className="flex shrink-0 gap-3">
           <Link
             href={openHref}
+            onClick={() => saveScrollBeforeNavigate()}
             className="slj-button inline-flex h-10 min-w-[5.5rem] items-center justify-center px-5 text-xs uppercase tracking-[0.18em]"
           >
             Open
           </Link>
           <Link
             href={printHref}
+            onClick={() => saveScrollBeforeNavigate()}
             className="slj-button-secondary inline-flex h-10 min-w-[5.5rem] items-center justify-center px-5 text-xs uppercase tracking-[0.18em]"
           >
             Print

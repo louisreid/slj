@@ -3,7 +3,7 @@ import type { ReactElement } from "react";
 import { getWorksheet } from "@/lib/worksheets";
 import { WorksheetPrintBackLink } from "@/components/WorksheetPrintBackLink";
 import { WorksheetAutoPrint } from "@/components/WorksheetAutoPrint";
-import { isSafeCourseReturnPath } from "@/components/ReaderLocationContext";
+import { isSafeCourseReturnPath } from "@/lib/worksheet-return";
 import { ThingsToChangeWorksheet } from "@/components/worksheets/ThingsToChangeWorksheet";
 import { BudgetingMoneyAuditWorksheet } from "@/components/worksheets/BudgetingMoneyAuditWorksheet";
 import { TimeSheetWorksheet } from "@/components/worksheets/TimeSheetWorksheet";

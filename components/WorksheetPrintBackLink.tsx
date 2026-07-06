@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { isSafeCourseReturnPath } from "@/components/ReaderLocationContext";
+import { isSafeCourseReturnPath } from "@/lib/worksheet-return";
 
 export function WorksheetPrintBackLink({
   returnTo,

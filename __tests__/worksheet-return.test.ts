@@ -1,7 +1,7 @@
 import {
   isSafeCourseReturnPath,
   worksheetHrefWithReturn,
-} from "@/components/ReaderLocationContext";
+} from "@/lib/worksheet-return";
 
 describe("worksheet return navigation", () => {
   it("accepts course paths with block anchors", () => {

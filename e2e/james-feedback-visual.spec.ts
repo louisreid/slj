@@ -75,8 +75,11 @@ test.describe("James feedback (layout + content)", () => {
   test("things to change print view renders", async ({ page }) => {
     await page.goto("/worksheets/print/things-to-change");
     await expect(
-      page.getByRole("heading", { name: "Things to Change" }).first()
+      page.getByRole("heading", {
+        name: /Steps I can take to move toward simplicity/i,
+      })
     ).toBeVisible();
+    await expect(page.getByRole("columnheader", { name: "THINGS TO CHANGE" })).toBeVisible();
   });
 
   test("notes panel aside is not used on chapter reader", async ({ page }) => {

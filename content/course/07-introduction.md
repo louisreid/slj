@@ -45,10 +45,6 @@ Loneliness is one of the worst forms of poverty in the developed world. By study
 
 ## How to use the material
 
-### Private notes in the reader
-
-From Session One onward, you can keep **private notes** beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover a paragraph on desktop—or read on mobile—and use the note icon beside that paragraph. Your notes are only visible to you.
-
 This course is designed for discussion in small groups, ideally of around five people who know one another. There is an expectation that group members will commit themselves fully to the course. It is of no fixed length, as different groups may need different amounts of time to build trust and confidentiality, and an atmosphere without legalism or judgement. This course is a very personal journey, and we come with different histories and experiences that mould our approaches and make different things important to us. As Ron Sider warns: ‘There is no one lifestyle that is right for all Christians in one country, or even for all Christians in one congregation. There must be room for the variety and diversity so gorgeously displayed in the creation.’ [5] Perhaps it might be helpful for everyone to start off by sharing that part of their ‘story’ relevant to the course as a way of building links and understanding. As Atticus says in To Kill a Mockingbird: ‘You never understand a person until you have put on their shoes and walked around in them.’
 
 It is up to each group to establish their own guidelines for discussions and to decide how long they spend on each subject. There may be some issues that are not relevant to a particular group. It is recommended, as far as possible, that while there may be one person who acts as overall group facilitator, a different person leads through each meeting to help build a sense of group ownership. Please note that the role of the facilitator is to lead people through the suggested format. There is no expectation that the facilitator must deliver a short (still less a long) talk!
@@ -90,10 +86,12 @@ These exercises are designed to help individuals assess themselves and take chal
 
 With this format in mind, it will be clear that each group member will need to set aside time between meetings to think through the previous session thoroughly and prepare for the next. It may also be worth considering doing the last session as a weekend away, as a chance to spend time with one another, reflecting on what the Spirit has been teaching the group over the weeks, to pray for its members and to discuss how they may support one another in any future commitments they feel led to make.
 
+In the digital version of this course, from Session One onward you can keep **private notes** beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover over a paragraph on desktop—or tap the note icon beside a paragraph on mobile. Your notes are only visible to you.
+
 ‘... Become nothing before God, learn to keep silent; in this silence is the beginning which is first to seek God’s kingdom’ 
 - Soren Kierkegaard (quoted in Richard Foster, Celebration of Discipline)
 
-## Further Reading and Resources
+### Further Reading and Resources
 
 At the end of each session, you will find two or three specific books, relevant to the topic, and then there is a full bibliography at the end of the course. Website addresses for useful organisations are given throughout the material and a few extras are given at the end, along with the website addresses/contact details for the organisations related to the authors.
 
@@ -102,8 +100,6 @@ At the end of each session, you will find two or three specific books, relevant 
 We have chosen not to give timings. It is recommended that the meetings last around an hour and a half, but it is up to the group how much time is spent on each section. While most time will be spent on the discussion, it may be, for instance, that on one particular week more time needs to be spent praying for one another (in the light of the issues raised) or perhaps studying a biblical passage to gain a deeper understanding before looking at questions of application. There are no rules! Above all, make this experience a positive one – full of laughter and fun amid the challenges.
 
 It is important, again, that each member of the group is encouraged, no matter how they react to the issues. No one should be criticised and comparisons between group members are particularly unhelpful (and miss the point of an essentially personal quest). Don’t move on to the next subject until you feel ready to tackle it. You may find that you stay on one subject for a few weeks without looking at any others.
-
-We would love to hear from you. On your journey of discovery you will discover things that are not covered by this discussion course. Please write to us and tell us what you learn so that we can include your experiences in later editions.
 
 ‘Son, now I will teach you the way of peace and of true liberty. Try, my son, to do the will of another rather than your own. Always choose to have less rather than more. Always seek to take the last place, and to be subject to everyone. Always desire and pray that the will of God be perfectly fulfilled in you. Behold, a man so disposed enters in the land of peace and rest.’
 - Thomas à Kempis (The Imitation of Christ)

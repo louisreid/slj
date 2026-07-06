@@ -3,15 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { APP_RELEASE_LABEL } from "@/lib/release";
-import { COURSE_SUBTITLE, COURSE_TITLE } from "@/lib/site-branding";
+import { CourseSearch } from "@/components/CourseSearch";
+import type { NavChapter } from "@/lib/nav-chapters";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
 
-// Groups hidden for now; re-add { href: "/groups", label: "Groups", short: "G" } to bring back
 const navItems = [
   { href: "/", label: "Course", short: "C" },
-  { href: "/course/04-preface", label: "Contents", short: "T" },
   { href: "/worksheets", label: "Worksheets", short: "W" },
 ] as const;
 
@@ -24,11 +22,18 @@ function handleSignOutClick(e: React.MouseEvent<HTMLButtonElement>) {
   }
 }
 
-export function AppNav({ userEmail }: { userEmail?: string | null }) {
+export function AppNav({
+  userEmail,
+  chapters = [],
+}: {
+  userEmail?: string | null;
+  chapters?: NavChapter[];
+}) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [chaptersOpen, setChaptersOpen] = useState(true);
 
   useEffect(() => {
     setMounted(true);
@@ -59,12 +64,11 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
       return pathname === "/";
     }
 
-    if (href === "/course/04-preface") {
-      return pathname.startsWith("/course/");
-    }
-
     return pathname === href || pathname.startsWith(`${href}/`);
   };
+
+  const isChapterActive = (chapterId: string) =>
+    pathname === `/course/${chapterId}`;
 
   const navItemClass = (active: boolean) =>
     `flex items-center gap-2 border-l-2 px-3 py-2 text-sm font-medium transition-colors ${
@@ -73,17 +77,19 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
         : "border-transparent text-[var(--slj-text-muted)] hover:bg-[var(--slj-hover)] hover:text-[var(--slj-text)]"
     }`;
 
+  const showLabels = !collapsed || drawerOpen;
+
   const navContent = (
     <>
       <div className="flex min-h-0 flex-1 flex-col">
         <div className="flex shrink-0 items-start justify-between border-b border-[var(--slj-border)] p-4">
-          {(!collapsed || drawerOpen) && (
+          {showLabels && (
             <Link href="/" className="space-y-1" onClick={closeDrawer}>
               <p className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">
-                {COURSE_SUBTITLE}
+                A Discussion Course
               </p>
               <p className="font-serif text-xl font-semibold leading-tight text-[var(--slj-text)]">
-                {COURSE_TITLE}
+                Simplicity Love & Justice
               </p>
             </Link>
           )}
@@ -97,7 +103,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
             <span className="text-lg leading-none">{collapsed ? "→" : "←"}</span>
           </button>
         </div>
-          <nav className="flex-1 overflow-auto p-3">
+        <nav className="flex-1 overflow-auto p-3">
           <ul className="space-y-1">
             {navItems.map(({ href, label, short }) => (
               <li key={href}>
@@ -116,14 +122,48 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
               </li>
             ))}
           </ul>
+
+          {showLabels && chapters.length > 0 ? (
+            <div className="mt-4">
+              <button
+                type="button"
+                onClick={() => setChaptersOpen((o) => !o)}
+                className="slj-faint mb-2 flex w-full items-center justify-between font-sans text-[11px] uppercase tracking-[0.16em]"
+              >
+                Chapters
+                <span>{chaptersOpen ? "−" : "+"}</span>
+              </button>
+              {chaptersOpen ? (
+                <ul className="max-h-64 space-y-0.5 overflow-y-auto">
+                  {chapters.map((ch) => (
+                    <li key={ch.id}>
+                      <Link
+                        href={`/course/${ch.id}`}
+                        onClick={closeDrawer}
+                        prefetch
+                        className={`block border-l-2 px-3 py-1.5 text-xs leading-snug transition-colors ${
+                          isChapterActive(ch.id)
+                            ? "border-[var(--slj-text)] bg-[var(--slj-hover)] text-[var(--slj-text)]"
+                            : "border-transparent text-[var(--slj-text-muted)] hover:bg-[var(--slj-hover)] hover:text-[var(--slj-text)]"
+                        }`}
+                      >
+                        {ch.sessionLabel ? (
+                          <span className="slj-faint block text-[10px] uppercase tracking-[0.14em]">
+                            {ch.sessionLabel}
+                          </span>
+                        ) : null}
+                        <span>{ch.title}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+              <CourseSearch onNavigate={closeDrawer} />
+            </div>
+          ) : null}
         </nav>
         <div className="shrink-0 border-t border-[var(--slj-border)] p-3">
-          {(!collapsed || drawerOpen) && (
-            <p className="slj-faint mb-2 font-sans text-[11px] uppercase tracking-[0.16em]">
-              {APP_RELEASE_LABEL}
-            </p>
-          )}
-          {(!collapsed || drawerOpen) && userEmail && (
+          {showLabels && userEmail && (
             <>
               <p className="slj-faint mb-2 truncate font-sans text-xs">
                 {userEmail}
@@ -138,7 +178,7 @@ export function AppNav({ userEmail }: { userEmail?: string | null }) {
               </Link>
             </>
           )}
-          {(!collapsed || drawerOpen) && (
+          {showLabels && (
             <form action="/auth/sign-out" method="post" className="mt-2">
               <button
                 type="submit"

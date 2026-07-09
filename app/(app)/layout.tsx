@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/AppNav";
 import { ContentRevisionPoller } from "@/components/dev/ContentRevisionPoller";
 import { ReturnToReadingButton } from "@/components/ReturnToReadingButton";
+import { BackToSearchButton } from "@/components/BackToSearchButton";
 import { ScrollReturnManager } from "@/components/ScrollReturnManager";
 import { buildNavChapters } from "@/lib/nav-chapters";
 
@@ -22,6 +23,7 @@ export default async function AppShellLayout({
       {process.env.NODE_ENV === "development" ? <ContentRevisionPoller /> : null}
       <ScrollReturnManager />
       <ReturnToReadingButton />
+      <BackToSearchButton />
       <AppNav userEmail={user?.email} chapters={navChapters} />
       <main
         id="app-main-scroll"

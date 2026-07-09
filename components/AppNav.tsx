@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { NavCourseSearch } from "@/components/NavCourseSearch";
 import { clearScrollReturn } from "@/lib/scroll-return";
+import { clearSearchReturn } from "@/lib/search-return";
 import type { NavChapter } from "@/lib/nav-chapters";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
@@ -104,6 +105,7 @@ export function AppNav({
             <span className="text-lg leading-none">{collapsed ? "→" : "←"}</span>
           </button>
         </div>
+        {showLabels ? <NavCourseSearch onNavigate={closeDrawer} /> : null}
         <nav className="flex-1 overflow-auto p-3">
           <ul className="space-y-1">
             {navItems.map(({ href, label, short }) => (
@@ -142,6 +144,7 @@ export function AppNav({
                         href={`/course/${ch.id}`}
                         onClick={() => {
                           clearScrollReturn();
+                          clearSearchReturn();
                           closeDrawer();
                         }}
                         prefetch
@@ -162,7 +165,6 @@ export function AppNav({
                   ))}
                 </ul>
               ) : null}
-              <NavCourseSearch onNavigate={closeDrawer} />
             </div>
           ) : null}
         </nav>

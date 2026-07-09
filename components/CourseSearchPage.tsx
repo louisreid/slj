@@ -1,23 +1,45 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useMemo, useState, useEffect, useRef, useCallback } from "react";
 import {
   buildCourseSearchIndex,
   searchCourseIndex,
   type CourseSearchHit,
 } from "@/lib/course-search-index";
+import { saveSearchReturn } from "@/lib/search-return";
 
 export function CourseSearchPage() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const initialQuery = searchParams?.get("q") ?? "";
   const [query, setQuery] = useState(initialQuery);
+  const inputRef = useRef<HTMLInputElement>(null);
   const index = useMemo(() => buildCourseSearchIndex(), []);
 
   useEffect(() => {
     setQuery(initialQuery);
   }, [initialQuery]);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      inputRef.current?.focus();
+      const len = inputRef.current?.value.length ?? 0;
+      inputRef.current?.setSelectionRange(len, len);
+    });
+    return () => cancelAnimationFrame(id);
+  }, []);
+
+  const syncQueryToUrl = useCallback(
+    (value: string) => {
+      const href = value.trim()
+        ? `/search?q=${encodeURIComponent(value.trim())}`
+        : "/search";
+      router.replace(href, { scroll: false });
+    },
+    [router]
+  );
 
   const results = useMemo(
     () => searchCourseIndex(index, query, 50),
@@ -32,17 +54,17 @@ export function CourseSearchPage() {
       <h1 className="mt-3 font-serif text-4xl font-semibold text-[var(--slj-text)]">
         Search the course
       </h1>
-      <p className="slj-muted mt-3 font-sans text-sm leading-6">
-        Find a phrase across all chapters. Results link to the matching passage.
-      </p>
       <input
+        ref={inputRef}
         type="search"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Type to search…"
-        autoFocus
+        onChange={(e) => {
+          setQuery(e.target.value);
+          syncQueryToUrl(e.target.value);
+        }}
+        placeholder="Search all chapters…"
         className="slj-input mt-8 w-full px-4 py-3 font-sans text-base"
-        aria-label="Search course"
+        aria-label="Search all chapters"
       />
       {query.trim().length > 1 && results.length === 0 ? (
         <p className="slj-muted mt-8 font-sans text-sm">No matches for “{query}”.</p>
@@ -64,6 +86,7 @@ function SearchResultCard({ hit, query }: { hit: CourseSearchHit; query: string 
   return (
     <Link
       href={`/course/${hit.chapterId}#${hit.blockId}`}
+      onClick={() => saveSearchReturn(query)}
       className="block border border-[var(--slj-border)] bg-[var(--slj-surface)] p-5 transition-colors hover:bg-[var(--slj-hover)]"
     >
       <p className="slj-faint font-sans text-[11px] uppercase tracking-[0.16em]">

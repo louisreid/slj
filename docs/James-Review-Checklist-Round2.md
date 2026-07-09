@@ -54,11 +54,12 @@ PLAYWRIGHT_PORT=3010 pnpm test:e2e
 
 ### Search
 
-- [ ] Click the sidebar search field (or type one letter)
-- [ ] You land on **/search** (full page, not cramped sidebar results)
-- [ ] Type `money` or `Micah` → results use full page width
-- [ ] Click a result → opens the correct chapter and passage
-- [ ] “Open full search” link in sidebar also works
+- [ ] Search field sits **directly under** the “Simplicity Love & Justice” title (no “Search course” label, no “Open full search” link)
+- [ ] Placeholder reads **Search all chapters…**
+- [ ] Click or type in sidebar field → opens **/search** full page
+- [ ] Search page input is **auto-focused** and ready to type
+- [ ] Click a result → opens chapter; **“Back to search results”** appears (top right, below return link if both shown)
+- [ ] Back to search returns to same query/results
 
 ---
 
@@ -66,10 +67,10 @@ PLAYWRIGHT_PORT=3010 pnpm test:e2e
 
 ### Should appear
 
-- [ ] Open Session One; scroll **well down** (e.g. past Goals)
-- [ ] Click footnote **[6]** → References
-- [ ] **“Return to where you were reading”** appears (top right)
-- [ ] Click it → back to Session One at **roughly the same scroll position** (not top of chapter)
+- [ ] Open Session One; scroll to footnote **[6]** (Jesus’ own words paragraph)
+- [ ] Click **[6]** → References
+- [ ] **“Return to where you were reading”** appears
+- [ ] Click it → returns to the **same paragraph** as footnote [6], not the “Reading” heading
 - [ ] × dismiss is **easy to tap** and removes the banner
 
 ### Should NOT appear

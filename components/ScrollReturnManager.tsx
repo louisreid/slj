@@ -10,6 +10,7 @@ import {
   loadScrollReturn,
   restoreScrollPosition,
 } from "@/lib/scroll-return";
+import { clearSearchReturn } from "@/lib/search-return";
 
 /** Restores scroll position when returning from footnotes; clears stale state on direct nav. */
 export function ScrollReturnManager() {
@@ -44,6 +45,7 @@ export function ScrollReturnManager() {
           anchor.getAttribute("href")?.match(/^\/course\/[^#]+$/);
         if (isChapterNav) {
           clearScrollReturn();
+          clearSearchReturn();
         }
       }
     };

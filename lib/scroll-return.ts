@@ -29,34 +29,30 @@ export function saveScrollReturn(
   sessionStorage.setItem(SCROLL_RETURN_KEY, JSON.stringify(state));
 }
 
-export function saveFootnoteScrollReturn(): void {
+export function saveFootnoteScrollReturn(anchorBlockId?: string): void {
   if (typeof window === "undefined") return;
   const scrollParent = getAppScrollParent();
-  const hash = window.location.hash.slice(1);
-  const blockInView = findNearestBlockId(scrollParent);
   saveScrollReturn(
     scrollParent,
     window.location.pathname,
-    blockInView ?? hash,
+    anchorBlockId ?? "",
     "footnote"
   );
 }
 
-function findNearestBlockId(scrollParent: HTMLElement | null): string | undefined {
-  if (!scrollParent) return undefined;
-  const viewportTop = scrollParent.scrollTop + 80;
-  const blocks = scrollParent.querySelectorAll<HTMLElement>("[data-block-id]");
-  let best: { id: string; distance: number } | null = null;
-  for (const el of blocks) {
-    const id = el.dataset.blockId;
-    if (!id) continue;
-    const top = el.offsetTop;
-    const distance = Math.abs(top - viewportTop);
-    if (!best || distance < best.distance) {
-      best = { id, distance };
-    }
+export function resolveFootnoteAnchorBlockId(target: EventTarget | null): string | undefined {
+  if (!(target instanceof HTMLElement)) return undefined;
+  const row = target.closest("[data-block-row]");
+  if (row instanceof HTMLElement && row.dataset.blockRow) {
+    return row.dataset.blockRow;
   }
-  return best?.id;
+  const block = target.closest("[data-block-id]");
+  if (block instanceof HTMLElement && block.dataset.blockId) {
+    return block.dataset.blockId;
+  }
+  const byId = target.closest("[id]");
+  if (byId?.id) return byId.id;
+  return undefined;
 }
 
 export function loadScrollReturn(): ScrollReturnState | null {
@@ -95,26 +91,45 @@ export function getAppScrollParent(): HTMLElement | null {
   return document.getElementById("app-main-scroll");
 }
 
+export function scrollBlockInContainer(
+  scrollParent: HTMLElement | null,
+  blockId: string,
+  offsetFromTop = 96
+): boolean {
+  if (!scrollParent || !blockId) return false;
+  const el = document.getElementById(blockId);
+  if (!el) return false;
+  const parentRect = scrollParent.getBoundingClientRect();
+  const elRect = el.getBoundingClientRect();
+  scrollParent.scrollTop += elRect.top - parentRect.top - offsetFromTop;
+  return true;
+}
+
 export function restoreScrollPosition(
   scrollParent: HTMLElement | null,
   scrollTop: number,
   hash?: string
 ): void {
-  const apply = () => {
-    if (hash) {
-      const el = document.getElementById(hash);
-      if (el) {
-        el.scrollIntoView({ block: "start", behavior: "instant" in window ? "instant" : "auto" });
-        return;
-      }
-    }
+  const applyScrollTop = () => {
     if (scrollParent) {
       scrollParent.scrollTop = scrollTop;
     } else {
       window.scrollTo(0, scrollTop);
     }
   };
+
+  const tryRestore = (attemptsLeft: number) => {
+    if (hash && scrollParent && scrollBlockInContainer(scrollParent, hash)) {
+      return;
+    }
+    if (hash && attemptsLeft > 0) {
+      setTimeout(() => tryRestore(attemptsLeft - 1), 50);
+      return;
+    }
+    applyScrollTop();
+  };
+
   requestAnimationFrame(() => {
-    requestAnimationFrame(apply);
+    requestAnimationFrame(() => tryRestore(12));
   });
 }

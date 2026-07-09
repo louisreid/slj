@@ -96,13 +96,18 @@ test.describe("James Jul 2026 review (visual + behaviour)", () => {
   }) => {
     await page.goto("/course/09-session-one");
     const footnote = page.getByRole("link", { name: "[6]", exact: true }).first();
-    await footnote.scrollIntoViewIfNeeded();
+    const footnoteParagraph = page.getByText(/look at Jesus.*own words.*attitude to life/i);
+    await footnoteParagraph.scrollIntoViewIfNeeded();
     await footnote.click();
     await expect(page).toHaveURL(/\/course\/29-references#note-6/);
 
     await expect(
       page.getByRole("link", { name: /Return to where you were reading/i })
     ).toBeVisible();
+
+    await page.getByRole("link", { name: /Return to where you were reading/i }).click();
+    await expect(page).toHaveURL(/\/course\/09-session-one/);
+    await expect(footnoteParagraph).toBeInViewport();
   });
 
   test("B5 session one has no televisio typo", async ({ page }) => {
@@ -111,24 +116,29 @@ test.describe("James Jul 2026 review (visual + behaviour)", () => {
     await expect(page.getByText("television")).toBeVisible();
   });
 
-  test("B9 sidebar lists chapters without Contents link", async ({ page }) => {
+  test("B9 sidebar search at top without Open full search link", async ({ page }) => {
     await page.goto("/course/09-session-one");
     await expect(page.getByRole("link", { name: "Contents" })).toHaveCount(0);
     await expect(page.getByRole("button", { name: /Chapters/i })).toBeVisible();
-    await expect(
-      page.getByRole("navigation").getByRole("link", { name: /Session One/i })
-    ).toBeVisible();
-    await expect(page.getByRole("link", { name: "Open full search" })).toBeVisible();
+    await expect(page.getByRole("searchbox", { name: "Search all chapters" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Open full search" })).toHaveCount(0);
   });
 
-  test("B-EXTRA search opens dedicated page and finds phrase", async ({
+  test("B-EXTRA search page autofocuses and back link from result", async ({
     page,
   }) => {
-    await page.goto("/course/09-session-one");
-    await page.getByRole("searchbox", { name: "Search course" }).fill("Micah");
-    await expect(page).toHaveURL(/\/search\?q=Micah/);
-    await expect(page.getByRole("heading", { name: /Search the course/i })).toBeVisible();
-    await expect(page.getByRole("link", { name: /Micah/i }).first()).toBeVisible();
+    await page.goto("/search?q=Micah");
+    const searchInput = page.locator("main").getByRole("searchbox", {
+      name: "Search all chapters",
+    });
+    await expect(searchInput).toBeFocused();
+    const result = page.getByRole("link", { name: /Micah/i }).first();
+    await expect(result).toBeVisible();
+    await result.click();
+    await expect(page).toHaveURL(/\/course\//);
+    await expect(
+      page.getByRole("link", { name: /Back to search results/i })
+    ).toBeVisible();
   });
 
   test("C references note 2 is Making Christ Known", async ({ page }) => {

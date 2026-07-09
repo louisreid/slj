@@ -11,7 +11,10 @@ import {
   noteChapterHref,
   parseNoteHeadingNumber,
 } from "@/lib/content/footnotes";
-import { saveFootnoteScrollReturn } from "@/lib/scroll-return";
+import {
+  saveFootnoteScrollReturn,
+  resolveFootnoteAnchorBlockId,
+} from "@/lib/scroll-return";
 import { SCRIPTURE_CITATION_TAIL_RE, SCRIPTURE_REF } from "@/lib/content/scripture";
 
 const HEADING_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
@@ -139,7 +142,9 @@ function renderTextWithFootnotes(text: string, keyStart: number): { nodes: React
       <Link
         key={`fn-${key++}`}
         href={noteChapterHref(noteNumber)}
-        onClick={() => saveFootnoteScrollReturn()}
+        onClick={(e) => {
+          saveFootnoteScrollReturn(resolveFootnoteAnchorBlockId(e.currentTarget));
+        }}
         className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
       >
         [{noteNumber}]

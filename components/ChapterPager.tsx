@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { clearScrollReturn } from "@/lib/scroll-return";
+import { clearSearchReturn } from "@/lib/search-return";
 
 export function ChapterPager({
   prevChapter,
@@ -12,7 +13,10 @@ export function ChapterPager({
   nextChapter: { id: string; title: string } | null;
   className?: string;
 }) {
-  const handleChapterNav = () => clearScrollReturn();
+  const handleChapterNav = () => {
+    clearScrollReturn();
+    clearSearchReturn();
+  };
 
   return (
     <nav

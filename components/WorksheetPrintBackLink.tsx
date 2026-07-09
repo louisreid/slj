@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { isSafeCourseReturnPath } from "@/lib/worksheet-return";
+import { clearScrollReturn } from "@/lib/scroll-return";
 
 export function WorksheetPrintBackLink({
   returnTo,
@@ -16,6 +17,7 @@ export function WorksheetPrintBackLink({
   return (
     <Link
       href={backHref}
+      onClick={() => clearScrollReturn()}
       className="mt-2 inline-block font-sans text-sm font-medium text-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"
     >
       {backLabel}

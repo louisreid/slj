@@ -38,15 +38,17 @@ export function extractScriptureMarkers(raw: string): ScriptureMarkerResult {
     forceScripture = true;
   }
 
-  let match = trimmed.match(EXPLICIT_SCRIPTURE_TAIL_RE);
-  if (match) {
-    trimmed = trimmed.slice(0, match.index).trim();
-    scriptureRef = match[1].trim();
-  } else {
-    match = trimmed.match(SCRIPTURE_CITATION_TAIL_RE);
+  if (!forceBody) {
+    let match = trimmed.match(EXPLICIT_SCRIPTURE_TAIL_RE);
     if (match) {
       trimmed = trimmed.slice(0, match.index).trim();
       scriptureRef = match[1].trim();
+    } else {
+      match = trimmed.match(SCRIPTURE_CITATION_TAIL_RE);
+      if (match) {
+        trimmed = trimmed.slice(0, match.index).trim();
+        scriptureRef = match[1].trim();
+      }
     }
   }
 

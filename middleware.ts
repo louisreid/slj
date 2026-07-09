@@ -33,7 +33,9 @@ export async function middleware(request: NextRequest) {
   // Playwright E2E only: public read of course + print worksheets (never set in production).
   if (
     process.env.NEXT_PUBLIC_PLAYWRIGHT_E2E === "1" &&
-    (pathname.startsWith("/course") || pathname.startsWith("/worksheets/print"))
+    (pathname.startsWith("/course") ||
+      pathname.startsWith("/worksheets/print") ||
+      pathname.startsWith("/search"))
   ) {
     return response;
   }
@@ -43,7 +45,8 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith("/worksheets") ||
     pathname.startsWith("/groups") ||
     pathname.startsWith("/preferences") ||
-    pathname.startsWith("/progress");
+    pathname.startsWith("/progress") ||
+    pathname.startsWith("/search");
   if (isProtected && !user) {
     const signInUrl = new URL(
       buildSignInHref(`${pathname}${request.nextUrl.search}`),

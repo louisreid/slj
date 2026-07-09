@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { CourseSearch } from "@/components/CourseSearch";
+import { NavCourseSearch } from "@/components/NavCourseSearch";
+import { clearScrollReturn } from "@/lib/scroll-return";
 import type { NavChapter } from "@/lib/nav-chapters";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
@@ -134,12 +135,15 @@ export function AppNav({
                 <span>{chaptersOpen ? "−" : "+"}</span>
               </button>
               {chaptersOpen ? (
-                <ul className="max-h-64 space-y-0.5 overflow-y-auto">
+                <ul className="space-y-0.5">
                   {chapters.map((ch) => (
                     <li key={ch.id}>
                       <Link
                         href={`/course/${ch.id}`}
-                        onClick={closeDrawer}
+                        onClick={() => {
+                          clearScrollReturn();
+                          closeDrawer();
+                        }}
                         prefetch
                         className={`block border-l-2 px-3 py-1.5 text-xs leading-snug transition-colors ${
                           isChapterActive(ch.id)
@@ -158,7 +162,7 @@ export function AppNav({
                   ))}
                 </ul>
               ) : null}
-              <CourseSearch onNavigate={closeDrawer} />
+              <NavCourseSearch onNavigate={closeDrawer} />
             </div>
           ) : null}
         </nav>

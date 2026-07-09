@@ -86,7 +86,7 @@ These exercises are designed to help individuals assess themselves and take chal
 
 With this format in mind, it will be clear that each group member will need to set aside time between meetings to think through the previous session thoroughly and prepare for the next. It may also be worth considering doing the last session as a weekend away, as a chance to spend time with one another, reflecting on what the Spirit has been teaching the group over the weeks, to pray for its members and to discuss how they may support one another in any future commitments they feel led to make.
 
-In the digital version of this course, from Session One onward you can keep **private notes** beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover over a paragraph on desktop—or tap the note icon beside a paragraph on mobile. Your notes are only visible to you.
+In the digital version of this course, from Session One onward you can keep private notes beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover over a paragraph on desktop—or tap the note icon beside a paragraph on mobile. Your notes are only visible to you.
 
 ‘... Become nothing before God, learn to keep silent; in this silence is the beginning which is first to seek God’s kingdom’ 
 - Soren Kierkegaard (quoted in Richard Foster, Celebration of Discipline)

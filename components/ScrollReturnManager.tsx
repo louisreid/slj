@@ -1,65 +1,60 @@
 "use client";
 
-import { useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useCallback, useEffect } from "react";
 import {
+  clearScrollReturn,
+  consumePendingScrollRestore,
   getAppScrollParent,
+  loadScrollReturn,
   restoreScrollPosition,
-  saveScrollReturn,
 } from "@/lib/scroll-return";
 
-/** Saves scroll position when leaving course pages; restores hash/scroll on return. */
+/** Restores scroll position when returning from footnotes; clears stale state on direct nav. */
 export function ScrollReturnManager() {
   const pathname = usePathname();
 
   useEffect(() => {
     const scrollParent = getAppScrollParent();
     const hash = window.location.hash.slice(1);
-    const savedScroll = scrollParent?.dataset.restoreScroll;
-    if (savedScroll) {
-      const top = Number(savedScroll);
-      delete scrollParent.dataset.restoreScroll;
-      restoreScrollPosition(scrollParent, top, hash || undefined);
+    const pending = consumePendingScrollRestore();
+    const saved = loadScrollReturn();
+
+    if (pending && saved && saved.path === pathname) {
+      restoreScrollPosition(scrollParent, saved.scrollTop, saved.hash || hash || undefined);
       return;
     }
+
     if (hash) {
       restoreScrollPosition(scrollParent, 0, hash);
     }
   }, [pathname]);
 
   useEffect(() => {
-    const scrollParent = getAppScrollParent();
-
     const onClick = (e: MouseEvent) => {
       const anchor = (e.target as HTMLElement).closest("a");
-      if (!anchor || !anchor.href) return;
+      if (!anchor?.href) return;
       const url = new URL(anchor.href, window.location.origin);
       if (url.origin !== window.location.origin) return;
-      const leavingCourse = window.location.pathname.startsWith("/course/");
-      const sameChapter =
-        url.pathname === window.location.pathname &&
-        !url.pathname.startsWith("/worksheets/");
-      if (leavingCourse && !sameChapter) {
-        saveScrollReturn(
-          scrollParent,
-          window.location.pathname,
-          window.location.hash.slice(1)
-        );
+
+      if (url.pathname.startsWith("/course/") && url.pathname !== pathname) {
+        const isChapterNav =
+          anchor.closest("aside") != null ||
+          anchor.getAttribute("href")?.match(/^\/course\/[^#]+$/);
+        if (isChapterNav) {
+          clearScrollReturn();
+        }
       }
     };
 
     document.addEventListener("click", onClick, true);
     return () => document.removeEventListener("click", onClick, true);
-  }, []);
+  }, [pathname]);
 
   return null;
 }
 
 export function saveScrollBeforeNavigate(): void {
-  const scrollParent = getAppScrollParent();
-  saveScrollReturn(
-    scrollParent,
-    window.location.pathname,
-    window.location.hash.slice(1)
-  );
+  clearScrollReturn();
 }

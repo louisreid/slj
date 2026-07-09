@@ -51,7 +51,7 @@ Richard Foster says that the Christian discipline of simplicity ‘is an inward 
 
 However, the reverse is also true. The outward action without the inward reality can lead to guilt and legalism. These materials are primarily designed to tackle the outward questions and focus on material, rather than spiritual, poverty, but we must remember at all times that they are part of our wider spirituality and walk with God. Thus, throughout the course we must not neglect other disciplines such as prayer and fasting as we develop this particular discipline of simplicity.
 
-Simple living enables us to get rid of the clutter that is in our lives so that we can hear the voice of God more clearly and serve him more readily. As we do that, we will discover what it really means to be rich, for simplicity is not about meanness and poverty, nor is it about unnecessary asceticism, but true life in all its abundance (John 10:10).
+^Simple living enables us to get rid of the clutter that is in our lives so that we can hear the voice of God more clearly and serve him more readily. As we do that, we will discover what it really means to be rich, for simplicity is not about meanness and poverty, nor is it about unnecessary asceticism, but true life in all its abundance (John 10:10).
 
 E. F. Schumacher describing people who, by conscious choice, were learning to live with less.
 

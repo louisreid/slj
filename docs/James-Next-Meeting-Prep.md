@@ -18,12 +18,7 @@ Items deferred from the Jul 2026 review implementation. Bring these to the next 
 
 ## How to verify before the meeting
 
-```bash
-pnpm generate-manifest
-pnpm lint && pnpm typecheck && pnpm test
-PLAYWRIGHT_PORT=3010 pnpm test:e2e
-pnpm tsx scripts/audit-footnotes.ts
-```
+See **[James-Review-Checklist.md](James-Review-Checklist.md)** for the full pre-release checklist (automated + manual).
 
 ## Rollback
 

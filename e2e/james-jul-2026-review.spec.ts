@@ -32,8 +32,10 @@ test.describe("James Jul 2026 review (visual + behaviour)", () => {
   test("A4 footer includes NIV and Alpha publisher lines", async ({ page }) => {
     await page.goto("/");
     const footer = page.locator("footer");
+    await expect(footer).toContainText(`Copyright © James Odgers ${currentYear}. All rights reserved.`);
     await expect(footer).toContainText("New International Version");
     await expect(footer).toContainText("Alpha International");
+    await expect(footer).toContainText("Subsequently published privately by the author");
     await expect(footer).not.toContainText("ISBN");
   });
 
@@ -70,7 +72,10 @@ test.describe("James Jul 2026 review (visual + behaviour)", () => {
     page,
   }) => {
     await page.goto("/course/09-session-one");
-    const openLinks = page.getByRole("link", { name: "Open" });
+    const openLinks = page
+      .getByRole("region")
+      .filter({ hasText: /worksheet/i })
+      .getByRole("link", { name: "Open" });
     const count = await openLinks.count();
     expect(count).toBeGreaterThan(0);
 
@@ -113,19 +118,17 @@ test.describe("James Jul 2026 review (visual + behaviour)", () => {
     await expect(
       page.getByRole("navigation").getByRole("link", { name: /Session One/i })
     ).toBeVisible();
-    await expect(page.getByRole("searchbox", { name: "Search course" })).toBeVisible();
+    await expect(page.getByRole("link", { name: "Open full search" })).toBeVisible();
   });
 
-  test("B-EXTRA search finds phrase and navigates to chapter", async ({
+  test("B-EXTRA search opens dedicated page and finds phrase", async ({
     page,
   }) => {
     await page.goto("/course/09-session-one");
-    const search = page.getByRole("searchbox", { name: "Search course" });
-    await search.fill("Micah");
-    const result = page.getByRole("link", { name: /Micah/i }).first();
-    await expect(result).toBeVisible();
-    await result.click();
-    await expect(page).toHaveURL(/\/course\/07-introduction#/);
+    await page.getByRole("searchbox", { name: "Search course" }).fill("Micah");
+    await expect(page).toHaveURL(/\/search\?q=Micah/);
+    await expect(page.getByRole("heading", { name: /Search the course/i })).toBeVisible();
+    await expect(page.getByRole("link", { name: /Micah/i }).first()).toBeVisible();
   });
 
   test("C references note 2 is Making Christ Known", async ({ page }) => {

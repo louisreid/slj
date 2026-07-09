@@ -550,9 +550,9 @@
               "content": "With this format in mind, it will be clear that each group member will need to set aside time between meetings to think through the previous session thoroughly and prepare for the next. It may also be worth considering doing the last session as a weekend away, as a chance to spend time with one another, reflecting on what the Spirit has been teaching the group over the weeks, to pray for its members and to discuss how they may support one another in any future commitments they feel led to make."
             },
             {
-              "block_id": "07-introduction-5cba81eeceb5",
+              "block_id": "07-introduction-06d9c6dea419",
               "type": "paragraph",
-              "content": "In the digital version of this course, from Session One onward you can keep **private notes** beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover over a paragraph on desktop—or tap the note icon beside a paragraph on mobile. Your notes are only visible to you."
+              "content": "In the digital version of this course, from Session One onward you can keep private notes beside the course text (not in the Preface, Foreword, or Introduction). Sign in, then hover over a paragraph on desktop—or tap the note icon beside a paragraph on mobile. Your notes are only visible to you."
             },
             {
               "block_id": "07-introduction-d0652247e07b",
@@ -782,10 +782,10 @@
               "content": "However, the reverse is also true. The outward action without the inward reality can lead to guilt and legalism. These materials are primarily designed to tackle the outward questions and focus on material, rather than spiritual, poverty, but we must remember at all times that they are part of our wider spirituality and walk with God. Thus, throughout the course we must not neglect other disciplines such as prayer and fasting as we develop this particular discipline of simplicity."
             },
             {
-              "block_id": "09-session-one-cbf489330264",
+              "block_id": "09-session-one-f7394c891ccc",
               "type": "paragraph",
-              "content": "Simple living enables us to get rid of the clutter that is in our lives so that we can hear the voice of God more clearly and serve him more readily. As we do that, we will discover what it really means to be rich, for simplicity is not about meanness and poverty, nor is it about unnecessary asceticism, but true life in all its abundance",
-              "scriptureRef": "John 10:10"
+              "content": "Simple living enables us to get rid of the clutter that is in our lives so that we can hear the voice of God more clearly and serve him more readily. As we do that, we will discover what it really means to be rich, for simplicity is not about meanness and poverty, nor is it about unnecessary asceticism, but true life in all its abundance (John 10:10).",
+              "forceBody": true
             },
             {
               "block_id": "09-session-one-7cea6a639c0f",
@@ -4923,10 +4923,10 @@
               "level": 2
             },
             {
-              "block_id": "25-session-nine-4d81e661136d",
+              "block_id": "25-session-nine-19c0960bf4fb",
               "type": "paragraph",
-              "content": "Should a follower of Christ save and, if so, what is an appropriate level? Does saving anything demonstrate a lack of faith in God’s provision or does not saving demonstrate a lack of prudence and good stewardship? The Bible seems to teach both and often the good example given of the ant that ‘stores its provisions in summer and gathers its food at harvest’ (Proverbs 6:8) is contrasted with Jesus’ command that you should not ‘store up for yourselves treasures on earth’",
-              "scriptureRef": "Matthew 6:19"
+              "content": "Should a follower of Christ save and, if so, what is an appropriate level? Does saving anything demonstrate a lack of faith in God’s provision or does not saving demonstrate a lack of prudence and good stewardship? The Bible seems to teach both and often the good example given of the ant that ‘stores its provisions in summer and gathers its food at harvest’ (Proverbs 6:8) is contrasted with Jesus’ command that you should not ‘store up for yourselves treasures on earth’ (Matthew 6:19).",
+              "forceBody": true
             },
             {
               "block_id": "25-session-nine-9762e3933d00",
@@ -4965,9 +4965,14 @@
               "level": 2
             },
             {
-              "block_id": "25-session-nine-5b3e43da3162",
+              "block_id": "25-session-nine-107b4bb8ed77",
               "type": "paragraph",
-              "content": "> If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw.\n>\n> — Centre for A New American Dream"
+              "content": "'If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw.'"
+            },
+            {
+              "block_id": "25-session-nine-be920fba1b76",
+              "type": "paragraph",
+              "content": "— Centre for A New American Dream"
             },
             {
               "block_id": "25-session-nine-20c35cd8ffe8",

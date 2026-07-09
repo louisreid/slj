@@ -17,9 +17,6 @@ const NIV_LINE =
 const ALPHA_LINE =
   "Published originally by: Alpha International, Holy Trinity Brompton, Brompton Road, London SW7 1JA England.";
 
-const PRIVATE_PUBLISHER_LINE =
-  "Subsequently published privately by the author.";
-
 /** Rolling copyright year for the digital edition notice line. */
 export function getCopyrightYear(now: Date = new Date()): number {
   return now.getFullYear();
@@ -28,14 +25,12 @@ export function getCopyrightYear(now: Date = new Date()): number {
 export function getSiteCopyrightLines(now: Date = new Date()): string[] {
   const year = getCopyrightYear(now);
   return [
-    `Copyright © James Odgers ${year}`,
+    `Copyright © James Odgers ${year}. All rights reserved.`,
     MORAL_RIGHTS_LINE,
     `First published in print 2004, reprinted 2006, 2008, updated and republished in print 2025. First published digitally online in ${year}.`,
-    "All rights reserved.",
     REPRODUCTION_LINE,
     NIV_LINE,
-    ALPHA_LINE,
-    PRIVATE_PUBLISHER_LINE,
+    `${ALPHA_LINE} Subsequently published privately by the author.`,
   ];
 }
 

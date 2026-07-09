@@ -11,6 +11,7 @@ import {
   noteChapterHref,
   parseNoteHeadingNumber,
 } from "@/lib/content/footnotes";
+import { saveFootnoteScrollReturn } from "@/lib/scroll-return";
 import { SCRIPTURE_CITATION_TAIL_RE, SCRIPTURE_REF } from "@/lib/content/scripture";
 
 const HEADING_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"] as const;
@@ -138,6 +139,7 @@ function renderTextWithFootnotes(text: string, keyStart: number): { nodes: React
       <Link
         key={`fn-${key++}`}
         href={noteChapterHref(noteNumber)}
+        onClick={() => saveFootnoteScrollReturn()}
         className="underline decoration-1 underline-offset-[0.15em] hover:text-[var(--slj-text-muted)]"
       >
         [{noteNumber}]
@@ -308,19 +310,21 @@ export function VerseBlock({ block }: { block: Block }) {
 export function BlockNode({ block }: { block: Block }) {
   if (block.type === "heading") {
     const level = Math.min(Math.max(block.level ?? 1, 1), 6);
-    const Tag = HEADING_TAGS[level - 1];
     const further = isFurtherReadingHeading(block.content);
-    const headingClassName =
-      level <= 1
-        ? "mt-10 text-4xl font-semibold leading-tight first:mt-0 md:text-5xl"
-        : level === 2
-          ? further
-            ? "mt-12 border-t border-[var(--slj-border)] pt-8 text-3xl font-semibold leading-tight first:mt-0"
-            : "mt-10 text-3xl font-semibold leading-tight first:mt-0"
-          : "mt-8 text-2xl font-semibold leading-tight first:mt-0";
-
     const noteNumber = parseNoteHeadingNumber(block.content);
     const headingId = noteNumber != null ? `note-${noteNumber}` : block.block_id;
+    const headingClassName =
+      noteNumber != null
+        ? "mt-8 font-serif text-[18px] font-medium leading-[1.72] text-[var(--slj-text)] first:mt-0 md:text-[19px]"
+        : level <= 1
+          ? "mt-10 text-4xl font-semibold leading-tight first:mt-0 md:text-5xl"
+          : level === 2
+            ? further
+              ? "mt-12 border-t border-[var(--slj-border)] pt-8 text-3xl font-semibold leading-tight first:mt-0"
+              : "mt-10 text-3xl font-semibold leading-tight first:mt-0"
+            : "mt-8 text-2xl font-semibold leading-tight first:mt-0";
+
+    const Tag = noteNumber != null ? "p" : HEADING_TAGS[level - 1];
 
     return (
       <Tag

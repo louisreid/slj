@@ -57,7 +57,7 @@ With the above six principles in mind, let us now turn to consider some of those
 
 ## Saving & Insurance
 
-Should a follower of Christ save and, if so, what is an appropriate level? Does saving anything demonstrate a lack of faith in God’s provision or does not saving demonstrate a lack of prudence and good stewardship? The Bible seems to teach both and often the good example given of the ant that ‘stores its provisions in summer and gathers its food at harvest’ (Proverbs 6:8) is contrasted with Jesus’ command that you should not ‘store up for yourselves treasures on earth’ (Matthew 6:19).
+^Should a follower of Christ save and, if so, what is an appropriate level? Does saving anything demonstrate a lack of faith in God’s provision or does not saving demonstrate a lack of prudence and good stewardship? The Bible seems to teach both and often the good example given of the ant that ‘stores its provisions in summer and gathers its food at harvest’ (Proverbs 6:8) is contrasted with Jesus’ command that you should not ‘store up for yourselves treasures on earth’ (Matthew 6:19).
 
 There would seem, biblically, to be two positive grounds given for savings and insurance: firstly, in order to fulfil one’s family obligations (Mark 7:9–13; 1 Tim. 5:8) and, secondly, in order not to be dependent on anyone (2 Thessalonians 3:6–12). Alongside this is the continual and overarching reminder that we must be open-handed with any money or possessions we have to help the poor (eg Ephesians 4:28). This, of course, still leaves room for hugely varying interpretations as to what that means. How far does our family extend? How much should we leave our children? What about provision for elderly parents? How much do I need to live on in order to avoid dependence? In this, as with so much, the Bible’s teaching gives us parameters but then does not provide us with a single universally applicable norm. It is likely that this, actually, is divinely intended and the New Testament would seem to teach that the appropriate attitude to wealth depends to some extent on an individual’s situation and calling (for example, to the mission field, to a dependent family or to singleness).
 
@@ -71,9 +71,9 @@ The need to avoid pure hoarding, and bondage to possessions, implies that Christ
 
 ## Credit & Debit
 
-> If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw.
->
-> — Centre for A New American Dream
+'If you make a £1,000 purchase on a credit card charging 18% interest and make only minimum payments each month, that purchase will cost approximately £1,400. That’s 40% more than the purchase price! If credit cards tempt you, destroy all but one. Or consider freezing (yes, freezing) your credit cards in containers of ice so that, to use them, you have to wait for the ice to thaw.'
+
+— Centre for A New American Dream
 
 The idea of credit is, of course, a misnomer like ‘life’ insurance. What we are really talking about here is debt. Using credit unwisely has become one of the biggest financial problems of our society. Nearly every day the post and the adverts we’re bombarded with on various digital platforms bring more tempting offers of credit cards and their facilities, offering ‘good’ rates of interest and various rewards such as air miles; those cards we do use regularly raise our credit limits, thus encouraging us to spend more and get ever more into debt.
 

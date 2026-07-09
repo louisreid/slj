@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import {
   clearScrollReturn,
   loadScrollReturn,
+  markPendingScrollRestore,
   type ScrollReturnState,
 } from "@/lib/scroll-return";
 
@@ -15,13 +16,14 @@ export function ReturnToReadingButton() {
 
   useEffect(() => {
     const state = loadScrollReturn();
-    if (!state) {
+    if (!state || state.source !== "footnote") {
       setSaved(null);
       return;
     }
-    const current = `${pathname}${typeof window !== "undefined" ? window.location.hash : ""}`;
+    const current = `${pathname ?? ""}${typeof window !== "undefined" ? window.location.hash : ""}`;
     const savedPath = `${state.path}${state.hash ? `#${state.hash}` : ""}`;
-    setSaved(current !== savedPath ? state : null);
+    const onReferences = (pathname ?? "").startsWith("/course/29-references");
+    setSaved(current !== savedPath && onReferences ? state : null);
   }, [pathname]);
 
   const dismiss = useCallback(() => {
@@ -35,19 +37,20 @@ export function ReturnToReadingButton() {
 
   return (
     <div
-      className="fixed right-4 top-4 z-50 flex max-w-xs items-start gap-2 border border-[var(--slj-border)] bg-[var(--slj-surface)] px-3 py-2 font-sans text-sm shadow-sm"
+      className="fixed right-4 top-4 z-50 flex max-w-sm items-center gap-3 border border-[var(--slj-border)] bg-[var(--slj-surface)] px-4 py-3 font-sans text-sm shadow-md"
       role="status"
     >
       <Link
         href={href}
-        className="flex-1 underline underline-offset-4 hover:text-[var(--slj-text)]"
+        onClick={markPendingScrollRestore}
+        className="flex-1 leading-snug underline underline-offset-4 hover:text-[var(--slj-text)]"
       >
         Return to where you were reading
       </Link>
       <button
         type="button"
         onClick={dismiss}
-        className="slj-faint shrink-0 px-1 hover:text-[var(--slj-text)]"
+        className="flex h-8 w-8 shrink-0 items-center justify-center border border-[var(--slj-border)] text-lg leading-none text-[var(--slj-text-muted)] hover:bg-[var(--slj-hover)] hover:text-[var(--slj-text)]"
         aria-label="Dismiss return link"
       >
         ×

@@ -23,15 +23,19 @@ import {
 import type { Chapter, Section } from "@/lib/content";
 import { headingTextMatchesDisplayTitle } from "@/lib/content/display";
 import { buildReaderBlockNodes } from "@/components/buildReaderBlocks";
+import { ChapterPager } from "@/components/ChapterPager";
 import { CourseChapterHrefProvider } from "@/components/ReaderLocationContext";
 import {
   getSectionId,
   firstHeadingBlock,
 } from "@/components/BlockContent";
 import {
+  consumePendingScrollRestore,
   getAppScrollParent,
+  loadScrollReturn,
   restoreScrollPosition,
 } from "@/lib/scroll-return";
+import { buildFootnoteCitationIndex } from "@/lib/footnote-citations";
 
 const EMPTY_BLOCK_IDS: string[] = [];
 
@@ -269,9 +273,16 @@ export function CourseReader({
     setActiveBlockId(blockId);
   }, []);
 
+  const footnoteCitations = useMemo(
+    () => (chapterId === "29-references" ? buildFootnoteCitationIndex() : undefined),
+    [chapterId]
+  );
+
   const blockHandlers = useMemo(
     () => ({
       isInteractive,
+      chapterId,
+      footnoteCitations,
       blockIdsWithNotes,
       notesByBlockId,
       blockIdToLabel,
@@ -286,6 +297,8 @@ export function CourseReader({
     }),
     [
       isInteractive,
+      chapterId,
+      footnoteCitations,
       blockIdsWithNotes,
       notesByBlockId,
       blockIdToLabel,
@@ -307,10 +320,18 @@ export function CourseReader({
 
   useEffect(() => {
     const scrollParent = getAppScrollParent();
+    const hash = window.location.hash.slice(1);
+    const pending = consumePendingScrollRestore();
+    const saved = loadScrollReturn();
+
+    if (pending && saved && saved.path === `/course/${chapterId}`) {
+      restoreScrollPosition(scrollParent, saved.scrollTop, saved.hash || hash || undefined);
+      return;
+    }
+
     if (scrollParent) {
       scrollParent.scrollTop = 0;
     }
-    const hash = window.location.hash.slice(1);
     if (hash) {
       restoreScrollPosition(scrollParent, 0, hash);
     }
@@ -392,6 +413,11 @@ export function CourseReader({
       )}
 
       <article className="slj-shell p-6 font-serif md:p-10">
+        <ChapterPager
+          prevChapter={prevChapter}
+          nextChapter={nextChapter}
+          className="mb-8 border-b border-[var(--slj-border)] pb-6 slj-reader-column"
+        />
         <div className={readerColumnClass}>
           {!isInteractive && !skipShellHeader ? (
             <header className="mb-8 border-b border-[var(--slj-border)] pb-4">
@@ -414,37 +440,11 @@ export function CourseReader({
         </div>
       </article>
 
-      <nav
-        className="mt-8 flex justify-between border-t border-[var(--slj-border)] pt-6 font-sans text-sm slj-reader-column"
-        aria-label="Chapter navigation"
-      >
-        <span>
-          {prevChapter ? (
-            <Link
-              href={`/course/${prevChapter.id}`}
-              prefetch
-              className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
-            >
-              ← Previous: {prevChapter.title}
-            </Link>
-          ) : (
-            <span className="slj-faint">Previous</span>
-          )}
-        </span>
-        <span>
-          {nextChapter ? (
-            <Link
-              href={`/course/${nextChapter.id}`}
-              prefetch
-              className="slj-muted underline underline-offset-4 hover:text-[var(--slj-text)]"
-            >
-              Next: {nextChapter.title} →
-            </Link>
-          ) : (
-            <span className="slj-faint">Next</span>
-          )}
-        </span>
-      </nav>
+      <ChapterPager
+        prevChapter={prevChapter}
+        nextChapter={nextChapter}
+        className="mt-8 flex justify-between border-t border-[var(--slj-border)] pt-6 slj-reader-column"
+      />
     </div>
   );
 }

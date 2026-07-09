@@ -13,9 +13,14 @@ import {
   QuoteWithAttribution,
   VerseBlock,
 } from "@/components/BlockContent";
+import { FootnoteBacklinks } from "@/components/FootnoteBacklinks";
+import { parseNoteHeadingNumber } from "@/lib/content/footnotes";
+import type { FootnoteCitation } from "@/lib/footnote-citations";
 
 export interface ReaderBlockHandlers {
   isInteractive: boolean;
+  chapterId?: string;
+  footnoteCitations?: Map<number, FootnoteCitation[]>;
   blockIdsWithNotes: Set<string>;
   notesByBlockId: Map<string, Note[]>;
   blockIdToLabel: Record<string, string>;
@@ -228,9 +233,22 @@ export function buildReaderBlockNodes(
           />
         );
       } else {
+        const noteNumber =
+          handlers.chapterId === "29-references" &&
+          previousBlock?.type === "heading"
+            ? parseNoteHeadingNumber(previousBlock.content)
+            : null;
+        const citations =
+          noteNumber != null
+            ? handlers.footnoteCitations?.get(noteNumber) ?? []
+            : [];
+
         nodes.push(
           <BlockAnchorProvider key={block.block_id} blockId={block.block_id}>
             <BlockNode block={block} />
+            {citations.length > 0 ? (
+              <FootnoteBacklinks citations={citations} />
+            ) : null}
           </BlockAnchorProvider>
         );
       }

@@ -134,11 +134,15 @@ test.describe("James Jul 2026 review (visual + behaviour)", () => {
     await expect(searchInput).toBeFocused();
     const result = page.getByRole("link", { name: /Micah/i }).first();
     await expect(result).toBeVisible();
+    const resultHref = await result.getAttribute("href");
+    const blockId = resultHref?.split("#").pop() ?? "";
     await result.click();
     await expect(page).toHaveURL(/\/course\//);
-    await expect(
-      page.getByRole("link", { name: /Back to search results/i })
-    ).toBeVisible();
+    const backLink = page.getByRole("link", { name: /Back to search results/i });
+    await expect(backLink).toBeVisible();
+    await backLink.click();
+    await expect(page).toHaveURL(new RegExp(`[?&]r=${blockId.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`));
+    await expect(page.locator(`#search-result-${blockId}`)).toBeVisible();
   });
 
   test("C references note 2 is Making Christ Known", async ({ page }) => {

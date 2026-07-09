@@ -31,13 +31,13 @@ export function NavCourseSearch({ onNavigate }: { onNavigate?: () => void }) {
   );
 
   return (
-    <div className="border-b border-[var(--slj-border)] px-4 pb-3 pt-1">
+    <div className="border-b border-[var(--slj-border)] p-4">
       <input
         type="search"
         onFocus={handleFocus}
         onChange={handleChange}
         placeholder="Search all chapters…"
-        className="slj-input w-full px-2.5 py-1.5 font-sans text-sm"
+        className="slj-input w-full px-3 py-2 font-sans text-sm"
         aria-label="Search all chapters"
       />
     </div>

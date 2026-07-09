@@ -1,9 +1,14 @@
 import manifest from "@/content/manifest.json";
+import { getChapterDisplayTitleMap } from "@/lib/content/display";
+import { getInteractiveSessionNumberMap } from "@/lib/progress-summary";
+import { formatSessionLabel } from "@/lib/session-labels";
 import type { Manifest } from "@/lib/content/types";
 
 export interface CourseSearchHit {
   chapterId: string;
   chapterTitle: string;
+  chapterDisplayTitle: string;
+  sessionLabel?: string;
   blockId: string;
   snippet: string;
   sectionHeading?: string;
@@ -22,9 +27,17 @@ function stripMarkdown(text: string): string {
 
 export function buildCourseSearchIndex(): CourseSearchHit[] {
   const hits: CourseSearchHit[] = [];
+  const chapters = typedManifest.chapters;
+  const displayTitles = getChapterDisplayTitleMap(chapters);
+  const sessionNumbers = getInteractiveSessionNumberMap(chapters);
 
-  for (const chapter of typedManifest.chapters) {
+  for (const chapter of chapters) {
     let sectionHeading: string | undefined;
+    const chapterDisplayTitle =
+      displayTitles.get(chapter.id) ?? chapter.title;
+    const sessionNum = sessionNumbers.get(chapter.id);
+    const sessionLabel =
+      sessionNum != null ? formatSessionLabel(sessionNum) : undefined;
 
     for (const section of chapter.sections) {
       for (const block of section.blocks) {
@@ -37,16 +50,20 @@ export function buildCourseSearchIndex(): CourseSearchHit[] {
           hits.push({
             chapterId: chapter.id,
             chapterTitle: chapter.title,
+            chapterDisplayTitle,
+            sessionLabel,
             blockId: block.block_id,
-            snippet: text.slice(0, 120),
+            snippet: text.slice(0, 140),
             sectionHeading,
           });
         } else if (block.type === "paragraph") {
           hits.push({
             chapterId: chapter.id,
             chapterTitle: chapter.title,
+            chapterDisplayTitle,
+            sessionLabel,
             blockId: block.block_id,
-            snippet: text.slice(0, 160),
+            snippet: text.slice(0, 200),
             sectionHeading,
           });
         }
@@ -75,7 +92,7 @@ export function searchCourseIndex(
 
   const scored = index
     .map((hit) => {
-      const hay = `${hit.chapterTitle} ${hit.sectionHeading ?? ""} ${hit.snippet}`.toLowerCase();
+      const hay = `${hit.chapterDisplayTitle} ${hit.sessionLabel ?? ""} ${hit.sectionHeading ?? ""} ${hit.snippet}`.toLowerCase();
       let score = 0;
       for (const token of tokens) {
         if (hay.includes(token)) score += 1;

@@ -59,7 +59,7 @@ function SearchResultLink({
       className="block border-l-2 border-transparent px-2 py-1.5 text-xs leading-snug text-[var(--slj-text-muted)] hover:border-[var(--slj-text)] hover:text-[var(--slj-text)]"
     >
       <span className="slj-faint block text-[10px] uppercase tracking-[0.14em]">
-        {hit.chapterTitle}
+        {hit.chapterDisplayTitle}
       </span>
       <span className="line-clamp-2">{hit.snippet}</span>
     </Link>

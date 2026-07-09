@@ -17,6 +17,8 @@
     --slj-focus: rgba(0, 0, 0, 0.3);
     --slj-button-bg: #000;
     --slj-button-fg: #fff;
+    --slj-search-link: #1a0dab;
+    --slj-search-link-visited: #681da8;
   }
 
   html[data-theme="dark"] {
@@ -32,6 +34,8 @@
     --slj-focus: rgba(255, 255, 255, 0.3);
     --slj-button-bg: #fff;
     --slj-button-fg: #000;
+    --slj-search-link: #8ab4f8;
+    --slj-search-link-visited: #c58af9;
   }
 
   html[data-reader-font="source-serif"] {
@@ -115,6 +119,19 @@
   .slj-faint {
     color: var(--slj-text-faint);
     font-weight: 500;
+  }
+
+  .slj-search-result__snippet {
+    color: var(--slj-search-link);
+  }
+
+  .slj-search-result--visited .slj-search-result__snippet {
+    color: var(--slj-search-link-visited);
+  }
+
+  .slj-search-result:hover .slj-search-result__snippet {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   /** Vertical rhythm between reader blocks (paragraphs, headings, quote rows). */

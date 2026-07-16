@@ -37,4 +37,8 @@ export function getSiteCopyrightLines(now: Date = new Date()): string[] {
 export const DIGITAL_EDITION_NOTICE =
   "This digital edition is published in its entirety under the same copyright. It is for private use by course participants only.";
 
+export const TALKS_FROM_THE_WAREHOUSE_URL = "https://talksfromthewarehouse.co.uk";
+
+export const TALKS_FROM_THE_WAREHOUSE_LABEL = "Talks from the Warehouse";
+
 export const PREFACE_HREF = "/course/04-preface";

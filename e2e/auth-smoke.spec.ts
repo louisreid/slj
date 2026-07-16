@@ -20,5 +20,16 @@ test.describe("Auth smoke", () => {
   test("sign-in page loads email form", async ({ page }) => {
     await page.goto("/auth/sign-in");
     await expect(page.getByLabel("Email")).toBeVisible();
+    await expect(
+      page.getByRole("link", { name: /Talks from the Warehouse/i })
+    ).toHaveAttribute("href", "https://talksfromthewarehouse.co.uk");
+  });
+
+  test("course sidebar links back to Talks from the Warehouse", async ({ page }) => {
+    await page.goto("/course/09-session-one");
+    const link = page
+      .getByRole("complementary")
+      .getByRole("link", { name: /Talks from the Warehouse/i });
+    await expect(link).toHaveAttribute("href", "https://talksfromthewarehouse.co.uk");
   });
 });

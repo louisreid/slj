@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { AppNav } from "@/components/AppNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TalksFromTheWarehouseLink } from "@/components/TalksFromTheWarehouseLink";
 import { ProgressDashboard } from "@/components/ProgressDashboard";
 import { buildNavChapters } from "@/lib/nav-chapters";
 import {
@@ -30,6 +31,9 @@ export default async function LandingPage() {
 
   return (
     <main className="flex min-h-screen flex-col bg-[var(--slj-bg)] px-6 py-10 text-[var(--slj-text)] md:px-10 md:py-14">
+      <div className="mx-auto w-full max-w-5xl">
+        <TalksFromTheWarehouseLink className="mb-8" />
+      </div>
       <div className="mx-auto flex w-full max-w-5xl flex-1 items-center">
         <section className="w-full max-w-2xl border border-[var(--slj-border)] bg-[var(--slj-surface)] p-8 md:p-12">
           <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">

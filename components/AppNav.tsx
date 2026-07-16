@@ -4,8 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { NavCourseSearch } from "@/components/NavCourseSearch";
+import { TalksFromTheWarehouseLink } from "@/components/TalksFromTheWarehouseLink";
 import { clearScrollReturn } from "@/lib/scroll-return";
 import { clearSearchReturn } from "@/lib/search-return";
+import { TALKS_FROM_THE_WAREHOUSE_URL } from "@/lib/site-branding";
 import type { NavChapter } from "@/lib/nav-chapters";
 
 const NAV_STORAGE_KEY = "slj-nav-collapsed";
@@ -169,6 +171,22 @@ export function AppNav({
           ) : null}
         </nav>
         <div className="shrink-0 border-t border-[var(--slj-border)] p-3">
+          {showLabels ? (
+            <TalksFromTheWarehouseLink
+              className="mb-3 px-3 py-1"
+              onNavigate={closeDrawer}
+            />
+          ) : null}
+          {collapsed && !drawerOpen ? (
+            <a
+              href={TALKS_FROM_THE_WAREHOUSE_URL}
+              title="Talks from the Warehouse"
+              className="mb-2 flex w-full justify-center px-1 py-2 text-sm text-[var(--slj-text-muted)] hover:text-[var(--slj-text)]"
+              aria-label="Talks from the Warehouse"
+            >
+              ←
+            </a>
+          ) : null}
           {showLabels && userEmail && (
             <>
               <p className="slj-faint mb-2 truncate font-sans text-xs">

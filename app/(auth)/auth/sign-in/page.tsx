@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { SignInForm } from "@/components/SignInForm";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TalksFromTheWarehouseLink } from "@/components/TalksFromTheWarehouseLink";
 import { sanitizeReturnTo } from "@/lib/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { COURSE_TITLE } from "@/lib/site-branding";
@@ -31,6 +32,9 @@ export default async function SignInPage({
 
   return (
     <main className="flex min-h-screen flex-col bg-[var(--slj-bg)] px-6 py-10 text-[var(--slj-text)] md:px-10 md:py-14">
+      <div className="mx-auto w-full max-w-5xl">
+        <TalksFromTheWarehouseLink className="mb-8" />
+      </div>
       <div className="mx-auto flex w-full max-w-5xl flex-1 items-center justify-center">
         <div className="w-full max-w-md border border-[var(--slj-border)] bg-[var(--slj-surface)] p-8 md:p-10">
           <p className="slj-faint font-sans text-xs uppercase tracking-[0.18em]">

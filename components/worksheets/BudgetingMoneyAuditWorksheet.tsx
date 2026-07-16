@@ -154,7 +154,7 @@ function PersonalMoneyInstructions() {
           <p className="font-semibold mb-2">1. What money do you have coming in?</p>
           <ol className="list-[lower-alpha] list-inside space-y-1 pl-1">
             <li>
-              After the example above, use the blank Personal Money form and go to the first table (with{" "}
+              After reading the example below, use the blank Personal Money form and go to the first table (with{" "}
               <span className="font-semibold">TOTAL COMING IN</span> at the bottom). In the
               first column list all the sources of money you have coming in, including money
               coming in from your family, or anyone else with whom you share living costs (e.g.

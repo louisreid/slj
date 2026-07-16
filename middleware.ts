@@ -34,7 +34,7 @@ export async function middleware(request: NextRequest) {
   if (
     process.env.NEXT_PUBLIC_PLAYWRIGHT_E2E === "1" &&
     (pathname.startsWith("/course") ||
-      pathname.startsWith("/worksheets/print") ||
+      pathname.startsWith("/worksheets") ||
       pathname.startsWith("/search"))
   ) {
     return response;

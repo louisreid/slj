@@ -1,5 +1,6 @@
 export const SCROLL_RETURN_KEY = "slj-scroll-return";
 export const PENDING_SCROLL_RESTORE_KEY = "slj-pending-scroll-restore";
+export const CITATION_SCROLL_KEY = "slj-citation-scroll";
 
 export type ScrollReturnSource = "footnote";
 
@@ -77,6 +78,18 @@ export function clearScrollReturn(): void {
 export function markPendingScrollRestore(): void {
   if (typeof window === "undefined") return;
   sessionStorage.setItem(PENDING_SCROLL_RESTORE_KEY, "1");
+}
+
+export function saveCitationScrollTarget(blockId: string): void {
+  if (typeof window === "undefined" || !blockId) return;
+  sessionStorage.setItem(CITATION_SCROLL_KEY, blockId);
+}
+
+export function consumeCitationScrollTarget(): string | null {
+  if (typeof window === "undefined") return null;
+  const blockId = sessionStorage.getItem(CITATION_SCROLL_KEY);
+  if (blockId) sessionStorage.removeItem(CITATION_SCROLL_KEY);
+  return blockId;
 }
 
 export function consumePendingScrollRestore(): boolean {

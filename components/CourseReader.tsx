@@ -31,6 +31,7 @@ import {
 } from "@/components/BlockContent";
 import {
   consumePendingScrollRestore,
+  consumeCitationScrollTarget,
   getAppScrollParent,
   loadScrollReturn,
   restoreScrollPosition,
@@ -321,6 +322,7 @@ export function CourseReader({
   useEffect(() => {
     const scrollParent = getAppScrollParent();
     const hash = window.location.hash.slice(1);
+    const citationTarget = consumeCitationScrollTarget();
     const pending = consumePendingScrollRestore();
     const saved = loadScrollReturn();
 
@@ -332,8 +334,9 @@ export function CourseReader({
     if (scrollParent) {
       scrollParent.scrollTop = 0;
     }
-    if (hash) {
-      restoreScrollPosition(scrollParent, 0, hash);
+    const scrollTarget = citationTarget || hash;
+    if (scrollTarget) {
+      restoreScrollPosition(scrollParent, 0, scrollTarget);
     }
   }, [chapterId]);
 

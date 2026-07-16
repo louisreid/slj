@@ -26,6 +26,7 @@ Auth callbacks use the request origin; if the production URL is not in Redirect 
   - [ ] join group + edit group shared notes
 
 ## Later “production hardening”
-- [ ] GitHub Actions CI required before deploy
+- [x] GitHub Actions CI required before deploy (`.github/workflows/ci.yml`)
+- [ ] Vercel deployment notifications (configure in Vercel dashboard)
 - [ ] RLS policy tests passing
 - [ ] Rollback plan documented

@@ -10,7 +10,7 @@
 
 ‘Last night was a real impactful evening for me and the others who attended. The Spirit was truly at work, and I appreciated the openness and intimacy with which we talked about our money and giving.’
 
-‘The course spoke very powerfully to me in an issue I had been dealing with at work. In essence, the Lord provides for all our needs yet I wanted to badger bosses for more money rather than go and ask my heavenly father. I was then prompted to remember [a man] who prayerfully takes his financial needs to the Lord, who in turn has covered them, rather than go and ask friends for more money.
+‘The course spoke very powerfully to me on an issue I had been dealing with at work. In essence, the Lord provides for all our needs yet I wanted to badger bosses for more money rather than go and ask my heavenly father. I was then prompted to remember [a man] who prayerfully takes his financial needs to the Lord, who in turn has covered them, rather than go and ask friends for more money.
 
 'Once this light was switched on, I was then able to recognise I have more than enough, and should I need more I will go to the Lord and ask him first.’
 

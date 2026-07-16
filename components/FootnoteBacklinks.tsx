@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import type { FootnoteCitation } from "@/lib/footnote-citations";
+import { saveCitationScrollTarget } from "@/lib/scroll-return";
 
 export function FootnoteBacklinks({
   citations,
@@ -18,6 +19,7 @@ export function FootnoteBacklinks({
           {index > 0 ? ", " : null}
           <Link
             href={`/course/${citation.chapterId}#${citation.blockId}`}
+            onClick={() => saveCitationScrollTarget(citation.blockId)}
             className="underline underline-offset-4 hover:text-[var(--slj-text)]"
           >
             {citation.chapterTitle}

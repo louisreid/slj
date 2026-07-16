@@ -26,52 +26,52 @@ What is clear is that things are only going to get worse. As Tom Sine says, ‘t
 
 Consider Harry Chapin’s song, ‘Cat’s in the Cradle’:
 
->> My child arrived just the other day,
->> He came to the world in the usual way –
->> But there were planes to catch and bills to pay
->> He learned to walk while I was away
->> And he was talking fore I knew it and as he grew he’d say,
->> I’m gonna be like you, Dad
->> You know I’m gonna be like you.
->> And the cat’s in the cradle and the silver spoon
->> Little boy blue and the man in the moon
->> When you comin’ home, Dad
->> I don’t know when but we’ll get together then –
->> You know we’ll have a good time then
->>
->> My son turned ten just the other day
->> He said, Thanks for the ball, Dad, com’on let’s play
->> Can you teach me to throw?
->> I said not today, I got a lot to do
->> He said That’s okay
->> And he walked away but his smile never dimmed
->> It said I’m gonna be like him, yeah
->> You know I’m gonna be like him
->> And the cat’s in the cradle and the silver spoon
->> Little boy blue and the man in the moon
->> When you comin’ home, Dad
->> I don’t know when but we’ll get together then –
->> You know we’ll have a good time then
->>
->> Well, he came home from college just the other day
->> So much like a man I just had to say
->> Son, I’m proud of you, can you sit for a while
->> He shook his head and said with a smile –
->> What I’d really like, Dad, is to borrow the car keys
->> See you later, can I have them please?
->> When you comin’ home, son?
->> I don’t know when but we’ll get together then
->> You know we’ll have a good time then
->>
->> I’ve long since retired, my son’s moved away
->> I called him up just the other day
->> I said I’d like to see you if you don’t mind
->> He said, I’d love to, Dad – if I can find the time
->> You see my new job’s a hassle and the kids have the flu,
->> But it’s sure nice talkin’ to you, Dad
->> It’s been nice talking to you
->> And as I hung up the phone, it occurred to me –
->> He’d grown up just like me; my boy was just like me. [20]
+:: My child arrived just the other day,
+:: He came to the world in the usual way –
+:: But there were planes to catch and bills to pay
+:: He learned to walk while I was away
+:: And he was talking fore I knew it and as he grew he’d say,
+:: I’m gonna be like you, Dad
+:: You know I’m gonna be like you.
+:: And the cat’s in the cradle and the silver spoon
+:: Little boy blue and the man in the moon
+:: When you comin’ home, Dad
+:: I don’t know when but we’ll get together then –
+:: You know we’ll have a good time then
+::
+:: My son turned ten just the other day
+:: He said, Thanks for the ball, Dad, com’on let’s play
+:: Can you teach me to throw?
+:: I said not today, I got a lot to do
+:: He said That’s okay
+:: And he walked away but his smile never dimmed
+:: It said I’m gonna be like him, yeah
+:: You know I’m gonna be like him
+:: And the cat’s in the cradle and the silver spoon
+:: Little boy blue and the man in the moon
+:: When you comin’ home, Dad
+:: I don’t know when but we’ll get together then –
+:: You know we’ll have a good time then
+::
+:: Well, he came home from college just the other day
+:: So much like a man I just had to say
+:: Son, I’m proud of you, can you sit for a while
+:: He shook his head and said with a smile –
+:: What I’d really like, Dad, is to borrow the car keys
+:: See you later, can I have them please?
+:: When you comin’ home, son?
+:: I don’t know when but we’ll get together then
+:: You know we’ll have a good time then
+::
+:: I’ve long since retired, my son’s moved away
+:: I called him up just the other day
+:: I said I’d like to see you if you don’t mind
+:: He said, I’d love to, Dad – if I can find the time
+:: You see my new job’s a hassle and the kids have the flu,
+:: But it’s sure nice talkin’ to you, Dad
+:: It’s been nice talking to you
+:: And as I hung up the phone, it occurred to me –
+:: He’d grown up just like me; my boy was just like me. [20]
 
 How have we got ourselves into this state? Our experience of time has become inextricably linked to our consumer culture and most of us now realise that we are paying an unforeseen price for the standard of living we have chosen.
 

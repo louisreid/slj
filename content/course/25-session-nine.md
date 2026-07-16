@@ -67,7 +67,7 @@ We must remember at all times that it is our natural inclination to hold on to a
 
 Rejection of the worship of Money must result in a lower level of financial accumulation than would otherwise be the case...
 
-The need to avoid pure hoarding, and bondage to possessions, implies that Christ followers need to be crystal clear about the purpose for which they are saving, or continuing to own valuable assets (eg a large house). Once that purpose has been achieved, saving should cease, and the surplus given away.' In the story of the rich young ruler which we looked at in Session 5, the man missed the key to what Jesus was offering: the opportunity to live in a community where there was more than enough for everyone and where he could learn to love and love deeply by being loved and loved deeply. In a community such as that described in Acts 2 and 4, the need to save and to insure substantially falls away.
+The need to avoid pure hoarding, and bondage to possessions, implies that Christ followers need to be crystal clear about the purpose for which they are saving, or continuing to own valuable assets (eg a large house). Once that purpose has been achieved, saving should cease, and the surplus given away. In the story of the rich young ruler which we looked at in Session 5, the man missed the key to what Jesus was offering: the opportunity to live in a community where there was more than enough for everyone and where he could learn to love and love deeply by being loved and loved deeply. In a community such as that described in Acts 2 and 4, the need to save and to insure substantially falls away.
 
 ## Credit & Debit
 

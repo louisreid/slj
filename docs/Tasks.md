@@ -123,6 +123,37 @@
 - [ ] RLS policy tests with Supabase tools/emulator
 - [ ] Basic analytics/reporting dashboard (optional)
 
+## James Jul 2026 sign-off (15 Jul call)
+
+James approved the course for release. See **[plans/James-Signoff-And-Maturity-Plan.md](plans/James-Signoff-And-Maturity-Plan.md)**.
+
+- [x] Reviews: “in an issue” → “on an issue”
+- [x] Session Three: Cat’s in the Cradle centered (`::` not `>>`)
+- [x] Worksheet 1A: “After reading the example below…”
+- [x] Session Nine: remove errant quote after “surplus given away”
+- [x] Footnote [2] “Cited in” link: display title “Introduction” + reliable hash scroll
+- [x] E2e assertions for sign-off fixes; deployed to production
+
+## T9 — Public launch (deferred)
+
+Distribution via Talks from the Warehouse — **back burner** until James decides access model and email copy.
+
+- [ ] TFW banner + remove taster page
+- [ ] MailChimp announcement to subscriber list
+- [ ] Access policy decision (open vs barrier)
+
+See [plans/James-Signoff-And-Maturity-Plan.md](plans/James-Signoff-And-Maturity-Plan.md) Part 3.
+
+## Production maturity (M1–M5)
+
+- [x] M1: GitHub Actions CI (lint, typecheck, test, build, content scripts, e2e)
+- [x] M2: E2e specs by user journey (auth, reader, search, worksheets)
+- [x] M3: Manifest drift check in CI
+- [x] M4: Release checklist + testing docs updated
+- [ ] M5: RLS policy tests (optional)
+
+See [plans/James-Signoff-And-Maturity-Plan.md](plans/James-Signoff-And-Maturity-Plan.md) Part 2.
+
 ## Draft 2 — Readability, navigation, notes UX polish
 - [x] Auth UX: magic-link copy + explicit "check email" state + resend action + OTP entry (Supabase email token)
 - [x] Auth recovery for invalid/expired link with clear resend path

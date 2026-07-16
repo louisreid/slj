@@ -10,6 +10,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "jest",
+    "test:content": "pnpm lint:content && pnpm tsx scripts/check-footnote-links.ts",
     "test:e2e": "playwright test",
     "generate-manifest": "tsx scripts/generate-manifest.ts",
     "watch:content": "tsx scripts/watch-content.ts",

@@ -1,6 +1,7 @@
 # Docs index
 
 Start here:
+- `agent-handoff-jul-2026.md` — **agents:** what shipped Jul 2026, deferred work, commands, key files
 - `MasterPlan.md` — why we’re building this
 - `Tasks.md` — what to build next (execution checklist)
 - `DesignGuidelines.md` — fonts/colors/layout rules (prevents UI drift)

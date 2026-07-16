@@ -1,5 +1,7 @@
 # James sign-off (15 Jul 2026) + production maturity plan
 
+> **Agent entry point:** [agent-handoff-jul-2026.md](../agent-handoff-jul-2026.md) — what shipped, what's deferred, commands, key files.
+
 James confirmed the digital course is **ready to go** on the 15 Jul call. This plan covers:
 
 1. **Immediate edits** from that call (ship + test + deploy)
@@ -10,7 +12,7 @@ James confirmed the digital course is **ready to go** on the 15 Jul call. This p
 
 ---
 
-## Part 1 — James edits (do first)
+## Part 1 — James edits ✅ shipped (`3369b3c`)
 
 James walked through the site and found **five fixes**. One item was discussed and **explicitly left as-is**.
 
@@ -22,7 +24,7 @@ James walked through the site and found **five fixes**. One item was discussed a
 | 2 | **Session Three — Time** (`content/course/13-session-three.md`) | *Cat’s in the Cradle* lyrics use `>>` (left/right column) | Change to `::` (centered poem), matching the “Be still and know” poem below |
 | 3 | **Worksheet 1A** (`components/worksheets/BudgetingMoneyAuditWorksheet.tsx`) | “After the **example above**…” but Mrs R. E. Joyce example is **below** | Change to **“After reading the example below…”** (or similar) |
 | 4 | **Session Nine — Saving & Insurance** (`content/course/25-session-nine.md`) | Errant `'` after “surplus given away” | Remove stray closing quote → `…surplus given away.` |
-| 5 | **Footnote [2] “Cited in” link** (Introduction) | James could not follow reverse link on his machine; worked on Louis’s | **Investigate** — reproduce on clean browser/profile; fix if broken |
+| 5 | **Footnote [2] “Cited in” link** (Introduction) | James could not follow reverse link on his machine | Fixed: display title **Introduction**, `saveCitationScrollTarget` on click |
 
 ### 1.2 Explicitly not changing
 
@@ -54,11 +56,11 @@ PLAYWRIGHT_PORT=3010 pnpm test:e2e
 
 Add to `e2e/james-jul-2026-review.spec.ts` (or new `e2e/james-signoff-2026-07.spec.ts`):
 
-- [ ] Reviews page contains “on an issue” (not “in an issue”)
-- [ ] Session Three *Cat’s in the Cradle* block has `text-center` (centered poem class)
-- [ ] Worksheet 1A print view contains “example below” (not “example above”)
-- [ ] Session Nine Saving paragraph: “surplus given away.” without stray quote before period
-- [ ] References → note [2] → “Cited in” link → Introduction loads with correct anchor
+- [x] Reviews page contains “on an issue” (not “in an issue”)
+- [x] Session Three *Cat’s in the Cradle* block has `text-center` (centered poem class)
+- [x] Worksheet 1A print view contains “example below” (not “example above”)
+- [x] Session Nine Saving paragraph: “surplus given away.” without stray quote before period
+- [x] References → note [2] → “Cited in” link → Introduction loads with correct anchor
 
 Unit/content (optional, fast):
 
@@ -75,7 +77,7 @@ Unit/content (optional, fast):
 
 ---
 
-## Part 2 — Production maturity (before ongoing changes)
+## Part 2 — Production maturity ✅ shipped (M5 optional)
 
 Goal: **any future edit** (content or code) goes through automated gates so James/Louis can change things without regressions.
 
@@ -83,10 +85,10 @@ Goal: **any future edit** (content or code) goes through automated gates so Jame
 
 | Layer | What exists | Gap |
 |-------|-------------|-----|
-| **Unit** | Jest: footnotes, progress, worksheets, smoke | No manifest/search-index tests |
-| **Content scripts** | `lint:content`, `check-footnote-links.ts` | Not in CI; not run on every PR |
-| **E2e** | Playwright: James Jul review (13 tests), footer layout, feedback visual | No auth journey, notes CRUD, search return, groups |
-| **CI** | None (`.github/workflows` missing) | Manual runs only |
+| **Unit** | Jest: footnotes, progress, worksheets, smoke, footnote-citations | — |
+| **Content scripts** | `lint:content`, `check-footnote-links.ts` | In CI via `pnpm test:content` |
+| **E2e** | 45 Playwright tests across James review, sign-off, journeys | Notes CRUD, groups journeys still optional |
+| **CI** | `.github/workflows/ci.yml` | Enable branch protection on GitHub if desired |
 
 ### 2.2 Target architecture
 

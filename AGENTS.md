@@ -64,6 +64,7 @@ Server-only (only if needed later):
 - `scripts/` content build scripts
 - `supabase/` migrations + RLS policies
 - `docs/` planning + architecture + rules
+- `docs/agent-handoff-jul-2026.md` — current production state for agents (Jul 2026)
 - `.cursor/rules/` scoped rules for agents
 
 ## Definition of Done (any task)
